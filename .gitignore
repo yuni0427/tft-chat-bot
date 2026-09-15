@@ -1,0 +1,9 @@
+.env
+__pycache__/
+*.pyc
+.venv/
+venv/
+chroma_db/
+data/patch_*/meta_cache.json
+.streamlit/secrets.toml
+*.egg-info/

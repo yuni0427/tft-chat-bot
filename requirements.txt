@@ -1,0 +1,12 @@
+streamlit>=1.36
+langchain>=0.2.11
+langchain-openai>=0.1.17
+langchain-google-genai>=1.0.8
+langchain-community>=0.2.10
+langchain-chroma>=0.1.2
+langchain-huggingface>=0.0.3
+chromadb>=0.5.5
+sentence-transformers>=3.0.1
+pydantic>=2.7.0
+python-dotenv>=1.0.1
+requests>=2.31.0
