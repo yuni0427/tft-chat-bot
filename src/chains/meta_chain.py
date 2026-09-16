@@ -82,11 +82,12 @@ def _get_academy_champ_context(champ_name: str, raw_data: dict | list) -> str:
     found_info = []
     for comp in guides:
         title = comp.get("metaTitle") or comp.get("title", "構成名")
-        slug = (
-            comp.get("slug")
-            or title.lower().replace(" ", "-").replace("'", "")
+        slug = comp.get("compSlug")
+        guide_url = (
+            f"https://tftacademy.com/tierlist/comps/{slug}"
+            if slug
+            else "https://tftacademy.com/tierlist/comps"
         )
-        guide_url = f"https://tftacademy.com/tierlist/comps/{slug}"
 
         for unit in comp.get("finalComp", []):
             raw_api = unit.get("apiName", "")
@@ -154,11 +155,12 @@ def _format_academy_data(raw_data: dict | list) -> str:
             title = comp.get("metaTitle") or comp.get("title", "構成名")
             style = comp.get("style", "Standard")
 
-            slug = (
-                comp.get("slug")
-                or title.lower().replace(" ", "-").replace("'", "")
+            slug = comp.get("compSlug")
+            guide_url = (
+                f"https://tftacademy.com/tierlist/comps/{slug}"
+                if slug
+                else "https://tftacademy.com/tierlist/comps"
             )
-            guide_url = f"https://tftacademy.com/tierlist/comps/{slug}"
             team_code = (
                 comp.get("teamCode")
                 or comp.get("shareCode")
