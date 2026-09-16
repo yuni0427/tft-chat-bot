@@ -4,6 +4,6 @@ __pycache__/
 .venv/
 venv/
 chroma_db/
-data/patch_*/meta_cache.json
+#data/patch_*/meta_cache.json
 .streamlit/secrets.toml
 *.egg-info/
