@@ -2,7 +2,7 @@
 TFT Strategy & Meta Advisor - Streamlitアプリ本体。
 
 - タブ1: 3分岐ルーター（曖昧/理論/メタ）に基づくチャットUI
-- タブ2: TFTAcademy 自動取得ティアリスト（プロ監修の最新メタ一覧）
+- タブ2: TFTAcademy 自動取得ティアリスト（プロ監修の最新メタ一覧・日本語自動変換）
 """
 import streamlit as st
 
@@ -10,6 +10,7 @@ import config
 from src.chains import intent_router, meta_chain, theory_chain
 from src.llm.factory import is_llm_configured
 from src.meta import meta_service
+from src.meta.tft_translator import load_tft_translations, translate_term
 from src.meta.tftacademy_client import get_tftacademy_tierlist
 from src.ui import cards
 
@@ -50,7 +51,7 @@ def _respond_meta(query: str, meta_subtype) -> None:
         html = "".join(cards.render_comp_card(c) for c in result["data"])
         st.session_state.messages.append({"role": "assistant", "content": "", "html": html})
     else:
-        st.session_state.messages.append({"role": "assistant", "content": result["data"]})
+        st.session_state.messages.append({"role": "assistant", "content": str(result["data"])})
 
 
 def _classify_and_respond(query: str) -> None:
@@ -120,8 +121,6 @@ if "pending_clarification" not in st.session_state:
 # サイドバー
 # ---------------------------------------------------------------------------
 with st.sidebar:
-    st.write("DEBUG google key exists:", bool(config.GOOGLE_API_KEY))
-    st.write("DEBUG provider:", config.LLM_PROVIDER)
     st.header("⚙️ 設定・ステータス")
     st.write(f"LLMプロバイダー: **{config.LLM_PROVIDER.upper()}**")
     if not is_llm_configured():
@@ -193,80 +192,3 @@ with tab_chat:
         st.session_state.messages.append({"role": "user", "content": query})
         _classify_and_respond(query)
         st.rerun()
-
-# --- タブ2: TFTAcademy ティアリスト自動表示 ---
-with tab_academy:
-    st.subheader("🏆 TFTAcademy 最新メタ構成 (Auto-Synced)")
-    st.caption("Dishsoap & Frodan 等のトッププロが推奨するティア表です（6時間ごとに自動更新）。")
-
-    with st.spinner("TFTAcademy から最新データを取得中..."):
-        tier_data = get_tftacademy_tierlist()
-
-    if not tier_data:
-        st.info("現在 TFTAcademy データを取得中、または一時的に取得できません。")
-    else:
-        # guides リストを抽出
-        guides = tier_data.get("guides", []) if isinstance(tier_data, dict) else tier_data
-
-        if not guides:
-            st.info("有効な構成データが見つかりませんでした。")
-        else:
-            # 名前のクレンジング関数 (例: DA_18_Ahri -> Ahri, DA_SpearOfShojin -> SpearOfShojin)
-            def clean_name(api_name: str) -> str:
-                if not api_name:
-                    return "-"
-                # プレフィックスの除去
-                for prefix in ["DA_18_", "DA_", "TFT_"]:
-                    if api_name.startswith(prefix):
-                        api_name = api_name[len(prefix):]
-                # 語尾のパッチ番号などの除去 (例: Karma18 -> Karma)
-                if api_name.endswith("18"):
-                    api_name = api_name[:-2]
-                return api_name
-
-            # Tierごとにグループ化
-            grouped_comps = {}
-            for comp in guides:
-                if not isinstance(comp, dict):
-                    continue
-                tier = comp.get("tier", "Other").upper()
-                grouped_comps.setdefault(tier, []).append(comp)
-
-            # S, A, B, C, Other の優先順位でソート
-            tier_order = ["S", "A", "B", "C", "OTHER"]
-            sorted_tiers = sorted(grouped_comps.keys(), key=lambda x: tier_order.index(x) if x in tier_order else 99)
-
-            for tier in sorted_tiers:
-                st.markdown(f"### Tier: {tier}")
-                for comp in grouped_comps[tier]:
-                    title = comp.get("metaTitle") or comp.get("title", "構成名")
-                    difficulty = comp.get("difficulty", "MEDIUM")
-                    style = comp.get("style", "Standard")
-
-                    # メインキャリーの取得
-                    main_champ_info = comp.get("mainChampion", {})
-                    main_champ_raw = main_champ_info.get("apiName", "") if isinstance(main_champ_info, dict) else ""
-                    main_champ = clean_name(main_champ_raw)
-
-                    # メインキャリーが finalComp で持っているアイテムを抽出
-                    items = []
-                    for board_unit in comp.get("finalComp", []):
-                        if board_unit.get("apiName") == main_champ_raw:
-                            items = [clean_name(it) for it in board_unit.get("items", [])]
-                            break
-                    items_str = ", ".join(items) if items else "状況に応じて配分"
-
-                    with st.expander(f"**{title}** (難易度: {difficulty})"):
-                        st.write(f"**進行方針 / Level:** {style}")
-                        st.write(f"**メインキャリー:** {main_champ}")
-                        st.write(f"**キャリー推奨アイテム:** {items_str}")
-
-                        # 進行・立ち回りヒント
-                        tips = comp.get("tips", [])
-                        if tips and isinstance(tips, list):
-                            st.write("**ステージ別立ち回り:**")
-                            for tip_item in tips:
-                                st.markdown(f"- **{tip_item.get('stage', '')}:** {tip_item.get('tip', '')}")
-
-                        if comp.get("augmentsTip"):
-                            st.info(f"💡 **運用Tips / オーグメント:** {comp['augmentsTip']}")

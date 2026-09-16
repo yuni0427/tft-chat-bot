@@ -1,10 +1,5 @@
 """
 最新メタ・アイテム・構成に関する質問への回答チェーン。
-
-meta_subtype に応じて以下の3つに分岐する:
-- item_build: 特定チャンピオンのアイテムビルド解説（構造化出力 -> カードUI）
-- comp_from_item_or_emblem: 手持ちアイテム/紋章からの構成逆引き（構造化出力 -> カードUI）
-- general: Riot統計 ＋ TFTAcademy最新プロ評価を統合したナラティブ回答
 """
 import json
 from pydantic import BaseModel, Field
@@ -33,12 +28,13 @@ _GENERAL_SYSTEM_PROMPT = """あなたはTFTの最新メタに精通したトッ�
 1. Riot統計から客観的な実数値（平均順位、Top4率など）を引用してください。
 2. TFTAcademyの評価（S/A Tier、メインキャリー、推奨進行スタイルなど）がある場合はプロ視点のアドバイスとして補強してください。
 3. 提供されたデータにない根拠のない情報は断定せず、分かりやすく整理して伝えてください。
-4. 【言語対応】ユーザーが英語で質問した場合は英語で回答し、日本語で質問した場合は日本語で回答してください。(Respond in the same language as the user's query. If queried in English, respond completely in English.)
+4. 【参照元リンク】紹介・参照したTFTAcademyの構成がある場合、回答の末尾に「--- \n 📚 **参照元ガイド:**」として Markdown リンク形式（例: [構成名 - TFTAcademy](URL)）を必ず明記してください。
+5. 【言語対応】ユーザーが英語で質問した場合は英語で回答し、日本語で質問した場合は日本語で回答してください。
 """
 
 
 def _format_academy_data(raw_data: dict | list) -> str:
-    """TFTAcademyの実データ構造からプロンプト用の軽量テキストにフォーマット（公式日本語変換付き）"""
+    """TFTAcademyの実データ構造からプロンプト用の軽量テキスト（URL情報付き）にフォーマット"""
     if not raw_data:
         return "利用可能なTFTAcademyデータはありません。"
 
@@ -64,6 +60,10 @@ def _format_academy_data(raw_data: dict | list) -> str:
             title = comp.get("metaTitle") or comp.get("title", "構成名")
             style = comp.get("style", "Standard")
 
+            # TFTAcademy の構成詳細URLを生成 (slug または titleベース)
+            slug = comp.get("slug") or title.lower().replace(" ", "-").replace("'", "")
+            guide_url = f"https://tftacademy.com/tierlist/comps/{slug}"
+
             main_champ_info = comp.get("mainChampion", {})
             main_champ_raw = main_champ_info.get("apiName", "") if isinstance(main_champ_info, dict) else ""
             main_champ = translate_term(main_champ_raw, trans_map)
@@ -75,14 +75,10 @@ def _format_academy_data(raw_data: dict | list) -> str:
                     break
             items_str = ", ".join(items) if items else "状況に応じて配分"
 
-            # 推奨オーグメント一覧の日本語化
-            aug_names = []
-            for a in comp.get("augments", []):
-                if isinstance(a, dict) and a.get("apiName"):
-                    aug_names.append(translate_term(a["apiName"], trans_map))
-            aug_str = f" | 推奨オーグメント: {', '.join(aug_names)}" if aug_names else ""
-
-            comp_line = f"  - {title} (スタイル: {style}) | キャリー: {main_champ} | コアアイテム: {items_str}{aug_str}"
+            comp_line = (
+                f"  - {title} (スタイル: {style}) | キャリー: {main_champ} | "
+                f"コアアイテム: {items_str} | ガイドURL: {guide_url}"
+            )
 
             aug_tip = comp.get("augmentsTip")
             if aug_tip:
@@ -147,7 +143,6 @@ def handle_comp_lookup(query: str, patch: str | None = None) -> list[CompRecomme
 
 
 def handle_general_meta(query: str, patch: str | None = None) -> str:
-    # 1. Riot API 統計データの取得
     comps = meta_service.get_comp_recommendations(patch)
     comps_text = "\n".join(
         f"- {c['comp_name']} (Tier{c['tier']}, 平均順位{c['avg_place']}, "
@@ -155,7 +150,6 @@ def handle_general_meta(query: str, patch: str | None = None) -> str:
         for c in comps
     )
 
-    # 2. TFTAcademy プロティア表の取得（日本語変換済み）
     academy_raw = get_tftacademy_tierlist()
     academy_text = _format_academy_data(academy_raw)
 
@@ -172,7 +166,6 @@ def handle_general_meta(query: str, patch: str | None = None) -> str:
     ]
     response = llm.invoke(messages)
 
-    # レスポンスから純粋な本文テキストのみを抽出（extras や署名を排除）
     content = response.content
     if isinstance(content, list):
         text_parts = [part.get("text", "") for part in content if isinstance(part, dict) and part.get("type") == "text"]
@@ -182,7 +175,6 @@ def handle_general_meta(query: str, patch: str | None = None) -> str:
 
 
 def handle_meta(query: str, meta_subtype: str | None, patch: str | None = None) -> dict:
-    """戻り値: {"type": "item_build" | "comp_list" | "text", "data": ...}"""
     if meta_subtype == "item_build":
         advice = handle_item_build(query, patch)
         if advice is None:
