@@ -2,8 +2,8 @@
 
 - item_build: 特定チャンピオンのアイテムビルド解説（Riot統計 + TFTAcademyプロ推奨 + ガイドリンク）
 - comp_from_item_or_emblem: 手持ちアイテム/紋章からの構成逆引き
-- general: 基礎知識・ゲームデータ(ベクトルDB) ＋ Riot統計 ＋ TFTAcademy
-を統合した実践的回答
+- comp_recommendation: おすすめ構成・メタ傾向（Riot実戦統計 × TFTAcademy比較）
+- general: 単体チャンピオン仕様・デバフ効果・基礎知識（ベクトルDB参照）
 """
 
 import json
@@ -33,28 +33,45 @@ class _HeldAssets(BaseModel):
     )
 
 
-_GENERAL_SYSTEM_PROMPT = """あなたはTFT(Teamfight Tactics)の論理的で無駄のない専属アナリストです。
-プレイヤーの質問に対し、【基礎知識・チャンピオン/特性データ】や【実戦統計】に基づいて簡潔かつ正確に回答してください。
+# 1. 構成メタ・おすすめ構成専用プロンプト（統計比較を義務化）
+_COMP_META_SYSTEM_PROMPT = """あなたはTFT(Teamfight Tactics)の論理的で無駄のないトップアナリストです。
+プレイヤーの質問に対し、【Riot公式 実戦マッチ統計】と【TFTAcademy 最新プロティア表】を照合し、各構成を明確に比較・評価して回答してください。
 
-【回答の基本原則】
-1. **質問のスコープを厳格に守る（過剰なお節介の禁止）**
-   - 特定の駒やデバフについて聞かれた場合は、その対象の情報のみを端的に回答してください。
-   - ユーザーから明示的に求められない限り、余計なセオリー講釈や精神論を追加しないでください。
-2. **「自前効果」の正確な線引き**
-   - 「自前でデバフを持つ駒」を聞かれた場合は、スキルや特性に効果が明記されている駒のみを挙げてください（アイテム適任者を混ぜない）。
-3. **構成を提示・推奨する場合のルール**
-   - 「コーチのアドバイス」といった情緒的・説教的なまとめは禁止します。
-   - 代わりに、プレイヤーが実戦で判断できるように**「構成へ向かう判断基準（コミット条件）」**を箇条書きで簡潔に提示してください:
-     - 序盤のキーアイテム素材（ロッド/涙/BFなど）の寄り
-     - 特定オーグメントや紋章の有無
-     - 前衛・キャリーの重なり状況
-   - ガイドURLは解説の直下に以下のみを記載してください:
+【出力要件】
+1. **各構成の提示と実戦スタッツ**
+   - 構成ごとに【Riot公式 実戦マッチ統計】から「平均順位」「Top4率」「サンプル数」を明記してください。
+2. **スタッツに基づく構成比較・立ち位置の解説（必須）**
+   - 単に並べるのではなく、「Top4率が高く安定してLPを盛れる構成」「到達時の平均順位は最上位だが進行事故のリスクもあるFast9型」のように、構成ごとの強み・リスクの違いを明確に比較してください。
+3. **コミット条件**
+   - アイテム素材の寄り、オーグメント/紋章、盤面の重なりを箇条書きで記載してください。
+4. **ガイドリンク**
+   - 各構成の直下に以下のみを記載してください:
      - 📖 **詳細ガイド:** [構成名 - TFTAcademy](URL)
-4. **トーン & マナー**
-   - 「〜しましょう！」「〜してみて！」といった過剰に親身な語尾は避け、事実と判断ロジックをフラットに伝えてください。
-   - 「ナレッジベース」「コンテキスト」などの内部用語は使用禁止です。
+
+【トーン & マナー】
+- 感情的な説教（「〜しましょう！」等）や精神論は禁止し、客観的な事実と判断ロジックのみを淡々と伝えてください。
+- 「ナレッジベース」「コンテキスト」などの内部用語は使用禁止です。
+【言語対応】ユーザーの言語（日本語/英語）に合わせて回答してください。
 """
 
+# 2. 単体駒・仕様・基礎知識専用プロンプト（余計なお節介を排除）
+_GENERAL_SYSTEM_PROMPT = """あなたはTFT(Teamfight Tactics)の論理的で無駄のない専属アナリストです。
+プレイヤーの質問に対し、【基礎知識・チャンピオン/特性データ】に基づいて簡潔かつ正確に回答してください。
+
+【回答の基本原則】
+1. **質問のスコープを厳格に守る**
+   - 特定の駒やデバフについて聞かれた場合は、その対象の情報のみを端的に回答してください。
+   - ユーザーから明示的に求められない限り、余計な構成紹介や長々としたセオリー講釈は一切不要です。
+2. **「自前効果」の正確な線引き**
+   - 「自前でデバフを持つ駒」を聞かれた場合は、スキルや特性に効果が明記されている駒のみを挙げてください（アイテム適任者を混ぜない）。
+3. **トーン & マナー**
+   - 「〜しましょう！」といった感情的な説教調は禁止し、客観的な事実のみを淡々と伝えてください。
+   - 「ナレッジベース」「コンテキスト」などの内部用語は使用禁止です。
+
+【言語対応】ユーザーの言語（日本語/英語）に合わせて回答してください。
+"""
+
+# 3. アイテムビルド専用プロンプト
 _ITEM_BUILD_SYSTEM_PROMPT = """あなたはTFTの最新メタに精通したトップアナリストです。
 特定のチャンピオンに関するアイテムビルドの質問に対し、以下の2つのデータを照合して解説してください。
 1. 「Riot公式 実戦マッチ統計」: 各アイテムの平均順位、Top4率、サンプル数
@@ -126,7 +143,7 @@ def _get_academy_champ_context(champ_name: str, raw_data: dict | list) -> str:
 
 
 def _format_academy_data(raw_data: dict | list) -> str:
-    """TFTAcademyの実データ構造からプロンプト用の軽量テキスト（URLとチームコード付き）にフォーマット"""
+    """TFTAcademyの実データ構造からプロンプト用の軽量テキスト（URL付き）にフォーマット"""
     if not raw_data:
         return "利用可能なTFTAcademyデータはありません。"
 
@@ -166,7 +183,6 @@ def _format_academy_data(raw_data: dict | list) -> str:
                 else "https://tftacademy.com/tierlist/comps"
             )
 
-
             main_champ_info = comp.get("mainChampion", {})
             main_champ_raw = (
                 main_champ_info.get("apiName", "")
@@ -193,7 +209,7 @@ def _format_academy_data(raw_data: dict | list) -> str:
                 f"  - 構成名: {title} (スタイル: {style})\n"
                 f"    メインキャリー: {main_champ} | コアアイテム: {items_str}\n"
                 f"    最終盤面ユニット: {units_str}\n"
-                f"    ガイドURL: {guide_url}\n"
+                f"    ガイドURL: {guide_url}"
             )
 
             aug_tip = comp.get("augmentsTip")
@@ -203,6 +219,71 @@ def _format_academy_data(raw_data: dict | list) -> str:
             formatted.append(comp_line)
 
     return "\n\n".join(formatted)
+
+
+def handle_comp_meta(query: str, patch: str | None = None) -> str:
+    """おすすめ構成・メタ質問専用（Riot実戦統計 × TFTAcademy比較）"""
+    comps = meta_service.get_comp_recommendations(patch)
+    comps_text = "\n".join(
+        f"- {c['comp_name']} (Tier{c['tier']}, 平均順位{c['avg_place']}, "
+        f"Top4率{int(c['top4_rate'] * 100)}%, サンプル{c['sample_size']}件/{c['confidence_level']})"
+        for c in comps
+    )
+
+    academy_raw = get_tftacademy_tierlist()
+    academy_text = _format_academy_data(academy_raw)
+
+    llm = get_chat_model(temperature=0.3)
+    user_prompt = (
+        f"【Riot公式 実戦マッチ統計】\n{comps_text}\n\n"
+        f"【TFTAcademy 最新プロティア表】\n{academy_text}\n\n"
+        f"質問: {query}"
+    )
+
+    messages = [
+        {"role": "system", "content": _COMP_META_SYSTEM_PROMPT},
+        {"role": "user", "content": user_prompt},
+    ]
+    response = llm.invoke(messages)
+    content = response.content
+    if isinstance(content, list):
+        return "".join(
+            p.get("text", "") for p in content if isinstance(p, dict) and p.get("type") == "text"
+        ).strip()
+    return str(content).strip()
+
+
+def handle_general_meta(query: str, patch: str | None = None) -> str:
+    """単体駒・仕様・基礎知識専用（ベクトルDBのみを参照して端的に回答）"""
+    try:
+        retrieved_docs = retrieve(query, k=5)
+        knowledge_context = "\n\n".join(
+            [
+                doc.get("content") or doc.get("page_content") or str(doc)
+                for doc in retrieved_docs
+                if isinstance(doc, dict)
+            ]
+        )
+    except Exception:
+        knowledge_context = "基礎知識データの取得をスキップしました。"
+
+    llm = get_chat_model(temperature=0.1)
+    user_prompt = (
+        f"【基礎知識・チャンピオン/特性データ】\n{knowledge_context}\n\n"
+        f"質問: {query}"
+    )
+
+    messages = [
+        {"role": "system", "content": _GENERAL_SYSTEM_PROMPT},
+        {"role": "user", "content": user_prompt},
+    ]
+    response = llm.invoke(messages)
+    content = response.content
+    if isinstance(content, list):
+        return "".join(
+            p.get("text", "") for p in content if isinstance(p, dict) and p.get("type") == "text"
+        ).strip()
+    return str(content).strip()
 
 
 def handle_item_build(query: str, patch: str | None = None) -> str:
@@ -266,16 +347,11 @@ def handle_item_build(query: str, patch: str | None = None) -> str:
         {"role": "user", "content": user_prompt},
     ]
     response = llm.invoke(messages)
-
     content = response.content
     if isinstance(content, list):
-        text_parts = [
-            part.get("text", "")
-            for part in content
-            if isinstance(part, dict) and part.get("type") == "text"
-        ]
-        return "".join(text_parts).strip()
-
+        return "".join(
+            p.get("text", "") for p in content if isinstance(p, dict) and p.get("type") == "text"
+        ).strip()
     return str(content).strip()
 
 
@@ -302,64 +378,11 @@ def handle_comp_lookup(
     return [CompRecommendation.model_validate(m) for m in matches]
 
 
-def handle_general_meta(query: str, patch: str | None = None) -> str:
-    # 1. ベクトルDBから基礎知識・チャンピオン・特性データを検索 (retrieve関数を使用)
-    try:
-        retrieved_docs = retrieve(query, k=5)
-        knowledge_context = "\n\n".join(
-            [
-                doc.get("content") or doc.get("page_content") or str(doc)
-                for doc in retrieved_docs
-                if isinstance(doc, dict)
-            ]
-        )
-    except Exception:
-        knowledge_context = "基礎知識データの取得をスキップしました。"
-
-    # 2. Riot実戦統計
-    comps = meta_service.get_comp_recommendations(patch)
-    comps_text = "\n".join(
-        f"- {c['comp_name']} (Tier{c['tier']}, 平均順位{c['avg_place']}, "
-        f"Top4率{int(c['top4_rate'] * 100)}%, サンプル{c['sample_size']}件/{c['confidence_level']})"
-        for c in comps
-    )
-
-    # 3. TFTAcademy プロティア表
-    academy_raw = get_tftacademy_tierlist()
-    academy_text = _format_academy_data(academy_raw)
-
-    llm = get_chat_model(temperature=0.3)
-    user_prompt = (
-        f"【基礎知識・チャンピオン/特性データ】\n{knowledge_context}\n\n"
-        f"【Riot公式 実戦マッチ統計】\n{comps_text}\n\n"
-        f"【TFTAcademy 最新プロティア表】\n{academy_text}\n\n"
-        f"質問: {query}"
-    )
-
-    messages = [
-        {"role": "system", "content": _GENERAL_SYSTEM_PROMPT},
-        {"role": "user", "content": user_prompt},
-    ]
-    response = llm.invoke(messages)
-
-    content = response.content
-    if isinstance(content, list):
-        text_parts = [
-            part.get("text", "")
-            for part in content
-            if isinstance(part, dict) and part.get("type") == "text"
-        ]
-        return "".join(text_parts).strip()
-
-    return str(content).strip()
-
-
 def handle_meta(
     query: str, meta_subtype: str | None, patch: str | None = None
 ) -> dict:
     if meta_subtype == "item_build":
-        advice_text = handle_item_build(query, patch)
-        return {"type": "text", "data": advice_text}
+        return {"type": "text", "data": handle_item_build(query, patch)}
 
     if meta_subtype == "comp_from_item_or_emblem":
         comps = handle_comp_lookup(query, patch)
@@ -370,4 +393,9 @@ def handle_meta(
             }
         return {"type": "comp_list", "data": comps}
 
+    # ★ 構成メタ（おすすめ構成・Tier表・強い構成）
+    if meta_subtype == "comp_recommendation":
+        return {"type": "text", "data": handle_comp_meta(query, patch)}
+
+    # ★ 単体駒・デバフ・システム仕様・基礎知識
     return {"type": "text", "data": handle_general_meta(query, patch)}
