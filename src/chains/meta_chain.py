@@ -1,5 +1,8 @@
 """
 最新メタ・アイテム・構成に関する質問への回答チェーン。
+- item_build: 特定チャンピオンのアイテムビルド解説（Riot統計 + TFTAcademyプロ推奨 + ガイドリンク）
+- comp_from_item_or_emblem: 手持ちアイテム/紋章からの構成逆引き
+- general: Riot統計 ＋ TFTAcademy最新プロ評価を統合したナラティブ回答
 """
 import json
 from pydantic import BaseModel, Field
@@ -9,7 +12,6 @@ from src.meta import meta_service
 from src.meta.tft_translator import load_tft_translations, translate_term
 from src.meta.tftacademy_client import get_tftacademy_tierlist
 from src.schemas.comp_recommendation import CompRecommendation
-from src.schemas.item_build import ItemBuildAdvice
 
 
 class _ChampionExtraction(BaseModel):
@@ -28,13 +30,73 @@ _GENERAL_SYSTEM_PROMPT = """あなたはTFTの最新メタに精通したトッ�
 1. Riot統計から客観的な実数値（平均順位、Top4率など）を引用してください。
 2. TFTAcademyの評価（S/A Tier、メインキャリー、推奨進行スタイルなど）がある場合はプロ視点のアドバイスとして補強してください。
 3. 提供されたデータにない根拠のない情報は断定せず、分かりやすく整理して伝えてください。
-4. 【参照元リンク】紹介・参照したTFTAcademyの構成がある場合、回答の末尾に「--- \n 📚 **参照元ガイド:**」として Markdown リンク形式（例: [構成名 - TFTAcademy](URL)）を必ず明記してください。
+4. 【構成ごとのリンクとチームコードの出力ルール】
+   各構成の解説セクションの「すぐ直下」に、該当する構成のTFTAcademy詳細リンクと、ゲーム内チームプランナー用のチームコード（Team Code）を以下のフォーマットで必ず記載してください:
+   
+   - 📖 **詳細ガイド:** [構成名 - TFTAcademy](URL)
+   - 📋 **チームコード:** `チームコード` （※コードがある場合はインラインコード形式で記載。ない場合は「なし」）
+
 5. 【言語対応】ユーザーが英語で質問した場合は英語で回答し、日本語で質問した場合は日本語で回答してください。
 """
 
+_ITEM_BUILD_SYSTEM_PROMPT = """あなたはTFTの最新メタに精通したトップアナリストです。
+特定のチャンピオンに関するアイテムビルドの質問に対し、以下の2つのデータを照合して解説してください。
+1. 「Riot公式 実戦マッチ統計」: 各アイテムの平均順位、Top4率、サンプル数
+2. 「TFTAcademy 最新プロ推奨」: プロティアリストで推奨されているコアアイテム、採用されている構成、立ち回りのコツ
+
+【出力構成】
+- **推奨コアアイテム（三種の神器 / BIS）**: 統計・プロ推奨の両面から最もおすすめの3スロット
+- **代替・状況別アイテム**: 寿司や素材の偏りに応じた柔軟な代替候補
+- **プロのアドバイス & 採用構成**: TFTAcademyでの立ち回り方針や相性の良いシナジー
+- **該当構成ガイド**: 参照元リンク（Markdown形式）
+
+【言語対応】ユーザーの質問言語（日本語または英語）に合わせて回答してください。
+"""
+
+
+def _get_academy_champ_context(champ_name: str, raw_data: dict | list) -> str:
+    """TFTAcademyデータから特定チャンピオンの推奨アイテムや構成情報を検索"""
+    if not raw_data:
+        return "TFTAcademyに該当データなし"
+
+    guides = raw_data.get("guides", []) if isinstance(raw_data, dict) else raw_data
+    trans_map = load_tft_translations()
+    champ_lower = champ_name.lower()
+
+    found_info = []
+    for comp in guides:
+        title = comp.get("metaTitle") or comp.get("title", "構成名")
+        slug = comp.get("slug") or title.lower().replace(" ", "-").replace("'", "")
+        guide_url = f"https://tftacademy.com/tierlist/comps/{slug}"
+
+        # finalCompからアイテムを検索
+        for unit in comp.get("finalComp", []):
+            raw_api = unit.get("apiName", "")
+            unit_ja = translate_term(raw_api, trans_map)
+            clean_unit = raw_api.split("_")[-1].lower()
+
+            if champ_lower in raw_api.lower() or champ_lower in clean_unit or champ_lower in unit_ja.lower():
+                items = [translate_term(it, trans_map) for it in unit.get("items", [])]
+                items_str = ", ".join(items) if items else "状況に応じて配分"
+                tips = comp.get("augmentsTip", "")
+
+                info = (
+                    f"- 採用構成: 【Tier {comp.get('tier', 'A')}】{title}\n"
+                    f"  推奨アイテム: {items_str}\n"
+                    f"  ガイドURL: {guide_url}"
+                )
+                if tips:
+                    info += f"\n  プロTips: {tips}"
+                found_info.append(info)
+
+    if not found_info:
+        return "TFTAcademyの主要構成には現在メインキャリーとして掲載されていません（フレックス・サブ枠など）。"
+
+    return "\n\n".join(found_info)
+
 
 def _format_academy_data(raw_data: dict | list) -> str:
-    """TFTAcademyの実データ構造からプロンプト用の軽量テキスト（URL情報付き）にフォーマット"""
+    """TFTAcademyの実データ構造からプロンプト用の軽量テキスト（URLとチームコード付き）にフォーマット"""
     if not raw_data:
         return "利用可能なTFTAcademyデータはありません。"
 
@@ -60,39 +122,47 @@ def _format_academy_data(raw_data: dict | list) -> str:
             title = comp.get("metaTitle") or comp.get("title", "構成名")
             style = comp.get("style", "Standard")
 
-            # TFTAcademy の構成詳細URLを生成 (slug または titleベース)
             slug = comp.get("slug") or title.lower().replace(" ", "-").replace("'", "")
             guide_url = f"https://tftacademy.com/tierlist/comps/{slug}"
+            team_code = comp.get("teamCode") or comp.get("shareCode") or comp.get("code") or ""
 
             main_champ_info = comp.get("mainChampion", {})
             main_champ_raw = main_champ_info.get("apiName", "") if isinstance(main_champ_info, dict) else ""
             main_champ = translate_term(main_champ_raw, trans_map)
 
             items = []
+            final_units = []
             for board_unit in comp.get("finalComp", []):
-                if board_unit.get("apiName") == main_champ_raw:
+                u_raw = board_unit.get("apiName", "")
+                final_units.append(translate_term(u_raw, trans_map))
+                if u_raw == main_champ_raw:
                     items = [translate_term(it, trans_map) for it in board_unit.get("items", [])]
-                    break
+
             items_str = ", ".join(items) if items else "状況に応じて配分"
+            units_str = ", ".join(final_units) if final_units else "指定なし"
 
             comp_line = (
-                f"  - {title} (スタイル: {style}) | キャリー: {main_champ} | "
-                f"コアアイテム: {items_str} | ガイドURL: {guide_url}"
+                f"  - 構成名: {title} (スタイル: {style})\n"
+                f"    メインキャリー: {main_champ} | コアアイテム: {items_str}\n"
+                f"    最終盤面ユニット: {units_str}\n"
+                f"    ガイドURL: {guide_url}\n"
+                f"    チームコード: {team_code if team_code else 'なし'}"
             )
 
             aug_tip = comp.get("augmentsTip")
             if aug_tip:
-                comp_line += f" | コツ: {aug_tip}"
+                comp_line += f"\n    コツ: {aug_tip}"
 
             formatted.append(comp_line)
 
-    return "\n".join(formatted)
+    return "\n\n".join(formatted)
 
 
-def handle_item_build(query: str, patch: str | None = None) -> ItemBuildAdvice | None:
+def handle_item_build(query: str, patch: str | None = None) -> str:
+    """特定チャンピオンのアイテムビルドを Riot統計 + TFTAcademy の両方から回答"""
     champions = meta_service.list_champions_with_build(patch)
     if not champions:
-        return None
+        return "アイテム統計データが見つかりませんでした。"
 
     champion = None
     for c in champions:
@@ -117,10 +187,45 @@ def handle_item_build(query: str, patch: str | None = None) -> ItemBuildAdvice |
         )
         champion = extracted.champion
 
+    # 1. Riot 実戦マッチ統計
     build = meta_service.get_item_build(champion, patch)
-    if not build:
-        return None
-    return ItemBuildAdvice.model_validate(build)
+    riot_stats_text = ""
+    if build:
+        trans_map = load_tft_translations()
+        items_stats = []
+        for it in build.get("top_items", []):
+            it_name = translate_term(it.get("item_name", ""), trans_map)
+            items_stats.append(
+                f"- {it_name}: 平均順位 {it.get('avg_place', '-')} / Top4率 {int(it.get('top4_rate', 0)*100)}% (サンプル{it.get('sample_size', 0)}件)"
+            )
+        riot_stats_text = "\n".join(items_stats)
+    else:
+        riot_stats_text = "Riot統計データなし"
+
+    # 2. TFTAcademy プロ推奨ガイド
+    academy_raw = get_tftacademy_tierlist()
+    academy_context = _get_academy_champ_context(champion, academy_raw)
+
+    llm = get_chat_model(temperature=0.3)
+    user_prompt = (
+        f"対象チャンピオン: {champion}\n\n"
+        f"【Riot公式 アイテム統計】\n{riot_stats_text}\n\n"
+        f"【TFTAcademy プロティアリスト推奨】\n{academy_context}\n\n"
+        f"質問: {query}"
+    )
+
+    messages = [
+        {"role": "system", "content": _ITEM_BUILD_SYSTEM_PROMPT},
+        {"role": "user", "content": user_prompt},
+    ]
+    response = llm.invoke(messages)
+
+    content = response.content
+    if isinstance(content, list):
+        text_parts = [part.get("text", "") for part in content if isinstance(part, dict) and part.get("type") == "text"]
+        return "".join(text_parts).strip()
+
+    return str(content).strip()
 
 
 def handle_comp_lookup(query: str, patch: str | None = None) -> list[CompRecommendation]:
@@ -176,13 +281,8 @@ def handle_general_meta(query: str, patch: str | None = None) -> str:
 
 def handle_meta(query: str, meta_subtype: str | None, patch: str | None = None) -> dict:
     if meta_subtype == "item_build":
-        advice = handle_item_build(query, patch)
-        if advice is None:
-            return {
-                "type": "text",
-                "data": "該当するアイテムビルドの統計データが見つかりませんでした。チャンピオン名を明示して再度質問してください。",
-            }
-        return {"type": "item_build", "data": advice}
+        advice_text = handle_item_build(query, patch)
+        return {"type": "text", "data": advice_text}
 
     if meta_subtype == "comp_from_item_or_emblem":
         comps = handle_comp_lookup(query, patch)
