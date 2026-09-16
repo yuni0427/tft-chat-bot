@@ -75,7 +75,14 @@ def _format_academy_data(raw_data: dict | list) -> str:
                     break
             items_str = ", ".join(items) if items else "状況に応じて配分"
 
-            comp_line = f"  - {title} (スタイル: {style}) | キャリー: {main_champ} | コアアイテム: {items_str}"
+            # 推奨オーグメント一覧の日本語化
+            aug_names = []
+            for a in comp.get("augments", []):
+                if isinstance(a, dict) and a.get("apiName"):
+                    aug_names.append(translate_term(a["apiName"], trans_map))
+            aug_str = f" | 推奨オーグメント: {', '.join(aug_names)}" if aug_names else ""
+
+            comp_line = f"  - {title} (スタイル: {style}) | キャリー: {main_champ} | コアアイテム: {items_str}{aug_str}"
 
             aug_tip = comp.get("augmentsTip")
             if aug_tip:
