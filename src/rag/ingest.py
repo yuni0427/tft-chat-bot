@@ -10,9 +10,10 @@ import config
 
 
 def _get_embedding_function():
-    from langchain_huggingface import HuggingFaceEmbeddings
+    from langchain_google_genai import GoogleGenerativeAIEmbeddings
 
-    return HuggingFaceEmbeddings(model_name=config.EMBEDDING_MODEL_NAME)
+    # 既存の環境変数から自動でAPIキーが読み込まれます
+    return GoogleGenerativeAIEmbeddings(model="models/text-embedding-004")
 
 
 def _load_markdown_documents():
