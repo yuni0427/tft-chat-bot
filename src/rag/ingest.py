@@ -12,8 +12,8 @@ import config
 def _get_embedding_function():
     from langchain_google_genai import GoogleGenerativeAIEmbeddings
 
-    # 既存の環境変数から自動でAPIキーが読み込まれます
-    return GoogleGenerativeAIEmbeddings(model="models/text-embedding-004")
+    # "models/" を外して直接モデル名を指定します
+    return GoogleGenerativeAIEmbeddings(model="text-embedding-004")
 
 
 def _load_markdown_documents():
