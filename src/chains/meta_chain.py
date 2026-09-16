@@ -175,7 +175,14 @@ def handle_general_meta(query: str, patch: str | None = None) -> str:
         {"role": "user", "content": user_prompt},
     ]
     response = llm.invoke(messages)
-    return response.content
+
+    # レスポンスから純粋な本文テキストのみを抽出（extras や署名を排除）
+    content = response.content
+    if isinstance(content, list):
+        text_parts = [part.get("text", "") for part in content if isinstance(part, dict) and part.get("type") == "text"]
+        return "".join(text_parts).strip()
+
+    return str(content).strip()
 
 
 def handle_meta(query: str, meta_subtype: str | None, patch: str | None = None) -> dict:
