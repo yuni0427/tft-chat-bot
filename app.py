@@ -1,3 +1,25 @@
+import streamlit as st
+from tornado.web import RequestHandler
+
+# ---- Riot 認証用 /riot.txt エンドポイント登録 ----
+class RiotVerificationHandler(RequestHandler):
+    def get(self):
+        self.set_header("Content-Type", "text/plain; charset=utf-8")
+        self.write("aa67c188-1a7b-4bf9-a8f0-a6e149ab752b")
+
+try:
+    from streamlit.web.server.server import Server
+    # Tornado のアクティブな Web ルーターを取得してルート直下を追加
+    server = Server.get_current()
+    if server and hasattr(server, "_app"):
+        routes = server._app.default_router.rules[0].target.rules
+        # すでに登録済みでなければ先頭に追加
+        if not any(r.matcher._path == "/riot.txt" for r in routes if hasattr(r.matcher, "_path")):
+            from tornado.web import URLSpec
+            routes.insert(0, URLSpec(r"/riot\.txt", RiotVerificationHandler))
+except Exception:
+    pass
+# ------------------------------------------------
 """
 TFT Strategy & Meta Advisor - Streamlitアプリ本体。
 立ち回り理論（RAG）と実戦マッチ統計・プロガイドを照合するAIチャットUI
