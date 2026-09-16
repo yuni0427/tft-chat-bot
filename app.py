@@ -10,7 +10,8 @@ from src.llm.factory import is_llm_configured
 from src.meta import meta_service
 from src.ui import cards
 
-st.set_page_config(page_title="TFT Strategy & Meta Advisor", page_icon="🧠", layout="wide")
+st.title("TFT Tactical Assistant")
+st.caption("TFTのチャットアシスタント")
 
 
 # ---------------------------------------------------------------------------
