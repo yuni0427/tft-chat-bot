@@ -35,6 +35,68 @@ _GENERAL_SYSTEM_PROMPT = """あなたはTFTの最新メタに精通したトッ�
 """
 
 
+def _clean_name(api_name: str) -> str:
+    """DA_18_Ahri -> Ahri, DA_SpearOfShojin -> SpearOfShojin のようにプレフィックスを除去"""
+    if not api_name:
+        return "-"
+    for prefix in ["DA_18_", "DA_", "TFT_"]:
+        if api_name.startswith(prefix):
+            api_name = api_name[len(prefix):]
+    if api_name.endswith("18"):
+        api_name = api_name[:-2]
+    return api_name
+
+
+def _format_academy_data(raw_data: dict | list) -> str:
+    """TFTAcademyの実データ構造からプロンプト用の軽量テキストにフォーマット"""
+    if not raw_data:
+        return "利用可能なTFTAcademyデータはありません。"
+
+    guides = raw_data.get("guides", []) if isinstance(raw_data, dict) else raw_data
+    if not guides:
+        return "利用可能なTFTAcademyデータはありません。"
+
+    # Tier順に整理
+    grouped_comps: dict[str, list[dict]] = {}
+    for comp in guides:
+        if isinstance(comp, dict):
+            tier = comp.get("tier", "Other").upper()
+            grouped_comps.setdefault(tier, []).append(comp)
+
+    tier_order = ["S", "A", "B", "C", "OTHER"]
+    sorted_tiers = sorted(grouped_comps.keys(), key=lambda x: tier_order.index(x) if x in tier_order else 99)
+
+    formatted = []
+    for tier in sorted_tiers:
+        formatted.append(f"【Tier {tier}】")
+        for comp in grouped_comps[tier]:
+            title = comp.get("metaTitle") or comp.get("title", "構成名")
+            style = comp.get("style", "Standard")
+
+            # メインキャリーの取得
+            main_champ_info = comp.get("mainChampion", {})
+            main_champ_raw = main_champ_info.get("apiName", "") if isinstance(main_champ_info, dict) else ""
+            main_champ = _clean_name(main_champ_raw)
+
+            # finalComp からメインキャリーのコアアイテムを抽出
+            items = []
+            for board_unit in comp.get("finalComp", []):
+                if board_unit.get("apiName") == main_champ_raw:
+                    items = [_clean_name(it) for it in board_unit.get("items", [])]
+                    break
+            items_str = ", ".join(items) if items else "状況に応じて配分"
+
+            comp_line = f"  - {title} (スタイル: {style}) | キャリー: {main_champ} | コアアイテム: {items_str}"
+
+            aug_tip = comp.get("augmentsTip")
+            if aug_tip:
+                comp_line += f" | コツ: {aug_tip}"
+
+            formatted.append(comp_line)
+
+    return "\n".join(formatted)
+
+
 def handle_item_build(query: str, patch: str | None = None) -> ItemBuildAdvice | None:
     champions = meta_service.list_champions_with_build(patch)
     if not champions:
@@ -86,34 +148,6 @@ def handle_comp_lookup(query: str, patch: str | None = None) -> list[CompRecomme
     )
     matches = meta_service.search_comps_by_assets(extracted.items, extracted.emblems, patch)
     return [CompRecommendation.model_validate(m) for m in matches]
-
-
-def _format_academy_data(raw_data: dict | list) -> str:
-    """TFTAcademyのデータをプロンプト用の軽量テキストにフォーマット"""
-    if not raw_data:
-        return "利用可能なTFTAcademyデータはありません。"
-
-    formatted = []
-    if isinstance(raw_data, dict):
-        for tier, comps in raw_data.items():
-            formatted.append(f"【Tier {tier}】")
-            if isinstance(comps, list):
-                for comp in comps:
-                    if isinstance(comp, dict):
-                        name = comp.get("name", "Unknown")
-                        playstyle = comp.get("playstyle", "")
-                        carries = ", ".join(comp.get("carries", [])) if isinstance(comp.get("carries"), list) else comp.get("carries", "")
-                        items = ", ".join(comp.get("items", [])) if isinstance(comp.get("items"), list) else comp.get("items", "")
-                        formatted.append(f"  - {name} ({playstyle}) | キャリー: {carries} | 推奨アイテム: {items}")
-    elif isinstance(raw_data, list):
-        for item in raw_data:
-            if isinstance(item, dict):
-                tier = item.get("tier", "Unknown")
-                formatted.append(f"【Tier {tier}】")
-                for comp in item.get("comps", []):
-                    if isinstance(comp, dict):
-                        formatted.append(f"  - {comp.get('name', 'Unknown')} ({comp.get('playstyle', '')})")
-    return "\n".join(formatted) if formatted else json.dumps(raw_data, ensure_ascii=False)
 
 
 def handle_general_meta(query: str, patch: str | None = None) -> str:
