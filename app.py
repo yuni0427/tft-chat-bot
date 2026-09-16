@@ -141,17 +141,7 @@ with st.sidebar:
         st.warning("パッチデータが見つかりません（data/patch_xx/ を確認してください）")
         st.session_state.selected_patch = None
 
-    st.divider()
-    st.caption("🏆 **プロガイド連携:** TFTAcademy (Dishsoap & Frodan) の最新ティア表を参照しています。")
-    if st.button("ナレッジベースを再構築"):
-        with st.spinner("再構築中..."):
-            try:
-                from src.rag.ingest import build_vector_db
-
-                count = build_vector_db()
-                st.success(f"{count}件のチャンクを再構築しました。")
-            except Exception as exc:  # noqa: BLE001
-                st.error(f"再構築に失敗しました: {exc}")
+    
 
 # ---------------------------------------------------------------------------
 # メイン画面
