@@ -30,7 +30,7 @@ def _respond_theory(query: str) -> None:
     st.session_state.messages.append({"role": "assistant", "content": content})
 
 
-def _respond_meta(query: str, meta_subtype) -> None:
+def _respond_meta(query: str, meta_subtype: str | None) -> None:
     patch = st.session_state.get("selected_patch")
     try:
         result = meta_chain.handle_meta(query, meta_subtype, patch)
@@ -100,7 +100,10 @@ def _route_and_respond(query: str, route_to: str) -> None:
     elif route_to == "meta_item":
         _respond_meta(query, "item_build")
     elif route_to == "meta_comp":
-        _respond_meta(query, "comp_from_item_or_emblem")
+        # 構成おすすめ・メタ比較へ正しくルーティング
+        _respond_meta(query, "comp_recommendation")
+    else:
+        _classify_and_respond(query)
 
 
 # ---------------------------------------------------------------------------
@@ -141,13 +144,12 @@ with st.sidebar:
         st.warning("パッチデータが見つかりません（data/patch_xx/ を確認してください）")
         st.session_state.selected_patch = None
 
-    
 
 # ---------------------------------------------------------------------------
 # メイン画面
 # ---------------------------------------------------------------------------
-st.title("🧠 TFT Strategy & Meta Advisor")
-st.caption("立ち回り理論（RAG）と実戦マッチ統計、TFTAcademy の最新プロガイドを統合してアドバイスします。")
+st.title("TFT Tactical Assistant")
+st.caption("最新メタ統計・プロガイド × 立ち回り理論アナリスト")
 
 # 過去ログ表示
 for msg in st.session_state.messages:
@@ -166,14 +168,23 @@ if st.session_state.pending_clarification:
         for i, opt in enumerate(pending["options"]):
             if cols[i].button(opt["label"], key=f"clarify_{pending['id']}_{i}"):
                 st.session_state.pending_clarification = None
-                _route_and_respond(opt["prefill_query"], opt["route_to"])
+                with st.spinner("アナリストが分析中..."):
+                    _route_and_respond(opt["prefill_query"], opt["route_to"])
                 st.rerun()
 
 # 質問入力
 query = st.chat_input(
-    "TFTについて質問してください（例: ファスト8の手順 / アッシュの装備 / 今の環境で強い構成は？）"
+    "TFTについて質問してください（例: ファスト8の手順 / アーリのビルド / 今の環境で強い構成は？）"
 )
 if query:
+    # 1. 入力内容を即座に履歴へ追加 & 画面に描画
     st.session_state.messages.append({"role": "user", "content": query})
-    _classify_and_respond(query)
+    with st.chat_message("user"):
+        st.markdown(query)
+
+    # 2. スピナーを表示しながら回答処理を実行
+    with st.chat_message("assistant"):
+        with st.spinner("マッチ統計とプロガイドを照合中..."):
+            _classify_and_respond(query)
+
     st.rerun()
