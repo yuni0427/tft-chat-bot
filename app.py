@@ -149,7 +149,7 @@ with st.sidebar:
 # メイン画面
 # ---------------------------------------------------------------------------
 st.title("TFT Tactical Assistant")
-st.caption("最新メタ統計・プロガイド × 立ち回り理論アナリスト")
+st.caption("TFTのチャットアシスタント")
 
 # 過去ログ表示
 for msg in st.session_state.messages:
@@ -184,7 +184,7 @@ if query:
 
     # 2. スピナーを表示しながら回答処理を実行
     with st.chat_message("assistant"):
-        with st.spinner("マッチ統計とプロガイドを照合中..."):
+        with st.spinner("回答を生成中..."):
             _classify_and_respond(query)
 
     st.rerun()
