@@ -82,6 +82,7 @@ def _load_game_data_documents():
 
     # 1. champions.json の読み込み
     champ_file = target_patch_dir / "champions.json"
+    champs = {}
     if champ_file.exists():
         with open(champ_file, encoding="utf-8") as f:
             champs = json.load(f)
@@ -118,19 +119,34 @@ def _load_game_data_documents():
             )
             documents.append(doc)
 
-    # 2. traits.json の読み込み
+    # 2. traits.json の読み込み（所属チャンピオンを逆引きして結合）
     trait_file = target_patch_dir / "traits.json"
     if trait_file.exists():
         with open(trait_file, encoding="utf-8") as f:
             traits_data = json.load(f)
 
+        # champions.json から「特性 -> 所属駒リスト」の逆引きマップを作成
+        trait_to_champions: dict[str, list[str]] = {}
+        if champ_file.exists():
+            for c_name, c_data in champs.items():
+                cost = c_data.get("cost", "?")
+                for t in c_data.get("traits", []):
+                    trait_to_champions.setdefault(t, []).append(
+                        f"{c_name}({cost}コスト)"
+                    )
+
         for name, d in traits_data.items():
             desc = d.get("description", "")
             breakpoints = ", ".join(map(str, d.get("breakpoints", [])))
+            # この特性を持つチャンピオン一覧
+            member_champs = ", ".join(trait_to_champions.get(name, []))
+            if not member_champs:
+                member_champs = "該当なし"
 
             page_content = (
                 f"# 特性・シナジー: {name}\n"
                 f"- 発動ブレークポイント: {breakpoints}\n"
+                f"- 所属チャンピオン: {member_champs}\n"
                 f"- 効果詳細: {desc}\n"
             )
 
