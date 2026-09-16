@@ -94,11 +94,12 @@ def sync_champion_data(patch_version: str, output_dir: Path) -> Path:
 
     # 2. チャンピオンを抽出・保存
     champions = {}
-    debuff_keywords = {
-        "細断": "細断",
-        "分解": "分解",
+debuff_keywords = {
+        "負傷": "負傷(重症)",
         "重症": "重症",
         "炎上": "炎上",
+        "細断": "細断",
+        "分解": "分解",
         "スタン": "スタン",
         "マナリーヴ": "マナリーヴ",
     }
