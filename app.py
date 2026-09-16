@@ -120,6 +120,8 @@ if "pending_clarification" not in st.session_state:
 # サイドバー
 # ---------------------------------------------------------------------------
 with st.sidebar:
+    st.write("DEBUG google key exists:", bool(config.GOOGLE_API_KEY))
+    st.write("DEBUG provider:", config.LLM_PROVIDER)
     st.header("⚙️ 設定・ステータス")
     st.write(f"LLMプロバイダー: **{config.LLM_PROVIDER.upper()}**")
     if not is_llm_configured():
