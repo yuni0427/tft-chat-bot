@@ -11,6 +11,7 @@ from pydantic import BaseModel, Field
 
 from src.llm.factory import get_chat_model
 from src.meta import meta_service
+from src.meta.tft_translator import load_tft_translations, translate_term
 from src.meta.tftacademy_client import get_tftacademy_tierlist
 from src.schemas.comp_recommendation import CompRecommendation
 from src.schemas.item_build import ItemBuildAdvice
@@ -32,23 +33,12 @@ _GENERAL_SYSTEM_PROMPT = """あなたはTFTの最新メタに精通したトッ�
 1. Riot統計から客観的な実数値（平均順位、Top4率など）を引用してください。
 2. TFTAcademyの評価（S/A Tier、メインキャリー、推奨進行スタイルなど）がある場合はプロ視点のアドバイスとして補強してください。
 3. 提供されたデータにない根拠のない情報は断定せず、分かりやすく整理して伝えてください。
+4. 【言語対応】ユーザーが英語で質問した場合は英語で回答し、日本語で質問した場合は日本語で回答してください。(Respond in the same language as the user's query. If queried in English, respond completely in English.)
 """
 
 
-def _clean_name(api_name: str) -> str:
-    """DA_18_Ahri -> Ahri, DA_SpearOfShojin -> SpearOfShojin のようにプレフィックスを除去"""
-    if not api_name:
-        return "-"
-    for prefix in ["DA_18_", "DA_", "TFT_"]:
-        if api_name.startswith(prefix):
-            api_name = api_name[len(prefix):]
-    if api_name.endswith("18"):
-        api_name = api_name[:-2]
-    return api_name
-
-
 def _format_academy_data(raw_data: dict | list) -> str:
-    """TFTAcademyの実データ構造からプロンプト用の軽量テキストにフォーマット"""
+    """TFTAcademyの実データ構造からプロンプト用の軽量テキストにフォーマット（公式日本語変換付き）"""
     if not raw_data:
         return "利用可能なTFTAcademyデータはありません。"
 
@@ -56,7 +46,8 @@ def _format_academy_data(raw_data: dict | list) -> str:
     if not guides:
         return "利用可能なTFTAcademyデータはありません。"
 
-    # Tier順に整理
+    trans_map = load_tft_translations()
+
     grouped_comps: dict[str, list[dict]] = {}
     for comp in guides:
         if isinstance(comp, dict):
@@ -73,16 +64,14 @@ def _format_academy_data(raw_data: dict | list) -> str:
             title = comp.get("metaTitle") or comp.get("title", "構成名")
             style = comp.get("style", "Standard")
 
-            # メインキャリーの取得
             main_champ_info = comp.get("mainChampion", {})
             main_champ_raw = main_champ_info.get("apiName", "") if isinstance(main_champ_info, dict) else ""
-            main_champ = _clean_name(main_champ_raw)
+            main_champ = translate_term(main_champ_raw, trans_map)
 
-            # finalComp からメインキャリーのコアアイテムを抽出
             items = []
             for board_unit in comp.get("finalComp", []):
                 if board_unit.get("apiName") == main_champ_raw:
-                    items = [_clean_name(it) for it in board_unit.get("items", [])]
+                    items = [translate_term(it, trans_map) for it in board_unit.get("items", [])]
                     break
             items_str = ", ".join(items) if items else "状況に応じて配分"
 
@@ -159,7 +148,7 @@ def handle_general_meta(query: str, patch: str | None = None) -> str:
         for c in comps
     )
 
-    # 2. TFTAcademy プロティア表の取得
+    # 2. TFTAcademy プロティア表の取得（日本語変換済み）
     academy_raw = get_tftacademy_tierlist()
     academy_text = _format_academy_data(academy_raw)
 
