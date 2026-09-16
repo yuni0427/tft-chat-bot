@@ -204,42 +204,69 @@ with tab_academy:
 
     if not tier_data:
         st.info("現在 TFTAcademy データを取得中、または一時的に取得できません。")
-    elif isinstance(tier_data, dict):
-        for tier_name, comps in tier_data.items():
-            st.markdown(f"### Tier: {tier_name}")
-            if isinstance(comps, list):
-                for comp in comps:
-                    if isinstance(comp, dict):
-                        with st.expander(f"**{comp.get('name', '構成名')}** (難易度: {comp.get('difficulty', '普')})"):
-                            st.write(f"**進行方針 / Level:** {comp.get('playstyle', 'Fast 8 / Standard')}")
-                            carries = comp.get("carries", [])
-                            st.write(f"**メインキャリー:** {', '.join(carries) if isinstance(carries, list) else carries}")
-                            items = comp.get("items", [])
-                            st.write(f"**推奨アイテム:** {', '.join(items) if isinstance(items, list) else items}")
-                            if comp.get("notes"):
-                                st.info(comp["notes"])
-                    else:
-                        st.write(f"- {comp}")
-            else:
-                st.write(str(comps))
-    elif isinstance(tier_data, list):
-        for item in tier_data:
-            if isinstance(item, dict):
-                tier_name = item.get("tier", "Unknown")
-                comps = item.get("comps", [])
-                st.markdown(f"### Tier: {tier_name}")
-                if isinstance(comps, list):
-                    for comp in comps:
-                        if isinstance(comp, dict):
-                            with st.expander(f"**{comp.get('name', '構成名')}**"):
-                                st.write(f"**進行方針:** {comp.get('playstyle', '-')}")
-                                carries = comp.get("carries", "-")
-                                st.write(f"**メインキャリー:** {', '.join(carries) if isinstance(carries, list) else carries}")
-                        else:
-                            st.write(f"- {comp}")
-                else:
-                    st.write(str(comps))
-            else:
-                st.markdown(f"- {item}")
     else:
-        st.write(tier_data)
+        # guides リストを抽出
+        guides = tier_data.get("guides", []) if isinstance(tier_data, dict) else tier_data
+
+        if not guides:
+            st.info("有効な構成データが見つかりませんでした。")
+        else:
+            # 名前のクレンジング関数 (例: DA_18_Ahri -> Ahri, DA_SpearOfShojin -> SpearOfShojin)
+            def clean_name(api_name: str) -> str:
+                if not api_name:
+                    return "-"
+                # プレフィックスの除去
+                for prefix in ["DA_18_", "DA_", "TFT_"]:
+                    if api_name.startswith(prefix):
+                        api_name = api_name[len(prefix):]
+                # 語尾のパッチ番号などの除去 (例: Karma18 -> Karma)
+                if api_name.endswith("18"):
+                    api_name = api_name[:-2]
+                return api_name
+
+            # Tierごとにグループ化
+            grouped_comps = {}
+            for comp in guides:
+                if not isinstance(comp, dict):
+                    continue
+                tier = comp.get("tier", "Other").upper()
+                grouped_comps.setdefault(tier, []).append(comp)
+
+            # S, A, B, C, Other の優先順位でソート
+            tier_order = ["S", "A", "B", "C", "OTHER"]
+            sorted_tiers = sorted(grouped_comps.keys(), key=lambda x: tier_order.index(x) if x in tier_order else 99)
+
+            for tier in sorted_tiers:
+                st.markdown(f"### Tier: {tier}")
+                for comp in grouped_comps[tier]:
+                    title = comp.get("metaTitle") or comp.get("title", "構成名")
+                    difficulty = comp.get("difficulty", "MEDIUM")
+                    style = comp.get("style", "Standard")
+
+                    # メインキャリーの取得
+                    main_champ_info = comp.get("mainChampion", {})
+                    main_champ_raw = main_champ_info.get("apiName", "") if isinstance(main_champ_info, dict) else ""
+                    main_champ = clean_name(main_champ_raw)
+
+                    # メインキャリーが finalComp で持っているアイテムを抽出
+                    items = []
+                    for board_unit in comp.get("finalComp", []):
+                        if board_unit.get("apiName") == main_champ_raw:
+                            items = [clean_name(it) for it in board_unit.get("items", [])]
+                            break
+                    items_str = ", ".join(items) if items else "状況に応じて配分"
+
+                    with st.expander(f"**{title}** (難易度: {difficulty})"):
+                        st.write(f"**進行方針 / Level:** {style}")
+                        st.write(f"**メインキャリー:** {main_champ}")
+                        st.write(f"**キャリー推奨アイテム:** {items_str}")
+
+                        # 進行・立ち回りヒント
+                        tips = comp.get("tips", [])
+                        if tips and isinstance(tips, list):
+                            st.write("**ステージ別立ち回り:**")
+                            for tip_item in tips:
+                                st.markdown(f"- **{tip_item.get('stage', '')}:** {tip_item.get('tip', '')}")
+
+                        if comp.get("augmentsTip"):
+                            st.info(f"💡 **運用Tips / オーグメント:** {comp['augmentsTip']}")
