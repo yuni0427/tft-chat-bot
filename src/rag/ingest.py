@@ -10,11 +10,16 @@ import config
 
 
 def _get_embedding_function():
-    # config.EMBEDDING_MODEL_NAME に従いローカル HuggingFace モデルを使用する。
-    # デフォルト: paraphrase-multilingual-MiniLM-L12-v2（APIキー不要・多言語対応）
-    from langchain_huggingface import HuggingFaceEmbeddings
+    # Google Generative AI Embeddings を使用する（Streamlit Cloud の 1GB メモリ枠対応）。
+    # langchain-google-genai v4+ は内部で google.genai（新 SDK）を使うため、
+    # モデル名は "models/gemini-embedding-001" を指定する必要がある。
+    # （旧名 "models/text-embedding-004" / "models/embedding-001" は v1beta で 404 になる）
+    from langchain_google_genai import GoogleGenerativeAIEmbeddings
 
-    return HuggingFaceEmbeddings(model_name=config.EMBEDDING_MODEL_NAME)
+    return GoogleGenerativeAIEmbeddings(
+        model="models/gemini-embedding-001",
+        google_api_key=config.GOOGLE_API_KEY,
+    )
 
 
 def _load_markdown_documents():

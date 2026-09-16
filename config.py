@@ -71,7 +71,9 @@ GLOBAL_REGIONS = [
 TARGET_TIERS = ["challenger"]
 
 # ==== RAG ====
-EMBEDDING_MODEL_NAME = get_secret("EMBEDDING_MODEL_NAME", "paraphrase-multilingual-MiniLM-L12-v2")
+# 埋め込みモデルは langchain-google-genai の GoogleGenerativeAIEmbeddings を使用。
+# モデル名は src/rag/ingest.py に直接指定（"models/gemini-embedding-001"）。
+# HuggingFace ローカルモデルは Streamlit Cloud 1GB メモリ枠超過のため使用しない。
 KNOWLEDGE_BASE_DIR = str(BASE_DIR / "knowledge_base")
 CHROMA_PERSIST_DIR = str(BASE_DIR / "chroma_db")
 CHROMA_COLLECTION_NAME = "tft_knowledge"
