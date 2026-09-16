@@ -10,10 +10,11 @@ import config
 
 
 def _get_embedding_function():
-    from langchain_google_genai import GoogleGenerativeAIEmbeddings
+    # config.EMBEDDING_MODEL_NAME に従いローカル HuggingFace モデルを使用する。
+    # デフォルト: paraphrase-multilingual-MiniLM-L12-v2（APIキー不要・多言語対応）
+    from langchain_huggingface import HuggingFaceEmbeddings
 
-    # v1beta で確実にサポートされているモデル名を指定
-    return GoogleGenerativeAIEmbeddings(model="models/embedding-001")
+    return HuggingFaceEmbeddings(model_name=config.EMBEDDING_MODEL_NAME)
 
 
 def _load_markdown_documents():
