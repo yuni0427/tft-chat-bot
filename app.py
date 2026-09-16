@@ -1,8 +1,6 @@
 """
 TFT Strategy & Meta Advisor - Streamlitアプリ本体。
-
-- タブ1: 3分岐ルーター（曖昧/理論/メタ）に基づくチャットUI
-- タブ2: TFTAcademy 自動取得ティアリスト（プロ監修の最新メタ一覧・日本語自動変換）
+立ち回り理論（RAG）と実戦マッチ統計・プロガイドを照合するAIチャットUI
 """
 import streamlit as st
 
@@ -10,8 +8,6 @@ import config
 from src.chains import intent_router, meta_chain, theory_chain
 from src.llm.factory import is_llm_configured
 from src.meta import meta_service
-from src.meta.tft_translator import load_tft_translations, translate_term
-from src.meta.tftacademy_client import get_tftacademy_tierlist
 from src.ui import cards
 
 st.set_page_config(page_title="TFT Strategy & Meta Advisor", page_icon="🧠", layout="wide")
@@ -30,7 +26,7 @@ def _respond_theory(query: str) -> None:
         return
     content = result["answer"]
     if result.get("sources"):
-        content += f"\n\n---\n参照ノート: {', '.join(result['sources'])}"
+        content += f"\n\n---\n📚 **参照ノート:** {', '.join(result['sources'])}"
     st.session_state.messages.append({"role": "assistant", "content": content})
 
 
@@ -138,7 +134,7 @@ with st.sidebar:
         st.session_state.selected_patch = selected_patch
         try:
             data = meta_service.load_meta_data(selected_patch)
-            st.caption(f"📊 Riotデータ: {data.get('source', '不明')} / 更新: {data.get('updated_at', '不明')}")
+            st.caption(f"📊 Riot統計: {data.get('source', '不明')} / 更新: {data.get('updated_at', '不明')}")
         except Exception as exc:  # noqa: BLE001
             st.caption(f"データ読込エラー: {exc}")
     else:
@@ -146,6 +142,7 @@ with st.sidebar:
         st.session_state.selected_patch = None
 
     st.divider()
+    st.caption("🏆 **プロガイド連携:** TFTAcademy (Dishsoap & Frodan) の最新ティア表を参照しています。")
     if st.button("ナレッジベースを再構築"):
         with st.spinner("再構築中..."):
             try:
@@ -157,38 +154,36 @@ with st.sidebar:
                 st.error(f"再構築に失敗しました: {exc}")
 
 # ---------------------------------------------------------------------------
-# メイン画面（タブ構造）
+# メイン画面
 # ---------------------------------------------------------------------------
 st.title("🧠 TFT Strategy & Meta Advisor")
+st.caption("立ち回り理論（RAG）と実戦マッチ統計、TFTAcademy の最新プロガイドを統合してアドバイスします。")
 
-tab_chat, tab_academy = st.tabs(["💬 戦略AIチャット", "🏆 TFTAcademy ティアリスト"])
+# 過去ログ表示
+for msg in st.session_state.messages:
+    with st.chat_message(msg["role"]):
+        if msg.get("html"):
+            st.markdown(msg["html"], unsafe_allow_html=True)
+        if msg.get("content"):
+            st.markdown(msg["content"])
 
-# --- タブ1: AI チャット ---
-with tab_chat:
-    st.caption("立ち回り理論（RAG）と実戦マッチ統計を組み合わせてアドバイスします。")
+# 曖昧時の選択肢ボタン
+if st.session_state.pending_clarification:
+    pending = st.session_state.pending_clarification
+    with st.chat_message("assistant"):
+        st.markdown(pending["message"])
+        cols = st.columns(len(pending["options"]) or 1)
+        for i, opt in enumerate(pending["options"]):
+            if cols[i].button(opt["label"], key=f"clarify_{pending['id']}_{i}"):
+                st.session_state.pending_clarification = None
+                _route_and_respond(opt["prefill_query"], opt["route_to"])
+                st.rerun()
 
-    for msg in st.session_state.messages:
-        with st.chat_message(msg["role"]):
-            if msg.get("html"):
-                st.markdown(msg["html"], unsafe_allow_html=True)
-            if msg.get("content"):
-                st.markdown(msg["content"])
-
-    if st.session_state.pending_clarification:
-        pending = st.session_state.pending_clarification
-        with st.chat_message("assistant"):
-            st.markdown(pending["message"])
-            cols = st.columns(len(pending["options"]) or 1)
-            for i, opt in enumerate(pending["options"]):
-                if cols[i].button(opt["label"], key=f"clarify_{pending['id']}_{i}"):
-                    st.session_state.pending_clarification = None
-                    _route_and_respond(opt["prefill_query"], opt["route_to"])
-                    st.rerun()
-
-    query = st.chat_input(
-        "TFTについて質問してください（例: ファスト8の手順 / アッシュの装備 / スナイパーの紋章が出た）"
-    )
-    if query:
-        st.session_state.messages.append({"role": "user", "content": query})
-        _classify_and_respond(query)
-        st.rerun()
+# 質問入力
+query = st.chat_input(
+    "TFTについて質問してください（例: ファスト8の手順 / アッシュの装備 / 今の環境で強い構成は？）"
+)
+if query:
+    st.session_state.messages.append({"role": "user", "content": query})
+    _classify_and_respond(query)
+    st.rerun()
