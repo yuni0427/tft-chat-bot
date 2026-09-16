@@ -8,6 +8,7 @@ Riot Games 公式APIの薄いクライアント。
   Platform Routing  (jp1.api.riotgames.com) : tft-league-v1, tft-summoner-v1
   Regional Routing  (asia.api.riotgames.com) : tft-match-v1, account-v1
 """
+import os
 import threading
 import time
 from collections import deque
@@ -56,10 +57,12 @@ _rate_limiter = _RateLimiter([(20, 1.0), (100, 120.0)])
 
 def _request(url: str, params: dict | None = None, max_retries: int = 3) -> dict | list:
     """レートリミット・リトライ付き GET リクエスト共通処理。"""
-    if not config.RIOT_API_KEY:
+    # config から取れない、または空文字の場合に os.environ から直接フォールバック取得
+    api_key = config.RIOT_API_KEY or os.getenv("RIOT_API_KEY")
+    if not api_key:
         raise RiotAPIError("RIOT_API_KEY が設定されていません。")
 
-    headers = {"X-Riot-Token": config.RIOT_API_KEY}
+    headers = {"X-Riot-Token": str(api_key).strip()}
     last_error: Exception | None = None
 
     for attempt in range(max_retries):
@@ -104,7 +107,8 @@ def get_challenger_league() -> dict:
         f"https://{config.RIOT_PLATFORM_REGION}.api.riotgames.com"
         "/tft/league/v1/challenger"
     )
-    return _request(url)  # type: ignore[return-value]
+    # queue=RANKED_TFT パラメータを明示的に付与
+    return _request(url, params={"queue": "RANKED_TFT"})  # type: ignore[return-value]
 
 
 def get_grandmaster_league() -> dict:
@@ -116,7 +120,8 @@ def get_grandmaster_league() -> dict:
         f"https://{config.RIOT_PLATFORM_REGION}.api.riotgames.com"
         "/tft/league/v1/grandmaster"
     )
-    return _request(url)  # type: ignore[return-value]
+    # queue=RANKED_TFT パラメータを明示的に付与
+    return _request(url, params={"queue": "RANKED_TFT"})  # type: ignore[return-value]
 
 
 # --------------------------------------------------------------------------
