@@ -12,8 +12,8 @@ import config
 def _get_embedding_function():
     from langchain_google_genai import GoogleGenerativeAIEmbeddings
 
-    # "models/" を外して直接モデル名を指定します
-    return GoogleGenerativeAIEmbeddings(model="text-embedding-004")
+    # v1beta で確実にサポートされているモデル名を指定
+    return GoogleGenerativeAIEmbeddings(model="models/embedding-001")
 
 
 def _load_markdown_documents():
