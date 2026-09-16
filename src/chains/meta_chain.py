@@ -13,7 +13,7 @@ from src.llm.factory import get_chat_model
 from src.meta import meta_service
 from src.meta.tft_translator import load_tft_translations, translate_term
 from src.meta.tftacademy_client import get_tftacademy_tierlist
-from src.rag.retriever import get_relevant_documents
+from src.rag.retriever import retrieve
 from src.schemas.comp_recommendation import CompRecommendation
 
 
@@ -301,11 +301,15 @@ def handle_comp_lookup(
 
 
 def handle_general_meta(query: str, patch: str | None = None) -> str:
-    # 1. ベクトルDBから基礎知識・チャンピオン・特性データを検索
+    # 1. ベクトルDBから基礎知識・チャンピオン・特性データを検索 (retrieve関数を使用)
     try:
-        retrieved_docs = get_relevant_documents(query, k=5)
+        retrieved_docs = retrieve(query, k=5)
         knowledge_context = "\n\n".join(
-            [doc.page_content for doc in retrieved_docs]
+            [
+                doc.get("content") or doc.get("page_content") or str(doc)
+                for doc in retrieved_docs
+                if isinstance(doc, dict)
+            ]
         )
     except Exception:
         knowledge_context = "基礎知識データの取得をスキップしました。"
