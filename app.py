@@ -204,16 +204,42 @@ with tab_academy:
 
     if not tier_data:
         st.info("現在 TFTAcademy データを取得中、または一時的に取得できません。")
-    else:
-        for tier_group in tier_data:
-            tier_name = tier_group.get("tier", "Unknown")
-            comps = tier_group.get("comps", [])
+    elif isinstance(tier_data, dict):
+        for tier_name, comps in tier_data.items():
             st.markdown(f"### Tier: {tier_name}")
-            
-            for comp in comps:
-                with st.expander(f"**{comp.get('name', '構成名不明')}** (難易度: {comp.get('difficulty', '普')})"):
-                    st.write(f"**進行方針 / Level:** {comp.get('playstyle', 'Fast 8 / Standard')}")
-                    st.write(f"**メインキャリー:** {', '.join(comp.get('carries', []))}")
-                    st.write(f"**推奨アイテム:** {', '.join(comp.get('items', []))}")
-                    if comp.get("notes"):
-                        st.info(comp["notes"])
+            if isinstance(comps, list):
+                for comp in comps:
+                    if isinstance(comp, dict):
+                        with st.expander(f"**{comp.get('name', '構成名')}** (難易度: {comp.get('difficulty', '普')})"):
+                            st.write(f"**進行方針 / Level:** {comp.get('playstyle', 'Fast 8 / Standard')}")
+                            carries = comp.get("carries", [])
+                            st.write(f"**メインキャリー:** {', '.join(carries) if isinstance(carries, list) else carries}")
+                            items = comp.get("items", [])
+                            st.write(f"**推奨アイテム:** {', '.join(items) if isinstance(items, list) else items}")
+                            if comp.get("notes"):
+                                st.info(comp["notes"])
+                    else:
+                        st.write(f"- {comp}")
+            else:
+                st.write(str(comps))
+    elif isinstance(tier_data, list):
+        for item in tier_data:
+            if isinstance(item, dict):
+                tier_name = item.get("tier", "Unknown")
+                comps = item.get("comps", [])
+                st.markdown(f"### Tier: {tier_name}")
+                if isinstance(comps, list):
+                    for comp in comps:
+                        if isinstance(comp, dict):
+                            with st.expander(f"**{comp.get('name', '構成名')}**"):
+                                st.write(f"**進行方針:** {comp.get('playstyle', '-')}")
+                                carries = comp.get("carries", "-")
+                                st.write(f"**メインキャリー:** {', '.join(carries) if isinstance(carries, list) else carries}")
+                        else:
+                            st.write(f"- {comp}")
+                else:
+                    st.write(str(comps))
+            else:
+                st.markdown(f"- {item}")
+    else:
+        st.write(tier_data)
