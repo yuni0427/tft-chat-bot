@@ -10,9 +10,11 @@ from src.llm.factory import is_llm_configured
 from src.meta import meta_service
 from src.ui import cards
 
-st.title("TFT Tactical Assistant")
-st.caption("TFTのチャットアシスタント")
-
+st.set_page_config(
+    page_title="TFT Tactical Assistant",
+    page_icon="🦊",  # タブのファビコンをキツネに設定
+    layout="wide",
+)
 
 # ---------------------------------------------------------------------------
 # ヘルパー関数
