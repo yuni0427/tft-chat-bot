@@ -1,13 +1,40 @@
 {
   "patch": "16.18",
-  "updated_at": "2026-09-16T19:02:00.442731+00:00",
+  "updated_at": "2026-09-16T19:47:39.381495+00:00",
   "source": "riot_api_aggregate",
   "champion_item_builds": {
+    "リリア": {
+      "champion": "リリア",
+      "core_items": [
+        {
+          "name": "プロテクターの誓い",
+          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
+        }
+      ],
+      "bis_standard_build": {
+        "items": [
+          "プロテクターの誓い"
+        ],
+        "sample_size": 3,
+        "avg_place": 5.0,
+        "win_rate": 0.33,
+        "confidence_level": "LOW",
+        "special_note": null
+      },
+      "substitutes": [],
+      "special_synergy_builds": [],
+      "anti_synergy_warnings": [],
+      "debuff_roles": []
+    },
     "シヴィア": {
       "champion": "シヴィア",
       "core_items": [
         {
           "name": "インフィニティ エッジ",
+          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
+        },
+        {
+          "name": "ショウジンの矛",
           "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
         },
         {
@@ -18,27 +45,16 @@
       "bis_standard_build": {
         "items": [
           "インフィニティ エッジ",
-          "ストライカー フレイル",
+          "ショウジンの矛",
           "レッドバフ"
         ],
-        "sample_size": 5,
-        "avg_place": 3.4,
-        "win_rate": 0.8,
+        "sample_size": 6,
+        "avg_place": 4.0,
+        "win_rate": 0.5,
         "confidence_level": "LOW",
         "special_note": null
       },
-      "substitutes": [
-        {
-          "item": "ショウジンの矛",
-          "delta_avg_place": 0.8,
-          "condition": null
-        },
-        {
-          "item": "ラスト ウィスパー",
-          "delta_avg_place": 1.6,
-          "condition": null
-        }
-      ],
+      "substitutes": [],
       "special_synergy_builds": [],
       "anti_synergy_warnings": [],
       "debuff_roles": []
@@ -51,6 +67,10 @@
           "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
         },
         {
+          "name": "クラウンガード",
+          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
+        },
+        {
           "name": "ワーモグ アーマー",
           "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
         }
@@ -58,21 +78,16 @@
       "bis_standard_build": {
         "items": [
           "ガーゴイル ストーンプレート",
+          "クラウンガード",
           "ワーモグ アーマー"
         ],
         "sample_size": 4,
-        "avg_place": 3.75,
+        "avg_place": 4.0,
         "win_rate": 0.5,
         "confidence_level": "LOW",
         "special_note": null
       },
-      "substitutes": [
-        {
-          "item": "クラウンガード",
-          "delta_avg_place": 0.25,
-          "condition": null
-        }
-      ],
+      "substitutes": [],
       "special_synergy_builds": [],
       "anti_synergy_warnings": [],
       "debuff_roles": []
@@ -152,18 +167,41 @@
           "デスブレード"
         ],
         "sample_size": 6,
-        "avg_place": 3.17,
-        "win_rate": 0.67,
+        "avg_place": 2.67,
+        "win_rate": 0.83,
         "confidence_level": "LOW",
         "special_note": null
       },
       "substitutes": [
         {
           "item": "ストライカー フレイル",
-          "delta_avg_place": 0.66,
+          "delta_avg_place": 1.16,
           "condition": null
         }
       ],
+      "special_synergy_builds": [],
+      "anti_synergy_warnings": [],
+      "debuff_roles": []
+    },
+    "Scuttlecrab18": {
+      "champion": "Scuttlecrab18",
+      "core_items": [
+        {
+          "name": "チェイン ベスト",
+          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
+        }
+      ],
+      "bis_standard_build": {
+        "items": [
+          "チェイン ベスト"
+        ],
+        "sample_size": 3,
+        "avg_place": 5.0,
+        "win_rate": 0.67,
+        "confidence_level": "LOW",
+        "special_note": null
+      },
+      "substitutes": [],
       "special_synergy_builds": [],
       "anti_synergy_warnings": [],
       "debuff_roles": []
@@ -176,10 +214,6 @@
           "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
         },
         {
-          "name": "クラウンガード",
-          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
-        },
-        {
           "name": "ワーモグ アーマー",
           "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
         }
@@ -187,16 +221,21 @@
       "bis_standard_build": {
         "items": [
           "ガーゴイル ストーンプレート",
-          "クラウンガード",
           "ワーモグ アーマー"
         ],
         "sample_size": 4,
-        "avg_place": 4.75,
-        "win_rate": 0.25,
+        "avg_place": 3.5,
+        "win_rate": 0.75,
         "confidence_level": "LOW",
         "special_note": null
       },
-      "substitutes": [],
+      "substitutes": [
+        {
+          "item": "クラウンガード",
+          "delta_avg_place": 1.25,
+          "condition": null
+        }
+      ],
       "special_synergy_builds": [],
       "anti_synergy_warnings": [],
       "debuff_roles": []
@@ -269,9 +308,9 @@
         "items": [
           "ガーゴイル ストーンプレート"
         ],
-        "sample_size": 7,
-        "avg_place": 3.57,
-        "win_rate": 0.71,
+        "sample_size": 8,
+        "avg_place": 4.0,
+        "win_rate": 0.62,
         "confidence_level": "LOW",
         "special_note": null
       },
@@ -335,9 +374,9 @@
           "ジュエル ガントレット",
           "ストライカー フレイル"
         ],
-        "sample_size": 12,
-        "avg_place": 4.08,
-        "win_rate": 0.58,
+        "sample_size": 11,
+        "avg_place": 4.18,
+        "win_rate": 0.55,
         "confidence_level": "LOW",
         "special_note": null
       },
@@ -368,9 +407,9 @@
           "ラバドン デスキャップ",
           "ヴォイド スタッフ"
         ],
-        "sample_size": 7,
-        "avg_place": 4.57,
-        "win_rate": 0.43,
+        "sample_size": 8,
+        "avg_place": 4.5,
+        "win_rate": 0.5,
         "confidence_level": "LOW",
         "special_note": null
       },
@@ -391,9 +430,9 @@
         "items": [
           "プロテクターの誓い"
         ],
-        "sample_size": 24,
-        "avg_place": 3.96,
-        "win_rate": 0.62,
+        "sample_size": 23,
+        "avg_place": 4.04,
+        "win_rate": 0.61,
         "confidence_level": "LOW",
         "special_note": null
       },
@@ -525,15 +564,22 @@
       "bis_standard_build": {
         "items": [
           "ガーゴイル ストーンプレート",
+          "クラウンガード",
           "ワーモグ アーマー"
         ],
         "sample_size": 9,
-        "avg_place": 5.0,
-        "win_rate": 0.44,
+        "avg_place": 3.67,
+        "win_rate": 0.56,
         "confidence_level": "LOW",
         "special_note": null
       },
-      "substitutes": [],
+      "substitutes": [
+        {
+          "item": "ガーゴイル ストーンプレート",
+          "delta_avg_place": 1.33,
+          "condition": null
+        }
+      ],
       "special_synergy_builds": [],
       "anti_synergy_warnings": [],
       "debuff_roles": []
@@ -552,20 +598,25 @@
       ],
       "bis_standard_build": {
         "items": [
-          "インフィニティ エッジ",
+          "インフェルノの紋章",
           "ショウジンの矛",
           "レッドバフ"
         ],
         "sample_size": 6,
-        "avg_place": 4.0,
+        "avg_place": 3.17,
         "win_rate": 0.67,
         "confidence_level": "LOW",
         "special_note": null
       },
       "substitutes": [
         {
+          "item": "インフィニティ エッジ",
+          "delta_avg_place": 0.83,
+          "condition": null
+        },
+        {
           "item": "ラスト ウィスパー",
-          "delta_avg_place": 0.17,
+          "delta_avg_place": 1.0,
           "condition": null
         }
       ],
@@ -608,9 +659,9 @@
         "items": [
           "リカーブ ボウ"
         ],
-        "sample_size": 5,
-        "avg_place": 5.4,
-        "win_rate": 0.4,
+        "sample_size": 4,
+        "avg_place": 4.75,
+        "win_rate": 0.5,
         "confidence_level": "LOW",
         "special_note": null
       },
@@ -641,9 +692,9 @@
           "ジュエル ガントレット",
           "ヴォイド スタッフ"
         ],
-        "sample_size": 8,
-        "avg_place": 6.12,
-        "win_rate": 0.25,
+        "sample_size": 6,
+        "avg_place": 6.17,
+        "win_rate": 0.17,
         "confidence_level": "LOW",
         "special_note": null
       },
@@ -789,9 +840,9 @@
         "items": [
           "グインソー レイジブレード"
         ],
-        "sample_size": 7,
-        "avg_place": 4.86,
-        "win_rate": 0.43,
+        "sample_size": 6,
+        "avg_place": 4.83,
+        "win_rate": 0.5,
         "confidence_level": "LOW",
         "special_note": null
       },
@@ -828,25 +879,18 @@
       "core_items": [],
       "bis_standard_build": {
         "items": [
-          "アイオニック スパーク",
-          "モレロノミコン",
-          "盗賊のグローブ"
+          "ナイト エッジ"
         ],
         "sample_size": 3,
-        "avg_place": 3.0,
-        "win_rate": 1.0,
+        "avg_place": 3.33,
+        "win_rate": 0.67,
         "confidence_level": "LOW",
         "special_note": null
       },
       "substitutes": [
         {
-          "item": "ナイト エッジ",
-          "delta_avg_place": 0.33,
-          "condition": null
-        },
-        {
           "item": "ストライカー フレイル",
-          "delta_avg_place": 0.33,
+          "delta_avg_place": 0.0,
           "condition": null
         }
       ],
@@ -978,25 +1022,6 @@
     }
   },
   "comp_recommendations": [
-    {
-      "comp_name": "エルダーウッド+エクセキューショナー",
-      "tier": "S",
-      "avg_place": 1.67,
-      "top4_rate": 1.0,
-      "sample_size": 3,
-      "confidence_level": "LOW",
-      "emblem_holder": null,
-      "key_units": [
-        "ヘカリム",
-        "オーン",
-        "ソラカ",
-        "エズリアル",
-        "アリスター"
-      ],
-      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
-      "trigger_items": [],
-      "trigger_emblems": []
-    },
     {
       "comp_name": "ブラックソーン+ディフェンダー",
       "tier": "S",
@@ -1131,19 +1156,19 @@
       "trigger_emblems": []
     },
     {
-      "comp_name": "プライマル+ブラックソーン",
+      "comp_name": "エルダーウッド+エクセキューショナー",
       "tier": "S",
-      "avg_place": 2.67,
-      "top4_rate": 1.0,
-      "sample_size": 3,
+      "avg_place": 2.75,
+      "top4_rate": 0.75,
+      "sample_size": 4,
       "confidence_level": "LOW",
       "emblem_holder": null,
       "key_units": [
-        "レク＝サイ",
-        "コグ＝マウ",
-        "マルファイト",
-        "シヴィア",
-        "ニダリー"
+        "アリスター",
+        "ヘカリム",
+        "エズリアル",
+        "ケネン",
+        "ナー"
       ],
       "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
       "trigger_items": [],
@@ -1169,6 +1194,25 @@
       "trigger_emblems": []
     },
     {
+      "comp_name": "リフトビースト+ハンター",
+      "tier": "S",
+      "avg_place": 3.12,
+      "top4_rate": 0.75,
+      "sample_size": 8,
+      "confidence_level": "LOW",
+      "emblem_holder": null,
+      "key_units": [
+        "Sentinel18",
+        "アッシュ",
+        "ElderDragon",
+        "タリック",
+        "シヴィア"
+      ],
+      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
+      "trigger_items": [],
+      "trigger_emblems": []
+    },
+    {
       "comp_name": "ジャガーノート+インフェルノ",
       "tier": "S",
       "avg_place": 3.2,
@@ -1182,44 +1226,6 @@
         "マオカイ",
         "ケネン",
         "Scuttlecrab18"
-      ],
-      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
-      "trigger_items": [],
-      "trigger_emblems": []
-    },
-    {
-      "comp_name": "エクセキューショナー+エルダーウッド",
-      "tier": "S",
-      "avg_place": 3.25,
-      "top4_rate": 0.75,
-      "sample_size": 4,
-      "confidence_level": "LOW",
-      "emblem_holder": null,
-      "key_units": [
-        "エズリアル",
-        "アリスター",
-        "ドレイヴン",
-        "ナー",
-        "ケネン"
-      ],
-      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
-      "trigger_items": [],
-      "trigger_emblems": []
-    },
-    {
-      "comp_name": "ジャガーノート+サモナー",
-      "tier": "S",
-      "avg_place": 3.25,
-      "top4_rate": 0.75,
-      "sample_size": 4,
-      "confidence_level": "LOW",
-      "emblem_holder": null,
-      "key_units": [
-        "ヨリック",
-        "アムム",
-        "ヴァイ",
-        "ザイラ",
-        "マオカイ"
       ],
       "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
       "trigger_items": [],
@@ -1245,30 +1251,11 @@
       "trigger_emblems": []
     },
     {
-      "comp_name": "リフトビースト+ハンター",
-      "tier": "S",
-      "avg_place": 3.33,
-      "top4_rate": 0.67,
-      "sample_size": 9,
-      "confidence_level": "LOW",
-      "emblem_holder": null,
-      "key_units": [
-        "Sentinel18",
-        "アッシュ",
-        "ElderDragon",
-        "タリック",
-        "シヴィア"
-      ],
-      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
-      "trigger_items": [],
-      "trigger_emblems": []
-    },
-    {
       "comp_name": "リフトビースト+インフェルノ",
       "tier": "S",
-      "avg_place": 3.38,
-      "top4_rate": 0.71,
-      "sample_size": 24,
+      "avg_place": 3.48,
+      "top4_rate": 0.7,
+      "sample_size": 23,
       "confidence_level": "LOW",
       "emblem_holder": null,
       "key_units": [
@@ -1302,19 +1289,19 @@
       "trigger_emblems": []
     },
     {
-      "comp_name": "ハンター+リフトビースト",
+      "comp_name": "ブローラー+アダプター",
       "tier": "S",
-      "avg_place": 3.64,
-      "top4_rate": 0.71,
-      "sample_size": 14,
+      "avg_place": 3.67,
+      "top4_rate": 0.67,
+      "sample_size": 3,
       "confidence_level": "LOW",
       "emblem_holder": null,
       "key_units": [
-        "シヴィア",
-        "Cinderling18",
-        "ニダリー",
         "コグ＝マウ",
-        "Sentinel18"
+        "Krug18",
+        "ニダリー",
+        "ヨリック",
+        "マスター・イー"
       ],
       "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
       "trigger_items": [],
@@ -1340,38 +1327,19 @@
       "trigger_emblems": []
     },
     {
-      "comp_name": "エクセキューショナー+フローラ・ファターリス",
+      "comp_name": "エクセキューショナー+エルダーウッド",
       "tier": "S",
-      "avg_place": 3.71,
-      "top4_rate": 0.64,
-      "sample_size": 14,
+      "avg_place": 3.67,
+      "top4_rate": 0.67,
+      "sample_size": 3,
       "confidence_level": "LOW",
       "emblem_holder": null,
       "key_units": [
-        "フィドルスティックス",
-        "ソラカ",
+        "アリスター",
         "エズリアル",
-        "アジール",
-        "ケネン"
-      ],
-      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
-      "trigger_items": [],
-      "trigger_emblems": []
-    },
-    {
-      "comp_name": "ブローラー+アダプター",
-      "tier": "S",
-      "avg_place": 3.75,
-      "top4_rate": 0.75,
-      "sample_size": 4,
-      "confidence_level": "LOW",
-      "emblem_holder": null,
-      "key_units": [
-        "コグ＝マウ",
-        "ニダリー",
-        "Krug18",
-        "セト",
-        "ヨリック"
+        "ナー",
+        "ドレイヴン",
+        "タリック"
       ],
       "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
       "trigger_items": [],
@@ -1397,11 +1365,30 @@
       "trigger_emblems": []
     },
     {
+      "comp_name": "ハンター+リフトビースト",
+      "tier": "S",
+      "avg_place": 3.86,
+      "top4_rate": 0.71,
+      "sample_size": 14,
+      "confidence_level": "LOW",
+      "emblem_holder": null,
+      "key_units": [
+        "シヴィア",
+        "Cinderling18",
+        "ニダリー",
+        "コグ＝マウ",
+        "Sentinel18"
+      ],
+      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
+      "trigger_items": [],
+      "trigger_emblems": []
+    },
+    {
       "comp_name": "インヴォーカー+ブロッサム",
       "tier": "S",
-      "avg_place": 3.95,
-      "top4_rate": 0.62,
-      "sample_size": 42,
+      "avg_place": 3.93,
+      "top4_rate": 0.63,
+      "sample_size": 43,
       "confidence_level": "LOW",
       "emblem_holder": null,
       "key_units": [
@@ -1419,16 +1406,16 @@
       "comp_name": "ラピッドファイア+エルダーウッド",
       "tier": "S",
       "avg_place": 4.0,
-      "top4_rate": 0.75,
-      "sample_size": 4,
+      "top4_rate": 0.67,
+      "sample_size": 3,
       "confidence_level": "LOW",
       "emblem_holder": null,
       "key_units": [
         "ザヤ",
         "アフェリオス",
         "ヘカリム",
-        "オーン",
-        "レオナ"
+        "CrimsonRaptor18",
+        "ダイアナ"
       ],
       "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
       "trigger_items": [],
@@ -1473,6 +1460,63 @@
       "trigger_emblems": []
     },
     {
+      "comp_name": "エクセキューショナー+フローラ・ファターリス",
+      "tier": "S",
+      "avg_place": 4.0,
+      "top4_rate": 0.58,
+      "sample_size": 12,
+      "confidence_level": "LOW",
+      "emblem_holder": null,
+      "key_units": [
+        "フィドルスティックス",
+        "ソラカ",
+        "エズリアル",
+        "アジール",
+        "マルファイト"
+      ],
+      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
+      "trigger_items": [],
+      "trigger_emblems": []
+    },
+    {
+      "comp_name": "スペルウィーバー+インヴォーカー",
+      "tier": "S",
+      "avg_place": 4.0,
+      "top4_rate": 0.67,
+      "sample_size": 3,
+      "confidence_level": "LOW",
+      "emblem_holder": null,
+      "key_units": [
+        "カルマ",
+        "モルガナ",
+        "Sentinel18",
+        "セト",
+        "アーリ"
+      ],
+      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
+      "trigger_items": [],
+      "trigger_emblems": []
+    },
+    {
+      "comp_name": "ルナー+ヴァンガード",
+      "tier": "S",
+      "avg_place": 4.0,
+      "top4_rate": 0.5,
+      "sample_size": 4,
+      "confidence_level": "LOW",
+      "emblem_holder": null,
+      "key_units": [
+        "アルーン",
+        "Sentinel18",
+        "アフェリオス",
+        "ダイアナ",
+        "エリス"
+      ],
+      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
+      "trigger_items": [],
+      "trigger_emblems": []
+    },
+    {
       "comp_name": "ヴァンガード+ルナー",
       "tier": "S",
       "avg_place": 4.0,
@@ -1511,38 +1555,19 @@
       "trigger_emblems": []
     },
     {
-      "comp_name": "リフトビースト+ブローラー",
-      "tier": "A",
-      "avg_place": 4.12,
-      "top4_rate": 0.62,
-      "sample_size": 16,
+      "comp_name": "ジャガーノート+サモナー",
+      "tier": "S",
+      "avg_place": 4.0,
+      "top4_rate": 0.6,
+      "sample_size": 5,
       "confidence_level": "LOW",
       "emblem_holder": null,
       "key_units": [
-        "Krug18",
-        "ElderDragon",
-        "Sentinel18",
-        "ナー",
-        "マオカイ"
-      ],
-      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
-      "trigger_items": [],
-      "trigger_emblems": []
-    },
-    {
-      "comp_name": "アダプター+インフェルノ",
-      "tier": "A",
-      "avg_place": 4.24,
-      "top4_rate": 0.52,
-      "sample_size": 21,
-      "confidence_level": "LOW",
-      "emblem_holder": null,
-      "key_units": [
-        "コグ＝マウ",
+        "ヨリック",
+        "ザイラ",
+        "ヴァイ",
         "アムム",
-        "ニダリー",
-        "アフェリオス",
-        "Sentinel18"
+        "マオカイ"
       ],
       "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
       "trigger_items": [],
@@ -1568,7 +1593,26 @@
       "trigger_emblems": []
     },
     {
-      "comp_name": "ジャガーノート+ブロッサム",
+      "comp_name": "リフトビースト+インヴォーカー",
+      "tier": "A",
+      "avg_place": 4.33,
+      "top4_rate": 0.67,
+      "sample_size": 6,
+      "confidence_level": "LOW",
+      "emblem_holder": null,
+      "key_units": [
+        "Sentinel18",
+        "Sentry",
+        "Krug18",
+        "Cinderling18",
+        "Scuttlecrab18"
+      ],
+      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
+      "trigger_items": [],
+      "trigger_emblems": []
+    },
+    {
+      "comp_name": "ラピッドファイア+リフトビースト",
       "tier": "A",
       "avg_place": 4.33,
       "top4_rate": 0.33,
@@ -1576,11 +1620,49 @@
       "confidence_level": "LOW",
       "emblem_holder": null,
       "key_units": [
-        "ヨリック",
-        "セジュアニ",
-        "ユナラ",
-        "ラカン",
-        "ヴァイ"
+        "ヴァルス",
+        "ザヤ",
+        "アムム",
+        "アフェリオス",
+        "Sentinel18"
+      ],
+      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
+      "trigger_items": [],
+      "trigger_emblems": []
+    },
+    {
+      "comp_name": "リフトビースト+ブローラー",
+      "tier": "A",
+      "avg_place": 4.33,
+      "top4_rate": 0.56,
+      "sample_size": 18,
+      "confidence_level": "LOW",
+      "emblem_holder": null,
+      "key_units": [
+        "Krug18",
+        "Sentinel18",
+        "ElderDragon",
+        "ナー",
+        "マオカイ"
+      ],
+      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
+      "trigger_items": [],
+      "trigger_emblems": []
+    },
+    {
+      "comp_name": "アダプター+インフェルノ",
+      "tier": "A",
+      "avg_place": 4.37,
+      "top4_rate": 0.47,
+      "sample_size": 19,
+      "confidence_level": "LOW",
+      "emblem_holder": null,
+      "key_units": [
+        "コグ＝マウ",
+        "アムム",
+        "ニダリー",
+        "アフェリオス",
+        "Sentinel18"
       ],
       "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
       "trigger_items": [],
@@ -1606,63 +1688,6 @@
       "trigger_emblems": []
     },
     {
-      "comp_name": "リフトビースト+インヴォーカー",
-      "tier": "A",
-      "avg_place": 4.4,
-      "top4_rate": 0.6,
-      "sample_size": 5,
-      "confidence_level": "LOW",
-      "emblem_holder": null,
-      "key_units": [
-        "Sentinel18",
-        "Sentry",
-        "Krug18",
-        "アーリ",
-        "Cinderling18"
-      ],
-      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
-      "trigger_items": [],
-      "trigger_emblems": []
-    },
-    {
-      "comp_name": "エルダーウッド+ブローラー",
-      "tier": "B",
-      "avg_place": 4.44,
-      "top4_rate": 0.5,
-      "sample_size": 16,
-      "confidence_level": "LOW",
-      "emblem_holder": null,
-      "key_units": [
-        "アリスター",
-        "エズリアル",
-        "ナー",
-        "アムム",
-        "アイバーン"
-      ],
-      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
-      "trigger_items": [],
-      "trigger_emblems": []
-    },
-    {
-      "comp_name": "ブロッサム+リフトビースト",
-      "tier": "B",
-      "avg_place": 4.5,
-      "top4_rate": 0.5,
-      "sample_size": 10,
-      "confidence_level": "LOW",
-      "emblem_holder": null,
-      "key_units": [
-        "ElderDragon",
-        "セト",
-        "タリック",
-        "Sentinel18",
-        "アーリ"
-      ],
-      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
-      "trigger_items": [],
-      "trigger_emblems": []
-    },
-    {
       "comp_name": "ブラックソーン+ブローラー",
       "tier": "B",
       "avg_place": 4.5,
@@ -1682,19 +1707,38 @@
       "trigger_emblems": []
     },
     {
-      "comp_name": "ソーラー+ディフェンダー",
+      "comp_name": "エルダーウッド+ブローラー",
+      "tier": "B",
+      "avg_place": 4.56,
+      "top4_rate": 0.5,
+      "sample_size": 18,
+      "confidence_level": "LOW",
+      "emblem_holder": null,
+      "key_units": [
+        "アリスター",
+        "エズリアル",
+        "ナー",
+        "ドレイヴン",
+        "アムム"
+      ],
+      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
+      "trigger_items": [],
+      "trigger_emblems": []
+    },
+    {
+      "comp_name": "ディフェンダー+フローラ・ファターリス",
       "tier": "B",
       "avg_place": 4.57,
-      "top4_rate": 0.57,
+      "top4_rate": 0.43,
       "sample_size": 7,
       "confidence_level": "LOW",
       "emblem_holder": null,
       "key_units": [
-        "カミール",
+        "フィドルスティックス",
+        "ラムス",
+        "シェン",
         "オーン",
-        "レオナ",
-        "アカリ",
-        "ヴァルス"
+        "レオナ"
       ],
       "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
       "trigger_items": [],
@@ -1720,7 +1764,7 @@
       "trigger_emblems": []
     },
     {
-      "comp_name": "リフトビースト+ブラックソーン",
+      "comp_name": "ブロッサム+ブローラー",
       "tier": "B",
       "avg_place": 4.64,
       "top4_rate": 0.45,
@@ -1728,30 +1772,11 @@
       "confidence_level": "LOW",
       "emblem_holder": null,
       "key_units": [
-        "Sentinel18",
-        "ニダリー",
-        "シヴィア",
-        "マルファイト",
-        "Cinderling18"
-      ],
-      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
-      "trigger_items": [],
-      "trigger_emblems": []
-    },
-    {
-      "comp_name": "ラピッドファイア+リフトビースト",
-      "tier": "B",
-      "avg_place": 4.67,
-      "top4_rate": 0.33,
-      "sample_size": 3,
-      "confidence_level": "LOW",
-      "emblem_holder": null,
-      "key_units": [
-        "ザヤ",
-        "ヴァルス",
-        "Sentinel18",
-        "アムム",
-        "アフェリオス"
+        "セト",
+        "アーリ",
+        "ナー",
+        "アッシュ",
+        "カルマ"
       ],
       "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
       "trigger_items": [],
@@ -1777,38 +1802,57 @@
       "trigger_emblems": []
     },
     {
-      "comp_name": "フェイ+スプライキン",
+      "comp_name": "ソーラー+ディフェンダー",
       "tier": "B",
-      "avg_place": 4.67,
-      "top4_rate": 0.67,
-      "sample_size": 3,
+      "avg_place": 4.71,
+      "top4_rate": 0.57,
+      "sample_size": 7,
       "confidence_level": "LOW",
       "emblem_holder": null,
       "key_units": [
-        "ヴァイ",
-        "ラカン",
-        "ラムス",
-        "トリスターナ",
-        "シヴィア"
+        "カミール",
+        "オーン",
+        "レオナ",
+        "アカリ",
+        "ヴァルス"
       ],
       "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
       "trigger_items": [],
       "trigger_emblems": []
     },
     {
-      "comp_name": "スペルウィーバー+エルダーウッド",
+      "comp_name": "ブロッサム+リフトビースト",
       "tier": "B",
-      "avg_place": 4.75,
-      "top4_rate": 0.5,
-      "sample_size": 8,
+      "avg_place": 4.73,
+      "top4_rate": 0.45,
+      "sample_size": 11,
       "confidence_level": "LOW",
       "emblem_holder": null,
       "key_units": [
-        "ベイガー",
-        "オーン",
-        "ルブラン",
-        "レク＝サイ",
-        "アリスター"
+        "ElderDragon",
+        "セト",
+        "タリック",
+        "アーリ",
+        "Sentinel18"
+      ],
+      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
+      "trigger_items": [],
+      "trigger_emblems": []
+    },
+    {
+      "comp_name": "リフトビースト+ブラックソーン",
+      "tier": "B",
+      "avg_place": 4.73,
+      "top4_rate": 0.45,
+      "sample_size": 11,
+      "confidence_level": "LOW",
+      "emblem_holder": null,
+      "key_units": [
+        "Sentinel18",
+        "シヴィア",
+        "マルファイト",
+        "ニダリー",
+        "Cinderling18"
       ],
       "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
       "trigger_items": [],
@@ -1834,57 +1878,57 @@
       "trigger_emblems": []
     },
     {
-      "comp_name": "ブロッサム+ブローラー",
-      "tier": "B",
-      "avg_place": 4.83,
-      "top4_rate": 0.42,
-      "sample_size": 12,
-      "confidence_level": "LOW",
-      "emblem_holder": null,
-      "key_units": [
-        "セト",
-        "アーリ",
-        "ナー",
-        "カルマ",
-        "アッシュ"
-      ],
-      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
-      "trigger_items": [],
-      "trigger_emblems": []
-    },
-    {
-      "comp_name": "ディフェンダー+フローラ・ファターリス",
-      "tier": "B",
-      "avg_place": 4.88,
-      "top4_rate": 0.38,
-      "sample_size": 8,
-      "confidence_level": "LOW",
-      "emblem_holder": null,
-      "key_units": [
-        "フィドルスティックス",
-        "ラムス",
-        "シェン",
-        "オーン",
-        "レオナ"
-      ],
-      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
-      "trigger_items": [],
-      "trigger_emblems": []
-    },
-    {
       "comp_name": "エクセキューショナー+サモナー",
       "tier": "B",
-      "avg_place": 4.93,
+      "avg_place": 4.86,
       "top4_rate": 0.41,
       "sample_size": 29,
       "confidence_level": "LOW",
       "emblem_holder": null,
       "key_units": [
+        "フィドルスティックス",
         "アジール",
         "ザイラ",
         "ソラカ",
-        "ヨリック",
-        "フィドルスティックス"
+        "マルファイト"
+      ],
+      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
+      "trigger_items": [],
+      "trigger_emblems": []
+    },
+    {
+      "comp_name": "スペルウィーバー+エルダーウッド",
+      "tier": "B",
+      "avg_place": 4.89,
+      "top4_rate": 0.44,
+      "sample_size": 9,
+      "confidence_level": "LOW",
+      "emblem_holder": null,
+      "key_units": [
+        "ベイガー",
+        "オーン",
+        "ルブラン",
+        "レク＝サイ",
+        "アリスター"
+      ],
+      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
+      "trigger_items": [],
+      "trigger_emblems": []
+    },
+    {
+      "comp_name": "フェイ+スプライキン",
+      "tier": "B",
+      "avg_place": 5.0,
+      "top4_rate": 0.5,
+      "sample_size": 4,
+      "confidence_level": "LOW",
+      "emblem_holder": null,
+      "key_units": [
+        "ヴァイ",
+        "ラムス",
+        "トリスターナ",
+        "ラカン",
+        "リリア"
       ],
       "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
       "trigger_items": [],
@@ -1904,25 +1948,6 @@
         "オーン",
         "ベイガー",
         "レク＝サイ"
-      ],
-      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
-      "trigger_items": [],
-      "trigger_emblems": []
-    },
-    {
-      "comp_name": "インヴォーカー+リフトビースト",
-      "tier": "B",
-      "avg_place": 5.0,
-      "top4_rate": 0.44,
-      "sample_size": 9,
-      "confidence_level": "LOW",
-      "emblem_holder": null,
-      "key_units": [
-        "Sentinel18",
-        "モルガナ",
-        "Sentry",
-        "Krug18",
-        "コグ＝マウ"
       ],
       "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
       "trigger_items": [],
@@ -2062,6 +2087,25 @@
       "trigger_emblems": []
     },
     {
+      "comp_name": "インフェルノ+ジャガーノート",
+      "tier": "B",
+      "avg_place": 5.33,
+      "top4_rate": 0.33,
+      "sample_size": 6,
+      "confidence_level": "LOW",
+      "emblem_holder": null,
+      "key_units": [
+        "アムム",
+        "シェン",
+        "アッシュ",
+        "シヴィア",
+        "ヴァイ"
+      ],
+      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
+      "trigger_items": [],
+      "trigger_emblems": []
+    },
+    {
       "comp_name": "インフェルノ+ハンター",
       "tier": "B",
       "avg_place": 5.38,
@@ -2081,19 +2125,38 @@
       "trigger_emblems": []
     },
     {
-      "comp_name": "インフェルノ+ジャガーノート",
+      "comp_name": "ブロッサム+ソーラー",
       "tier": "B",
-      "avg_place": 5.4,
-      "top4_rate": 0.4,
-      "sample_size": 5,
+      "avg_place": 5.38,
+      "top4_rate": 0.38,
+      "sample_size": 8,
       "confidence_level": "LOW",
       "emblem_holder": null,
       "key_units": [
-        "アムム",
-        "シェン",
-        "アッシュ",
-        "アカリ",
-        "シヴィア"
+        "セジュアニ",
+        "ユナラ",
+        "カルマ",
+        "ルブラン",
+        "ヨリック"
+      ],
+      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
+      "trigger_items": [],
+      "trigger_emblems": []
+    },
+    {
+      "comp_name": "インヴォーカー+リフトビースト",
+      "tier": "B",
+      "avg_place": 5.38,
+      "top4_rate": 0.38,
+      "sample_size": 8,
+      "confidence_level": "LOW",
+      "emblem_holder": null,
+      "key_units": [
+        "Sentinel18",
+        "モルガナ",
+        "Sentry",
+        "Krug18",
+        "ラカン"
       ],
       "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
       "trigger_items": [],
@@ -2138,25 +2201,6 @@
       "trigger_emblems": []
     },
     {
-      "comp_name": "ブロッサム+ソーラー",
-      "tier": "B",
-      "avg_place": 5.56,
-      "top4_rate": 0.33,
-      "sample_size": 9,
-      "confidence_level": "LOW",
-      "emblem_holder": null,
-      "key_units": [
-        "セジュアニ",
-        "ユナラ",
-        "カルマ",
-        "ルブラン",
-        "ヨリック"
-      ],
-      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
-      "trigger_items": [],
-      "trigger_emblems": []
-    },
-    {
       "comp_name": "インフェルノ+ディフェンダー",
       "tier": "B",
       "avg_place": 5.57,
@@ -2170,44 +2214,6 @@
         "リリア",
         "アムム",
         "ケネン"
-      ],
-      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
-      "trigger_items": [],
-      "trigger_emblems": []
-    },
-    {
-      "comp_name": "ディフェンダー+インフェルノ",
-      "tier": "B",
-      "avg_place": 6.0,
-      "top4_rate": 0.25,
-      "sample_size": 4,
-      "confidence_level": "LOW",
-      "emblem_holder": null,
-      "key_units": [
-        "アカリ",
-        "フィドルスティックス",
-        "マオカイ",
-        "アムム",
-        "リリア"
-      ],
-      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
-      "trigger_items": [],
-      "trigger_emblems": []
-    },
-    {
-      "comp_name": "エルダーウッド+ディフェンダー",
-      "tier": "B",
-      "avg_place": 6.0,
-      "top4_rate": 0.0,
-      "sample_size": 3,
-      "confidence_level": "LOW",
-      "emblem_holder": null,
-      "key_units": [
-        "ヘカリム",
-        "オーン",
-        "アフェリオス",
-        "ザヤ",
-        "アリスター"
       ],
       "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
       "trigger_items": [],
@@ -2233,6 +2239,25 @@
       "trigger_emblems": []
     },
     {
+      "comp_name": "ディフェンダー+インフェルノ",
+      "tier": "B",
+      "avg_place": 6.0,
+      "top4_rate": 0.25,
+      "sample_size": 4,
+      "confidence_level": "LOW",
+      "emblem_holder": null,
+      "key_units": [
+        "アカリ",
+        "フィドルスティックス",
+        "マオカイ",
+        "アムム",
+        "リリア"
+      ],
+      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
+      "trigger_items": [],
+      "trigger_emblems": []
+    },
+    {
       "comp_name": "サモナー+フローラ・ファターリス",
       "tier": "B",
       "avg_place": 6.17,
@@ -2252,19 +2277,38 @@
       "trigger_emblems": []
     },
     {
+      "comp_name": "ブロッサム+インヴォーカー",
+      "tier": "B",
+      "avg_place": 6.67,
+      "top4_rate": 0.33,
+      "sample_size": 3,
+      "confidence_level": "LOW",
+      "emblem_holder": null,
+      "key_units": [
+        "モルガナ",
+        "カルマ",
+        "セト",
+        "アーリ",
+        "Krug18"
+      ],
+      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
+      "trigger_items": [],
+      "trigger_emblems": []
+    },
+    {
       "comp_name": "ヴァンガード+リフトビースト",
       "tier": "B",
-      "avg_place": 6.75,
+      "avg_place": 6.67,
       "top4_rate": 0.0,
-      "sample_size": 4,
+      "sample_size": 3,
       "confidence_level": "LOW",
       "emblem_holder": null,
       "key_units": [
         "Sentinel18",
         "タリック",
         "ヘカリム",
-        "ElderDragon",
-        "マオカイ"
+        "アフェリオス",
+        "CrimsonRaptor18"
       ],
       "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
       "trigger_items": [],
