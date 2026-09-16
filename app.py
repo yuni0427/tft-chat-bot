@@ -1,11 +1,8 @@
 """
 TFT Strategy & Meta Advisor - Streamlitアプリ本体。
 
-3分岐ルーター（曖昧/理論/メタ）に基づき、
-- ambiguous: 聞き返しボタンを表示
-- theory: RAGベースの理論回答
-- meta: アイテムビルド/構成逆引き（カードUI） or 全体メタのナラティブ回答
-を切り替えて表示するチャットUI。
+- タブ1: 3分岐ルーター（曖昧/理論/メタ）に基づくチャットUI
+- タブ2: TFTAcademy 自動取得ティアリスト（プロ監修の最新メタ一覧）
 """
 import streamlit as st
 
@@ -13,9 +10,10 @@ import config
 from src.chains import intent_router, meta_chain, theory_chain
 from src.llm.factory import is_llm_configured
 from src.meta import meta_service
+from src.meta.tftacademy_client import get_tftacademy_tierlist
 from src.ui import cards
 
-st.set_page_config(page_title="TFT Strategy & Meta Advisor", page_icon="🧠", layout="centered")
+st.set_page_config(page_title="TFT Strategy & Meta Advisor", page_icon="🧠", layout="wide")
 
 
 # ---------------------------------------------------------------------------
@@ -30,7 +28,7 @@ def _respond_theory(query: str) -> None:
         )
         return
     content = result["answer"]
-    if result["sources"]:
+    if result.get("sources"):
         content += f"\n\n---\n参照ノート: {', '.join(result['sources'])}"
     st.session_state.messages.append({"role": "assistant", "content": content})
 
@@ -61,8 +59,8 @@ def _classify_and_respond(query: str) -> None:
             {
                 "role": "assistant",
                 "content": (
-                    "LLM APIキーが未設定のため回答できません。`.env` を確認して"
-                    f" {config.LLM_PROVIDER} 用のAPIキーを設定してください（README参照）。"
+                    "LLM APIキーが未設定のため回答できません。Secrets または `.env` を確認して"
+                    f" {config.LLM_PROVIDER} 用のAPIキーを設定してください。"
                 ),
             }
         )
@@ -122,10 +120,10 @@ if "pending_clarification" not in st.session_state:
 # サイドバー
 # ---------------------------------------------------------------------------
 with st.sidebar:
-    st.header("設定")
-    st.write(f"LLMプロバイダー: **{config.LLM_PROVIDER}**")
+    st.header("⚙️ 設定・ステータス")
+    st.write(f"LLMプロバイダー: **{config.LLM_PROVIDER.upper()}**")
     if not is_llm_configured():
-        st.warning("APIキーが未設定です。`.env` を確認してください（README参照）。")
+        st.warning("⚠️ APIキーが未設定です。Secrets / .env を確認してください。")
 
     try:
         patches = meta_service.list_available_patches()
@@ -139,7 +137,7 @@ with st.sidebar:
         st.session_state.selected_patch = selected_patch
         try:
             data = meta_service.load_meta_data(selected_patch)
-            st.caption(f"データソース: {data.get('source', '不明')} / 更新: {data.get('updated_at', '不明')}")
+            st.caption(f"📊 Riotデータ: {data.get('source', '不明')} / 更新: {data.get('updated_at', '不明')}")
         except Exception as exc:  # noqa: BLE001
             st.caption(f"データ読込エラー: {exc}")
     else:
@@ -158,33 +156,62 @@ with st.sidebar:
                 st.error(f"再構築に失敗しました: {exc}")
 
 # ---------------------------------------------------------------------------
-# メイン画面
+# メイン画面（タブ構造）
 # ---------------------------------------------------------------------------
 st.title("🧠 TFT Strategy & Meta Advisor")
-st.caption("普遍的な立ち回り理論と最新パッチの統計を組み合わせてアドバイスします。")
 
-for msg in st.session_state.messages:
-    with st.chat_message(msg["role"]):
-        if msg.get("html"):
-            st.markdown(msg["html"], unsafe_allow_html=True)
-        if msg.get("content"):
-            st.markdown(msg["content"])
+tab_chat, tab_academy = st.tabs(["💬 戦略AIチャット", "🏆 TFTAcademy ティアリスト"])
 
-if st.session_state.pending_clarification:
-    pending = st.session_state.pending_clarification
-    with st.chat_message("assistant"):
-        st.markdown(pending["message"])
-        cols = st.columns(len(pending["options"]) or 1)
-        for i, opt in enumerate(pending["options"]):
-            if cols[i].button(opt["label"], key=f"clarify_{pending['id']}_{i}"):
-                st.session_state.pending_clarification = None
-                _route_and_respond(opt["prefill_query"], opt["route_to"])
-                st.rerun()
+# --- タブ1: AI チャット ---
+with tab_chat:
+    st.caption("立ち回り理論（RAG）と実戦マッチ統計を組み合わせてアドバイスします。")
 
-query = st.chat_input(
-    "TFTについて質問してください（例: ファスト8の手順 / アッシュの装備 / スナイパーの紋章が出た）"
-)
-if query:
-    st.session_state.messages.append({"role": "user", "content": query})
-    _classify_and_respond(query)
-    st.rerun()
+    for msg in st.session_state.messages:
+        with st.chat_message(msg["role"]):
+            if msg.get("html"):
+                st.markdown(msg["html"], unsafe_allow_html=True)
+            if msg.get("content"):
+                st.markdown(msg["content"])
+
+    if st.session_state.pending_clarification:
+        pending = st.session_state.pending_clarification
+        with st.chat_message("assistant"):
+            st.markdown(pending["message"])
+            cols = st.columns(len(pending["options"]) or 1)
+            for i, opt in enumerate(pending["options"]):
+                if cols[i].button(opt["label"], key=f"clarify_{pending['id']}_{i}"):
+                    st.session_state.pending_clarification = None
+                    _route_and_respond(opt["prefill_query"], opt["route_to"])
+                    st.rerun()
+
+    query = st.chat_input(
+        "TFTについて質問してください（例: ファスト8の手順 / アッシュの装備 / スナイパーの紋章が出た）"
+    )
+    if query:
+        st.session_state.messages.append({"role": "user", "content": query})
+        _classify_and_respond(query)
+        st.rerun()
+
+# --- タブ2: TFTAcademy ティアリスト自動表示 ---
+with tab_academy:
+    st.subheader("🏆 TFTAcademy 最新メタ構成 (Auto-Synced)")
+    st.caption("Dishsoap & Frodan 等のトッププロが推奨するティア表です（6時間ごとに自動更新）。")
+
+    with st.spinner("TFTAcademy から最新データを取得中..."):
+        tier_data = get_tftacademy_tierlist()
+
+    if not tier_data:
+        st.info("現在 TFTAcademy データを取得中、または一時的に取得できません。")
+    else:
+        for tier_group in tier_data:
+            tier_name = tier_group.get("tier", "Unknown")
+            comps = tier_group.get("comps", [])
+            st.markdown(f"### Tier: {tier_name}")
+            
+            for comp in comps:
+                with st.expander(f"**{comp.get('name', '構成名不明')}** (難易度: {comp.get('difficulty', '普')})"):
+                    st.write(f"**進行方針 / Level:** {comp.get('playstyle', 'Fast 8 / Standard')}")
+                    st.write(f"**メインキャリー:** {', '.join(comp.get('carries', []))}")
+                    st.write(f"**推奨アイテム:** {', '.join(comp.get('items', []))}")
+                    if comp.get("notes"):
+                        st.info(comp["notes"])
