@@ -6,7 +6,7 @@ import urllib.request
 
 
 def clean_spell_text(text: str) -> str:
-    """スキル説明からHTMLタグ、CDragon内部変数(@...@)、特殊記号を除去"""
+    """スキル・特性説明からHTMLタグ、CDragon内部変数(@...@)、特殊記号を除去"""
     if not text:
         return ""
     text = html.unescape(text)
@@ -17,8 +17,59 @@ def clean_spell_text(text: str) -> str:
     return text
 
 
+def sync_trait_data(
+    target_set: dict, output_dir: Path
+) -> tuple[Path, dict]:
+    """現行最新セット (Set 18 / TFTSet18) の特性（シナジー）情報を抽出して保存"""
+    target_file = output_dir / "traits.json"
+    traits_dict = {}
+
+    for trait in target_set.get("traits", []):
+        api_name = trait.get("apiName", "")
+        name = trait.get("name")
+
+        # Set 18 特性判定 (apiName に '18' を含む、または明示的な名前が存在)
+        if not name or "18" not in api_name:
+            continue
+
+        raw_desc = trait.get("desc", "")
+        clean_desc = clean_spell_text(raw_desc)
+
+        # ブレークポイントごとの効果を取得
+        effects_list = []
+        for eff in trait.get("effects", []):
+            min_units = eff.get("minUnits")
+            if min_units is not None:
+                effects_list.append(
+                    {
+                        "min_units": min_units,
+                        "style": eff.get("style", 0),
+                    }
+                )
+
+        # 昇順ソート
+        effects_list.sort(key=lambda x: x["min_units"])
+
+        traits_dict[name] = {
+            "name": name,
+            "api_name": api_name,
+            "description": clean_desc,
+            "breakpoints": [e["min_units"] for e in effects_list],
+            "effects": effects_list,
+        }
+
+    output_dir.mkdir(parents=True, exist_ok=True)
+    with open(target_file, "w", encoding="utf-8") as f:
+        json.dump(traits_dict, f, ensure_ascii=False, indent=2)
+
+    print(
+        f"✅ 特性抽出完了: Set 18 のシナジー {len(traits_dict)} 種類を保存しました。"
+    )
+    return target_file, traits_dict
+
+
 def sync_champion_data(patch_version: str, output_dir: Path) -> Path:
-    """apiName に '18' を含むユニットを抽出して保存"""
+    """現行最新セット (Set 18 / TFTSet18) のチャンピオンおよび特性情報を抽出して保存"""
     target_file = output_dir / "champions.json"
 
     url = "https://raw.communitydragon.org/latest/cdragon/tft/ja_jp.json"
@@ -38,6 +89,10 @@ def sync_champion_data(patch_version: str, output_dir: Path) -> Path:
         print("⚠️ TFTSet18 のデータブロックが見つかりませんでした。")
         return target_file
 
+    # 1. 特性（シナジー）を抽出・保存
+    sync_trait_data(target_set, output_dir)
+
+    # 2. チャンピオンを抽出・保存
     champions = {}
     debuff_keywords = {
         "細断": "細断",
@@ -54,19 +109,12 @@ def sync_champion_data(patch_version: str, output_dir: Path) -> Path:
         cost = champ.get("cost", 0)
         traits = champ.get("traits", [])
 
-        # 1. 内部ID (apiName) に '18' が含まれていること
         if "18" not in api_name:
             continue
-
-        # 2. プレイアブル駒の基本条件（名前あり、コスト1〜5）
         if not name or cost not in [1, 2, 3, 4, 5]:
             continue
-
-        # 3. スキン違い（括弧付きの名前）を除外し、ベース駒のみにする
         if "(" in name or "（" in name:
             continue
-
-        # 既に登録済みの場合は重複スキップ
         if name in champions:
             continue
 
@@ -101,6 +149,6 @@ def sync_champion_data(patch_version: str, output_dir: Path) -> Path:
         json.dump(champions, f, ensure_ascii=False, indent=2)
 
     print(
-        f"✅ 抽出完了: Set 18 のチャンピオン {len(champions)} 体を保存しました。"
+        f"✅ チャンピオン抽出完了: Set 18 のチャンピオン {len(champions)} 体を保存しました。"
     )
     return target_file
