@@ -46,7 +46,6 @@ _GENERAL_SYSTEM_PROMPT = """あなたはTFT(Teamfight Tactics)のハイレベル
 5. 【構成ごとのリンクとチームコードの出力ルール】
    構成を具体的に推奨する場合は、解説セクションの「すぐ直下」にTFTAcademy詳細リンクとチームコードを以下のフォーマットで記載してください:
    - 📖 **詳細ガイド:** [構成名 - TFTAcademy](URL)
-   - 📋 **チームコード:** `チームコード` （※コードがある場合はインラインコード形式。ない場合は「なし」）
 
 6. 【言語対応】ユーザーが英語で質問した場合は英語で回答し、日本語で質問した場合は日本語で回答してください。
 """
@@ -161,12 +160,7 @@ def _format_academy_data(raw_data: dict | list) -> str:
                 if slug
                 else "https://tftacademy.com/tierlist/comps"
             )
-            team_code = (
-                comp.get("teamCode")
-                or comp.get("shareCode")
-                or comp.get("code")
-                or ""
-            )
+
 
             main_champ_info = comp.get("mainChampion", {})
             main_champ_raw = (
@@ -195,7 +189,6 @@ def _format_academy_data(raw_data: dict | list) -> str:
                 f"    メインキャリー: {main_champ} | コアアイテム: {items_str}\n"
                 f"    最終盤面ユニット: {units_str}\n"
                 f"    ガイドURL: {guide_url}\n"
-                f"    チームコード: {team_code if team_code else 'なし'}"
             )
 
             aug_tip = comp.get("augmentsTip")
