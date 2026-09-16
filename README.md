@@ -1,104 +1,76 @@
-# TFT Strategy & Meta Advisor
+# 🎯 TFT Strategy & Meta Advisor
 
 普遍的な立ち回り理論（ナレッジベース/RAG）と、Riot公式実戦マッチ統計、および TFTAcademy（Dishsoap & Frodan 等のトッププロ監修）の推奨ガイドをリアルタイムに統合し、プレイヤーの質問意図に応じた最適なアドバイスを提供するAIアドバイザーアプリ。
 
 ---
 
-## 主な特徴
+## ⚡ 実行コマンドと簡単な説明
 
-- **統計 × プロ推奨のクロスチェック**: Riot API のマッチ統計（平均順位・勝率）と TFTAcademy のプロティア表を照合し、根拠のあるメタ構成・最適アイテム（BiS）を提案。
-- **ガイド直結 & チームコード出力**: 各構成の解説直下に「TFTAcademy 詳細ガイドリンク」およびゲーム内のチームプランナーに直接インポートできる「チームコード（Copy Team Code）」を自動出力。
-- **公式日本語辞書との完全同期**: Riot/CommunityDragon の最新辞書を参照し、チャンピオン名、アイテム名、オーグメント名を正確に日本語化。
-- **完全自動同期パイプライン**: パッチ自動検知、統計収集、プロガイドキャッシュ、ナレッジ再構築を毎日 15:00 (JST) に GitHub Actions で完全自動実行。
-
----
-
-## セットアップ
-
-### 1. 依存パッケージのインストール
-
+### 1. 日常運用・高速同期（推奨）
+Riot API の重い試合収集（レート制限待ち）をスキップし、CDragon からの駒/シナジー抽出、ローカルキャッシュからの RAG 再構築、Git デプロイのみを数秒で完了させます。
 ```bash
-pip install -r requirements.txt
+python scripts/update_all_meta.py --skip-riot
 ```
 
-### 2. `.env` の作成
-
-`.env.example` をコピーして `.env` を作成し、必要なAPIキーを設定してください。
-
+### 2. 全自動フル同期（新パッチ適用時など）
+最新パッチ検出、Riot API 統計収集、TFTAcademy 取得、駒/シナジー辞書生成、RAG 再構築、GitHub プッシュまで全工程を一括実行します。
 ```bash
-copy .env.example .env
+python scripts/update_all_meta.py
 ```
 
-#### LLM APIキー（必須）
+### 3. パッチバージョンを指定して実行する場合
+```bash
+python scripts/update_all_meta.py --skip-riot --patch 16.18
+```
 
-- **Google Gemini（推奨）**: `LLM_PROVIDER=gemini` に設定し、`GOOGLE_API_KEY` を [Google AI Studio](https://aistudio.google.com/app/apikey) で発行して設定します。
-- **OpenAI**: `LLM_PROVIDER=openai` に設定し、`OPENAI_API_KEY` を [OpenAI Platform](https://platform.openai.com/api-keys) で発行して設定します。
+### 4. 立ち回り理論ノート（RAG）のみの即時更新
+`knowledge_base/*.md` の理論ノートを加筆・修正した際、ベクトルDB（ChromaDB）のみを即時再構築して GitHub へプッシュします。
+```bash
+python scripts/update_knowledge.py
+```
 
-#### Riot Games API（実戦統計収集時）
+### 5. 駒・シナジー辞書の単体抽出
+CDragon から最新セット（Set 18）の `champions.json` と `traits.json` のみを即座に抽出・最新化します。
+```bash
+python -c "from pathlib import Path; from src.meta.champion_extractor import sync_champion_data; sync_champion_data('16.18', Path('data/patch_16.18'))"
+```
 
-未設定でもアプリは静的サンプルデータ（`data/patch_xx/meta_snapshot.json`）やキャッシュデータで動作します。ローカルで実戦マッチデータを収集する場合に設定してください。
-
-1. [developer.riotgames.com](https://developer.riotgames.com/) にログインし、APIキーを取得して `RIOT_API_KEY` に設定。
-2. リージョン設定: `RIOT_PLATFORM_REGION=jp1` / `RIOT_REGIONAL_ROUTE=asia`（日本サーバーの場合）。
-
----
-
-## 起動方法
-
+### 6. ローカル Web UI の起動
+Streamlit のチャット・分析ダッシュボードを立ち上げます。
 ```bash
 streamlit run app.py
 ```
 
 ---
 
-## データ更新・運用ガイド
+## 📖 その他の仕様・詳細情報
 
-更新する対象データに応じて、最適なスクリプトを使い分ける設計になっています。
+### 1. 主な特徴・機能
+- **統計 × プロ推奨のクロスチェック**: Riot API のマッチ統計（平均順位・勝率）と TFTAcademy のプロティア表を照合し、根拠のあるメタ構成・最適アイテム（BiS）を提案。
+- **ガイド直結 & チームコード出力**: 各構成の解説直下に「TFTAcademy 詳細ガイドリンク」およびゲーム内のチームプランナーに直接インポートできる「チームコード（Copy Team Code）」を自動出力。
+- **公式日本語辞書・デバフ判定との完全同期**: CommunityDragon から最新セット（Set 18）のチャンピオン、特性（ブレークポイント・効果）、スキル詳細を自動抽出。**負傷（重症・炎上）、細断、分解、スタン、マナリーヴ** などのユーティリティを辞書化して AI/RAG に提供。
+- **完全自動同期パイプライン**: パッチ自動検知、統計収集、プロガイドキャッシュ、ナレッジ再構築を毎日 15:00 (JST) に GitHub Actions（`.github/workflows/sync_meta.yml`）で自動実行（手動メンテ不要）。
 
-### 1. 毎日の定期自動更新（GitHub Actions）
-**管理者の手動作業は不要です。**
-GitHub Actions（`.github/workflows/sync_meta.yml`）により、**毎日 15:00 (JST)** に以下が自動実行され、リポジトリへ自動コミット＆プッシュされます（Streamlit Cloud にも即時反映）。
+### 2. セットアップ & 環境変数
 
-1. Riot Data Dragon から最新パッチ番号を検出・保存（`data/current_patch.txt`）
-2. Riot API による最新マッチ統計の収集・分析・集計（`build_meta_stats.py`）
-3. TFTAcademy の最新ティア表・チームコードのキャッシュ取得
-4. RAG ベクトルDBの再構築（`build_vector_db.py`）
-5. GitHub への自動プッシュ
-
----
-
-### 2. 立ち回り理論ノート（RAG）のみを更新した場合
-`knowledge_base/*.md` の理論ノートを加筆・修正した際は、Riot API の重い処理をスキップして**数秒でベクトルDBのみを再構築・デプロイ**できます。
-
+#### 依存パッケージのインストール
 ```bash
-python scripts/update_knowledge.py
+pip install -r requirements.txt
 ```
-> **実行内容:** ベクトルDB（ChromaDB）を即時再構築し、`data/` の変更分のみを GitHub へ自動プッシュします。
 
----
-
-### 3. 手動で全メタデータを即時更新したい場合
-パッチ直後など、15時の定期更新を待たずに今すぐ全データを最新化したい場合に実行します。
-
+#### 環境変数の設定 (`.env` または `.streamlit/secrets.toml`)
+`.env.example` をコピーして `.env` を作成します。
 ```bash
-python scripts/update_all_meta.py
+copy .env.example .env
 ```
-> **実行内容:** 最新パッチ検出、Riot API 統計収集、TFTAcademy 取得、ベクトルDB再構築、GitHub プッシュを一括実行します。
+- **LLM APIキー（必須）**:
+  - `LLM_PROVIDER=gemini` / `GOOGLE_API_KEY`（または `GEMINI_API_KEY`）
+  - `LLM_PROVIDER=openai` / `OPENAI_API_KEY`
+- **Riot Games APIキー（実戦統計収集時）**:
+  - `RIOT_API_KEY`: [Riot Developer Portal](https://developer.riotgames.com/) で発行したキー
+  - `RIOT_PLATFORM_REGION=jp1` / `RIOT_REGIONAL_ROUTE=asia`
 
----
-
-### 4. 新セット開幕時の日本語辞書更新（Set切り替わり時のみ）
-新セット（Set 14, 15など）がリリースされ、新しいチャンピオンやアイテムが登場した際のみ単発で実行します。
-
-```bash
-python scripts/update_lexicon.py
-```
-> **実行内容:** CommunityDragon から最新の日本語データを取得し、接頭辞の正規化処理を行って `data/tft_lexicon_ja.json` を再生成・GitHub へプッシュします。
-
----
-
-## ディレクトリ構成
-
+### 3. ディレクトリ構成
 ```text
 app.py                         Streamlit アプリケーション本体
 config.py                      設定値管理（.env 読込）
@@ -106,15 +78,19 @@ knowledge_base/                立ち回り理論 Markdown ノート群
 data/
   ├── current_patch.txt        現在適用中のパッチ番号（自動更新）
   ├── tft_lexicon_ja.json      Riot公式 日本語翻訳辞書
-  └── patch_xx/                パッチ別の統計キャッシュ（meta_cache.json / meta_snapshot.json）
+  └── patch_xx/                パッチ別の抽出データ & 統計キャッシュ
+      ├── champions.json       Set 18 チャンピオン（コスト、スキル、ユーティリティ）
+      ├── traits.json          Set 18 シナジー一覧、効果、ブレークポイント
+      ├── meta_cache.json      Riot API 上位帯マッチ集計データ
+      └── vector_db/           RAG 検索用ベクトルストア（ChromaDB）
 src/
   ├── chains/
-  │     ├── intent_router.py   意図分類ルーター（理論 / メタ / 曖昧）
-  │     ├── meta_chain.py      統計 + TFTAcademy照合回答チェーン
-  │     └── theory_chain.py    RAG（理論ノート検索）回答チェーン
+  │    ├── intent_router.py    意図分類ルーター（理論 / メタ / 曖昧）
+  │    ├── meta_chain.py       統計 + TFTAcademy照合回答チェーン
+  │    └── theory_chain.py     RAG（理論ノート検索）回答チェーン
   ├── llm/                     LLMプロバイダー抽象化モジュール
-  ├── meta/                    Riot API集計・翻訳・TFTAcademyクライアント
-  ├── rag/                     ナレッジ取り込み・ベクトルストア（ChromaDB）
+  ├── meta/                    CDragon抽出・Riot API集計・翻訳・TFTAcademyクライアント
+  ├── rag/                     ナレッジ取り込み・ベクトルストア
   └── ui/                      カードスタイル・CSS
 scripts/
   ├── build_meta_stats.py      Riot API マッチ統計集計コアスクリプト
@@ -126,10 +102,7 @@ scripts/
   └── sync_meta.yml            毎日15:00 (JST) 定期実行ワークフロー
 ```
 
----
-
-## 統計データの信頼性ルール
-
+### 4. 統計データの信頼性ルール
 - 通常アイテム BiS は「試行回数が上位10%以内」かつ「最低100件以上」の母集団から選出。
 - サンプル数に応じて信頼度ランクを付与（HIGH: 1000件以上 / MEDIUM: 300〜999件 / LOW: 100〜299件）。
 - アーティファクト/紋章などの特殊アイテムは通常アイテムと母集団を分離し、通常BiSを上回る組み合わせのみを提示。
