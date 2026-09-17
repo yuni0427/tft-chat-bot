@@ -43,7 +43,6 @@ def get_tftacademy_tierlist() -> dict:
     return {}
     
     from pathlib import Path
-from bs4 import BeautifulSoup
 
 
 def sync_patch_guides(patch_version: str, output_dir: Path) -> None:
