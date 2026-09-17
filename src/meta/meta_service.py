@@ -124,8 +124,162 @@ def load_meta_data(patch: str | None = None) -> dict:
         return static_data
 
 
+# ---------------------------------------------------------------------------
+# チャンピオン識別子の正規化・照合ユーティリティ
+# ---------------------------------------------------------------------------
+
+# プレフィックス除去パターン（優先順: 長いものから）
+_CHAMP_PREFIX_RE = re.compile(
+    r"^(?:DA_18_|TFT18_|Set18_|DA_18|DA_)",
+    flags=re.IGNORECASE,
+)
+# 語尾の "18" などセット番号を除去するパターン
+_CHAMP_SUFFIX_RE = re.compile(r"18$", flags=re.IGNORECASE)
+
+# 表記ゆれを吸収する正規化（全角＝→除去、スペース除去、小文字化）
+def _normalize_str(s: str) -> str:
+    return s.lower().replace(" ", "").replace("＝", "").replace("=", "").replace("'", "").replace("'", "")
+
+
+def _build_champion_id_map(patch: str | None = None) -> dict[str, str]:
+    """champions.json を読み込み、各種キーから正規化済み日本語名へのマッピングを返す。
+
+    登録されるキー（すべて _normalize_str 済み）:
+      - 日本語名そのまま  (例: "コグ＝マウ" → "こぐまう")
+      - api_name フル     (例: "da_18_kogmaw" → "こぐまう")
+      - api_name のプレフィックス・サフィックス除去後  (例: "kogmaw" → "こぐまう")
+
+    patch が None の場合は最新パッチを使用する。
+    ファイルが存在しない場合は空辞書を返す（フォールバック可能）。
+    """
+    patch = patch or get_current_patch()
+    champ_file = _patch_dir(patch) / "champions.json"
+    if not champ_file.exists():
+        # 最新パッチで再試行
+        latest = get_latest_available_patch()
+        champ_file = _patch_dir(latest) / "champions.json"
+    if not champ_file.exists():
+        return {}
+
+    try:
+        champs: dict = json.loads(champ_file.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+
+    id_map: dict[str, str] = {}
+    for name_ja, data in champs.items():
+        norm_ja = _normalize_str(name_ja)
+        # 日本語名 → 日本語名
+        id_map[norm_ja] = norm_ja
+
+        api_name: str = data.get("api_name", "") or data.get("apiName", "")
+        if not api_name:
+            continue
+
+        # api_name フル（小文字）→ 日本語名
+        id_map[_normalize_str(api_name)] = norm_ja
+
+        # プレフィックス・サフィックス除去後 → 日本語名
+        short = _CHAMP_PREFIX_RE.sub("", api_name)
+        short = _CHAMP_SUFFIX_RE.sub("", short)
+        id_map[_normalize_str(short)] = norm_ja
+
+    return id_map
+
+
+def _unit_raw_to_token(raw: str, id_map: dict[str, str]) -> str | None:
+    """生の識別子文字列（日本語名・英語ID・apiName 問わず）を正規化済みトークンに変換する。
+
+    変換優先順:
+      1. id_map に完全一致（正規化後）
+      2. プレフィックス/サフィックスを除去してから id_map を参照
+      3. どちらも失敗した場合は正規化済み文字列をそのまま返す
+         （日本語名はこのケースに該当し、照合時に役立つ）
+    """
+    if not raw:
+        return None
+
+    norm = _normalize_str(raw)
+
+    # 1. 正規化後に完全一致
+    if norm in id_map:
+        return id_map[norm]
+
+    # 2. プレフィックス・サフィックスを除去して再試行
+    short = _CHAMP_PREFIX_RE.sub("", raw)
+    short = _CHAMP_SUFFIX_RE.sub("", short)
+    norm_short = _normalize_str(short)
+    if norm_short in id_map:
+        return id_map[norm_short]
+
+    # 3. id_map の全 api_name に対して部分スキャン（DA_Gromp18_AP のような複合形式に対応）
+    for key, token in id_map.items():
+        if norm_short and norm_short in key:
+            return token
+
+    # 4. フォールバック: 正規化文字列をそのまま使う（日本語名はここに落ちる）
+    return norm if norm else None
+
+
+def _extract_unit_tokens(comp: dict, id_map: dict[str, str]) -> set[str]:
+    """構成データから正規化済みユニットトークン集合を抽出する。
+
+    対応する入力形式:
+      - TFTAcademy 形式: finalComp: [{'apiName': 'DA_18_Ahri', ...}, ...]
+      - Riot 統計形式:   key_units: ['コグ＝マウ', 'Sentinel18', ...]
+    """
+    tokens: set[str] = set()
+
+    # TFTAcademy 形式（finalComp）
+    for u in comp.get("finalComp", []):
+        raw = u.get("apiName", "") if isinstance(u, dict) else str(u)
+        tok = _unit_raw_to_token(raw, id_map)
+        if tok:
+            tokens.add(tok)
+
+    # Riot 統計形式（key_units）
+    for u in comp.get("key_units", []):
+        raw = str(u.get("character_id", "") or u.get("name", "")) if isinstance(u, dict) else str(u)
+        tok = _unit_raw_to_token(raw, id_map)
+        if tok:
+            tokens.add(tok)
+
+    return tokens
+
+
+def _match_score(tokens_a: set[str], tokens_b: set[str]) -> tuple[int, float]:
+    """2つのトークン集合の一致スコアを返す。
+
+    Returns:
+        (共通ユニット数, Jaccard 係数)
+    """
+    if not tokens_a or not tokens_b:
+        return 0, 0.0
+    intersection = len(tokens_a & tokens_b)
+    union = len(tokens_a | tokens_b)
+    jaccard = intersection / union if union > 0 else 0.0
+    return intersection, jaccard
+
+
+# ---------------------------------------------------------------------------
+# マージ処理
+# ---------------------------------------------------------------------------
+
 def _merge_meta_data(static_data: dict, cache_data: dict) -> dict:
-    merged = {
+    """Riot 実戦統計（cache）と TFTAcademy ガイド（static）を駒照合でマージする。
+
+    マージ方針:
+      - cache_comps の各構成について、key_units から抽出したトークン集合と
+        static_comps の finalComp トークン集合を比較し、
+        共通ユニット数 >= MIN_OVERLAP かつ Jaccard >= MIN_JACCARD を満たす
+        最良マッチを特定する。
+      - マッチ成功時は TFTAcademy のリッチ情報（metaTitle, style, finalComp 等）を注入。
+      - static にしか存在しない構成は末尾に追加（理論値構成の欠落を防ぐ）。
+    """
+    MIN_OVERLAP = 3    # 共通ユニット数の最低ライン
+    MIN_JACCARD = 0.20  # Jaccard 係数の最低ライン（20% 以上の一致率）
+
+    merged: dict = {
         "patch": cache_data.get("patch", static_data.get("patch")),
         "updated_at": cache_data.get("updated_at", static_data.get("updated_at")),
         "source": "riot_api_aggregate+static_supplement",
@@ -133,6 +287,7 @@ def _merge_meta_data(static_data: dict, cache_data: dict) -> dict:
         "comp_recommendations": [],
     }
 
+    # --- チャンピオンビルドのマージ（既存ロジック維持）---
     static_builds = static_data.get("champion_item_builds", {})
     cache_builds = cache_data.get("champion_item_builds", {})
     for champ in set(static_builds) | set(cache_builds):
@@ -140,29 +295,63 @@ def _merge_meta_data(static_data: dict, cache_data: dict) -> dict:
         curated = static_builds.get(champ)
         if cached and curated:
             merged_build = dict(cached)
-            if not merged_build.get("anti_synergy_warnings"):
-                merged_build["anti_synergy_warnings"] = curated.get("anti_synergy_warnings", [])
-            if not merged_build.get("debuff_roles"):
-                merged_build["debuff_roles"] = curated.get("debuff_roles", [])
-            if not merged_build.get("core_items"):
-                merged_build["core_items"] = curated.get("core_items", [])
+            for f in ("anti_synergy_warnings", "debuff_roles", "core_items"):
+                if not merged_build.get(f):
+                    merged_build[f] = curated.get(f, [])
             merged["champion_item_builds"][champ] = merged_build
         else:
             merged["champion_item_builds"][champ] = cached or curated
 
-    static_comps = {c["comp_name"]: c for c in static_data.get("comp_recommendations", [])}
-    cache_comps = {c["comp_name"]: c for c in cache_data.get("comp_recommendations", [])}
-    for name in set(static_comps) | set(cache_comps):
-        cached = cache_comps.get(name)
-        curated = static_comps.get(name)
-        if cached and curated:
-            merged_comp = dict(cached)
-            for field in ("emblem_holder", "item_synergy_reason", "trigger_items", "trigger_emblems"):
-                if not merged_comp.get(field):
-                    merged_comp[field] = curated.get(field)
-            merged["comp_recommendations"].append(merged_comp)
-        else:
-            merged["comp_recommendations"].append(cached or curated)
+    # --- 構成データの駒照合マージ ---
+    patch = cache_data.get("patch") or static_data.get("patch")
+    id_map = _build_champion_id_map(patch)
+
+    static_comps: list[dict] = static_data.get("comp_recommendations", [])
+    cache_comps: list[dict] = cache_data.get("comp_recommendations", [])
+
+    # static_comps 側のトークン集合を事前計算（ O(N*M) の内ループを軽減）
+    static_tokens: list[set[str]] = [
+        _extract_unit_tokens(c, id_map) for c in static_comps
+    ]
+
+    used_static_indices: set[int] = set()
+
+    for cached in cache_comps:
+        cached_comp = dict(cached)
+        cached_tokens = _extract_unit_tokens(cached_comp, id_map)
+
+        best_idx = -1
+        best_overlap = 0
+        best_jaccard = 0.0
+
+        for idx, s_tokens in enumerate(static_tokens):
+            overlap, jaccard = _match_score(cached_tokens, s_tokens)
+            # 共通ユニット数が同数の場合は Jaccard が高い方を優先
+            if overlap >= MIN_OVERLAP and jaccard >= MIN_JACCARD:
+                if overlap > best_overlap or (overlap == best_overlap and jaccard > best_jaccard):
+                    best_overlap = overlap
+                    best_jaccard = jaccard
+                    best_idx = idx
+
+        if best_idx >= 0:
+            best_match = static_comps[best_idx]
+            used_static_indices.add(best_idx)
+            # TFTAcademy のリッチメタ情報を実戦統計オブジェクトに注入
+            cached_comp["metaTitle"]    = best_match.get("metaTitle") or best_match.get("title")
+            cached_comp["style"]        = best_match.get("style", "Standard")
+            cached_comp["compSlug"]     = best_match.get("compSlug")
+            cached_comp["augmentsTip"]  = best_match.get("augmentsTip")
+            cached_comp["mainChampion"] = best_match.get("mainChampion")
+            cached_comp["finalComp"]    = best_match.get("finalComp")
+            cached_comp["_match_overlap"]  = best_overlap   # デバッグ用（本番でも無害）
+            cached_comp["_match_jaccard"]  = round(best_jaccard, 3)
+
+        merged["comp_recommendations"].append(cached_comp)
+
+    # TFTAcademy 側にしかない構成（統計未集計の理論値構成）を末尾に追加
+    for idx, curated in enumerate(static_comps):
+        if idx not in used_static_indices:
+            merged["comp_recommendations"].append(curated)
 
     return merged
 
