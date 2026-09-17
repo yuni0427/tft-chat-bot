@@ -357,8 +357,40 @@ def _merge_meta_data(static_data: dict, cache_data: dict) -> dict:
 
 
 def get_item_build(champion: str, patch: str | None = None) -> dict | None:
+    """チャンピオン名でアイテムビルド統計を返す。
+
+    champion は日本語名・英語内部ID どちらでも受け付ける。
+    英語IDが渡された場合は _unit_raw_to_token で日本語名に正規化してから検索する。
+    （meta_cache の champion_item_builds キーは日本語名だが、
+    一部英語キーのまま格納されているケースにも対応する）
+    """
     data = load_meta_data(patch)
-    return data.get("champion_item_builds", {}).get(champion)
+    builds: dict = data.get("champion_item_builds", {})
+
+    # 1. 直接一致
+    if champion in builds:
+        return builds[champion]
+
+    # 2. 英語IDが渡された場合: 日本語名に正規化して再検索
+    id_map = _build_champion_id_map(patch)
+    ja_name = _unit_raw_to_token(champion, id_map)
+    if ja_name and ja_name != champion and ja_name in builds:
+        return builds[ja_name]
+
+    # 3. 逆方向: builds に英語キーが残っている場合に日本語名で引けるようにする
+    #    （ElderDragon, Sentinel18 等が英語キーのまま格納されているケース）
+    norm_champ = _normalize_str(champion)
+    for key in builds:
+        norm_key = _normalize_str(key)
+        # 正規化後一致
+        if norm_key == norm_champ:
+            return builds[key]
+        # 英語キーを日本語に変換して一致確認
+        key_ja = _unit_raw_to_token(key, id_map)
+        if key_ja and _normalize_str(key_ja) == norm_champ:
+            return builds[key]
+
+    return None
 
 
 def list_champions_with_build(patch: str | None = None) -> list[str]:

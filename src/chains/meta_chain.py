@@ -17,6 +17,7 @@ from src.meta.tft_translator import (
     load_tft_translations,
     preprocess_tft_text,
     translate_term,
+    translate_term_for_patch,
 )
 from src.meta.tftacademy_client import get_tftacademy_tierlist
 from src.rag.retriever import retrieve
@@ -684,34 +685,62 @@ def handle_comp_lookup(query: str, patch: str | None = None) -> str:
 
 
 def _build_item_context(carry: str, tank: str | None, patch: str, trans_map: dict) -> str:
-    """キャリーとタンクのアイテムコンテキストを構築するヘルパー"""
+    """キャリーとタンクのアイテム統計コンテキストを構築するヘルパー。
+
+    carry / tank は champions.json ベースで変換済みの日本語名を受け取る想定。
+    get_item_build のキーも日本語名（meta_cache の champion_item_builds キー）なので直接ヒットする。
+    """
     def _extract_build(unit_name: str) -> str:
+        if not unit_name:
+            return ""
         build = meta_service.get_item_build(unit_name, patch)
         if not build:
-            return f"- {unit_name}: アイテムデータ集計中"
-        
-        lines = []
-        item_list = build.get("top_items") or build.get("core_items") or []
-        for it in item_list:
-            raw_name = it.get("item_name") or it.get("name", "")
-            it_name = translate_term(raw_name, trans_map)
-            if "avg_place" in it:
-                lines.append(f"  - {it_name} (平均順位 {it.get('avg_place')} / Top4率 {int(it.get('top4_rate', 0)*100)}%)")
-            elif "reason" in it:
-                lines.append(f"  - {it_name}: {it.get('reason')}")
-            else:
-                lines.append(f"  - {it_name}")
+            return f"- {unit_name}: アイテムデータ集計中（サンプル蓄積中）"
 
+        lines = []
+
+        # bis_standard_build が最優先（平均順位・Top4率・アイテムセット一体で取得できる）
         bis_info = build.get("bis_standard_build", {})
         if isinstance(bis_info, dict) and bis_info.get("items"):
-            bis_items = [translate_term(n, trans_map) for n in bis_info["items"]]
-            lines.append(f"  【標準三種の神器】: {' + '.join(bis_items)}")
+            bis_items = " + ".join(bis_info["items"])
+            avg = bis_info.get("avg_place", "-")
+            top4 = int(bis_info.get("win_rate", 0) * 100)
+            sample = bis_info.get("sample_size", 0)
+            lines.append(
+                f"  【標準BISセット】: {bis_items}"
+                f" (平均順位 {avg} / Top4率 {top4}% / サンプル {sample}件)"
+            )
 
-        return "\n".join(lines) if lines else f"- {unit_name}: 推奨データなし"
+        # core_items（コアアイテムとその採用理由）
+        for it in build.get("core_items") or []:
+            raw_name = it.get("item_name") or it.get("name", "")
+            if not raw_name:
+                continue
+            reason = it.get("reason", "")
+            lines.append(f"  - コアアイテム: {raw_name}" + (f"（{reason}）" if reason else ""))
 
-    context = f"【メインキャリー ({carry}) 推奨アイテム】\n{_extract_build(carry)}"
-    if tank and tank != "メインタンク":
-        context += f"\n\n【メインタンク ({tank}) 推奨アイテム】\n{_extract_build(tank)}"
+        # top_items（統計ベースの上位アイテム）
+        for it in build.get("top_items") or []:
+            raw_name = it.get("item_name") or it.get("name", "")
+            if not raw_name:
+                continue
+            if "avg_place" in it:
+                lines.append(
+                    f"  - {raw_name}: 平均順位 {it['avg_place']} / Top4率 {int(it.get('top4_rate', 0)*100)}%"
+                    f" (サンプル {it.get('sample_size', 0)}件)"
+                )
+            elif "reason" in it:
+                lines.append(f"  - {raw_name}: {it['reason']}")
+            else:
+                lines.append(f"  - {raw_name}")
+
+        return "\n".join(lines) if lines else f"- {unit_name}: 推奨アイテムデータなし"
+
+    context = f"【メインキャリー ({carry}) 推奨アイテム & 実戦統計】\n{_extract_build(carry)}"
+    if tank:
+        tank_build = _extract_build(tank)
+        if tank_build:
+            context += f"\n\n【メインタンク ({tank}) 推奨アイテム & 実戦統計】\n{tank_build}"
     return context
 
 
@@ -737,14 +766,15 @@ def handle_single_comp_guide(query: str, patch: str | None = None) -> str:
         guide_url = f"https://tftacademy.com/tierlist/comps/{slug}" if slug else "https://tftacademy.com/tierlist/comps"
 
         main_champ_raw = target_comp.get("mainChampion", {}).get("apiName", "")
-        main_carry = translate_term(main_champ_raw, trans_map)
+        # translate_term_for_patch で champions.json ベースの確実な日本語名変換
+        main_carry = translate_term_for_patch(main_champ_raw, target_patch)
 
-        # タンク特定
-        main_tank = "メインタンク"
+        # タンク特定: アイテムを持つ最初の非キャリーユニット
+        main_tank = None
         for unit in target_comp.get("finalComp", []):
             u_raw = unit.get("apiName", "")
             if u_raw != main_champ_raw and unit.get("items"):
-                main_tank = translate_term(u_raw, trans_map)
+                main_tank = translate_term_for_patch(u_raw, target_patch)
                 break
 
         matched_stat = _find_matching_riot_stat(target_comp, comps_stats)
