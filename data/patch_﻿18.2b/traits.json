@@ -1,0 +1,774 @@
+{
+  "エルダーウッド": {
+    "name": "エルダーウッド",
+    "api_name": "DA_18_Elderwood",
+    "description": "配置可能な「エルダーウッド」の植物を獲得する。() 「ストーンバークの木」と「ライフブロッサム」をそれぞれ1本() 2本目の「ストーンバークの木」を獲得し、「ストーンバークの木」の体力が増加する() さらに、「ディープウッド プロテクター」を獲得する() 植物が★2になる() 植物が★3になり、森が息づき始める",
+    "breakpoints": [
+      3,
+      5,
+      7,
+      9,
+      11
+    ],
+    "effects": [
+      {
+        "min_units": 3,
+        "style": 1
+      },
+      {
+        "min_units": 5,
+        "style": 3
+      },
+      {
+        "min_units": 7,
+        "style": 5
+      },
+      {
+        "min_units": 9,
+        "style": 5
+      },
+      {
+        "min_units": 11,
+        "style": 6
+      }
+    ]
+  },
+  "アバター": {
+    "name": "アバター",
+    "api_name": "DA_18_LuxUniqueTrait",
+    "description": "ベンチまたはボード上に「アバター」がいると、自分のショップの他のすべての「アバター」がその「アバター」の特性に変化する。選んだ「アバター」の特性は特性ボーナスにおいて2体分としてカウントされる。",
+    "breakpoints": [
+      1
+    ],
+    "effects": [
+      {
+        "min_units": 1,
+        "style": 4
+      }
+    ]
+  },
+  "ラヴィジャー": {
+    "name": "ラヴィジャー",
+    "api_name": "DA_18_Slayer",
+    "description": "「ラヴィジャー」は%のオムニヴァンプを獲得する。さらに、「ラヴィジャー」は追加ダメージを与える。体力が%未満のユニットに対しては、この効果が2倍になる。() %の追加ダメージ() %の追加ダメージ() %の追加ダメージ",
+    "breakpoints": [
+      2,
+      4,
+      6
+    ],
+    "effects": [
+      {
+        "min_units": 2,
+        "style": 1
+      },
+      {
+        "min_units": 4,
+        "style": 3
+      },
+      {
+        "min_units": 6,
+        "style": 5
+      }
+    ]
+  },
+  "バウンティーシーカー": {
+    "name": "バウンティーシーカー",
+    "api_name": "DA_DravenUniqueTrait18",
+    "description": "バウンティーを選択。最も強いドレイヴンがバウンティーを進め、その報酬を獲得できる。バウンティーを達成したら、次のバウンティーを選択。",
+    "breakpoints": [
+      1
+    ],
+    "effects": [
+      {
+        "min_units": 1,
+        "style": 4
+      }
+    ]
+  },
+  "ソーラー": {
+    "name": "ソーラー",
+    "api_name": "DA_18_Solar",
+    "description": "() 味方チャンピオンが最大体力の%にあたるシールドを獲得し、%の追加魔法ダメージを与える。異なる★3チャンピオン1体ごとに追加ボーナスを獲得する:1: ★3ユニット1体ごとにシールドと魔法ダメージが%増加する。: % %i:scaleAS%および %i:scaleArmor%%i:scaleMR%: 追加魔法ダメージの%を確定ダメージに変換する。: 戦闘中、秒ごとに★3チャンピオン1体が★4にレベルアップする。",
+    "breakpoints": [
+      3
+    ],
+    "effects": [
+      {
+        "min_units": 3,
+        "style": 5
+      }
+    ]
+  },
+  "スプライキン": {
+    "name": "スプライキン",
+    "api_name": "DA_18_Sprykin",
+    "description": "「大きなモフモフのお友達」を獲得する。「大きなモフモフのお友達」に「スプライキン」をドロップしてライダーを選ぶ。() ライダーは% %i:scaleHealth%と% %i:scaleAS%を獲得する() % %i:scaleHealth% % %i:scaleAS%を獲得し、「大きなモフモフのお友達」のスキルの%が「スプライキン」チャンピオンに適用される() % %i:scaleHealth% % %i:scaleAS%を獲得し、「大きなモフモフのお友達」のスキルの%が「スプライキン」チャンピオンに適用される",
+    "breakpoints": [
+      3,
+      5,
+      7
+    ],
+    "effects": [
+      {
+        "min_units": 3,
+        "style": 1
+      },
+      {
+        "min_units": 5,
+        "style": 3
+      },
+      {
+        "min_units": 7,
+        "style": 5
+      }
+    ]
+  },
+  "アダプター": {
+    "name": "アダプター",
+    "api_name": "DA_18_Adaptor",
+    "description": "インネイト: 「アダプター」のスキルは、攻撃力と魔力のどちらが高いかによって変化する。「アダプター」は、高い方のステータスに応じて魔力か攻撃力を獲得する。() %/() %/() %/",
+    "breakpoints": [
+      2,
+      3,
+      4
+    ],
+    "effects": [
+      {
+        "min_units": 2,
+        "style": 1
+      },
+      {
+        "min_units": 3,
+        "style": 3
+      },
+      {
+        "min_units": 4,
+        "style": 5
+      }
+    ]
+  },
+  "魔女": {
+    "name": "魔女",
+    "api_name": "DA_18_Coven",
+    "description": "チャンピオンをキルすると「エッセンス」を獲得する。対人戦に敗北するとより多くのエッセンスを獲得する。最初はエッセンスから始まり、エッセンスを報酬に変換するか、さらに集め続けるかを選択できる。各報酬の獲得に必要なエッセンス量は、段階的に増加する。() キルごとにエッセンス、敗北ごとにエッセンス() キルごとに、敗北ごとに() キルごとに、敗北ごとに() キルごとに、敗北ごとに",
+    "breakpoints": [
+      3,
+      4,
+      5,
+      7
+    ],
+    "effects": [
+      {
+        "min_units": 3,
+        "style": 1
+      },
+      {
+        "min_units": 4,
+        "style": 3
+      },
+      {
+        "min_units": 5,
+        "style": 3
+      },
+      {
+        "min_units": 7,
+        "style": 5
+      }
+    ]
+  },
+  "エクリプス": {
+    "name": "エクリプス",
+    "api_name": "DA_18_Eclipse",
+    "description": "戦闘開始から秒後、「エクリプス」が最も体力の低い敵をキルする。この効果は秒ごとに繰り返される。",
+    "breakpoints": [],
+    "effects": []
+  },
+  "ハンター": {
+    "name": "ハンター",
+    "api_name": "DA_18_Hunter",
+    "description": "「ハンター」の攻撃力が増加する。「ハンター」が対象を秒間切り替えなかったとき、%のダメージ増加効果を獲得する。() % %i:scaleAD%() % %i:scaleAD%() % %i:scaleAD%() % %i:scaleAD%",
+    "breakpoints": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "effects": [
+      {
+        "min_units": 2,
+        "style": 1
+      },
+      {
+        "min_units": 3,
+        "style": 3
+      },
+      {
+        "min_units": 4,
+        "style": 3
+      },
+      {
+        "min_units": 5,
+        "style": 5
+      }
+    ]
+  },
+  "原生林": {
+    "name": "原生林",
+    "api_name": "DA_18_Maokai_UniqueTrait",
+    "description": "マス以内の敵がキルされると、最も強い「原生林」のチャンピオンの最大体力が恒久的に増加する。現在の増加量: 0",
+    "breakpoints": [
+      1
+    ],
+    "effects": [
+      {
+        "min_units": 1,
+        "style": 4
+      }
+    ]
+  },
+  "モノリス": {
+    "name": "モノリス",
+    "api_name": "DA_18_Battlemage",
+    "description": "「モノリス」を攻撃対象としている敵1体ごとに、物理防御と魔法防御が増加する。",
+    "breakpoints": [
+      1
+    ],
+    "effects": [
+      {
+        "min_units": 1,
+        "style": 4
+      }
+    ]
+  },
+  "プライマル": {
+    "name": "プライマル",
+    "api_name": "DA_Primal18",
+    "description": "4つの「プライマルの祝福」から1つを選択。()()",
+    "breakpoints": [
+      2,
+      4
+    ],
+    "effects": [
+      {
+        "min_units": 2,
+        "style": 1
+      },
+      {
+        "min_units": 4,
+        "style": 5
+      }
+    ]
+  },
+  "翠の父": {
+    "name": "翠の父",
+    "api_name": "DA_18_Greenfather",
+    "description": "最も強いアイバーンがスキルを使用すると個の種を獲得し、さらに戦闘ごとに個獲得する。アイバーンは個の種を使ってボード上にマスを生み出して、マス上のユニットにボーナスを付与する。種: 0 / 現在のバイオーム:",
+    "breakpoints": [
+      1
+    ],
+    "effects": [
+      {
+        "min_units": 1,
+        "style": 4
+      }
+    ]
+  },
+  "インヴォーカー": {
+    "name": "インヴォーカー",
+    "api_name": "DA_18_Invoker",
+    "description": "味方チームがマナ自動回復を獲得する。「インヴォーカー」は回復量が増加する。() %i:scaleManaRegen% | %i:scaleManaRegen%() %i:scaleManaRegen% | %i:scaleManaRegen%() %i:scaleManaRegen% | %i:scaleManaRegen%() %i:scaleManaRegen% | %i:scaleManaRegen%",
+    "breakpoints": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "effects": [
+      {
+        "min_units": 2,
+        "style": 1
+      },
+      {
+        "min_units": 3,
+        "style": 3
+      },
+      {
+        "min_units": 4,
+        "style": 3
+      },
+      {
+        "min_units": 5,
+        "style": 5
+      }
+    ]
+  },
+  "ラピッドファイア": {
+    "name": "ラピッドファイア",
+    "api_name": "DA_18_Rapidfire",
+    "description": "味方チームの攻撃速度が%増加する。「ラピッドファイア」チャンピオンは、通常攻撃を行うたびにさらに増加する(最大スタック)。() 通常攻撃ごとに+% %i:scaleAS%() 通常攻撃ごとに+% %i:scaleAS%() 通常攻撃ごとに+% %i:scaleAS%() 通常攻撃ごとに+% %i:scaleAS%",
+    "breakpoints": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "effects": [
+      {
+        "min_units": 2,
+        "style": 1
+      },
+      {
+        "min_units": 3,
+        "style": 3
+      },
+      {
+        "min_units": 4,
+        "style": 3
+      },
+      {
+        "min_units": 5,
+        "style": 5
+      }
+    ]
+  },
+  "ジャガーノート": {
+    "name": "ジャガーノート",
+    "api_name": "DA_Juggernaut18",
+    "description": "味方チームの耐久力が増加する。「ジャガーノート」はより多く増加する。() % %i:scaleDR%または% %i:scaleDR%() % %i:scaleDR%または% %i:scaleDR%() % %i:scaleDR%または% %i:scaleDR%",
+    "breakpoints": [
+      2,
+      4,
+      6
+    ],
+    "effects": [
+      {
+        "min_units": 2,
+        "style": 1
+      },
+      {
+        "min_units": 4,
+        "style": 3
+      },
+      {
+        "min_units": 6,
+        "style": 5
+      }
+    ]
+  },
+  "インフェルノ": {
+    "name": "インフェルノ",
+    "api_name": "DA_18_Inferno",
+    "description": "「インフェルノ」のダメージは秒間、敵に燃焼と負傷を付与する。「インフェルノ」による燃焼はその他の燃焼効果とスタックする。() %の燃焼、%の負傷() 戦闘後、「インフェルノ」チャンピオンがいないショップのスロットつに火がつき、1ティア高いチャンピオンが出現する() ショップのスロットつに火がつく、%の燃焼() ショップのスロットつに火がつく、%の燃焼",
+    "breakpoints": [
+      2,
+      3,
+      5,
+      7
+    ],
+    "effects": [
+      {
+        "min_units": 2,
+        "style": 1
+      },
+      {
+        "min_units": 3,
+        "style": 3
+      },
+      {
+        "min_units": 5,
+        "style": 5
+      },
+      {
+        "min_units": 7,
+        "style": 5
+      }
+    ]
+  },
+  "同調": {
+    "name": "同調",
+    "api_name": "DA_AluneUniqueTrait18",
+    "description": "発動するたび、最も強力なアルーンが月の満ち欠けにおける次の段階へと移行する。月が半月以下の間は、味方チームの耐久力が%増加する。半月より大きい場合、味方チームが%のダメージ増加効果を獲得する。",
+    "breakpoints": [
+      1
+    ],
+    "effects": [
+      {
+        "min_units": 1,
+        "style": 4
+      }
+    ]
+  },
+  "ライバル": {
+    "name": "ライバル",
+    "api_name": "DA_18_Rival",
+    "description": "() 「ライバル」を1体配置した場合のみ発動する。「ライバル」はキルまたはアシストを獲得するとスタックを得る。他の「ライバル」からキルまたはアシストを獲得した場合は3スタック獲得する。() 「ライバル」はキルまたはアシストを獲得するとスタックを得る。他の「ライバル」からキルまたはアシストを獲得した場合は3スタック獲得する。キルまたはアシストを獲得するとカ＝ジックスが進化し、「エクセキューショナー」、「ラピッドファイア」、「ラヴィジャー」、「スペルウィーバー」の中から任意の特性を1つ恒久的に獲得する。キルまたはアシストを回獲得するたびに、//ゴールドを獲得する。回キルまたはアシストを達成すると、それ以降は達成するたびに味方チームの攻撃力が%+%%i:scaleAD%増加する。カ＝ジックスのキルまたはアシスト: 0 / 0レンガーのキルまたはアシスト: 0獲得ゴールド: 0() 「ライバル」は一緒にボード上に配置可能。スキルが互いにボーナスを付与する。",
+    "breakpoints": [
+      1,
+      1,
+      2
+    ],
+    "effects": [
+      {
+        "min_units": 1,
+        "style": 5
+      },
+      {
+        "min_units": 1,
+        "style": 1
+      },
+      {
+        "min_units": 2,
+        "style": 5
+      }
+    ]
+  },
+  "ヴァンガード": {
+    "name": "ヴァンガード",
+    "api_name": "DA_18_Vanguard",
+    "description": "戦闘開始時、および体力が%未満になると、「ヴァンガード」は秒間、自身の最大体力に応じたシールドを獲得する。() 最大体力の%() 最大体力の%() 最大体力の%シールド獲得中は耐久力が%増加する。",
+    "breakpoints": [
+      2,
+      4,
+      6
+    ],
+    "effects": [
+      {
+        "min_units": 2,
+        "style": 1
+      },
+      {
+        "min_units": 4,
+        "style": 3
+      },
+      {
+        "min_units": 6,
+        "style": 5
+      }
+    ]
+  },
+  "ブローラー": {
+    "name": "ブローラー",
+    "api_name": "DA_18_Brawler",
+    "description": "味方チームの最大体力が増加する。「ブローラー」はより多く増加する。() % %i:scaleHealth%() % %i:scaleHealth%() % %i:scaleHealth%",
+    "breakpoints": [
+      2,
+      4,
+      6
+    ],
+    "effects": [
+      {
+        "min_units": 2,
+        "style": 1
+      },
+      {
+        "min_units": 4,
+        "style": 3
+      },
+      {
+        "min_units": 6,
+        "style": 5
+      }
+    ]
+  },
+  "ブラックソーン": {
+    "name": "ブラックソーン",
+    "api_name": "DA_18_Blackthorn",
+    "description": "「ブラックソーン」のマス上の味方が戦闘開始前に生贄となり、味方チャンピオンに体力を付与する。「ブラックソーン」のチャンピオンは、生贄の役割、スターレベル、コストに応じて追加ステータスを得る。() %i:scaleHealth%() %i:scaleHealth%、ボーナスが%増加() %i:scaleHealth%、ボーナスが%増加",
+    "breakpoints": [
+      2,
+      4,
+      6
+    ],
+    "effects": [
+      {
+        "min_units": 2,
+        "style": 1
+      },
+      {
+        "min_units": 4,
+        "style": 3
+      },
+      {
+        "min_units": 6,
+        "style": 5
+      }
+    ]
+  },
+  "エクセキューショナー": {
+    "name": "エクセキューショナー",
+    "api_name": "DA_18_Executioner",
+    "description": "() 「エクセキューショナー」は正確無比と%のクリティカル率を獲得する。() さらに、敵は秒かけて%の追加確定ダメージを受ける出血状態になる。() 出血ダメージが%に増加する。",
+    "breakpoints": [
+      2,
+      3,
+      4
+    ],
+    "effects": [
+      {
+        "min_units": 2,
+        "style": 1
+      },
+      {
+        "min_units": 3,
+        "style": 3
+      },
+      {
+        "min_units": 4,
+        "style": 5
+      }
+    ]
+  },
+  "捕食者の頂点": {
+    "name": "捕食者の頂点",
+    "api_name": "DA_18_ApexPredator",
+    "description": "エルダードラゴンはチームスロットを2つ使用し、「リフトビースト」の特性カウントが+2になる。",
+    "breakpoints": [
+      1
+    ],
+    "effects": [
+      {
+        "min_units": 1,
+        "style": 4
+      }
+    ]
+  },
+  "リフトビースト": {
+    "name": "リフトビースト",
+    "api_name": "DA_Riftbeast18",
+    "description": "() 「アルファマーク」を使ってリフトビーストに固有のバフを付与する() 戦ごとに、次のショップがリフトビーストで溢れかえる。() 戦闘開始時と5秒ごとに、リフトビーストが成長して次を獲得: % %i:scaleAD% % %i:scaleAP% % %i:scaleAS%+ %i:scaleArmor% + %i:scaleMR% + %i:scaleHealth% + %i:scaleManaRegen%() チームサイズ+",
+    "breakpoints": [
+      3,
+      5,
+      7,
+      10
+    ],
+    "effects": [
+      {
+        "min_units": 3,
+        "style": 1
+      },
+      {
+        "min_units": 5,
+        "style": 3
+      },
+      {
+        "min_units": 7,
+        "style": 5
+      },
+      {
+        "min_units": 10,
+        "style": 5
+      }
+    ]
+  },
+  "腐敗": {
+    "name": "腐敗",
+    "api_name": "DA_18_Caustic",
+    "description": "「腐敗」がダメージを与えると、秒間、敵に%の「細断」と「分解」を付与する。細断: 魔法防御を低下させる。分解: 物理防御を低下させる。",
+    "breakpoints": [
+      1
+    ],
+    "effects": [
+      {
+        "min_units": 1,
+        "style": 4
+      }
+    ]
+  },
+  "フェイ": {
+    "name": "フェイ",
+    "api_name": "DA_18_Fae",
+    "description": "味方チームのダメージ、回復、シールドは妖精をおびき寄せる。各妖精は「フェイ」のチャンピオンの攻撃力と魔力を増加させ、体力が%未満になると、妖精1匹ごとに体力が回復する。() % および%の回復。() % および%の回復。妖精を7匹おびき寄せると、ゴールドを付与する黄金の妖精をおびき寄せられるようになる。",
+    "breakpoints": [
+      2,
+      4
+    ],
+    "effects": [
+      {
+        "min_units": 2,
+        "style": 1
+      },
+      {
+        "min_units": 4,
+        "style": 5
+      }
+    ]
+  },
+  "ルナー": {
+    "name": "ルナー",
+    "api_name": "DA_18_Lunar",
+    "description": "「ルナー」チャンピオンとそれに隣接する味方の攻撃速度と魔力が増加する。「ルナー」チャンピオンは%多く増加する。() % %i:scaleAS%、% %i:scaleAP%() % %i:scaleAS%、% %i:scaleAP%() % %i:scaleAS%、% %i:scaleAP%() % %i:scaleAS%、% %i:scaleAP%",
+    "breakpoints": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "effects": [
+      {
+        "min_units": 2,
+        "style": 1
+      },
+      {
+        "min_units": 3,
+        "style": 3
+      },
+      {
+        "min_units": 4,
+        "style": 3
+      },
+      {
+        "min_units": 5,
+        "style": 5
+      }
+    ]
+  },
+  "ディフェンダー": {
+    "name": "ディフェンダー",
+    "api_name": "DA_18_Defender",
+    "description": "味方チームの物理防御と魔法防御が増加する。「ディフェンダー」はより多く増加する。() () ()",
+    "breakpoints": [
+      2,
+      4,
+      6
+    ],
+    "effects": [
+      {
+        "min_units": 2,
+        "style": 1
+      },
+      {
+        "min_units": 4,
+        "style": 3
+      },
+      {
+        "min_units": 6,
+        "style": 5
+      }
+    ]
+  },
+  "スペルウィーバー": {
+    "name": "スペルウィーバー",
+    "api_name": "DA_18_Spellweaver",
+    "description": "味方チームの魔力が%増加する。「スペルウィーバー」はさらに増加する。さらに、「スペルウィーバー」がスキルを使用するたびに、魔力が追加で増加する。() % %i:scaleAP%、+スキル使用ごとに% %i:scaleAP%() % %i:scaleAP%、+スキル使用ごとに% %i:scaleAP%() % %i:scaleAP%、+スキル使用ごとに% %i:scaleAP%",
+    "breakpoints": [
+      2,
+      4,
+      6
+    ],
+    "effects": [
+      {
+        "min_units": 2,
+        "style": 1
+      },
+      {
+        "min_units": 4,
+        "style": 3
+      },
+      {
+        "min_units": 6,
+        "style": 5
+      }
+    ]
+  },
+  "ソーンメイデン": {
+    "name": "ソーンメイデン",
+    "api_name": "DA_18_ZyraUniqueTrait",
+    "description": "味方チームの耐久力が%増加する。ザイラの植物が体以上生存している場合は%まで増加する。",
+    "breakpoints": [
+      1
+    ],
+    "effects": [
+      {
+        "min_units": 1,
+        "style": 4
+      }
+    ]
+  },
+  "フローラ・ファターリス": {
+    "name": "フローラ・ファターリス",
+    "api_name": "DA_FloraFatalis18",
+    "description": "「フローラ・ファターリス」のチャンピオンは敵をキルすると、以下を獲得する: () マナ() さらに、最も体力が低い味方を最大体力の%分回復させる。",
+    "breakpoints": [
+      1,
+      2
+    ],
+    "effects": [
+      {
+        "min_units": 1,
+        "style": 1
+      },
+      {
+        "min_units": 2,
+        "style": 5
+      }
+    ]
+  },
+  "サモナー": {
+    "name": "サモナー",
+    "api_name": "DA_18_Summoner",
+    "description": "自身の召喚ユニットを強化する方法はそれぞれ異なる。ヨリック: 体力+%アジール: ダメージ+%ママ鳥: ダメージ+%ザイラ: 植物の通常攻撃+() 召喚ユニットを強化() 各効果が50%増加",
+    "breakpoints": [
+      2,
+      3
+    ],
+    "effects": [
+      {
+        "min_units": 2,
+        "style": 1
+      },
+      {
+        "min_units": 3,
+        "style": 5
+      }
+    ]
+  },
+  "ブロッサム": {
+    "name": "ブロッサム",
+    "api_name": "DA_18_Blossom",
+    "description": "戦闘後、ウィスプが強化される。「ブロッサム」のチャンピオンは攻撃力、魔力、最大体力の%を獲得する。() ウィスプがアップグレード、% %i:scaleAD%%i:scaleAP%() ウィスプが全ショップで入手可能、% %i:scaleAD%%i:scaleAP%() ウィスプ購入後にゴールドを獲得、% %i:scaleAD%%i:scaleAP%() 各ラウンドでウィスプを2体まで購入可能、% %i:scaleAD%%i:scaleAP%() ウィスプに力が満ち溢れる、 % %i:scaleAD%%i:scaleAP%",
+    "breakpoints": [
+      3,
+      5,
+      7,
+      9,
+      11
+    ],
+    "effects": [
+      {
+        "min_units": 3,
+        "style": 1
+      },
+      {
+        "min_units": 5,
+        "style": 3
+      },
+      {
+        "min_units": 7,
+        "style": 5
+      },
+      {
+        "min_units": 9,
+        "style": 5
+      },
+      {
+        "min_units": 11,
+        "style": 6
+      }
+    ]
+  },
+  "エメラルドの神髄": {
+    "name": "エメラルドの神髄",
+    "api_name": "DA_Emerald18",
+    "description": "味方を最も強いタリックの上にドラッグしてペアにすると、その味方はタリックのスキルから強力なボーナスを得る。",
+    "breakpoints": [
+      1
+    ],
+    "effects": [
+      {
+        "min_units": 1,
+        "style": 4
+      }
+    ]
+  }
+}
