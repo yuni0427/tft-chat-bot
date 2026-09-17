@@ -520,64 +520,57 @@ def handle_item_build(query: str, patch: str | None = None) -> str:
         )
         champion = extracted.champion
 
-    # 1. Riot 実戦マッチ統計 / アイテム推奨データ
+# 1. Riot 実戦マッチ統計 / アイテム推奨データ
     build = meta_service.get_item_build(champion, target_patch)
     riot_stats_text = ""
     if build:
         trans_map = load_tft_translations()
         items_stats = []
 
-        # top_items 形式と core_items 形式の両方に対応
-        item_list = build.get("top_items") or build.get("core_items") or []
-        for it in item_list:
-            raw_name = it.get("item_name") or it.get("name", "")
-            it_name = translate_term(raw_name, trans_map)
-
-            # 実戦スタッツ（平均順位等）がある場合は統計表記
-            if "avg_place" in it:
-                items_stats.append(
-                    f"- {it_name}: 平均順位 {it.get('avg_place', '-')} / Top4率 {int(it.get('top4_rate', 0)*100)}% (サンプル{it.get('sample_size', 0)}件)"
-                )
-            # ビルド理由がある場合
-            elif "reason" in it:
-                items_stats.append(f"- {it_name}: {it.get('reason')}")
-            else:
-                items_stats.append(f"- {it_name}")
-
-        # bis_standard_build（標準三種の神器セット）がある場合
+        # bis_standard_build（標準三種の神器セット + 統計）
         bis_info = build.get("bis_standard_build", {})
         if isinstance(bis_info, dict) and bis_info.get("items"):
             bis_items = [translate_term(name, trans_map) for name in bis_info["items"]]
-            items_stats.append(f"\n【標準BISセット】: {' + '.join(bis_items)}")
+            avg_p = bis_info.get("avg_place", "-")
+            win_r = f"{int(bis_info.get('win_rate', 0) * 100)}%" if "win_rate" in bis_info else "-"
+            top4_r = f"{int(bis_info.get('top4_rate', 0) * 100)}%" if "top4_rate" in bis_info else "-"
+            samples = bis_info.get("sample_size", 0)
+            items_stats.append(
+                f"【標準BISセット】: {' + '.join(bis_items)}\n"
+                f"  - 実戦スタッツ: 平均順位 {avg_p}位 / Top4率 {top4_r} / 勝率 {win_r} (サンプル {samples:,}件)"
+            )
+
+        # 個別アイテム（top_items / core_items）の統計
+        item_list = build.get("top_items") or build.get("core_items") or []
+        if item_list:
+            items_stats.append("\n【コア・採用候補アイテム単体スタッツ】")
+            for it in item_list:
+                raw_name = it.get("item_name") or it.get("name", "")
+                it_name = translate_term(raw_name, trans_map)
+
+                if "avg_place" in it:
+                    items_stats.append(
+                        f"- {it_name}: 平均順位 {it.get('avg_place', '-')}位 / Top4率 {int(it.get('top4_rate', 0)*100)}% (サンプル{it.get('sample_size', 0)}件)"
+                    )
+                elif "reason" in it:
+                    items_stats.append(f"- {it_name}: {it.get('reason')}")
+                else:
+                    items_stats.append(f"- {it_name}")
+
+        # 代替アイテム（Delta Place: 平均順位変動）がある場合
+        subs = build.get("substitutes") or []
+        if subs:
+            items_stats.append("\n【代替アイテム（BiSとの順位差分）】")
+            for s in subs:
+                s_name = translate_term(s.get("item", ""), trans_map)
+                delta = s.get("delta_avg_place", 0.0)
+                delta_str = f"+{delta:.2f}" if delta >= 0 else f"{delta:.2f}"
+                cond = f" (条件: {s.get('condition')})" if s.get("condition") else ""
+                items_stats.append(f"- {s_name}: 平均順位 {delta_str}位{cond}")
 
         riot_stats_text = "\n".join(items_stats) if items_stats else "推奨アイテムデータなし"
     else:
         riot_stats_text = "Riot統計データなし"
-
-    # 2. TFTAcademy プロ推奨ガイド
-    academy_raw = get_tftacademy_tierlist()
-    academy_context = _get_academy_champ_context(champion, academy_raw)
-
-    llm = get_chat_model(temperature=0.3)
-    user_prompt = (
-        f"【対象ゲーム内パッチ】: Patch {target_patch}\n"
-        f"対象チャンピオン: {champion}\n\n"
-        f"【Riot公式 アイテム統計】\n{riot_stats_text}\n\n"
-        f"【TFTAcademy プロティアリスト推奨】\n{academy_context}\n\n"
-        f"質問: {query}"
-    )
-
-    messages = [
-        {"role": "system", "content": _ITEM_BUILD_SYSTEM_PROMPT},
-        {"role": "user", "content": user_prompt},
-    ]
-    response = llm.invoke(messages)
-    content = response.content
-    if isinstance(content, list):
-        return "".join(
-            p.get("text", "") for p in content if isinstance(p, dict) and p.get("type") == "text"
-        ).strip()
-    return str(content).strip()
 
 
 def handle_comp_lookup(query: str, patch: str | None = None) -> str:
