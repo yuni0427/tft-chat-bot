@@ -34,14 +34,28 @@ def _respond_theory(query: str) -> None:
 
 
 def _respond_meta(query: str, meta_subtype: str | None) -> None:
-  patch = st.session_state.get("selected_patch")
-  try:
-    result = meta_chain.handle_meta(query, meta_subtype, patch)
-  except Exception as exc:  # noqa: BLE001
-    st.session_state.messages.append({
-        "role": "assistant",
-        "content": f"回答生成中にエラーが発生しました: {exc}",
-    })
+    patch = st.session_state.get("selected_patch")
+    try:
+        result = meta_chain.handle_meta(query, meta_subtype, patch)
+    except Exception as exc:  # noqa: BLE001
+        st.session_state.messages.append(
+            {"role": "assistant", "content": f"回答生成中にエラーが発生しました: {exc}"}
+        )
+        return
+
+    res_data = result.get("data") if isinstance(result, dict) else result
+
+    # None や空文字の場合はユーザーフレンドリーな文言に差し替える
+    if not res_data or str(res_data).strip().lower() in ("none", ""):
+        content = (
+            "申し訳ありません。該当するチャンピオンや構成のデータが見つかりませんでした。\n\n"
+            "- チャンピオン名・構成名が正式名称や一般的な略称になっているか確認してください。\n"
+            "- 実戦統計サンプルが極端に少ない駒の場合、データが生成されていない可能性があります。"
+        )
+    else:
+        content = str(res_data)
+
+    st.session_state.messages.append({"role": "assistant", "content": content})
     return
 
   res_type = result.get("type") if isinstance(result, dict) else None
