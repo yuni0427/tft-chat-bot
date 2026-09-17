@@ -682,8 +682,9 @@ def handle_single_comp_guide(query: str, patch: str | None = None) -> str:
     # パターンA: TFTAcademy に該当構成が存在する場合（フルガイド）
     # -------------------------------------------------------------
     if target_comp:
-        comp_title = target_comp.get("metaTitle") or target_comp.get("title", "構成")
-        style = target_comp.get("style", "Standard")
+        raw_title = target_comp.get("metaTitle") or target_comp.get("title", "構成")
+        comp_title = preprocess_tft_text(raw_title, trans_map)
+        style = preprocess_tft_text(target_comp.get("style", "Standard"), trans_map)
         slug = target_comp.get("compSlug", "")
         guide_url = f"https://tftacademy.com/tierlist/comps/{slug}" if slug else "https://tftacademy.com/tierlist/comps"
 
@@ -788,3 +789,28 @@ TFTAcademyに個別ガイドがない構成について、実戦統計データ�
     # パターンC: どちらにも存在しない場合
     # -------------------------------------------------------------
     return handle_comp_meta(query, target_patch)
+def handle_meta(query: str, meta_subtype: str, patch: str | None = None) -> dict:
+    """Web UI / オーケストレーターからのリクエストを受け取り、適切なハンドラーに振り分けるエントリポイント"""
+    target_patch = patch or meta_service.get_current_patch()
+
+    if meta_subtype == "item_build":
+        answer = handle_item_build(query, target_patch)
+        source = "item_build"
+    elif meta_subtype == "comp_from_item_or_emblem":
+        answer = handle_comp_lookup(query, target_patch)
+        source = "comp_lookup"
+    elif meta_subtype == "comp_recommendation":
+        answer = handle_comp_meta(query, target_patch)
+        source = "comp_meta"
+    elif meta_subtype == "single_comp_guide":
+        answer = handle_single_comp_guide(query, target_patch)
+        source = "single_comp_guide"
+    else:
+        answer = handle_general_meta(query, target_patch)
+        source = "general_meta"
+
+    return {
+        "data": answer,
+        "source": source,
+        "patch": target_patch,
+    }
