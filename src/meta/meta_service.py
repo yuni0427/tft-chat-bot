@@ -632,11 +632,18 @@ def match_comps_by_component_inventory(
     target_patch: str,
     trans_map: dict,
 ) -> list[dict]:
-    """手持ち素材と紋章から、BiS・代用アイテムの作成シミュレーションを行い最適な構成をスコアリング"""
-    from src.meta.tft_translator import translate_term
+    """手持ち素材と紋章から最適な構成をスコアリングして返す。
 
-    matched = []
-    inventory_tokens = [
+    完成品が作れない素材1〜2個の場合でも、メインキャリーの BiS レシピ素材と
+    合致していれば救済スコア（+6点）を加算して候補に残す。
+
+    スコアリング優先度:
+        紋章合致（+30）> キャリー素材合致（+6/素材）> クラフト完成品（+15 BiS等）> Tier基礎点
+    """
+    from src.meta.tft_translator import translate_term_for_patch
+
+    matched: list[dict] = []
+    inventory_tokens: list[str] = [
         normalize_item_token(it)
         for it in items
         if normalize_item_token(it) is not None
@@ -644,82 +651,68 @@ def match_comps_by_component_inventory(
     emblems_lower = [em.lower() for em in emblems]
 
     for comp in guides:
-        # 1. 非公開（メタ落ち・アーカイブ）を完全除外（旧 AP Fast 9 等を弾く）
+        # [A] 非公開・無効 Tier の早期除外
         if not comp.get("isPublic"):
             continue
-
         tier = (comp.get("tier") or "").upper()
-        # 2. 有効Tier（S, A, B, C, X）のみ対象
         if tier not in ["S", "A", "B", "C", "X"]:
             continue
 
-        score = 0
-        reasons = []
-        user_inv = Counter(inventory_tokens)
+        # [B] main_carry / main_tank の確定
+        #     以降すべての処理でこれらを参照するため、最初に確定させる
+        main_champ_raw: str = (comp.get("mainChampion") or {}).get("apiName", "")
+        main_carry: str = translate_term_for_patch(main_champ_raw, target_patch)
 
-        # 3. 紋章判定
-        comp_title = (comp.get("metaTitle") or comp.get("title", "")).lower()
-        aug_tip = (comp.get("augmentsTip") or "").lower()
-        has_emblem_match = False
-        for emblem in emblems_lower:
-            clean_em = emblem.replace("の紋章", "").replace("紋章", "").strip()
-            if clean_em in comp_title or clean_em in aug_tip:
-                score += 30
-                reasons.append(f"【紋章合致】{emblem}")
-                has_emblem_match = True
-
-        # Tier X（特殊条件枠）は紋章合致がある場合のみ有効化
-        if tier == "X" and not has_emblem_match:
-            continue
-
-        # 基礎点（S > A > B > C）
-        tier_base_points = {"S": 10, "A": 6, "B": 3, "C": 0, "X": 12}
-        score += tier_base_points.get(tier, 0)
-
-        # 4. キャリー・タンクの特定
-        main_champ_raw = comp.get("mainChampion", {}).get("apiName", "")
-        main_carry = translate_term(main_champ_raw, trans_map)
-        main_tank = "メインタンク"
+        main_tank: str | None = None
         for unit in comp.get("finalComp", []):
             u_raw = unit.get("apiName", "")
             if u_raw != main_champ_raw and unit.get("items"):
-                main_tank = translate_term(u_raw, trans_map)
+                main_tank = translate_term_for_patch(u_raw, target_patch)
                 break
 
-        # 5. ItemBuildAdvice スキーマから BiS と代用リストを取得
-        def _get_target_pool(unit_name: str, comp_ref: dict):
-            bis_items, alt_items = [], []
+        # [C] スコア・状態変数の初期化
+        #     _try_craft 内の nonlocal score はここで score = 0 が済んでいるため有効
+        score: int = 0
+        reasons: list[str] = []
+        user_inv: Counter = Counter(inventory_tokens)
+
+        # [D] 内部ヘルパー: BIS/代用アイテムプール取得
+        #     main_carry / main_tank が確定済みなのでここに配置できる
+        def _get_target_pool(unit_name: str, comp_ref: dict) -> tuple[list[str], list[str]]:
+            bis_items: list[str] = []
+            alt_items: list[str] = []
             for u in comp_ref.get("finalComp", []):
-                if translate_term(u.get("apiName", ""), trans_map) == unit_name:
+                raw = u.get("apiName", "")
+                if translate_term_for_patch(raw, target_patch) == unit_name:
                     bis_items = [
                         to_japanese_item_name(it)
                         for it in u.get("items", [])
+                        if it
                     ]
-
             build_data = get_item_build(unit_name, target_patch)
             if build_data:
-                bis_std = build_data.get("bis_standard_build", {}).get("items", [])
-                for b in bis_std:
-                    t_name = to_japanese_item_name(b)
-                    if t_name not in bis_items:
-                        bis_items.append(t_name)
-                for sub in build_data.get("substitutes", []):
-                    sub_name = to_japanese_item_name(sub.get("item", ""))
-                    if sub_name not in bis_items and sub_name not in alt_items:
-                        alt_items.append(sub_name)
+                for b in (build_data.get("bis_standard_build") or {}).get("items", []):
+                    t = to_japanese_item_name(b)
+                    if t and t not in bis_items:
+                        bis_items.append(t)
+                for sub in build_data.get("substitutes") or []:
+                    s = to_japanese_item_name(sub.get("item", ""))
+                    if s and s not in bis_items and s not in alt_items:
+                        alt_items.append(s)
             return bis_items, alt_items
 
+        # [E] アイテムプールの取得
         carry_bis, carry_alts = _get_target_pool(main_carry, comp)
         tank_bis, tank_alts = (
-            _get_target_pool(main_tank, comp)
-            if main_tank != "メインタンク"
-            else ([], [])
+            _get_target_pool(main_tank, comp) if main_tank else ([], [])
         )
 
-        planned_carry, planned_tank = [], []
+        # [F] 内部ヘルパー: クラフトシミュレーション
+        #     nonlocal score → [C] で score = 0 済みのため SyntaxError は起きない
+        planned_carry: list[str] = []
+        planned_tank: list[str] = []
 
-        # 6. 手持ち素材からアイテム作成シミュレーション
-        def _try_craft(target_list: list[str], is_bis: bool, is_carry: bool):
+        def _try_craft(target_list: list[str], is_bis: bool, is_carry: bool) -> None:
             nonlocal score
             for it in target_list:
                 recipe = _get_item_recipe(it)
@@ -734,32 +727,70 @@ def match_comps_by_component_inventory(
                     user_inv[r1] -= 1
                     user_inv[r2] -= 1
                     can_craft = True
-
                 if can_craft:
                     score += (15 if is_bis else 8) if is_carry else (10 if is_bis else 5)
-                    it_display = to_japanese_item_name(it)
-                    label = f"{it_display} (BiS)" if is_bis else f"{it_display} (代用)"
+                    label = f"{to_japanese_item_name(it)} ({'BiS' if is_bis else '代用'})"
                     (planned_carry if is_carry else planned_tank).append(label)
 
-        _try_craft(carry_bis, is_bis=True, is_carry=True)
-        _try_craft(tank_bis, is_bis=True, is_carry=False)
+        # [G] クラフトシミュレーション実行
+        _try_craft(carry_bis,  is_bis=True,  is_carry=True)
+        _try_craft(tank_bis,   is_bis=True,  is_carry=False)
         _try_craft(carry_alts, is_bis=False, is_carry=True)
-        _try_craft(tank_alts, is_bis=False, is_carry=False)
+        _try_craft(tank_alts,  is_bis=False, is_carry=False)
 
-        plan_summary = []
+        # [H] キャリー素材適合スコア（クラフト不可時の救済）
+        #     carry_bis + carry_alts のレシピ素材に手持ち素材が含まれていれば +6点
+        #     同一完成品アイテムへの重複加点は1回のみ
+        has_component_match = False
+        seen_item_reasons: set[str] = set()
+        for inv_tok in inventory_tokens:
+            for target_it in (carry_bis + carry_alts):
+                if target_it in seen_item_reasons:
+                    continue
+                recipe_toks = _get_item_recipe(target_it)  # ["bf", "tear"] 等のトークンリスト
+                if inv_tok in recipe_toks:
+                    score += 6
+                    has_component_match = True
+                    seen_item_reasons.add(target_it)
+                    reasons.append(f"【キャリー素材活用】{inv_tok} -> {target_it}")
+                    break  # 同一素材トークンで複数アイテムへの重複加点を防ぐ
+
+        # [I] 紋章判定
+        comp_title = (comp.get("metaTitle") or comp.get("title", "")).lower()
+        aug_tip    = (comp.get("augmentsTip") or "").lower()
+        has_emblem_match = False
+        for emblem in emblems_lower:
+            clean_em = emblem.replace("の紋章", "").replace("紋章", "").strip()
+            if clean_em and (clean_em in comp_title or clean_em in aug_tip):
+                score += 30
+                reasons.append(f"【紋章合致】{emblem}")
+                has_emblem_match = True
+
+        # Tier X は紋章合致がある場合のみ有効
+        if tier == "X" and not has_emblem_match:
+            continue
+
+        # [J] Tier 基礎点
+        tier_base = {"S": 10, "A": 6, "B": 3, "C": 0, "X": 12}
+        score += tier_base.get(tier, 0)
+
+        # [K] plan_summary の構築と候補追加
+        plan_summary: list[str] = []
         if planned_carry:
             plan_summary.append(f"{main_carry}: {' + '.join(planned_carry)}")
-        if planned_tank:
+        if planned_tank and main_tank:
             plan_summary.append(f"{main_tank}: {' + '.join(planned_tank)}")
+        if plan_summary:
+            reasons.insert(0, f"作成計画: {' / '.join(plan_summary)}")
 
-        if score > 0 and plan_summary:
-            reasons.append(f"作成計画: {' / '.join(plan_summary)}")
+        # クラフト完成品あり、キャリー素材合致あり、または紋章合致ありのいずれかで採用
+        if score > 0 and (plan_summary or has_component_match or has_emblem_match):
             matched.append({
                 "comp": comp,
                 "score": score,
                 "reasons": reasons,
                 "main_carry": main_carry,
-                "main_tank": main_tank,
+                "main_tank": main_tank or "メインタンク",
             })
 
     matched.sort(key=lambda x: x["score"], reverse=True)
