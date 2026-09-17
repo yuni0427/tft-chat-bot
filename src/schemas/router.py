@@ -20,7 +20,13 @@ class IntentClassification(BaseModel):
 
     category: Literal["ambiguous", "theory", "meta"]
     meta_subtype: Optional[
-        Literal["item_build", "comp_from_item_or_emblem", "general"]
+        Literal[
+            "comp_recommendation",
+            "single_comp_guide",
+            "item_build",
+            "comp_from_item_or_emblem",
+            "general",
+        ]
     ] = None
     clarification_message: Optional[str] = Field(
         default=None, description="ambiguousの場合に表示する聞き返し文"
