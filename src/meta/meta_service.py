@@ -14,13 +14,28 @@ import config
 from src.meta import static_provider
 
 
-def get_current_patch() -> str:
+def get_current_patch_info() -> tuple[str, int | None]:
+    """
+    current_patch.txt から (パッチ名, 開始時刻エポック秒) を取得する。
+    記述例:
+      - 16.18.2b,1789488000 -> ("16.18.2b", 1789488000)
+      - 18.2                -> ("18.2", None)
+    """
     p = Path(config.CURRENT_PATCH_FILE)
     if p.exists():
         text = p.read_text(encoding="utf-8").strip()
         if text:
-            return text
-    return config.DEFAULT_PATCH
+            parts = [x.strip() for x in text.split(",")]
+            patch = parts[0]
+            start_time = int(parts[1]) if len(parts) > 1 and parts[1].isdigit() else None
+            return patch, start_time
+    return config.DEFAULT_PATCH, None
+
+
+def get_current_patch() -> str:
+    """パッチ名文字列のみを返す（既存の呼び出しとの完全互換）"""
+    patch, _ = get_current_patch_info()
+    return patch
 
 
 def set_current_patch(patch: str) -> None:
