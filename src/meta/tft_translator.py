@@ -467,6 +467,13 @@ CHAMPION_ALIASES: dict[str, str] = {
     "elise": "エリス",
     "エリス": "エリス",
     "蜘蛛": "エリス",
+    # エルダードラゴン
+    "elder": "ElderDragon",
+    "elderdragon": "ElderDragon",
+    "エルダー": "ElderDragon",
+    "エルダードラゴン": "ElderDragon",
+    "ドラゴン": "ElderDragon",
+    "竜": "ElderDragon",
     # オーン
     "ornn": "オーン",
     "オーン": "オーン",
