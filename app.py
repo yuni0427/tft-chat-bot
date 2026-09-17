@@ -34,23 +34,40 @@ def _respond_theory(query: str) -> None:
 
 
 def _respond_meta(query: str, meta_subtype: str | None) -> None:
-    patch = st.session_state.get("selected_patch")
-    try:
-        result = meta_chain.handle_meta(query, meta_subtype, patch)
-    except Exception as exc:  # noqa: BLE001
-        st.session_state.messages.append(
-            {"role": "assistant", "content": f"回答生成中にエラーが発生しました: {exc}"}
-        )
-        return
+  patch = st.session_state.get("selected_patch")
+  try:
+    result = meta_chain.handle_meta(query, meta_subtype, patch)
+  except Exception as exc:  # noqa: BLE001
+    st.session_state.messages.append({
+        "role": "assistant",
+        "content": f"回答生成中にエラーが発生しました: {exc}",
+    })
+    return
 
-    if result["type"] == "item_build":
-        html = cards.render_item_build_card(result["data"])
-        st.session_state.messages.append({"role": "assistant", "content": "", "html": html})
-    elif result["type"] == "comp_list":
-        html = "".join(cards.render_comp_card(c) for c in result["data"])
-        st.session_state.messages.append({"role": "assistant", "content": "", "html": html})
+  res_type = result.get("type") if isinstance(result, dict) else None
+  res_data = result.get("data") if isinstance(result, dict) else result
+
+  # カード描画を試み、失敗したらテキストで出力する
+  try:
+    if res_type == "item_build":
+      html = cards.render_item_build_card(res_data)
+      st.session_state.messages.append(
+          {"role": "assistant", "content": "", "html": html}
+      )
+    elif res_type == "comp_list":
+      html = "".join(cards.render_comp_card(c) for c in res_data)
+      st.session_state.messages.append(
+          {"role": "assistant", "content": "", "html": html}
+      )
     else:
-        st.session_state.messages.append({"role": "assistant", "content": str(result["data"])})
+      st.session_state.messages.append(
+          {"role": "assistant", "content": str(res_data)}
+      )
+  except Exception:
+    # cards 側で AttributeError 等が起きた場合は安全にテキスト表示へフォールバック
+    st.session_state.messages.append(
+        {"role": "assistant", "content": str(res_data)}
+    )
 
 
 def _classify_and_respond(query: str) -> None:
