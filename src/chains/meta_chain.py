@@ -13,7 +13,11 @@ from pydantic import BaseModel, Field
 import config
 from src.llm.factory import get_chat_model
 from src.meta import meta_service
-from src.meta.tft_translator import load_tft_translations, translate_term
+from src.meta.tft_translator import (
+    load_tft_translations,
+    preprocess_tft_text,
+    translate_term,
+)
 from src.meta.tftacademy_client import get_tftacademy_tierlist
 from src.rag.retriever import retrieve
 from src.schemas.comp_recommendation import CompRecommendation
@@ -35,31 +39,36 @@ class _HeldAssets(BaseModel):
     )
 
 
-# 1. 構成メタ・おすすめ構成専用プロンプト（統計比較を義務化）
+# 1. 構成メタ・おすすめ構成専用プロンプト（完全日本語化・統計比較）
 _COMP_META_SYSTEM_PROMPT = """あなたはTFT(Teamfight Tactics)の論理的で無駄のないトップアナリストです。
-プレイヤーの質問に対し、【Riot公式 実戦マッチ統計】と【TFTAcademy 最新プロティア表】を照合し、各構成を明確に比較・評価して回答してください。
+プレイヤーの質問に対し、【Riot公式 実戦マッチ統計】と【TFTAcademy 最新プロティア表】を照合し、各構成を明確に比較・評価して完全な日本語で回答してください。
 
 【絶対前提】
 - ユーザーはUI上で現在稼働中の最新パッチ（Patch {target_patch}）を選択しています。
 - パッチの妥当性を疑ったり、「データが存在しない」「古い/未来のパッチである」と回答することは一切禁止します。
 - あなた自身の古い事前学習知識（過去セットの駒や構成など）でパッチの存在を否定せず、提供された実データを唯一の事実として受け入れてください。
 
+【最重要：完全日本語化ルール】
+すべての出力を自然な日本語およびカタカナ表記で統一してください。英語タイトルの放置は禁止です。
+- 提供データに英語のTipsやアドバイスが含まれる場合も、必ず自然で無駄のない日本語に要約・翻訳して提示してください。
+- DA_xxx などの内部API名や生トークン（rod, tear 等）の混入は厳禁です。
+
 【出力要件】
 1. **各構成の提示と実戦スタッツ**
    - 構成ごとに【Riot公式 実戦マッチ統計】から「平均順位」「Top4率」「サンプル数」を明記してください。
+   - 構成名およびスタイル名は必ず日本語表記（例: 【Tier A】インヴォーカー アーリ（スタイル: 4コスト ファスト8））としてください。
 2. **スタッツに基づく構成比較・立ち位置の解説（必須）**
-   - 単に並べるのではなく、「Top4率が高く安定してLPを盛れる構成」「到達時の平均順位は最上位だが進行事故のリスクもあるFast9型」のように、構成ごとの強み・リスクの違いを明確に比較してください。
+   - 単に並べるのではなく、「Top4率が高く安定してLPを盛れる構成」「到達時の平均順位は最上位だが進行事故のリスクもあるファスト9型」のように、強み・リスクの違いを明確に比較してください。
 3. **コミット条件（※TFTAcademyに記載がある場合のみ）**
    - 提供された【TFTAcademy 最新プロティア表】のTipsやガイド情報内に明記されている場合のみ、アイテム素材の寄り、オーグメント/紋章、盤面の重なりを箇条書きで記載してください。
-   - データ内に明確な言及がない場合は、このセクションを無理に推測・創作せず省略してください。
+   - データ内に明確な言及がない場合は、無理に推測・創作せず省略してください。
 4. **ガイドリンク**
    - 各構成の直下に以下のみを記載してください:
-     - 📖 **詳細ガイド:** [構成名 - TFTAcademy](URL)
+     - 📖 **詳細ガイド:** [構成名(日本語) - TFTAcademy](URL)
 
 【トーン & マナー】
 - 感情的な説教（「〜しましょう！」等）や精神論は禁止し、客観的な事実と判断ロジックのみを淡々と伝えてください。
 - 「ナレッジベース」「コンテキスト」などの内部用語は使用禁止です。
-【言語対応】ユーザーの言語（日本語/英語）に合わせて回答してください。
 """
 
 # 2. 単体駒・仕様・基礎知識専用プロンプト（余計なお節介を排除）
@@ -242,6 +251,9 @@ def _format_academy_data(raw_data: dict | list) -> str:
     grouped_comps: dict[str, list[dict]] = {}
     for comp in guides:
         if isinstance(comp, dict):
+            # ★ 非公開アーカイブ（メタ落ち）を確実に遮断
+            if not comp.get("isPublic", True):
+                continue
             tier = comp.get("tier", "Other").upper()
             grouped_comps.setdefault(tier, []).append(comp)
 
@@ -255,8 +267,12 @@ def _format_academy_data(raw_data: dict | list) -> str:
     for tier in sorted_tiers:
         formatted.append(f"【Tier {tier}】")
         for comp in grouped_comps[tier]:
-            title = comp.get("metaTitle") or comp.get("title", "構成名")
-            style = comp.get("style", "Standard")
+            raw_title = comp.get("metaTitle") or comp.get("title", "構成名")
+            # ★ 辞書にある駒名・特性名を先行して日本語化
+            title = preprocess_tft_text(raw_title, trans_map)
+
+            raw_style = comp.get("style", "Standard")
+            style = preprocess_tft_text(raw_style, trans_map)
 
             slug = comp.get("compSlug")
             guide_url = (
@@ -279,8 +295,9 @@ def _format_academy_data(raw_data: dict | list) -> str:
                 u_raw = board_unit.get("apiName", "")
                 final_units.append(translate_term(u_raw, trans_map))
                 if u_raw == main_champ_raw:
+                    # ★ アイテム専用の日本語変換を使用
                     items = [
-                        translate_term(it, trans_map)
+                        meta_service.to_japanese_item_name(it)
                         for it in board_unit.get("items", [])
                     ]
 
@@ -296,11 +313,12 @@ def _format_academy_data(raw_data: dict | list) -> str:
 
             aug_tip = comp.get("augmentsTip")
             if aug_tip:
-                comp_line += f"\n    コツ: {aug_tip}"
+                # ★ Tips内の駒名・特性名も先行日本語化
+                comp_line += f"\n    コツ: {preprocess_tft_text(aug_tip, trans_map)}"
 
             formatted.append(comp_line)
 
-    return "\n\n".join(formatted)
+    return "\n\n".join(formatted) if formatted else "利用可能な公開構成はありません。"
 
 
 def handle_comp_meta(query: str, patch: str | None = None) -> str:
@@ -308,11 +326,19 @@ def handle_comp_meta(query: str, patch: str | None = None) -> str:
     target_patch = patch or meta_service.get_current_patch()
 
     comps = meta_service.get_comp_recommendations(target_patch)
-    comps_text = "\n".join(
-        f"- {c['comp_name']} (Tier{c['tier']}, 平均順位{c['avg_place']}, "
-        f"Top4率{int(c['top4_rate'] * 100)}%, サンプル{c['sample_size']}件/{c['confidence_level']})"
-        for c in comps
-    ) if comps else "実戦統計データ集計中（サンプル蓄積中）"
+    trans_map = load_tft_translations()
+
+    # KeyErrorを防ぐために .get() で安全に取得し、構成名を先行日本語化
+    comps_text = (
+        "\n".join(
+            f"- {preprocess_tft_text(c.get('comp_name') or c.get('name') or c.get('title', '名称不明'), trans_map)} "
+            f"(Tier{c.get('tier', '-')}, 平均順位{c.get('avg_place', '-')}, "
+            f"Top4率{int(c.get('top4_rate', 0) * 100)}%, サンプル{c.get('sample_size', 0)}件/{c.get('confidence_level', '-')})"
+            for c in comps
+        )
+        if comps
+        else "実戦統計データ集計中（サンプル蓄積中）"
+    )
 
     academy_raw = get_tftacademy_tierlist()
     academy_text = _format_academy_data(academy_raw)
@@ -762,43 +788,3 @@ TFTAcademyに個別ガイドがない構成について、実戦統計データ�
     # パターンC: どちらにも存在しない場合
     # -------------------------------------------------------------
     return handle_comp_meta(query, target_patch)
-
-
-def handle_meta(
-    query: str, meta_subtype: str | None, patch: str | None = None
-) -> dict:
-    # 1. アイテムビルド専用
-    if meta_subtype == "item_build":
-        return {"type": "text", "data": handle_item_build(query, patch)}
-
-    # 2. アイテム/紋章からの逆引き専用
-    if meta_subtype == "comp_from_item_or_emblem":
-        return {"type": "text", "data": handle_comp_lookup(query, patch)}
-
-    # ★ ここで小文字化を定義
-    query_lower = query.lower()
-
-    # ★ 3. 特定構成のやり方判定（「やり方/立ち回り/回し方」かつ構成を指している場合）
-    theory_guards = ["やり方", "回し方", "進行", "立ち回り", "どうやって"]
-    has_how_to = any(g in query_lower for g in theory_guards)
-
-    # 「3コスト構成のやり方」のような一般セオリー質問を除外（「リロール」「構成」「flex」「fast」等を含む固有の構成指定時）
-    generic_cost_theory = any(f"{c}コスト構成" in query_lower or f"{c}コス構成" in query_lower for c in ["1", "2", "3", "4", "5"])
-    
-    if has_how_to and not generic_cost_theory:
-        if "構成" in query_lower or any(char in query_lower for char in ["リロール", "flex", "fast"]):
-            return {"type": "text", "data": handle_single_comp_guide(query, patch)}
-    # ★ 4. メタ評価ワードとセオリーガードの判定
-    meta_eval_keywords = [
-        "tier", "ティア", "強い構成", "おすすめ構成", "オススメ構成",
-        "メタ構成", "勝率", "top4", "今強い", "環境構成"
-    ]
-    has_meta_intent = any(k in query_lower for k in meta_eval_keywords)
-    is_theory_intent = any(g in query_lower for g in theory_guards)
-
-    # 構成メタ（おすすめ構成・Tier表・強い構成）
-    if meta_subtype == "comp_recommendation" or (has_meta_intent and not is_theory_intent):
-        return {"type": "text", "data": handle_comp_meta(query, patch)}
-
-    # ★ 5. 単体駒・デバフ・システム仕様・基礎知識
-    return {"type": "text", "data": handle_general_meta(query, patch)}
