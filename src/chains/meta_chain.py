@@ -321,27 +321,82 @@ def _format_academy_data(raw_data: dict | list) -> str:
     return "\n\n".join(formatted) if formatted else "利用可能な公開構成はありません。"
 
 
-def handle_comp_meta(query: str, patch: str | None = None) -> str:
-    """おすすめ構成・メタ質問専用（Riot実戦統計 × TFTAcademy比較）"""
-    target_patch = patch or meta_service.get_current_patch()
+def _format_merged_comps_text(comps: list[dict], trans_map: dict) -> str:
+    """マージ済み comp_recommendations をLLMプロンプト用テキストにフォーマットする。
 
-    comps = meta_service.get_comp_recommendations(target_patch)
+    マージ済みデータには以下が混在する:
+      - 実戦統計あり + TFTAcademy紐付け済み  (avg_place & metaTitle が両方存在)
+      - TFTAcademy理論値のみ                 (avg_place なし、metaTitle のみ)
+    両パターンを1つのフォーマットで表現する。
+    """
+    lines = []
+    for c in comps:
+        # 表示名: metaTitle → comp_name → title の優先順
+        raw_name = c.get("metaTitle") or c.get("comp_name") or c.get("title") or "名称不明"
+        display_name = preprocess_tft_text(raw_name, trans_map)
+
+        tier   = c.get("tier", "-")
+        style  = preprocess_tft_text(c.get("style", ""), trans_map)
+        slug   = c.get("compSlug", "")
+        url    = f"https://tftacademy.com/tierlist/comps/{slug}" if slug else ""
+
+        # 実戦スタッツ（統計がある構成のみ付与）
+        if c.get("avg_place") is not None:
+            top4_pct = int(c.get("top4_rate", 0) * 100)
+            sample   = c.get("sample_size", 0)
+            conf     = c.get("confidence_level", "-")
+            stats_str = f"平均順位{c['avg_place']}, Top4率{top4_pct}%, サンプル{sample}件/{conf}"
+        else:
+            stats_str = "実戦統計: 集計中"
+
+        line = (
+            f"- 【Tier {tier}】{display_name}"
+            + (f" (スタイル: {style})" if style else "")
+            + f" | {stats_str}"
+            + (f" | ガイド: {url}" if url else "")
+        )
+        lines.append(line)
+
+    return "\n".join(lines) if lines else "実戦統計データ集計中（サンプル蓄積中）"
+
+
+def _find_matching_riot_stat(comp: dict, comps_stats: list[dict]) -> dict | None:
+    """TFTAcademy構成オブジェクトに対してマージ済み統計の最良マッチを返す共通関数。
+
+    マージ済みデータなら comp 自体が既に avg_place を持つため、それをそのまま使う。
+    マージ漏れ（metaTitle はあるが avg_place がない）場合のフォールバックとして
+    comps_stats から文字列照合で統計を探す。
+    """
+    # マージ済みで既に統計が注入されていればそのまま返す
+    if comp.get("avg_place") is not None:
+        return comp
+
+    # フォールバック: タイトル / メインキャリー名で部分一致検索
+    title = (comp.get("metaTitle") or comp.get("title") or "").lower()
+    main_raw = (comp.get("mainChampion") or {}).get("apiName", "")
+    trans_map = load_tft_translations()
+    main_ja = translate_term(main_raw, trans_map).lower()
+
+    for c in comps_stats:
+        c_name = c.get("comp_name", "").lower()
+        if (title and title in c_name) or (main_ja and main_ja in c_name):
+            return c
+    return None
+
+
+def handle_comp_meta(query: str, patch: str | None = None) -> str:
+    """おすすめ構成・メタ質問専用（マージ済みデータを単一ソースとして使用）"""
+    target_patch = patch or meta_service.get_current_patch()
     trans_map = load_tft_translations()
 
-    # KeyErrorを防ぐために .get() で安全に取得し、構成名を先行日本語化
-    comps_text = (
-        "\n".join(
-            f"- {preprocess_tft_text(c.get('comp_name') or c.get('name') or c.get('title', '名称不明'), trans_map)} "
-            f"(Tier{c.get('tier', '-')}, 平均順位{c.get('avg_place', '-')}, "
-            f"Top4率{int(c.get('top4_rate', 0) * 100)}%, サンプル{c.get('sample_size', 0)}件/{c.get('confidence_level', '-')})"
-            for c in comps
-        )
-        if comps
-        else "実戦統計データ集計中（サンプル蓄積中）"
-    )
+    # マージ済みデータが単一ソース（実戦統計 + TFTAcademy ガイド情報が統合済み）
+    comps = meta_service.get_comp_recommendations(target_patch)
+    comps_text = _format_merged_comps_text(comps, trans_map)
 
-    academy_raw = get_tftacademy_tierlist()
-    academy_text = _format_academy_data(academy_raw)
+    # TFTAcademy の詳細ガイド情報（augmentsTip / finalComp アイテム等）は
+    # マージ済み comps に既に含まれているが、未マージの理論値構成のために
+    # _format_academy_data は使わず comps_text だけをLLMに渡す。
+    # （二重呼び出しによる冗長化・整合性ズレを防ぐ）
 
     # パッチノート (tftips.app) が存在すれば自動で差し込む
     patch_notes_file = Path(config.DATA_DIR) / f"patch_{target_patch}" / "patch_notes.md"
@@ -355,8 +410,7 @@ def handle_comp_meta(query: str, patch: str | None = None) -> str:
     user_prompt = (
         f"【対象ゲーム内パッチ】: Patch {target_patch}\n\n"
         f"{patch_notes_text}"
-        f"【Riot公式 実戦マッチ統計】\n{comps_text}\n\n"
-        f"【TFTAcademy 最新プロティア表】\n{academy_text}\n\n"
+        f"【Riot公式実戦統計 & TFTAcademyガイド統合データ（マージ済み）】\n{comps_text}\n\n"
         f"質問: {query}"
     )
 
@@ -537,16 +591,16 @@ def handle_comp_lookup(query: str, patch: str | None = None) -> str:
     if not matched_candidates:
         return "提示されたアイテム素材/紋章を活用できる有力なTFTAcademy構成が見つかりませんでした。"
 
-    # 3. Riot実戦統計による裏付け付与
+    # 3. マージ済みデータを単一ソースとして使用し、実戦スタッツを取得
     comps_stats = meta_service.get_comp_recommendations(target_patch)
     candidates_context = []
 
     for item in matched_candidates:
         comp = item["comp"]
         title = comp.get("metaTitle") or comp.get("title", "構成名")
-        tier = comp.get("tier", "A")
+        tier  = comp.get("tier", "A")
         style = comp.get("style", "Standard")
-        slug = comp.get("compSlug", "")
+        slug  = comp.get("compSlug", "")
         guide_url = (
             f"https://tftacademy.com/tierlist/comps/{slug}"
             if slug
@@ -555,12 +609,11 @@ def handle_comp_lookup(query: str, patch: str | None = None) -> str:
 
         main_carry = item["main_carry"]
 
-# 1. TFTAcademy推奨のキャリー完成形アイテム（日本語名で統一取得）
+        # 1. TFTAcademy推奨のキャリー完成形アイテム（日本語名で統一取得）
         carry_target_items = []
         for u in comp.get("finalComp", []):
             u_raw = u.get("apiName", "").replace("DA_", "")
             u_name = translate_term(u_raw, trans_map)
-            # 部分一致も含めて確実にキャリー駒を捕捉
             if u_name == main_carry or u_raw.lower() in main_carry.lower() or main_carry.lower() in u_raw.lower():
                 carry_target_items = [meta_service.to_japanese_item_name(it) for it in u.get("items", [])]
                 break
@@ -568,10 +621,9 @@ def handle_comp_lookup(query: str, patch: str | None = None) -> str:
         # 2. 今回作成するアイテム（日本語）
         planned_text = " / ".join(item.get("reasons", []))
 
-        # 3. 今回作ったアイテムを除外し、「残りの枠」と「必要素材」を日本語で算出
+        # 3. 今回作ったアイテムを除外し、残りの枠と必要素材を算出
         remaining_items_info = []
         for target_it in carry_target_items:
-            # スペースを除去して重複チェック（「ショウジンの矛」の残り枠混入を防止）
             clean_target = target_it.replace(" ", "")
             clean_planned = planned_text.replace(" ", "")
             if clean_target and clean_target not in clean_planned:
@@ -581,23 +633,16 @@ def handle_comp_lookup(query: str, patch: str | None = None) -> str:
 
         remaining_desc = ", ".join(remaining_items_info) if remaining_items_info else "主要枠完成"
 
-        # 3. Riot実戦スタッツの紐付け
-        stat = next(
-            (
-                c
-                for c in comps_stats
-                if main_carry in c.get("comp_name", "")
-                or title in c.get("comp_name", "")
-            ),
-            None,
-        )
+        # 4. マージ済みデータから実戦スタッツを取得（_find_matching_riot_stat でフォールバック込み）
+        stat = _find_matching_riot_stat(comp, comps_stats)
         stat_info = (
-            f"平均順位: {stat['avg_place']} / Top4率: {int(stat['top4_rate']*100)}% (サンプル数: {stat['sample_size']}件)"
-            if stat
+            f"平均順位: {stat['avg_place']} / Top4率: {int(stat['top4_rate']*100)}%"
+            f" (サンプル数: {stat['sample_size']}件 / 信頼度: {stat.get('confidence_level', '-')})"
+            if stat and stat.get("avg_place") is not None
             else "実戦統計: サンプル蓄積中"
         )
 
-        # 4. コンテキストの構築（URL、スタッツ、残り枠をすべて明示）
+        # 5. コンテキスト構築
         candidates_context.append(
             f"【Tier {tier}】{title} (スタイル: {style})\n"
             f"- メインキャリー: {main_carry}\n"
@@ -607,7 +652,7 @@ def handle_comp_lookup(query: str, patch: str | None = None) -> str:
             f"- ガイドURL: {guide_url}"
         )
 
-    # 4. LLMで解説文を生成
+    # 6. LLMで解説文を生成
     system_prompt = _COMP_FROM_ASSETS_SYSTEM_PROMPT.replace(
         "{target_patch}", str(target_patch)
     )
@@ -615,7 +660,7 @@ def handle_comp_lookup(query: str, patch: str | None = None) -> str:
         f"【対象ゲーム内パッチ】: Patch {target_patch}\n"
         f"手持ちアイテム素材: {', '.join(extracted.items) if extracted.items else 'なし'}\n"
         f"手持ち紋章: {', '.join(extracted.emblems) if extracted.emblems else 'なし'}\n\n"
-        f"【TFTAcademy 適合構成候補 & 実戦統計裏付け】\n"
+        f"【TFTAcademy 適合構成候補 & 実戦統計裏付け（マージ済み）】\n"
         + "\n\n".join(candidates_context)
         + f"\n\nユーザーの質問: {query}"
     )
@@ -699,10 +744,12 @@ def handle_single_comp_guide(query: str, patch: str | None = None) -> str:
                 main_tank = translate_term(u_raw, trans_map)
                 break
 
-        matched_stat = next((c for c in comps_stats if main_carry in c.get("comp_name", "") or comp_title in c.get("comp_name", "")), None)
+        matched_stat = _find_matching_riot_stat(target_comp, comps_stats)
         stat_text = (
-            f"実戦統計: 平均順位 {matched_stat['avg_place']} / Top4率 {int(matched_stat['top4_rate']*100)}% (サンプル数: {matched_stat['sample_size']})"
-            if matched_stat else "実戦統計: 集計中"
+            f"実戦統計: 平均順位 {matched_stat['avg_place']} / Top4率 {int(matched_stat['top4_rate']*100)}%"
+            f" (サンプル数: {matched_stat['sample_size']} / 信頼度: {matched_stat.get('confidence_level', '-')})"
+            if matched_stat and matched_stat.get("avg_place") is not None
+            else "実戦統計: 集計中"
         )
 
         build_context = _build_item_context(main_carry, main_tank, target_patch, trans_map)
