@@ -39,17 +39,19 @@ class _HeldAssets(BaseModel):
 _COMP_META_SYSTEM_PROMPT = """あなたはTFT(Teamfight Tactics)の論理的で無駄のないトップアナリストです。
 プレイヤーの質問に対し、【Riot公式 実戦マッチ統計】と【TFTAcademy 最新プロティア表】を照合し、各構成を明確に比較・評価して回答してください。
 
-【前提条件】
-- 提供されたコンテキスト内のパッチバージョンおよび統計データは、現在稼働している最新の実データです。
-- あなた自身の古い事前学習知識（過去のパッチ番号の常識など）でパッチの存在を否定せず、提供されたデータに厳密に基づいて回答してください。
+【絶対前提】
+- ユーザーはUI上で現在稼働中の最新パッチ（Patch {target_patch}）を選択しています。
+- パッチの妥当性を疑ったり、「データが存在しない」「古い/未来のパッチである」と回答することは一切禁止します。
+- あなた自身の古い事前学習知識（過去セットの駒や構成など）でパッチの存在を否定せず、提供された実データを唯一の事実として受け入れてください。
 
 【出力要件】
 1. **各構成の提示と実戦スタッツ**
    - 構成ごとに【Riot公式 実戦マッチ統計】から「平均順位」「Top4率」「サンプル数」を明記してください。
 2. **スタッツに基づく構成比較・立ち位置の解説（必須）**
    - 単に並べるのではなく、「Top4率が高く安定してLPを盛れる構成」「到達時の平均順位は最上位だが進行事故のリスクもあるFast9型」のように、構成ごとの強み・リスクの違いを明確に比較してください。
-3. **コミット条件**
-   - アイテム素材の寄り、オーグメント/紋章、盤面の重なりを箇条書きで記載してください。
+3. **コミット条件（※TFTAcademyに記載がある場合のみ）**
+   - 提供された【TFTAcademy 最新プロティア表】のTipsやガイド情報内に明記されている場合のみ、アイテム素材の寄り、オーグメント/紋章、盤面の重なりを箇条書きで記載してください。
+   - データ内に明確な言及がない場合は、このセクションを無理に推測・創作せず省略してください。
 4. **ガイドリンク**
    - 各構成の直下に以下のみを記載してください:
      - 📖 **詳細ガイド:** [構成名 - TFTAcademy](URL)
@@ -80,7 +82,7 @@ _GENERAL_SYSTEM_PROMPT = """あなたはTFT(Teamfight Tactics)の論理的で無
 # 3. アイテムビルド専用プロンプト
 _ITEM_BUILD_SYSTEM_PROMPT = """あなたはTFTの最新メタに精通したトップアナリストです。
 特定のチャンピオンに関するアイテムビルドの質問に対し、以下の2つのデータを照合して解説してください。
-1. 「Riot公式 実戦マッチ統計」: 各アイテムの平均順位、Top4率、サンプル数
+1. 「Riot公式 実戦マッチ統計」: 各アイテムの平均順位、Top4率、サンプル数、またはコアアイテム採用理由
 2. 「TFTAcademy 最新プロ推奨」: プロティアリストで推奨されているコアアイテム、採用されている構成、立ち回りのコツ
 
 【出力構成】
@@ -91,6 +93,80 @@ _ITEM_BUILD_SYSTEM_PROMPT = """あなたはTFTの最新メタに精通したト�
 
 【言語対応】ユーザーの質問言語（日本語または英語）に合わせて回答してください。
 """
+
+
+# 4. 単一構成専用プロンプト
+_SINGLE_COMP_GUIDE_SYSTEM_PROMPT = """あなたはTFT(Teamfight Tactics)の論理的で無駄のないトップアナリストです。
+特定の構成に関するやり方・プレイ方法の質問に対し、【TFTAcademy ガイド詳細】と【実戦マッチ統計】を照合して過不足なく解説してください。
+
+【出力構成】
+1. **構成概要 & 実戦スタッツ**
+   - 構成名、プレイスタイル（Fast8、リロール等）、Riot統計がある場合は平均順位/Top4率を記載。
+2. **メインキャリー & メインタンクの推奨アイテム（BIS）**
+   - キャリーおよびタンクの推奨アイテムと採用理由を端的に解説。
+3. **進行と立ち回りのコツ**
+   - TFTAcademyに記載されている盤面進行やオーグメントのTipsを抜粋（データにない場合は無理に創作しない）。
+4. **詳細ガイドリンク**
+   - 📖 **詳細ガイド:** [構成名 - TFTAcademy](URL)
+5. **セオリー案内（必須）**
+   - 回答の末尾で「なお、この構成の基礎となる『{cost}コスト構成の一般的な進行セオリーやリロールタイミング』について詳しく確認しますか？」と一言添えてください。
+
+【トーン & マナー】
+- 感情的な精神論は排除し、客観的な事実と判断ロジックのみを淡々と述べてください。
+- 「ナレッジベース」「コンテキスト」などの内部用語は使用禁止です。
+"""
+
+# 5. アイテム/紋章からの逆引き専用プロンプト（TFTAcademy主軸 × Riot統計裏付け）
+_COMP_FROM_ASSETS_SYSTEM_PROMPT = """あなたはTFT(Teamfight Tactics)の論理的で無駄のないトップアナリストです。
+プレイヤーの手持ちアイテムや紋章に対し、【TFTAcademy 最新プロティア表】から向かうべき有力構成を提示し、【Riot公式 実戦マッチ統計】でその強さ（信憑性）を裏付けて回答してください。
+
+【絶対前提】
+- ユーザーはUI上で現在稼働中の最新パッチ（Patch {target_patch}）を選択しています。
+- パッチの妥当性を疑ったり、「データが存在しない」「古い/未来のパッチである」と回答することは一切禁止します。
+- 構成の型やアイテム適正は【TFTAcademy】を最高精度の正解基準とし、実戦スタッツ（平均順位・Top4率）をその信憑性の裏付けとして扱ってください。
+
+【出力要件】
+各候補構成（最大3つ）について、必ず以下の項目・形式で記載してください:
+1. **構成名 & 実戦スタッツ**
+   - 構成名 (Tier)、プレイスタイル (Fast8, リロール等)
+   - 実戦スタッツ: 平均順位、Top4率、サンプル数（提供データにある場合）
+2. **手持ち素材で作る推奨アイテム（必須）**
+   - 提供された「今回作成するアイテム」を基に、手持ち素材を組み合わせて「何を作るか」を具体的に提示してください。
+3. **完成形に向けた残りのスロット**
+   - 提供された「目指すべき残りのスロット」に記載されているアイテムと素材のみをそのまま案内してください。
+   - ※提供データに存在しないアイテム名や妥協候補、合成レシピを独自に推測・創作することは一切禁止します。
+4. **詳細ガイドリンク**
+   - 各構成の末尾に、提供されたガイドURLを用いて以下のみを記載してください:
+     📖 **詳細ガイド:** [構成名 - TFTAcademy](URL)
+
+【トーン & マナー】
+- 感情的な精神論や説教調（「〜しましょう！」等）は排除し、客観的な事実と移行判断ロジックのみを淡々と伝えてください。
+- 「コンテキスト」「プロンプト」などの内部用語は使用禁止です。
+"""
+
+def _find_target_comp(query: str, guides: list[dict]) -> dict | None:
+    """ユーザーの入力に最も合致する構成をTFTAcademyデータから検索"""
+    trans_map = load_tft_translations()
+    query_lower = query.lower()
+
+    # 1. 構成タイトルやslugでの部分一致
+    for comp in guides:
+        title = comp.get("metaTitle") or comp.get("title", "")
+        slug = comp.get("compSlug", "")
+        if (title and title.lower() in query_lower) or (slug and slug.replace("-", " ") in query_lower):
+            return comp
+
+    # 2. メインキャリー名での一致（日本語/英語）
+    for comp in guides:
+        main_champ_info = comp.get("mainChampion", {})
+        raw_api = main_champ_info.get("apiName", "") if isinstance(main_champ_info, dict) else ""
+        unit_ja = translate_term(raw_api, trans_map)
+        unit_en = raw_api.split("_")[-1].lower()
+
+        if (unit_ja and unit_ja.lower() in query_lower) or (unit_en and unit_en in query_lower):
+            return comp
+
+    return None
 
 
 def _get_academy_champ_context(champ_name: str, raw_data: dict | list) -> str:
@@ -247,6 +323,8 @@ def handle_comp_meta(query: str, patch: str | None = None) -> str:
     if patch_notes_file.exists():
         patch_notes_text = f"【Patch {target_patch} 差分・パッチノート】\n{patch_notes_file.read_text(encoding='utf-8')[:1500]}\n\n"
 
+    system_prompt = _COMP_META_SYSTEM_PROMPT.replace("{target_patch}", str(target_patch))
+
     llm = get_chat_model(temperature=0.3)
     user_prompt = (
         f"【対象ゲーム内パッチ】: Patch {target_patch}\n\n"
@@ -257,7 +335,7 @@ def handle_comp_meta(query: str, patch: str | None = None) -> str:
     )
 
     messages = [
-        {"role": "system", "content": _COMP_META_SYSTEM_PROMPT},
+        {"role": "system", "content": system_prompt},
         {"role": "user", "content": user_prompt},
     ]
     response = llm.invoke(messages)
@@ -332,18 +410,37 @@ def handle_item_build(query: str, patch: str | None = None) -> str:
         )
         champion = extracted.champion
 
-    # 1. Riot 実戦マッチ統計
+    # 1. Riot 実戦マッチ統計 / アイテム推奨データ
     build = meta_service.get_item_build(champion, target_patch)
     riot_stats_text = ""
     if build:
         trans_map = load_tft_translations()
         items_stats = []
-        for it in build.get("top_items", []):
-            it_name = translate_term(it.get("item_name", ""), trans_map)
-            items_stats.append(
-                f"- {it_name}: 平均順位 {it.get('avg_place', '-')} / Top4率 {int(it.get('top4_rate', 0)*100)}% (サンプル{it.get('sample_size', 0)}件)"
-            )
-        riot_stats_text = "\n".join(items_stats)
+
+        # top_items 形式と core_items 形式の両方に対応
+        item_list = build.get("top_items") or build.get("core_items") or []
+        for it in item_list:
+            raw_name = it.get("item_name") or it.get("name", "")
+            it_name = translate_term(raw_name, trans_map)
+
+            # 実戦スタッツ（平均順位等）がある場合は統計表記
+            if "avg_place" in it:
+                items_stats.append(
+                    f"- {it_name}: 平均順位 {it.get('avg_place', '-')} / Top4率 {int(it.get('top4_rate', 0)*100)}% (サンプル{it.get('sample_size', 0)}件)"
+                )
+            # ビルド理由がある場合
+            elif "reason" in it:
+                items_stats.append(f"- {it_name}: {it.get('reason')}")
+            else:
+                items_stats.append(f"- {it_name}")
+
+        # bis_standard_build（標準三種の神器セット）がある場合
+        bis_info = build.get("bis_standard_build", {})
+        if isinstance(bis_info, dict) and bis_info.get("items"):
+            bis_items = [translate_term(name, trans_map) for name in bis_info["items"]]
+            items_stats.append(f"\n【標準BISセット】: {' + '.join(bis_items)}")
+
+        riot_stats_text = "\n".join(items_stats) if items_stats else "推奨アイテムデータなし"
     else:
         riot_stats_text = "Riot統計データなし"
 
@@ -373,48 +470,335 @@ def handle_item_build(query: str, patch: str | None = None) -> str:
     return str(content).strip()
 
 
-def handle_comp_lookup(
-    query: str, patch: str | None = None
-) -> list[CompRecommendation]:
+def handle_comp_lookup(query: str, patch: str | None = None) -> str:
+    """手持ちアイテム/紋章からTFTAcademy主軸で逆引きし、Riot実戦統計で裏付けして解説"""
     target_patch = patch or meta_service.get_current_patch()
-    llm = get_chat_model(temperature=0.0)
-    extractor = llm.with_structured_output(_HeldAssets)
-    extracted = extractor.invoke(
-        [
-            {
-                "role": "system",
-                "content": (
-                    "ユーザーの発言から、手持ちの通常アイテム名(items)と紋章名(emblems)を"
-                    "抽出してください。分からなければ空リストで構いません。"
-                ),
-            },
-            {"role": "user", "content": query},
-        ]
+    trans_map = load_tft_translations()
+
+    # 1. 手持ちアセットの抽出
+    llm_extract = get_chat_model(temperature=0.0)
+    extractor = llm_extract.with_structured_output(_HeldAssets)
+    extracted = extractor.invoke([
+        {
+            "role": "system",
+            "content": (
+                "ユーザーの発言から、手持ちの通常アイテム名(items)と紋章名(emblems)を抽出してください。"
+                "例: 「BFと涙」-> items=['BF', '涙']"
+            ),
+        },
+        {"role": "user", "content": query},
+    ])
+
+    if not extracted.items and not extracted.emblems:
+        return "手持ちのアイテム素材や紋章が認識できませんでした。「BFと涙がある」「アンバサ紋章出た」のようにお伝えください。"
+
+    # 2. TFTAcademyから適合構成をスコアリング
+    academy_raw = get_tftacademy_tierlist()
+    guides = (
+        academy_raw.get("guides", [])
+        if isinstance(academy_raw, dict)
+        else academy_raw
     )
-    matches = meta_service.search_comps_by_assets(
-        extracted.items, extracted.emblems, target_patch
+
+    matched_candidates = meta_service.match_comps_by_component_inventory(
+        extracted.items,
+        extracted.emblems,
+        guides,
+        target_patch,
+        trans_map,
     )
-    return [CompRecommendation.model_validate(m) for m in matches]
+
+    if not matched_candidates:
+        return "提示されたアイテム素材/紋章を活用できる有力なTFTAcademy構成が見つかりませんでした。"
+
+    # 3. Riot実戦統計による裏付け付与
+    comps_stats = meta_service.get_comp_recommendations(target_patch)
+    candidates_context = []
+
+    for item in matched_candidates:
+        comp = item["comp"]
+        title = comp.get("metaTitle") or comp.get("title", "構成名")
+        tier = comp.get("tier", "A")
+        style = comp.get("style", "Standard")
+        slug = comp.get("compSlug", "")
+        guide_url = (
+            f"https://tftacademy.com/tierlist/comps/{slug}"
+            if slug
+            else "https://tftacademy.com/tierlist/comps"
+        )
+
+        main_carry = item["main_carry"]
+
+# 1. TFTAcademy推奨のキャリー完成形アイテム（日本語名で統一取得）
+        carry_target_items = []
+        for u in comp.get("finalComp", []):
+            u_raw = u.get("apiName", "").replace("DA_", "")
+            u_name = translate_term(u_raw, trans_map)
+            # 部分一致も含めて確実にキャリー駒を捕捉
+            if u_name == main_carry or u_raw.lower() in main_carry.lower() or main_carry.lower() in u_raw.lower():
+                carry_target_items = [meta_service.to_japanese_item_name(it) for it in u.get("items", [])]
+                break
+
+        # 2. 今回作成するアイテム（日本語）
+        planned_text = " / ".join(item.get("reasons", []))
+
+        # 3. 今回作ったアイテムを除外し、「残りの枠」と「必要素材」を日本語で算出
+        remaining_items_info = []
+        for target_it in carry_target_items:
+            # スペースを除去して重複チェック（「ショウジンの矛」の残り枠混入を防止）
+            clean_target = target_it.replace(" ", "")
+            clean_planned = planned_text.replace(" ", "")
+            if clean_target and clean_target not in clean_planned:
+                recipe_ja = meta_service.get_item_recipe_ja(target_it)
+                recipe_str = f"（必要素材: {' + '.join(recipe_ja)}）" if recipe_ja else ""
+                remaining_items_info.append(f"{target_it}{recipe_str}")
+
+        remaining_desc = ", ".join(remaining_items_info) if remaining_items_info else "主要枠完成"
+
+        # 3. Riot実戦スタッツの紐付け
+        stat = next(
+            (
+                c
+                for c in comps_stats
+                if main_carry in c.get("comp_name", "")
+                or title in c.get("comp_name", "")
+            ),
+            None,
+        )
+        stat_info = (
+            f"平均順位: {stat['avg_place']} / Top4率: {int(stat['top4_rate']*100)}% (サンプル数: {stat['sample_size']}件)"
+            if stat
+            else "実戦統計: サンプル蓄積中"
+        )
+
+        # 4. コンテキストの構築（URL、スタッツ、残り枠をすべて明示）
+        candidates_context.append(
+            f"【Tier {tier}】{title} (スタイル: {style})\n"
+            f"- メインキャリー: {main_carry}\n"
+            f"- 実戦スタッツ裏付け: {stat_info}\n"
+            f"- 手持ち素材で作るアイテム: {planned_text}\n"
+            f"- 目指すべき残りの完成形スロット: {remaining_desc}\n"
+            f"- ガイドURL: {guide_url}"
+        )
+
+    # 4. LLMで解説文を生成
+    system_prompt = _COMP_FROM_ASSETS_SYSTEM_PROMPT.replace(
+        "{target_patch}", str(target_patch)
+    )
+    user_prompt = (
+        f"【対象ゲーム内パッチ】: Patch {target_patch}\n"
+        f"手持ちアイテム素材: {', '.join(extracted.items) if extracted.items else 'なし'}\n"
+        f"手持ち紋章: {', '.join(extracted.emblems) if extracted.emblems else 'なし'}\n\n"
+        f"【TFTAcademy 適合構成候補 & 実戦統計裏付け】\n"
+        + "\n\n".join(candidates_context)
+        + f"\n\nユーザーの質問: {query}"
+    )
+
+    llm = get_chat_model(temperature=0.2)
+    response = llm.invoke([
+        {"role": "system", "content": system_prompt},
+        {"role": "user", "content": user_prompt},
+    ])
+    content = response.content
+    if isinstance(content, list):
+        return "".join(
+            p.get("text", "")
+            for p in content
+            if isinstance(p, dict) and p.get("type") == "text"
+        ).strip()
+    return str(content).strip()
+
+
+def _build_item_context(carry: str, tank: str | None, patch: str, trans_map: dict) -> str:
+    """キャリーとタンクのアイテムコンテキストを構築するヘルパー"""
+    def _extract_build(unit_name: str) -> str:
+        build = meta_service.get_item_build(unit_name, patch)
+        if not build:
+            return f"- {unit_name}: アイテムデータ集計中"
+        
+        lines = []
+        item_list = build.get("top_items") or build.get("core_items") or []
+        for it in item_list:
+            raw_name = it.get("item_name") or it.get("name", "")
+            it_name = translate_term(raw_name, trans_map)
+            if "avg_place" in it:
+                lines.append(f"  - {it_name} (平均順位 {it.get('avg_place')} / Top4率 {int(it.get('top4_rate', 0)*100)}%)")
+            elif "reason" in it:
+                lines.append(f"  - {it_name}: {it.get('reason')}")
+            else:
+                lines.append(f"  - {it_name}")
+
+        bis_info = build.get("bis_standard_build", {})
+        if isinstance(bis_info, dict) and bis_info.get("items"):
+            bis_items = [translate_term(n, trans_map) for n in bis_info["items"]]
+            lines.append(f"  【標準三種の神器】: {' + '.join(bis_items)}")
+
+        return "\n".join(lines) if lines else f"- {unit_name}: 推奨データなし"
+
+    context = f"【メインキャリー ({carry}) 推奨アイテム】\n{_extract_build(carry)}"
+    if tank and tank != "メインタンク":
+        context += f"\n\n【メインタンク ({tank}) 推奨アイテム】\n{_extract_build(tank)}"
+    return context
+
+
+def handle_single_comp_guide(query: str, patch: str | None = None) -> str:
+    """単一構成のやり方・進行・アイテムを包括的に解説（TFTAcademy非掲載時は統計＋アイテム特化）"""
+    target_patch = patch or meta_service.get_current_patch()
+    trans_map = load_tft_translations()
+    
+    academy_raw = get_tftacademy_tierlist()
+    guides = academy_raw.get("guides", []) if isinstance(academy_raw, dict) else academy_raw
+    target_comp = _find_target_comp(query, guides)
+
+    comps_stats = meta_service.get_comp_recommendations(target_patch)
+
+    # -------------------------------------------------------------
+    # パターンA: TFTAcademy に該当構成が存在する場合（フルガイド）
+    # -------------------------------------------------------------
+    if target_comp:
+        comp_title = target_comp.get("metaTitle") or target_comp.get("title", "構成")
+        style = target_comp.get("style", "Standard")
+        slug = target_comp.get("compSlug", "")
+        guide_url = f"https://tftacademy.com/tierlist/comps/{slug}" if slug else "https://tftacademy.com/tierlist/comps"
+
+        main_champ_raw = target_comp.get("mainChampion", {}).get("apiName", "")
+        main_carry = translate_term(main_champ_raw, trans_map)
+
+        # タンク特定
+        main_tank = "メインタンク"
+        for unit in target_comp.get("finalComp", []):
+            u_raw = unit.get("apiName", "")
+            if u_raw != main_champ_raw and unit.get("items"):
+                main_tank = translate_term(u_raw, trans_map)
+                break
+
+        matched_stat = next((c for c in comps_stats if main_carry in c.get("comp_name", "") or comp_title in c.get("comp_name", "")), None)
+        stat_text = (
+            f"実戦統計: 平均順位 {matched_stat['avg_place']} / Top4率 {int(matched_stat['top4_rate']*100)}% (サンプル数: {matched_stat['sample_size']})"
+            if matched_stat else "実戦統計: 集計中"
+        )
+
+        build_context = _build_item_context(main_carry, main_tank, target_patch, trans_map)
+        tips = target_comp.get("augmentsTip", "")
+        cost_label = style.split("-")[0] if "Cost" in style else "この"
+
+        system_prompt = _SINGLE_COMP_GUIDE_SYSTEM_PROMPT.replace("{cost}", cost_label)
+
+        user_prompt = (
+            f"【対象ゲーム内パッチ】: Patch {target_patch}\n"
+            f"【構成名】: {comp_title} (スタイル: {style})\n"
+            f"{stat_text}\n\n"
+            f"{build_context}\n\n"
+            f"【TFTAcademy プロTips・進行】: {tips}\n"
+            f"【ガイドURL】: {guide_url}\n"
+            f"ユーザーの質問: {query}"
+        )
+
+        llm = get_chat_model(temperature=0.2)
+        response = llm.invoke([
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_prompt},
+        ])
+        content = response.content
+        if isinstance(content, list):
+            return "".join(p.get("text", "") for p in content if isinstance(p, dict) and p.get("type") == "text").strip()
+        return str(content).strip()
+
+    # -------------------------------------------------------------
+    # パターンB: TFTAcademy にないが、Riot実戦統計には存在する場合
+    # -------------------------------------------------------------
+    matched_stat = None
+    query_lower = query.lower()
+    for c in comps_stats:
+        c_name = c.get("comp_name", "").lower()
+        if any(token in c_name for token in query_lower.replace("構成", "").split()):
+            matched_stat = c
+            break
+
+    if matched_stat:
+        comp_name = matched_stat.get("comp_name", "該当構成")
+        stat_text = (
+            f"【Riot実戦統計】\n"
+            f"- 構成名: {comp_name} (Tier {matched_stat.get('tier', '-')})\n"
+            f"- 平均順位: {matched_stat.get('avg_place', '-')} / Top4率: {int(matched_stat.get('top4_rate', 0)*100)}% "
+            f"(サンプル数: {matched_stat.get('sample_size', 0)}件 / 信頼度: {matched_stat.get('confidence_level', '-')})\n"
+        )
+
+        parts = [p.strip() for p in comp_name.replace("構成", "").split("/") if p.strip()]
+        main_carry = parts[0] if len(parts) > 0 else comp_name
+        main_tank = parts[1] if len(parts) > 1 else None
+
+        build_context = _build_item_context(main_carry, main_tank, target_patch, trans_map)
+
+        fallback_prompt = (
+            f"【対象ゲーム内パッチ】: Patch {target_patch}\n"
+            f"{stat_text}\n"
+            f"{build_context}\n\n"
+            f"※注: この構成は現在TFTAcademyの個別ティアリストには未掲載のため、Riot実戦統計およびアイテムビルドデータを中心に提示しています。\n\n"
+            f"ユーザーの質問: {query}"
+        )
+
+        fallback_system = """あなたはTFTのトップアナリストです。
+TFTAcademyに個別ガイドがない構成について、実戦統計データとアイテムビルドのみを端的に解説してください。
+
+【出力要件】
+1. **実戦スタッツの提示**（平均順位、Top4率、サンプル数）
+2. **メインキャリー・メインタンクの推奨アイテム（BIS）**
+3. **セオリー案内**（回答の末尾で「なお、この構成の基礎となるキャリーを軸にした一般的な進行セオリーを確認しますか？」と一言添える）
+
+【トーン】客観的かつ論理的に記載し、推測の嘘情報は書かないこと。
+"""
+        llm = get_chat_model(temperature=0.2)
+        response = llm.invoke([
+            {"role": "system", "content": fallback_system},
+            {"role": "user", "content": fallback_prompt},
+        ])
+        content = response.content
+        if isinstance(content, list):
+            return "".join(p.get("text", "") for p in content if isinstance(p, dict) and p.get("type") == "text").strip()
+        return str(content).strip()
+
+    # -------------------------------------------------------------
+    # パターンC: どちらにも存在しない場合
+    # -------------------------------------------------------------
+    return handle_comp_meta(query, target_patch)
 
 
 def handle_meta(
     query: str, meta_subtype: str | None, patch: str | None = None
 ) -> dict:
+    # 1. アイテムビルド専用
     if meta_subtype == "item_build":
         return {"type": "text", "data": handle_item_build(query, patch)}
 
+    # 2. アイテム/紋章からの逆引き専用
     if meta_subtype == "comp_from_item_or_emblem":
-        comps = handle_comp_lookup(query, patch)
-        if not comps:
-            return {
-                "type": "text",
-                "data": "手持ちのアイテム/紋章に合致する構成が見つかりませんでした。",
-            }
-        return {"type": "comp_list", "data": comps}
+        return {"type": "text", "data": handle_comp_lookup(query, patch)}
 
-    # ★ 構成メタ（おすすめ構成・Tier表・強い構成）
-    if meta_subtype == "comp_recommendation":
+    # ★ ここで小文字化を定義
+    query_lower = query.lower()
+
+    # ★ 3. 特定構成のやり方判定（「やり方/立ち回り/回し方」かつ構成を指している場合）
+    theory_guards = ["やり方", "回し方", "進行", "立ち回り", "どうやって"]
+    has_how_to = any(g in query_lower for g in theory_guards)
+
+    # 「3コスト構成のやり方」のような一般セオリー質問を除外（「リロール」「構成」「flex」「fast」等を含む固有の構成指定時）
+    generic_cost_theory = any(f"{c}コスト構成" in query_lower or f"{c}コス構成" in query_lower for c in ["1", "2", "3", "4", "5"])
+    
+    if has_how_to and not generic_cost_theory:
+        if "構成" in query_lower or any(char in query_lower for char in ["リロール", "flex", "fast"]):
+            return {"type": "text", "data": handle_single_comp_guide(query, patch)}
+    # ★ 4. メタ評価ワードとセオリーガードの判定
+    meta_eval_keywords = [
+        "tier", "ティア", "強い構成", "おすすめ構成", "オススメ構成",
+        "メタ構成", "勝率", "top4", "今強い", "環境構成"
+    ]
+    has_meta_intent = any(k in query_lower for k in meta_eval_keywords)
+    is_theory_intent = any(g in query_lower for g in theory_guards)
+
+    # 構成メタ（おすすめ構成・Tier表・強い構成）
+    if meta_subtype == "comp_recommendation" or (has_meta_intent and not is_theory_intent):
         return {"type": "text", "data": handle_comp_meta(query, patch)}
 
-    # ★ 単体駒・デバフ・システム仕様・基礎知識
+    # ★ 5. 単体駒・デバフ・システム仕様・基礎知識
     return {"type": "text", "data": handle_general_meta(query, patch)}
