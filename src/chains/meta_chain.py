@@ -811,6 +811,7 @@ def handle_meta(query: str, meta_subtype: str, patch: str | None = None) -> dict
 
     return {
         "data": answer,
+        "type": meta_subtype,  # ★ app.py 側の要求キー ('item_build' 等の判定に使用)
         "source": source,
         "patch": target_patch,
     }
