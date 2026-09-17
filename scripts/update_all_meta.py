@@ -3,6 +3,8 @@ import os
 from pathlib import Path
 import subprocess
 import sys
+from src.meta.patch_notes_fetcher import fetch_patch_notes
+from src.meta.tftacademy_client import sync_patch_guides
 
 # プロジェクトルートをパスに追加
 project_root = Path(__file__).resolve().parent.parent
@@ -69,7 +71,17 @@ def main():
 
     # Step 2: 構成ガイド・メタ情報の確認
     print("\n--- [Step 2] 構成ガイド・メタ情報の確認 ---")
-
+# Step 2: パッチノート・外部情報の取得
+    print("\n--- [Step 2] パッチノート・差分情報の取得 (tftips.app) ---")
+    fetch_patch_notes(patch_version, output_dir)
+# Step 2: 構成ガイド・メタ情報の確認
+    print("\n--- [Step 2] TFTAcademy 構成ガイド & tftips パッチノートの同期 ---")
+    sync_patch_guides(patch_version, output_dir)
+    # Step 3: RAG ベクトル DB の再構築
+    print("\n--- [Step 3] RAG ベクトル DB の再構築 ---")
+    vector_script = project_root / "scripts" / "build_vector_db.py"
+    if vector_script.exists():
+        subprocess.run([sys.executable, str(vector_script)], check=False)
     # Step 3: RAG ベクトル DB の再構築
     print("\n--- [Step 3] RAG ベクトル DB の再構築 ---")
     vector_script = project_root / "scripts" / "build_vector_db.py"

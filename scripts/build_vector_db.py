@@ -13,7 +13,7 @@ from src.rag.ingest import build_vector_db  # noqa: E402
 
 
 def main() -> None:
-    print("ナレッジベースからベクトルDBを構築しています...")
+    print("ゲーム基礎知識・メタデータをベクトルDBに構築しています...")
     count = build_vector_db()
     print(f"完了しました。{count}件のチャンクを格納しました。")
 
