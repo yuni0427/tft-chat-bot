@@ -45,7 +45,7 @@ def _respond_meta(query: str, meta_subtype: str | None) -> None:
 
     res_data = result.get("data") if isinstance(result, dict) else result
 
-    # None や空文字の場合はユーザーフレンドリーな文言に差し替える
+    # None や空文字の場合は案内メッセージを表示
     if not res_data or str(res_data).strip().lower() in ("none", ""):
         content = (
             "申し訳ありません。該当するチャンピオンや構成のデータが見つかりませんでした。\n\n"
@@ -56,32 +56,6 @@ def _respond_meta(query: str, meta_subtype: str | None) -> None:
         content = str(res_data)
 
     st.session_state.messages.append({"role": "assistant", "content": content})
-    return
-
-  res_type = result.get("type") if isinstance(result, dict) else None
-  res_data = result.get("data") if isinstance(result, dict) else result
-
-  # カード描画を試み、失敗したらテキストで出力する
-  try:
-    if res_type == "item_build":
-      html = cards.render_item_build_card(res_data)
-      st.session_state.messages.append(
-          {"role": "assistant", "content": "", "html": html}
-      )
-    elif res_type == "comp_list":
-      html = "".join(cards.render_comp_card(c) for c in res_data)
-      st.session_state.messages.append(
-          {"role": "assistant", "content": "", "html": html}
-      )
-    else:
-      st.session_state.messages.append(
-          {"role": "assistant", "content": str(res_data)}
-      )
-  except Exception:
-    # cards 側で AttributeError 等が起きた場合は安全にテキスト表示へフォールバック
-    st.session_state.messages.append(
-        {"role": "assistant", "content": str(res_data)}
-    )
 
 
 def _classify_and_respond(query: str) -> None:
