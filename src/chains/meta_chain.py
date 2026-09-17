@@ -7,8 +7,10 @@
 """
 
 import json
+from pathlib import Path
 from pydantic import BaseModel, Field
 
+import config
 from src.llm.factory import get_chat_model
 from src.meta import meta_service
 from src.meta.tft_translator import load_tft_translations, translate_term
@@ -36,6 +38,10 @@ class _HeldAssets(BaseModel):
 # 1. 構成メタ・おすすめ構成専用プロンプト（統計比較を義務化）
 _COMP_META_SYSTEM_PROMPT = """あなたはTFT(Teamfight Tactics)の論理的で無駄のないトップアナリストです。
 プレイヤーの質問に対し、【Riot公式 実戦マッチ統計】と【TFTAcademy 最新プロティア表】を照合し、各構成を明確に比較・評価して回答してください。
+
+【前提条件】
+- 提供されたコンテキスト内のパッチバージョンおよび統計データは、現在稼働している最新の実データです。
+- あなた自身の古い事前学習知識（過去のパッチ番号の常識など）でパッチの存在を否定せず、提供されたデータに厳密に基づいて回答してください。
 
 【出力要件】
 1. **各構成の提示と実戦スタッツ**
@@ -223,18 +229,28 @@ def _format_academy_data(raw_data: dict | list) -> str:
 
 def handle_comp_meta(query: str, patch: str | None = None) -> str:
     """おすすめ構成・メタ質問専用（Riot実戦統計 × TFTAcademy比較）"""
-    comps = meta_service.get_comp_recommendations(patch)
+    target_patch = patch or meta_service.get_current_patch()
+
+    comps = meta_service.get_comp_recommendations(target_patch)
     comps_text = "\n".join(
         f"- {c['comp_name']} (Tier{c['tier']}, 平均順位{c['avg_place']}, "
         f"Top4率{int(c['top4_rate'] * 100)}%, サンプル{c['sample_size']}件/{c['confidence_level']})"
         for c in comps
-    )
+    ) if comps else "実戦統計データ集計中（サンプル蓄積中）"
 
     academy_raw = get_tftacademy_tierlist()
     academy_text = _format_academy_data(academy_raw)
 
+    # パッチノート (tftips.app) が存在すれば自動で差し込む
+    patch_notes_file = Path(config.DATA_DIR) / f"patch_{target_patch}" / "patch_notes.md"
+    patch_notes_text = ""
+    if patch_notes_file.exists():
+        patch_notes_text = f"【Patch {target_patch} 差分・パッチノート】\n{patch_notes_file.read_text(encoding='utf-8')[:1500]}\n\n"
+
     llm = get_chat_model(temperature=0.3)
     user_prompt = (
+        f"【対象ゲーム内パッチ】: Patch {target_patch}\n\n"
+        f"{patch_notes_text}"
         f"【Riot公式 実戦マッチ統計】\n{comps_text}\n\n"
         f"【TFTAcademy 最新プロティア表】\n{academy_text}\n\n"
         f"質問: {query}"
@@ -288,7 +304,8 @@ def handle_general_meta(query: str, patch: str | None = None) -> str:
 
 def handle_item_build(query: str, patch: str | None = None) -> str:
     """特定チャンピオンのアイテムビルドを Riot統計 + TFTAcademy の両方から回答"""
-    champions = meta_service.list_champions_with_build(patch)
+    target_patch = patch or meta_service.get_current_patch()
+    champions = meta_service.list_champions_with_build(target_patch)
     if not champions:
         return "アイテム統計データが見つかりませんでした。"
 
@@ -316,7 +333,7 @@ def handle_item_build(query: str, patch: str | None = None) -> str:
         champion = extracted.champion
 
     # 1. Riot 実戦マッチ統計
-    build = meta_service.get_item_build(champion, patch)
+    build = meta_service.get_item_build(champion, target_patch)
     riot_stats_text = ""
     if build:
         trans_map = load_tft_translations()
@@ -336,6 +353,7 @@ def handle_item_build(query: str, patch: str | None = None) -> str:
 
     llm = get_chat_model(temperature=0.3)
     user_prompt = (
+        f"【対象ゲーム内パッチ】: Patch {target_patch}\n"
         f"対象チャンピオン: {champion}\n\n"
         f"【Riot公式 アイテム統計】\n{riot_stats_text}\n\n"
         f"【TFTAcademy プロティアリスト推奨】\n{academy_context}\n\n"
@@ -358,6 +376,7 @@ def handle_item_build(query: str, patch: str | None = None) -> str:
 def handle_comp_lookup(
     query: str, patch: str | None = None
 ) -> list[CompRecommendation]:
+    target_patch = patch or meta_service.get_current_patch()
     llm = get_chat_model(temperature=0.0)
     extractor = llm.with_structured_output(_HeldAssets)
     extracted = extractor.invoke(
@@ -373,7 +392,7 @@ def handle_comp_lookup(
         ]
     )
     matches = meta_service.search_comps_by_assets(
-        extracted.items, extracted.emblems, patch
+        extracted.items, extracted.emblems, target_patch
     )
     return [CompRecommendation.model_validate(m) for m in matches]
 

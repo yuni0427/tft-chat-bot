@@ -41,3 +41,52 @@ def get_tftacademy_tierlist() -> dict:
         logger.warning(f"Failed to fetch TFTAcademy live data: {e}")
 
     return {}
+    
+    from pathlib import Path
+from bs4 import BeautifulSoup
+
+
+def sync_patch_guides(patch_version: str, output_dir: Path) -> None:
+    """
+    Step 2 用統合処理:
+    1. TFTAcademy から構成データを取得し meta_snapshot.json として保存
+    2. tftips.app からパッチ差分を取得し patch_notes.md として保存
+    """
+    # 1. TFTAcademy のデータを取得 & 保存
+    try:
+        comps_data = get_tftacademy_tierlist()
+        if comps_data:
+            snapshot_file = output_dir / "meta_snapshot.json"
+            formatted_snapshot = {
+                "patch": patch_version,
+                "source": "tftacademy",
+                "comp_recommendations": comps_data if isinstance(comps_data, list) else comps_data.get("comps", []),
+            }
+            snapshot_file.write_text(json.dumps(formatted_snapshot, ensure_ascii=False, indent=2), encoding="utf-8")
+            print(f"✅ TFTAcademy ガイドを保存: {snapshot_file}")
+        else:
+            print("⚠️ TFTAcademy データの取得をスキップ（空データまたは未取得）")
+    except Exception as e:
+        print(f"⚠️ TFTAcademy 取得エラー: {e}")
+
+    # 2. tftips.app のパッチノートを取得 & 保存
+    url = f"https://tftips.app/patches/{patch_version}"
+    try:
+        res = requests.get(url, headers=HEADERS, timeout=10)
+        if res.status_code == 200:
+            soup = BeautifulSoup(res.text, "html.parser")
+            for tag in soup(["script", "style", "nav", "footer", "header"]):
+                tag.decompose()
+            main_elem = soup.find("main") or soup.find("article") or soup.body
+            if main_elem:
+                notes_md = output_dir / "patch_notes.md"
+                notes_md.write_text(
+                    f"# Patch {patch_version} Notes (tftips.app)\n\nURL: {url}\n\n"
+                    + main_elem.get_text(separator="\n", strip=True),
+                    encoding="utf-8",
+                )
+                print(f"✅ tftips パッチノートを保存: {notes_md}")
+        else:
+            print(f"⚠️ tftips パッチノートが見つかりませんでした (Status: {res.status_code}): {url}")
+    except Exception as e:
+        print(f"⚠️ tftips パッチノート取得エラー: {e}")
