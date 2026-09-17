@@ -8,34 +8,68 @@
 - 両方存在する場合は、統計（量的データ）と質的知識（静的データ）をマージして提供する。
 """
 import json
+import re
 from pathlib import Path
 
 import config
 from src.meta import static_provider
 
 
+def _parse_patch_version(patch_str: str) -> tuple:
+    """
+    パッチ文字列をタプルに変換して比較する。
+    順序: 18.2 < 18.2b < 18.2c < 18.3
+    """
+    clean = patch_str.strip().lstrip("\ufeff")
+    m = re.match(r"^(\d+)\.(\d+)([a-zA-Z]*)$", clean)
+    if m:
+        major = int(m.group(1))
+        minor = int(m.group(2))
+        sub = m.group(3).lower()
+        return (major, minor, sub)
+    
+    # 16.18.2b 等の形式に対するフォールバック
+    parts = [int(p) if p.isdigit() else p for p in re.split(r"[.\-]", clean)]
+    return tuple(parts)
+
+
+def get_latest_available_patch() -> str:
+    """data/ 内の patch_* から最も新しいバージョンを自動選定"""
+    patches = list_available_patches()
+    if not patches:
+        return config.DEFAULT_PATCH
+    return max(patches, key=_parse_patch_version)
+
+
 def get_current_patch_info() -> tuple[str, int | None]:
     """
-    current_patch.txt から (パッチ名, 開始時刻エポック秒) を取得する。
-    記述例:
-      - 16.18.2b,1789488000 -> ("16.18.2b", 1789488000)
-      - 18.2                -> ("18.2", None)
+    current_patch.txt から (パッチ名, 開始時刻エポック秒) を取得。
+    未指定・空・ファイル無しの場合は自動で最新パッチへフォールバック。
     """
     p = Path(config.CURRENT_PATCH_FILE)
     if p.exists():
-        text = p.read_text(encoding="utf-8").strip()
+        # BOM (\ufeff) を除去して安全にパース
+        text = p.read_text(encoding="utf-8").strip().lstrip("\ufeff")
         if text:
             parts = [x.strip() for x in text.split(",")]
             patch = parts[0]
             start_time = int(parts[1]) if len(parts) > 1 and parts[1].isdigit() else None
             return patch, start_time
-    return config.DEFAULT_PATCH, None
+
+    # 何も書かれていない場合は存在する最新パッチを採用
+    return get_latest_available_patch(), None
 
 
 def get_current_patch() -> str:
     """パッチ名文字列のみを返す（既存の呼び出しとの完全互換）"""
     patch, _ = get_current_patch_info()
     return patch
+
+
+def set_current_patch(patch: str) -> None:
+    p = Path(config.CURRENT_PATCH_FILE)
+    p.parent.mkdir(parents=True, exist_ok=True)
+    p.write_text(patch, encoding="utf-8")
 
 
 def set_current_patch(patch: str) -> None:
