@@ -18,6 +18,8 @@ from src.meta.tft_translator import (
     preprocess_tft_text,
     translate_term,
     translate_term_for_patch,
+    normalize_item_alias,
+    normalize_champion_alias,
 )
 from src.meta.tftacademy_client import get_tftacademy_tierlist
 from src.rag.retriever import retrieve
@@ -158,25 +160,49 @@ _COMP_FROM_ASSETS_SYSTEM_PROMPT = """あなたはTFT(Teamfight Tactics)の論理
 """
 
 def _find_target_comp(query: str, guides: list[dict]) -> dict | None:
-    """ユーザーの入力に最も合致する構成をTFTAcademyデータから検索"""
-    trans_map = load_tft_translations()
-    query_lower = query.lower()
+    """ユーザーの質問文から対象となる構成を特定する（エイリアス・略称対応）"""
+    if not guides:
+        return None
 
-    # 1. 構成タイトルやslugでの部分一致
+    query_clean = query.lower().replace(" ", "").replace(" ", "")
+
+    # 1. チャンピオンエイリアスの特定（例: 「カシ」->「カシオペア」、「コグ」->「コグ＝マウ」）
+    matched_champ = None
+    # 助詞や構成ワードを除去して候補単語を作る
+    clean_words = query.replace("構成", "").replace("リロール", "").replace("について", "").replace("教えて", "").replace("の", " ").split()
+    for token in clean_words:
+        norm = normalize_champion_alias(token)
+        if norm != token:  # エイリアス辞書にヒットして正規化された場合
+            matched_champ = norm
+            break
+        # 直接辞書に載っている正式名称そのもの（例: 「アーリ」など）
+        if norm in ["アーリ", "カシオペア", "コグ＝マウ", "アンバサ", "モルガナ"]:
+            matched_champ = norm
+            break
+
+    # 2. ガイドの走査とマッチング
     for comp in guides:
-        title = comp.get("metaTitle") or comp.get("title", "")
-        slug = comp.get("compSlug", "")
-        if (title and title.lower() in query_lower) or (slug and slug.replace("-", " ") in query_lower):
+        title = (comp.get("metaTitle") or comp.get("title") or "").lower().replace(" ", "")
+        main_champ_info = comp.get("mainChampion") or {}
+        main_champ_name = (main_champ_info.get("name") or main_champ_info.get("apiName") or "").lower()
+
+        # タイトル直接一致（「インヴォーカー」等）
+        if title and (title in query_clean or query_clean in title):
             return comp
 
-    # 2. メインキャリー名での一致（日本語/英語）
-    for comp in guides:
-        main_champ_info = comp.get("mainChampion", {})
-        raw_api = main_champ_info.get("apiName", "") if isinstance(main_champ_info, dict) else ""
-        unit_ja = translate_term(raw_api, trans_map)
-        unit_en = raw_api.split("_")[-1].lower()
+        # エイリアス解決されたチャンピオン名の一致判定
+        if matched_champ:
+            # 日本語名または小文字変換で一致するか
+            if matched_champ.lower() in title or matched_champ.lower() in main_champ_name:
+                return comp
+            # finalComp 盤面内に該当キャラがいるかも確認
+            for u in comp.get("finalComp", []):
+                u_name = (u.get("name") or u.get("apiName") or "").lower()
+                if matched_champ.lower() in u_name:
+                    return comp
 
-        if (unit_ja and unit_ja.lower() in query_lower) or (unit_en and unit_en in query_lower):
+        # 英語API名などの部分一致
+        if main_champ_name and (main_champ_name in query_clean):
             return comp
 
     return None
@@ -576,7 +602,9 @@ def handle_comp_lookup(query: str, patch: str | None = None) -> str:
     if not extracted.items and not extracted.emblems:
         return "手持ちのアイテム素材や紋章が認識できませんでした。「BFと涙がある」「アンバサ紋章出た」のようにお伝えください。"
 
-    # 2. TFTAcademyから適合構成をスコアリング
+    # アイテム・チャンピオン名の略称・俗称を正規名称に変換する
+    extracted.items   = [normalize_item_alias(it)     for it in extracted.items]
+    extracted.emblems = [normalize_champion_alias(em) for em in extracted.emblems]
     academy_raw = get_tftacademy_tierlist()
     guides = (
         academy_raw.get("guides", [])
