@@ -1,316 +1,35 @@
 {
-  "patch": "﻿18.2b",
-  "updated_at": "2026-09-17T01:01:35.574265+00:00",
+  "patch": "18.2b",
+  "updated_at": "2026-09-18T18:28:36.830919+00:00",
   "source": "riot_api_aggregate",
   "champion_item_builds": {
-    "オーン": {
-      "champion": "オーン",
-      "core_items": [
-        {
-          "name": "ガーゴイル ストーンプレート",
-          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
-        },
-        {
-          "name": "ドラゴン クロウ",
-          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
-        },
-        {
-          "name": "ワーモグ アーマー",
-          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
-        }
-      ],
-      "bis_standard_build": {
-        "items": [
-          "ガーゴイル ストーンプレート",
-          "ドラゴン クロウ",
-          "ワーモグ アーマー"
-        ],
-        "sample_size": 3,
-        "avg_place": 5.0,
-        "win_rate": 0.33,
-        "confidence_level": "LOW",
-        "special_note": null
-      },
-      "substitutes": [],
-      "special_synergy_builds": [],
-      "anti_synergy_warnings": [],
-      "debuff_roles": []
-    },
-    "セジュアニ": {
-      "champion": "セジュアニ",
-      "core_items": [
-        {
-          "name": "ガーゴイル ストーンプレート",
-          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
-        },
-        {
-          "name": "ワーモグ アーマー",
-          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
-        }
-      ],
-      "bis_standard_build": {
-        "items": [
-          "ガーゴイル ストーンプレート",
-          "ワーモグ アーマー"
-        ],
-        "sample_size": 3,
-        "avg_place": 6.0,
-        "win_rate": 0.33,
-        "confidence_level": "LOW",
-        "special_note": null
-      },
-      "substitutes": [],
-      "special_synergy_builds": [],
-      "anti_synergy_warnings": [],
-      "debuff_roles": []
-    },
-    "アムム": {
-      "champion": "アムム",
-      "core_items": [
-        {
-          "name": "ガーゴイル ストーンプレート",
-          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
-        }
-      ],
-      "bis_standard_build": {
-        "items": [
-          "ガーゴイル ストーンプレート"
-        ],
-        "sample_size": 6,
-        "avg_place": 4.0,
-        "win_rate": 0.67,
-        "confidence_level": "LOW",
-        "special_note": null
-      },
-      "substitutes": [],
-      "special_synergy_builds": [],
-      "anti_synergy_warnings": [],
-      "debuff_roles": []
-    },
-    "アーリ": {
-      "champion": "アーリ",
-      "core_items": [
-        {
-          "name": "ショウジンの矛",
-          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
-        },
-        {
-          "name": "ジュエル ガントレット",
-          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
-        },
-        {
-          "name": "ストライカー フレイル",
-          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
-        }
-      ],
-      "bis_standard_build": {
-        "items": [
-          "ショウジンの矛",
-          "ジュエル ガントレット",
-          "ストライカー フレイル"
-        ],
-        "sample_size": 6,
-        "avg_place": 4.83,
-        "win_rate": 0.5,
-        "confidence_level": "LOW",
-        "special_note": null
-      },
-      "substitutes": [],
-      "special_synergy_builds": [],
-      "anti_synergy_warnings": [],
-      "debuff_roles": []
-    },
-    "リリア": {
-      "champion": "リリア",
-      "core_items": [
-        {
-          "name": "プロテクターの誓い",
-          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
-        }
-      ],
-      "bis_standard_build": {
-        "items": [
-          "アダプティブ ヘルム",
-          "プロテクターの誓い",
-          "ワーモグ アーマー"
-        ],
-        "sample_size": 3,
-        "avg_place": 3.0,
-        "win_rate": 0.67,
-        "confidence_level": "LOW",
-        "special_note": null
-      },
-      "substitutes": [
-        {
-          "item": "プロテクターの誓い",
-          "delta_avg_place": 2.0,
-          "condition": null
-        }
-      ],
-      "special_synergy_builds": [],
-      "anti_synergy_warnings": [],
-      "debuff_roles": []
-    },
-    "Sentinel18": {
-      "champion": "Sentinel18",
-      "core_items": [
-        {
-          "name": "プロテクターの誓い",
-          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
-        }
-      ],
-      "bis_standard_build": {
-        "items": [
-          "プロテクターの誓い"
-        ],
-        "sample_size": 10,
-        "avg_place": 4.5,
-        "win_rate": 0.6,
-        "confidence_level": "LOW",
-        "special_note": null
-      },
-      "substitutes": [],
-      "special_synergy_builds": [],
-      "anti_synergy_warnings": [],
-      "debuff_roles": []
-    },
-    "モルガナ": {
-      "champion": "モルガナ",
-      "core_items": [
-        {
-          "name": "ヘクステック ガンブレード",
-          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
-        },
-        {
-          "name": "モレロノミコン",
-          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
-        },
-        {
-          "name": "ヴォイド スタッフ",
-          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
-        }
-      ],
-      "bis_standard_build": {
-        "items": [
-          "ヘクステック ガンブレード",
-          "モレロノミコン",
-          "ヴォイド スタッフ"
-        ],
-        "sample_size": 4,
-        "avg_place": 4.0,
-        "win_rate": 0.5,
-        "confidence_level": "LOW",
-        "special_note": null
-      },
-      "substitutes": [],
-      "special_synergy_builds": [],
-      "anti_synergy_warnings": [],
-      "debuff_roles": []
-    },
-    "セト": {
-      "champion": "セト",
-      "core_items": [
-        {
-          "name": "ガーゴイル ストーンプレート",
-          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
-        },
-        {
-          "name": "ステラックの篭手",
-          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
-        },
-        {
-          "name": "ワーモグ アーマー",
-          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
-        }
-      ],
-      "bis_standard_build": {
-        "items": [
-          "ガーゴイル ストーンプレート",
-          "ステラックの篭手",
-          "ワーモグ アーマー"
-        ],
-        "sample_size": 4,
-        "avg_place": 5.75,
-        "win_rate": 0.25,
-        "confidence_level": "LOW",
-        "special_note": null
-      },
-      "substitutes": [],
-      "special_synergy_builds": [],
-      "anti_synergy_warnings": [],
-      "debuff_roles": []
-    },
-    "Scuttlecrab18": {
-      "champion": "Scuttlecrab18",
-      "core_items": [
-        {
-          "name": "チェイン ベスト",
-          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
-        }
-      ],
-      "bis_standard_build": {
-        "items": [
-          "チェイン ベスト"
-        ],
-        "sample_size": 4,
-        "avg_place": 5.0,
-        "win_rate": 0.5,
-        "confidence_level": "LOW",
-        "special_note": null
-      },
-      "substitutes": [],
-      "special_synergy_builds": [],
-      "anti_synergy_warnings": [],
-      "debuff_roles": []
-    },
-    "ヴァイ": {
-      "champion": "ヴァイ",
-      "core_items": [
-        {
-          "name": "サンファイア ケープ",
-          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
-        }
-      ],
-      "bis_standard_build": {
-        "items": [
-          "サンファイア ケープ"
-        ],
-        "sample_size": 4,
-        "avg_place": 5.0,
-        "win_rate": 0.5,
-        "confidence_level": "LOW",
-        "special_note": null
-      },
-      "substitutes": [],
-      "special_synergy_builds": [],
-      "anti_synergy_warnings": [],
-      "debuff_roles": []
-    },
-    "ニダリー": {
-      "champion": "ニダリー",
+    "アッシュ": {
+      "champion": "アッシュ",
       "core_items": [
         {
           "name": "インフィニティ エッジ",
           "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
         },
         {
-          "name": "ショウジンの矛",
+          "name": "インフェルノの紋章",
           "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
         },
         {
-          "name": "ステラックの篭手",
+          "name": "ショウジンの矛",
           "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
         }
       ],
       "bis_standard_build": {
         "items": [
           "インフィニティ エッジ",
-          "ショウジンの矛",
-          "ステラックの篭手"
+          "インフェルノの紋章",
+          "ショウジンの矛"
         ],
-        "sample_size": 5,
-        "avg_place": 6.4,
-        "win_rate": 0.2,
+        "sample_size": 8,
+        "avg_place": 3.62,
+        "win_rate": 0.25,
+        "first_place_rate": 0.25,
+        "top4_rate": 0.62,
         "confidence_level": "LOW",
         "special_note": null
       },
@@ -341,137 +60,11 @@
           "ストライカー フレイル",
           "レッドバフ"
         ],
-        "sample_size": 5,
-        "avg_place": 3.4,
-        "win_rate": 0.8,
-        "confidence_level": "LOW",
-        "special_note": null
-      },
-      "substitutes": [],
-      "special_synergy_builds": [],
-      "anti_synergy_warnings": [],
-      "debuff_roles": []
-    },
-    "ザイラ": {
-      "champion": "ザイラ",
-      "core_items": [],
-      "bis_standard_build": {
-        "items": [
-          "アークエンジェル スタッフ",
-          "ヘクステック ガンブレード"
-        ],
-        "sample_size": 4,
-        "avg_place": 2.5,
-        "win_rate": 0.75,
-        "confidence_level": "LOW",
-        "special_note": null
-      },
-      "substitutes": [
-        {
-          "item": "ショウジンの矛",
-          "delta_avg_place": 4.25,
-          "condition": null
-        }
-      ],
-      "special_synergy_builds": [],
-      "anti_synergy_warnings": [],
-      "debuff_roles": []
-    },
-    "コグ＝マウ": {
-      "champion": "コグ＝マウ",
-      "core_items": [
-        {
-          "name": "B.F.ソード",
-          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
-        }
-      ],
-      "bis_standard_build": {
-        "items": [
-          "B.F.ソード"
-        ],
-        "sample_size": 3,
-        "avg_place": 3.0,
-        "win_rate": 0.67,
-        "confidence_level": "LOW",
-        "special_note": null
-      },
-      "substitutes": [],
-      "special_synergy_builds": [],
-      "anti_synergy_warnings": [],
-      "debuff_roles": []
-    },
-    "アッシュ": {
-      "champion": "アッシュ",
-      "core_items": [
-        {
-          "name": "インフェルノの紋章",
-          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
-        },
-        {
-          "name": "ショウジンの矛",
-          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
-        },
-        {
-          "name": "レッドバフ",
-          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
-        }
-      ],
-      "bis_standard_build": {
-        "items": [
-          "インフェルノの紋章",
-          "ショウジンの矛",
-          "レッドバフ"
-        ],
-        "sample_size": 7,
-        "avg_place": 3.71,
-        "win_rate": 0.57,
-        "confidence_level": "LOW",
-        "special_note": null
-      },
-      "substitutes": [],
-      "special_synergy_builds": [],
-      "anti_synergy_warnings": [],
-      "debuff_roles": []
-    },
-    "タリック": {
-      "champion": "タリック",
-      "core_items": [],
-      "bis_standard_build": {
-        "items": [
-          "クラウンガード"
-        ],
-        "sample_size": 4,
-        "avg_place": 3.25,
-        "win_rate": 0.75,
-        "confidence_level": "LOW",
-        "special_note": null
-      },
-      "substitutes": [
-        {
-          "item": "ガーゴイル ストーンプレート",
-          "delta_avg_place": 0.5,
-          "condition": null
-        }
-      ],
-      "special_synergy_builds": [],
-      "anti_synergy_warnings": [],
-      "debuff_roles": []
-    },
-    "アジール": {
-      "champion": "アジール",
-      "core_items": [
-        {
-          "name": "リカーブ ボウ",
-          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
-        }
-      ],
-      "bis_standard_build": {
-        "items": [
-          "リカーブ ボウ"
-        ],
-        "sample_size": 3,
-        "avg_place": 5.33,
-        "win_rate": 0.33,
+        "sample_size": 6,
+        "avg_place": 4.0,
+        "win_rate": 0.0,
+        "first_place_rate": 0.0,
+        "top4_rate": 0.67,
         "confidence_level": "LOW",
         "special_note": null
       },
@@ -488,23 +81,20 @@
           "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
         },
         {
-          "name": "ステラックの篭手",
-          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
-        },
-        {
-          "name": "ストライカー フレイル",
+          "name": "デスブレード",
           "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
         }
       ],
       "bis_standard_build": {
         "items": [
           "インフィニティ エッジ",
-          "ステラックの篭手",
-          "ストライカー フレイル"
+          "デスブレード"
         ],
-        "sample_size": 5,
-        "avg_place": 3.0,
-        "win_rate": 0.8,
+        "sample_size": 4,
+        "avg_place": 5.25,
+        "win_rate": 0.0,
+        "first_place_rate": 0.0,
+        "top4_rate": 0.25,
         "confidence_level": "LOW",
         "special_note": null
       },
@@ -513,8 +103,156 @@
       "anti_synergy_warnings": [],
       "debuff_roles": []
     },
-    "エズリアル": {
-      "champion": "エズリアル",
+    "アムム": {
+      "champion": "アムム",
+      "core_items": [
+        {
+          "name": "ガーゴイル ストーンプレート",
+          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
+        },
+        {
+          "name": "クラウンガード",
+          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
+        },
+        {
+          "name": "スピリット ビサージュ",
+          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
+        }
+      ],
+      "bis_standard_build": {
+        "items": [
+          "ガーゴイル ストーンプレート",
+          "クラウンガード",
+          "スピリット ビサージュ"
+        ],
+        "sample_size": 6,
+        "avg_place": 3.67,
+        "win_rate": 0.0,
+        "first_place_rate": 0.0,
+        "top4_rate": 0.83,
+        "confidence_level": "LOW",
+        "special_note": null
+      },
+      "substitutes": [],
+      "special_synergy_builds": [],
+      "anti_synergy_warnings": [],
+      "debuff_roles": []
+    },
+    "ヴァイ": {
+      "champion": "ヴァイ",
+      "core_items": [
+        {
+          "name": "ネガトロン クローク",
+          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
+        }
+      ],
+      "bis_standard_build": {
+        "items": [
+          "ネガトロン クローク"
+        ],
+        "sample_size": 3,
+        "avg_place": 5.67,
+        "win_rate": 0.0,
+        "first_place_rate": 0.0,
+        "top4_rate": 0.33,
+        "confidence_level": "LOW",
+        "special_note": null
+      },
+      "substitutes": [],
+      "special_synergy_builds": [],
+      "anti_synergy_warnings": [],
+      "debuff_roles": []
+    },
+    "ラカン": {
+      "champion": "ラカン",
+      "core_items": [
+        {
+          "name": "チェイン ベスト",
+          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
+        }
+      ],
+      "bis_standard_build": {
+        "items": [
+          "チェイン ベスト"
+        ],
+        "sample_size": 3,
+        "avg_place": 4.33,
+        "win_rate": 0.0,
+        "first_place_rate": 0.0,
+        "top4_rate": 0.33,
+        "confidence_level": "LOW",
+        "special_note": null
+      },
+      "substitutes": [],
+      "special_synergy_builds": [],
+      "anti_synergy_warnings": [],
+      "debuff_roles": []
+    },
+    "Sentinel18": {
+      "champion": "Sentinel18",
+      "core_items": [
+        {
+          "name": "アダプティブ ヘルム",
+          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
+        },
+        {
+          "name": "プロテクターの誓い",
+          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
+        }
+      ],
+      "bis_standard_build": {
+        "items": [
+          "アダプティブ ヘルム",
+          "プロテクターの誓い"
+        ],
+        "sample_size": 17,
+        "avg_place": 3.76,
+        "win_rate": 0.1765,
+        "first_place_rate": 0.1765,
+        "top4_rate": 0.71,
+        "confidence_level": "LOW",
+        "special_note": null
+      },
+      "substitutes": [],
+      "special_synergy_builds": [],
+      "anti_synergy_warnings": [],
+      "debuff_roles": []
+    },
+    "マオカイ": {
+      "champion": "マオカイ",
+      "core_items": [
+        {
+          "name": "ガーゴイル ストーンプレート",
+          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
+        }
+      ],
+      "bis_standard_build": {
+        "items": [
+          "ガーゴイル ストーンプレート",
+          "ワーモグ アーマー",
+          "揺るがぬ心"
+        ],
+        "sample_size": 4,
+        "avg_place": 4.0,
+        "win_rate": 0.5,
+        "first_place_rate": 0.5,
+        "top4_rate": 0.5,
+        "confidence_level": "LOW",
+        "special_note": null
+      },
+      "substitutes": [
+        {
+          "item": "イーブンシュラウド",
+          "delta_avg_place": 0.75,
+          "condition": null
+        }
+      ],
+      "special_synergy_builds": [],
+      "anti_synergy_warnings": [],
+      "debuff_roles": []
+    },
+    "ニダリー": {
+      "champion": "ニダリー",
       "core_items": [
         {
           "name": "インフィニティ エッジ",
@@ -525,7 +263,7 @@
           "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
         },
         {
-          "name": "デスブレード",
+          "name": "ステラックの篭手",
           "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
         }
       ],
@@ -533,11 +271,400 @@
         "items": [
           "インフィニティ エッジ",
           "ショウジンの矛",
-          "デスブレード"
+          "ステラックの篭手"
+        ],
+        "sample_size": 9,
+        "avg_place": 4.44,
+        "win_rate": 0.0,
+        "first_place_rate": 0.0,
+        "top4_rate": 0.67,
+        "confidence_level": "LOW",
+        "special_note": null
+      },
+      "substitutes": [],
+      "special_synergy_builds": [],
+      "anti_synergy_warnings": [],
+      "debuff_roles": []
+    },
+    "ラックス": {
+      "champion": "ラックス",
+      "core_items": [
+        {
+          "name": "アダプティブ ヘルム",
+          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
+        },
+        {
+          "name": "ジュエル ガントレット",
+          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
+        },
+        {
+          "name": "ヴォイド スタッフ",
+          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
+        }
+      ],
+      "bis_standard_build": {
+        "items": [
+          "アダプティブ ヘルム",
+          "ジュエル ガントレット",
+          "ヴォイド スタッフ"
         ],
         "sample_size": 3,
+        "avg_place": 1.33,
+        "win_rate": 0.6667,
+        "first_place_rate": 0.6667,
+        "top4_rate": 1.0,
+        "confidence_level": "LOW",
+        "special_note": null
+      },
+      "substitutes": [],
+      "special_synergy_builds": [],
+      "anti_synergy_warnings": [],
+      "debuff_roles": []
+    },
+    "アフェリオス": {
+      "champion": "アフェリオス",
+      "core_items": [
+        {
+          "name": "インフィニティ エッジ",
+          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
+        },
+        {
+          "name": "クラーケンの怒り",
+          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
+        },
+        {
+          "name": "グインソー レイジブレード",
+          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
+        }
+      ],
+      "bis_standard_build": {
+        "items": [
+          "インフィニティ エッジ",
+          "クラーケンの怒り",
+          "グインソー レイジブレード"
+        ],
+        "sample_size": 8,
+        "avg_place": 4.12,
+        "win_rate": 0.0,
+        "first_place_rate": 0.0,
+        "top4_rate": 0.62,
+        "confidence_level": "LOW",
+        "special_note": null
+      },
+      "substitutes": [],
+      "special_synergy_builds": [],
+      "anti_synergy_warnings": [],
+      "debuff_roles": []
+    },
+    "ケネン": {
+      "champion": "ケネン",
+      "core_items": [
+        {
+          "name": "ナイト エッジ",
+          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
+        }
+      ],
+      "bis_standard_build": {
+        "items": [
+          "ナイト エッジ"
+        ],
+        "sample_size": 4,
+        "avg_place": 3.75,
+        "win_rate": 0.0,
+        "first_place_rate": 0.0,
+        "top4_rate": 0.75,
+        "confidence_level": "LOW",
+        "special_note": null
+      },
+      "substitutes": [],
+      "special_synergy_builds": [],
+      "anti_synergy_warnings": [],
+      "debuff_roles": []
+    },
+    "モルガナ": {
+      "champion": "モルガナ",
+      "core_items": [
+        {
+          "name": "ラバドン デスキャップ",
+          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
+        },
+        {
+          "name": "ヴォイド スタッフ",
+          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
+        }
+      ],
+      "bis_standard_build": {
+        "items": [
+          "モレロノミコン",
+          "ラバドン デスキャップ",
+          "ヴォイド スタッフ"
+        ],
+        "sample_size": 6,
+        "avg_place": 4.17,
+        "win_rate": 0.0,
+        "first_place_rate": 0.0,
+        "top4_rate": 0.5,
+        "confidence_level": "LOW",
+        "special_note": null
+      },
+      "substitutes": [
+        {
+          "item": "レッドバフ",
+          "delta_avg_place": 0.33,
+          "condition": null
+        }
+      ],
+      "special_synergy_builds": [],
+      "anti_synergy_warnings": [],
+      "debuff_roles": []
+    },
+    "セト": {
+      "champion": "セト",
+      "core_items": [
+        {
+          "name": "ガーゴイル ストーンプレート",
+          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
+        },
+        {
+          "name": "ワーモグ アーマー",
+          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
+        }
+      ],
+      "bis_standard_build": {
+        "items": [
+          "ガーゴイル ストーンプレート",
+          "ワーモグ アーマー"
+        ],
+        "sample_size": 5,
+        "avg_place": 3.6,
+        "win_rate": 0.0,
+        "first_place_rate": 0.0,
+        "top4_rate": 0.8,
+        "confidence_level": "LOW",
+        "special_note": null
+      },
+      "substitutes": [],
+      "special_synergy_builds": [],
+      "anti_synergy_warnings": [],
+      "debuff_roles": []
+    },
+    "アーリ": {
+      "champion": "アーリ",
+      "core_items": [
+        {
+          "name": "ショウジンの矛",
+          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
+        },
+        {
+          "name": "ジュエル ガントレット",
+          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
+        },
+        {
+          "name": "ストライカー フレイル",
+          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
+        }
+      ],
+      "bis_standard_build": {
+        "items": [
+          "ショウジンの矛",
+          "ジュエル ガントレット",
+          "ストライカー フレイル"
+        ],
+        "sample_size": 13,
+        "avg_place": 4.31,
+        "win_rate": 0.0,
+        "first_place_rate": 0.0,
+        "top4_rate": 0.54,
+        "confidence_level": "LOW",
+        "special_note": null
+      },
+      "substitutes": [],
+      "special_synergy_builds": [],
+      "anti_synergy_warnings": [],
+      "debuff_roles": []
+    },
+    "タリック": {
+      "champion": "タリック",
+      "core_items": [],
+      "bis_standard_build": {
+        "items": [
+          "ガーゴイル ストーンプレート",
+          "クラウンガード",
+          "ワーモグ アーマー"
+        ],
+        "sample_size": 3,
+        "avg_place": 2.0,
+        "win_rate": 0.3333,
+        "first_place_rate": 0.3333,
+        "top4_rate": 1.0,
+        "confidence_level": "LOW",
+        "special_note": null
+      },
+      "substitutes": [
+        {
+          "item": "サンファイア ケープ",
+          "delta_avg_place": 1.0,
+          "condition": null
+        },
+        {
+          "item": "ジャイアント ベルト",
+          "delta_avg_place": 3.67,
+          "condition": null
+        },
+        {
+          "item": "プロテクターの誓い",
+          "delta_avg_place": 5.0,
+          "condition": null
+        }
+      ],
+      "special_synergy_builds": [],
+      "anti_synergy_warnings": [],
+      "debuff_roles": []
+    },
+    "アイバーン": {
+      "champion": "アイバーン",
+      "core_items": [
+        {
+          "name": "ショウジンの矛",
+          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
+        }
+      ],
+      "bis_standard_build": {
+        "items": [
+          "グインソー レイジブレード",
+          "ショウジンの矛"
+        ],
+        "sample_size": 4,
         "avg_place": 3.0,
-        "win_rate": 0.67,
+        "win_rate": 0.5,
+        "first_place_rate": 0.5,
+        "top4_rate": 0.75,
+        "confidence_level": "LOW",
+        "special_note": null
+      },
+      "substitutes": [
+        {
+          "item": "ショウジンの矛",
+          "delta_avg_place": 0.75,
+          "condition": null
+        }
+      ],
+      "special_synergy_builds": [],
+      "anti_synergy_warnings": [],
+      "debuff_roles": []
+    },
+    "ユナラ": {
+      "champion": "ユナラ",
+      "core_items": [
+        {
+          "name": "ショウジンの矛",
+          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
+        },
+        {
+          "name": "ストライカー フレイル",
+          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
+        },
+        {
+          "name": "ラスト ウィスパー",
+          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
+        }
+      ],
+      "bis_standard_build": {
+        "items": [
+          "ショウジンの矛",
+          "ストライカー フレイル",
+          "ラスト ウィスパー"
+        ],
+        "sample_size": 3,
+        "avg_place": 3.33,
+        "win_rate": 0.0,
+        "first_place_rate": 0.0,
+        "top4_rate": 1.0,
+        "confidence_level": "LOW",
+        "special_note": null
+      },
+      "substitutes": [],
+      "special_synergy_builds": [],
+      "anti_synergy_warnings": [],
+      "debuff_roles": []
+    },
+    "ルブラン": {
+      "champion": "ルブラン",
+      "core_items": [
+        {
+          "name": "ショウジンの矛",
+          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
+        },
+        {
+          "name": "ジュエル ガントレット",
+          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
+        }
+      ],
+      "bis_standard_build": {
+        "items": [
+          "ショウジンの矛",
+          "ジュエル ガントレット"
+        ],
+        "sample_size": 3,
+        "avg_place": 6.0,
+        "win_rate": 0.0,
+        "first_place_rate": 0.0,
+        "top4_rate": 0.33,
+        "confidence_level": "LOW",
+        "special_note": null
+      },
+      "substitutes": [],
+      "special_synergy_builds": [],
+      "anti_synergy_warnings": [],
+      "debuff_roles": []
+    },
+    "アジール": {
+      "champion": "アジール",
+      "core_items": [
+        {
+          "name": "B.F.ソード",
+          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
+        }
+      ],
+      "bis_standard_build": {
+        "items": [
+          "B.F.ソード"
+        ],
+        "sample_size": 6,
+        "avg_place": 5.0,
+        "win_rate": 0.0,
+        "first_place_rate": 0.0,
+        "top4_rate": 0.33,
+        "confidence_level": "LOW",
+        "special_note": null
+      },
+      "substitutes": [],
+      "special_synergy_builds": [],
+      "anti_synergy_warnings": [],
+      "debuff_roles": []
+    },
+    "ザイラ": {
+      "champion": "ザイラ",
+      "core_items": [
+        {
+          "name": "アークエンジェル スタッフ",
+          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
+        },
+        {
+          "name": "ヘクステック ガンブレード",
+          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
+        }
+      ],
+      "bis_standard_build": {
+        "items": [
+          "アークエンジェル スタッフ",
+          "ヘクステック ガンブレード"
+        ],
+        "sample_size": 10,
+        "avg_place": 4.5,
+        "win_rate": 0.2,
+        "first_place_rate": 0.2,
+        "top4_rate": 0.5,
         "confidence_level": "LOW",
         "special_note": null
       },
@@ -568,9 +695,11 @@
           "クラウンガード",
           "ワーモグ アーマー"
         ],
-        "sample_size": 6,
-        "avg_place": 2.83,
-        "win_rate": 0.67,
+        "sample_size": 14,
+        "avg_place": 4.64,
+        "win_rate": 0.0714,
+        "first_place_rate": 0.0714,
+        "top4_rate": 0.36,
         "confidence_level": "LOW",
         "special_note": null
       },
@@ -579,23 +708,32 @@
       "anti_synergy_warnings": [],
       "debuff_roles": []
     },
-    "ケネン": {
-      "champion": "ケネン",
-      "core_items": [],
+    "ソラカ": {
+      "champion": "ソラカ",
+      "core_items": [
+        {
+          "name": "ショウジンの矛",
+          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
+        }
+      ],
       "bis_standard_build": {
         "items": [
-          "モレロノミコン"
+          "ショウジンの矛",
+          "ストライカー フレイル",
+          "ナッシャー トゥース"
         ],
         "sample_size": 3,
-        "avg_place": 4.0,
-        "win_rate": 0.67,
+        "avg_place": 1.67,
+        "win_rate": 0.3333,
+        "first_place_rate": 0.3333,
+        "top4_rate": 1.0,
         "confidence_level": "LOW",
         "special_note": null
       },
       "substitutes": [
         {
-          "item": "スパーリング グローブ",
-          "delta_avg_place": 2.67,
+          "item": "アークエンジェル スタッフ",
+          "delta_avg_place": 0.66,
           "condition": null
         }
       ],
@@ -603,32 +741,68 @@
       "anti_synergy_warnings": [],
       "debuff_roles": []
     },
-    "アイバーン": {
-      "champion": "アイバーン",
-      "core_items": [],
+    "コグ＝マウ": {
+      "champion": "コグ＝マウ",
+      "core_items": [
+        {
+          "name": "リカーブ ボウ",
+          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
+        }
+      ],
       "bis_standard_build": {
         "items": [
-          "アダプティブ ヘルム"
+          "リカーブ ボウ"
         ],
-        "sample_size": 3,
-        "avg_place": 3.0,
-        "win_rate": 0.67,
+        "sample_size": 4,
+        "avg_place": 5.75,
+        "win_rate": 0.0,
+        "first_place_rate": 0.0,
+        "top4_rate": 0.5,
         "confidence_level": "LOW",
         "special_note": null
       },
-      "substitutes": [
-        {
-          "item": "グインソー レイジブレード",
-          "delta_avg_place": 2.0,
-          "condition": null
-        }
-      ],
+      "substitutes": [],
       "special_synergy_builds": [],
       "anti_synergy_warnings": [],
       "debuff_roles": []
     },
-    "アフェリオス": {
-      "champion": "アフェリオス",
+    "オーン": {
+      "champion": "オーン",
+      "core_items": [
+        {
+          "name": "ガーゴイル ストーンプレート",
+          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
+        },
+        {
+          "name": "クラウンガード",
+          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
+        },
+        {
+          "name": "スピリット ビサージュ",
+          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
+        }
+      ],
+      "bis_standard_build": {
+        "items": [
+          "ガーゴイル ストーンプレート",
+          "クラウンガード",
+          "スピリット ビサージュ"
+        ],
+        "sample_size": 7,
+        "avg_place": 3.43,
+        "win_rate": 0.1429,
+        "first_place_rate": 0.1429,
+        "top4_rate": 0.86,
+        "confidence_level": "LOW",
+        "special_note": null
+      },
+      "substitutes": [],
+      "special_synergy_builds": [],
+      "anti_synergy_warnings": [],
+      "debuff_roles": []
+    },
+    "ドレイヴン": {
+      "champion": "ドレイヴン",
       "core_items": [
         {
           "name": "クラーケンの怒り",
@@ -644,9 +818,79 @@
           "クラーケンの怒り",
           "グインソー レイジブレード"
         ],
+        "sample_size": 5,
+        "avg_place": 3.6,
+        "win_rate": 0.4,
+        "first_place_rate": 0.4,
+        "top4_rate": 0.6,
+        "confidence_level": "LOW",
+        "special_note": null
+      },
+      "substitutes": [
+        {
+          "item": "デスブレード",
+          "delta_avg_place": 2.0,
+          "condition": null
+        }
+      ],
+      "special_synergy_builds": [],
+      "anti_synergy_warnings": [],
+      "debuff_roles": []
+    },
+    "ベイガー": {
+      "champion": "ベイガー",
+      "core_items": [
+        {
+          "name": "ジュエル ガントレット",
+          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
+        },
+        {
+          "name": "ブルーバフ",
+          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
+        }
+      ],
+      "bis_standard_build": {
+        "items": [
+          "ジュエル ガントレット",
+          "ブルーバフ",
+          "ルーデン テンペスト"
+        ],
+        "sample_size": 4,
+        "avg_place": 2.5,
+        "win_rate": 0.0,
+        "first_place_rate": 0.0,
+        "top4_rate": 1.0,
+        "confidence_level": "LOW",
+        "special_note": null
+      },
+      "substitutes": [
+        {
+          "item": "ヘクステック ガンブレード",
+          "delta_avg_place": 0.25,
+          "condition": null
+        }
+      ],
+      "special_synergy_builds": [],
+      "anti_synergy_warnings": [],
+      "debuff_roles": []
+    },
+    "ナー": {
+      "champion": "ナー",
+      "core_items": [
+        {
+          "name": "ナイト エッジ",
+          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
+        }
+      ],
+      "bis_standard_build": {
+        "items": [
+          "ナイト エッジ"
+        ],
         "sample_size": 3,
-        "avg_place": 3.33,
-        "win_rate": 0.67,
+        "avg_place": 4.33,
+        "win_rate": 0.3333,
+        "first_place_rate": 0.3333,
+        "top4_rate": 0.67,
         "confidence_level": "LOW",
         "special_note": null
       },
@@ -655,21 +899,33 @@
       "anti_synergy_warnings": [],
       "debuff_roles": []
     },
-    "ドレイヴン": {
-      "champion": "ドレイヴン",
+    "カ＝ジックス": {
+      "champion": "カ＝ジックス",
       "core_items": [
         {
-          "name": "グインソー レイジブレード",
+          "name": "ナイト エッジ",
+          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
+        },
+        {
+          "name": "ハンド オブ ジャスティス",
+          "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
+        },
+        {
+          "name": "ラバドン デスキャップ",
           "reason": "信頼できる上位ビルドの大多数で共通して採用されているコアアイテム"
         }
       ],
       "bis_standard_build": {
         "items": [
-          "グインソー レイジブレード"
+          "ナイト エッジ",
+          "ハンド オブ ジャスティス",
+          "ラバドン デスキャップ"
         ],
-        "sample_size": 5,
-        "avg_place": 6.4,
-        "win_rate": 0.2,
+        "sample_size": 7,
+        "avg_place": 2.29,
+        "win_rate": 0.7143,
+        "first_place_rate": 0.7143,
+        "top4_rate": 0.86,
         "confidence_level": "LOW",
         "special_note": null
       },
@@ -681,37 +937,22 @@
   },
   "comp_recommendations": [
     {
-      "comp_name": "ハンター+リフトビースト",
+      "comp_name": "ハンター+ジャガーノート",
       "tier": "S",
-      "avg_place": 2.83,
-      "top4_rate": 0.83,
-      "sample_size": 6,
+      "avg_place": 1.67,
+      "first_place_rate": 0.6667,
+      "top4_rate": 1.0,
+      "strategy_goal": "first_place",
+      "strategy_goal_label": "1位狙い",
+      "strategy_description": "完成時の上限が高く、積極的に1位を狙う構成です。",
+      "sample_size": 3,
       "confidence_level": "LOW",
       "emblem_holder": null,
       "key_units": [
-        "コグ＝マウ",
+        "ラカン",
+        "ケイトリン",
+        "トリスターナ",
         "シヴィア",
-        "ニダリー",
-        "Sentinel18",
-        "Cinderling18"
-      ],
-      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
-      "trigger_items": [],
-      "trigger_emblems": []
-    },
-    {
-      "comp_name": "インフェルノ+アダプター",
-      "tier": "S",
-      "avg_place": 2.86,
-      "top4_rate": 0.71,
-      "sample_size": 7,
-      "confidence_level": "LOW",
-      "emblem_holder": null,
-      "key_units": [
-        "ニダリー",
-        "アムム",
-        "コグ＝マウ",
-        "ケネン",
         "ヴァイ"
       ],
       "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
@@ -719,171 +960,46 @@
       "trigger_emblems": []
     },
     {
-      "comp_name": "ジャガーノート+インフェルノ",
+      "comp_name": "エクセキューショナー+ブラックソーン",
       "tier": "S",
-      "avg_place": 3.25,
-      "top4_rate": 0.5,
-      "sample_size": 4,
+      "avg_place": 1.86,
+      "first_place_rate": 0.4286,
+      "top4_rate": 1.0,
+      "strategy_goal": "first_place",
+      "strategy_goal_label": "1位狙い",
+      "strategy_description": "完成時の上限が高く、積極的に1位を狙う構成です。",
+      "sample_size": 7,
       "confidence_level": "LOW",
       "emblem_holder": null,
       "key_units": [
-        "ヴァイ",
-        "アムム",
-        "マオカイ",
-        "Scuttlecrab18",
-        "ケネン"
-      ],
-      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
-      "trigger_items": [],
-      "trigger_emblems": []
-    },
-    {
-      "comp_name": "ジャガーノート+サモナー",
-      "tier": "S",
-      "avg_place": 3.25,
-      "top4_rate": 0.75,
-      "sample_size": 4,
-      "confidence_level": "LOW",
-      "emblem_holder": null,
-      "key_units": [
-        "ヨリック",
-        "アムム",
-        "ヴァイ",
-        "ザイラ",
-        "マオカイ"
-      ],
-      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
-      "trigger_items": [],
-      "trigger_emblems": []
-    },
-    {
-      "comp_name": "ルナー+ヴァンガード",
-      "tier": "S",
-      "avg_place": 3.33,
-      "top4_rate": 0.67,
-      "sample_size": 3,
-      "confidence_level": "LOW",
-      "emblem_holder": null,
-      "key_units": [
-        "アルーン",
-        "Sentinel18",
-        "アフェリオス",
-        "ダイアナ",
-        "タリック"
-      ],
-      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
-      "trigger_items": [],
-      "trigger_emblems": []
-    },
-    {
-      "comp_name": "ジャガーノート+プライマル",
-      "tier": "S",
-      "avg_place": 3.6,
-      "top4_rate": 0.6,
-      "sample_size": 5,
-      "confidence_level": "LOW",
-      "emblem_holder": null,
-      "key_units": [
-        "Scuttlecrab18",
-        "アムム",
-        "ヴァイ",
-        "マオカイ",
-        "ラカン"
-      ],
-      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
-      "trigger_items": [],
-      "trigger_emblems": []
-    },
-    {
-      "comp_name": "ブローラー+アダプター",
-      "tier": "S",
-      "avg_place": 3.67,
-      "top4_rate": 0.67,
-      "sample_size": 3,
-      "confidence_level": "LOW",
-      "emblem_holder": null,
-      "key_units": [
-        "コグ＝マウ",
-        "Krug18",
-        "ニダリー",
-        "ヨリック",
-        "マスター・イー"
-      ],
-      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
-      "trigger_items": [],
-      "trigger_emblems": []
-    },
-    {
-      "comp_name": "リフトビースト+インフェルノ",
-      "tier": "S",
-      "avg_place": 3.67,
-      "top4_rate": 0.67,
-      "sample_size": 15,
-      "confidence_level": "LOW",
-      "emblem_holder": null,
-      "key_units": [
-        "アムム",
-        "Sentinel18",
+        "アジール",
         "ケネン",
-        "ElderDragon",
-        "タリック"
+        "マルファイト",
+        "ソラカ",
+        "フィドルスティックス"
       ],
       "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
       "trigger_items": [],
       "trigger_emblems": []
     },
     {
-      "comp_name": "ディフェンダー+スペルウィーバー",
+      "comp_name": "ブローラー+スペルウィーバー",
       "tier": "S",
-      "avg_place": 3.67,
-      "top4_rate": 0.67,
+      "avg_place": 2.33,
+      "first_place_rate": 0.3333,
+      "top4_rate": 1.0,
+      "strategy_goal": "first_place",
+      "strategy_goal_label": "1位狙い",
+      "strategy_description": "完成時の上限が高く、積極的に1位を狙う構成です。",
       "sample_size": 3,
       "confidence_level": "LOW",
       "emblem_holder": null,
       "key_units": [
-        "フィドルスティックス",
+        "ベイガー",
         "オーン",
-        "シェン",
-        "カシオペア",
-        "ラムス"
-      ],
-      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
-      "trigger_items": [],
-      "trigger_emblems": []
-    },
-    {
-      "comp_name": "リフトビースト+ハンター",
-      "tier": "S",
-      "avg_place": 3.75,
-      "top4_rate": 0.5,
-      "sample_size": 4,
-      "confidence_level": "LOW",
-      "emblem_holder": null,
-      "key_units": [
-        "Sentinel18",
-        "アッシュ",
-        "タリック",
-        "ElderDragon",
-        "シヴィア"
-      ],
-      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
-      "trigger_items": [],
-      "trigger_emblems": []
-    },
-    {
-      "comp_name": "リフトビースト+アダプター",
-      "tier": "S",
-      "avg_place": 3.75,
-      "top4_rate": 0.75,
-      "sample_size": 4,
-      "confidence_level": "LOW",
-      "emblem_holder": null,
-      "key_units": [
-        "ニダリー",
-        "Sentinel18",
-        "アムム",
-        "コグ＝マウ",
-        "Cinderling18"
+        "ルブラン",
+        "フィドルスティックス",
+        "レク＝サイ"
       ],
       "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
       "trigger_items": [],
@@ -892,16 +1008,365 @@
     {
       "comp_name": "ジャガーノート+リフトビースト",
       "tier": "S",
-      "avg_place": 3.8,
-      "top4_rate": 0.6,
+      "avg_place": 2.6,
+      "first_place_rate": 0.5,
+      "top4_rate": 0.9,
+      "strategy_goal": "first_place",
+      "strategy_goal_label": "1位狙い",
+      "strategy_description": "完成時の上限が高く、積極的に1位を狙う構成です。",
+      "sample_size": 10,
+      "confidence_level": "LOW",
+      "emblem_holder": null,
+      "key_units": [
+        "アムム",
+        "マオカイ",
+        "ElderDragon",
+        "ヴァイ",
+        "Scuttlecrab18"
+      ],
+      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
+      "trigger_items": [],
+      "trigger_emblems": []
+    },
+    {
+      "comp_name": "プライマル+ジャガーノート",
+      "tier": "S",
+      "avg_place": 2.6,
+      "first_place_rate": 0.2,
+      "top4_rate": 0.8,
+      "strategy_goal": "first_place",
+      "strategy_goal_label": "1位狙い",
+      "strategy_description": "完成時の上限が高く、積極的に1位を狙う構成です。",
       "sample_size": 5,
       "confidence_level": "LOW",
       "emblem_holder": null,
       "key_units": [
         "ヴァイ",
-        "Scuttlecrab18",
-        "マオカイ",
+        "アムム",
+        "ラカン",
+        "シヴィア",
+        "ラックス"
+      ],
+      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
+      "trigger_items": [],
+      "trigger_emblems": []
+    },
+    {
+      "comp_name": "プライマル+アダプター",
+      "tier": "S",
+      "avg_place": 2.6,
+      "first_place_rate": 0.2,
+      "top4_rate": 0.8,
+      "strategy_goal": "first_place",
+      "strategy_goal_label": "1位狙い",
+      "strategy_description": "完成時の上限が高く、積極的に1位を狙う構成です。",
+      "sample_size": 5,
+      "confidence_level": "LOW",
+      "emblem_holder": null,
+      "key_units": [
+        "Sentinel18",
+        "コグ＝マウ",
+        "ニダリー",
+        "アムム",
+        "ラックス"
+      ],
+      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
+      "trigger_items": [],
+      "trigger_emblems": []
+    },
+    {
+      "comp_name": "リフトビースト+ブローラー",
+      "tier": "S",
+      "avg_place": 2.83,
+      "first_place_rate": 0.1667,
+      "top4_rate": 0.83,
+      "strategy_goal": "balanced",
+      "strategy_goal_label": "バランス型",
+      "strategy_description": "Top4の安定感と1位の上振れを両立する構成です。",
+      "sample_size": 6,
+      "confidence_level": "LOW",
+      "emblem_holder": null,
+      "key_units": [
         "ElderDragon",
+        "Sentinel18",
+        "タリック",
+        "Sentry",
+        "Krug18"
+      ],
+      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
+      "trigger_items": [],
+      "trigger_emblems": []
+    },
+    {
+      "comp_name": "ルナー+アダプター",
+      "tier": "S",
+      "avg_place": 3.0,
+      "first_place_rate": 0.0,
+      "top4_rate": 1.0,
+      "strategy_goal": "top4",
+      "strategy_goal_label": "Top4狙い",
+      "strategy_description": "安定して4位以内を目指す構成です。",
+      "sample_size": 4,
+      "confidence_level": "LOW",
+      "emblem_holder": null,
+      "key_units": [
+        "ヴァルス",
+        "ヴァイ",
+        "ニダリー",
+        "Sentinel18",
+        "アムム"
+      ],
+      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
+      "trigger_items": [],
+      "trigger_emblems": []
+    },
+    {
+      "comp_name": "ブローラー+エルダーウッド",
+      "tier": "S",
+      "avg_place": 3.0,
+      "first_place_rate": 0.0,
+      "top4_rate": 1.0,
+      "strategy_goal": "top4",
+      "strategy_goal_label": "Top4狙い",
+      "strategy_description": "安定して4位以内を目指す構成です。",
+      "sample_size": 3,
+      "confidence_level": "LOW",
+      "emblem_holder": null,
+      "key_units": [
+        "アリスター",
+        "ナー",
+        "ベイガー",
+        "オーン",
+        "レク＝サイ"
+      ],
+      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
+      "trigger_items": [],
+      "trigger_emblems": []
+    },
+    {
+      "comp_name": "エルダーウッド+エクセキューショナー",
+      "tier": "S",
+      "avg_place": 3.25,
+      "first_place_rate": 0.25,
+      "top4_rate": 0.75,
+      "strategy_goal": "first_place",
+      "strategy_goal_label": "1位狙い",
+      "strategy_description": "完成時の上限が高く、積極的に1位を狙う構成です。",
+      "sample_size": 4,
+      "confidence_level": "LOW",
+      "emblem_holder": null,
+      "key_units": [
+        "ナー",
+        "エズリアル",
+        "アリスター",
+        "ソラカ",
+        "Sentinel18"
+      ],
+      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
+      "trigger_items": [],
+      "trigger_emblems": []
+    },
+    {
+      "comp_name": "ブロッサム+インヴォーカー",
+      "tier": "S",
+      "avg_place": 3.33,
+      "first_place_rate": 0.0,
+      "top4_rate": 1.0,
+      "strategy_goal": "top4",
+      "strategy_goal_label": "Top4狙い",
+      "strategy_description": "安定して4位以内を目指す構成です。",
+      "sample_size": 3,
+      "confidence_level": "LOW",
+      "emblem_holder": null,
+      "key_units": [
+        "セト",
+        "アーリ",
+        "Sentry",
+        "カルマ",
+        "モルガナ"
+      ],
+      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
+      "trigger_items": [],
+      "trigger_emblems": []
+    },
+    {
+      "comp_name": "ヴァンガード+インヴォーカー",
+      "tier": "S",
+      "avg_place": 3.33,
+      "first_place_rate": 0.3333,
+      "top4_rate": 0.67,
+      "strategy_goal": "first_place",
+      "strategy_goal_label": "1位狙い",
+      "strategy_description": "完成時の上限が高く、積極的に1位を狙う構成です。",
+      "sample_size": 3,
+      "confidence_level": "LOW",
+      "emblem_holder": null,
+      "key_units": [
+        "ヘカリム",
+        "Sentinel18",
+        "アルーン",
+        "モルガナ",
+        "タリック"
+      ],
+      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
+      "trigger_items": [],
+      "trigger_emblems": []
+    },
+    {
+      "comp_name": "ハンター+フェイ",
+      "tier": "S",
+      "avg_place": 3.33,
+      "first_place_rate": 0.0,
+      "top4_rate": 0.67,
+      "strategy_goal": "top4",
+      "strategy_goal_label": "Top4狙い",
+      "strategy_description": "安定して4位以内を目指す構成です。",
+      "sample_size": 3,
+      "confidence_level": "LOW",
+      "emblem_holder": null,
+      "key_units": [
+        "ラカン",
+        "トリスターナ",
+        "シヴィア",
+        "ヴァイ",
+        "アッシュ"
+      ],
+      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
+      "trigger_items": [],
+      "trigger_emblems": []
+    },
+    {
+      "comp_name": "ヴァンガード+アダプター",
+      "tier": "S",
+      "avg_place": 3.33,
+      "first_place_rate": 0.0,
+      "top4_rate": 0.67,
+      "strategy_goal": "top4",
+      "strategy_goal_label": "Top4狙い",
+      "strategy_description": "安定して4位以内を目指す構成です。",
+      "sample_size": 3,
+      "confidence_level": "LOW",
+      "emblem_holder": null,
+      "key_units": [
+        "アムム",
+        "アフェリオス",
+        "ダイアナ",
+        "コグ＝マウ",
+        "ニダリー"
+      ],
+      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
+      "trigger_items": [],
+      "trigger_emblems": []
+    },
+    {
+      "comp_name": "エクセキューショナー+エルダーウッド",
+      "tier": "S",
+      "avg_place": 3.43,
+      "first_place_rate": 0.1429,
+      "top4_rate": 0.86,
+      "strategy_goal": "balanced",
+      "strategy_goal_label": "バランス型",
+      "strategy_description": "Top4の安定感と1位の上振れを両立する構成です。",
+      "sample_size": 7,
+      "confidence_level": "LOW",
+      "emblem_holder": null,
+      "key_units": [
+        "エズリアル",
+        "カ＝ジックス",
+        "アリスター",
+        "ナー",
+        "ケネン"
+      ],
+      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
+      "trigger_items": [],
+      "trigger_emblems": []
+    },
+    {
+      "comp_name": "エクセキューショナー+フローラ・ファターリス",
+      "tier": "S",
+      "avg_place": 3.47,
+      "first_place_rate": 0.2188,
+      "top4_rate": 0.72,
+      "strategy_goal": "first_place",
+      "strategy_goal_label": "1位狙い",
+      "strategy_description": "完成時の上限が高く、積極的に1位を狙う構成です。",
+      "sample_size": 32,
+      "confidence_level": "LOW",
+      "emblem_holder": null,
+      "key_units": [
+        "ソラカ",
+        "フィドルスティックス",
+        "カ＝ジックス",
+        "アジール",
+        "ケネン"
+      ],
+      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
+      "trigger_items": [],
+      "trigger_emblems": []
+    },
+    {
+      "comp_name": "インフェルノ+プライマル",
+      "tier": "S",
+      "avg_place": 3.5,
+      "first_place_rate": 0.5,
+      "top4_rate": 0.5,
+      "strategy_goal": "first_place",
+      "strategy_goal_label": "1位狙い",
+      "strategy_description": "完成時の上限が高く、積極的に1位を狙う構成です。",
+      "sample_size": 4,
+      "confidence_level": "LOW",
+      "emblem_holder": null,
+      "key_units": [
+        "ヴァイ",
+        "ケネン",
+        "アムム",
+        "シェン",
+        "アッシュ"
+      ],
+      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
+      "trigger_items": [],
+      "trigger_emblems": []
+    },
+    {
+      "comp_name": "ジャガーノート+サモナー",
+      "tier": "S",
+      "avg_place": 3.67,
+      "first_place_rate": 0.25,
+      "top4_rate": 0.67,
+      "strategy_goal": "first_place",
+      "strategy_goal_label": "1位狙い",
+      "strategy_description": "完成時の上限が高く、積極的に1位を狙う構成です。",
+      "sample_size": 12,
+      "confidence_level": "LOW",
+      "emblem_holder": null,
+      "key_units": [
+        "ヨリック",
+        "ザイラ",
+        "アムム",
+        "ヴァイ",
+        "マオカイ"
+      ],
+      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
+      "trigger_items": [],
+      "trigger_emblems": []
+    },
+    {
+      "comp_name": "ディフェンダー+アダプター",
+      "tier": "S",
+      "avg_place": 3.75,
+      "first_place_rate": 0.0,
+      "top4_rate": 0.75,
+      "strategy_goal": "top4",
+      "strategy_goal_label": "Top4狙い",
+      "strategy_description": "安定して4位以内を目指す構成です。",
+      "sample_size": 4,
+      "confidence_level": "LOW",
+      "emblem_holder": null,
+      "key_units": [
+        "コグ＝マウ",
+        "リリア",
+        "ニダリー",
+        "シェン",
         "ラカン"
       ],
       "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
@@ -911,16 +1376,20 @@
     {
       "comp_name": "スペルウィーバー+エルダーウッド",
       "tier": "S",
-      "avg_place": 4.0,
-      "top4_rate": 0.8,
-      "sample_size": 5,
+      "avg_place": 3.76,
+      "first_place_rate": 0.1765,
+      "top4_rate": 0.59,
+      "strategy_goal": "balanced",
+      "strategy_goal_label": "バランス型",
+      "strategy_description": "Top4の安定感と1位の上振れを両立する構成です。",
+      "sample_size": 17,
       "confidence_level": "LOW",
       "emblem_holder": null,
       "key_units": [
+        "フィドルスティックス",
         "オーン",
-        "ベイガー",
-        "アリスター",
         "レク＝サイ",
+        "ベイガー",
         "ルブラン"
       ],
       "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
@@ -928,38 +1397,69 @@
       "trigger_emblems": []
     },
     {
-      "comp_name": "エルダーウッド+ブローラー",
+      "comp_name": "ブラックソーン+エクセキューショナー",
       "tier": "S",
-      "avg_place": 4.0,
+      "avg_place": 3.86,
+      "first_place_rate": 0.2857,
       "top4_rate": 0.57,
-      "sample_size": 14,
+      "strategy_goal": "first_place",
+      "strategy_goal_label": "1位狙い",
+      "strategy_description": "完成時の上限が高く、積極的に1位を狙う構成です。",
+      "sample_size": 7,
       "confidence_level": "LOW",
       "emblem_holder": null,
       "key_units": [
-        "エズリアル",
-        "アリスター",
-        "ナー",
-        "ヘカリム",
-        "タリック"
+        "マルファイト",
+        "アジール",
+        "アムム",
+        "ソラカ",
+        "フィドルスティックス"
       ],
       "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
       "trigger_items": [],
       "trigger_emblems": []
     },
     {
-      "comp_name": "エクセキューショナー+エルダーウッド",
+      "comp_name": "エルダーウッド+リフトビースト",
       "tier": "S",
       "avg_place": 4.0,
+      "first_place_rate": 0.3333,
+      "top4_rate": 0.33,
+      "strategy_goal": "first_place",
+      "strategy_goal_label": "1位狙い",
+      "strategy_description": "完成時の上限が高く、積極的に1位を狙う構成です。",
+      "sample_size": 3,
+      "confidence_level": "LOW",
+      "emblem_holder": null,
+      "key_units": [
+        "ナー",
+        "ElderDragon",
+        "Sentinel18",
+        "ドレイヴン",
+        "エズリアル"
+      ],
+      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
+      "trigger_items": [],
+      "trigger_emblems": []
+    },
+    {
+      "comp_name": "インフェルノ+リフトビースト",
+      "tier": "S",
+      "avg_place": 4.0,
+      "first_place_rate": 0.0,
       "top4_rate": 0.5,
+      "strategy_goal": "top4",
+      "strategy_goal_label": "Top4狙い",
+      "strategy_description": "安定して4位以内を目指す構成です。",
       "sample_size": 4,
       "confidence_level": "LOW",
       "emblem_holder": null,
       "key_units": [
-        "アリスター",
-        "エズリアル",
-        "ソラカ",
-        "ナー",
-        "ドレイヴン"
+        "アムム",
+        "ElderDragon",
+        "ケネン",
+        "シェン",
+        "Sentinel18"
       ],
       "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
       "trigger_items": [],
@@ -967,37 +1467,22 @@
     },
     {
       "comp_name": "リフトビースト+インヴォーカー",
-      "tier": "S",
-      "avg_place": 4.0,
-      "top4_rate": 0.75,
-      "sample_size": 4,
+      "tier": "A",
+      "avg_place": 4.14,
+      "first_place_rate": 0.1429,
+      "top4_rate": 0.57,
+      "strategy_goal": "balanced",
+      "strategy_goal_label": "バランス型",
+      "strategy_description": "Top4の安定感と1位の上振れを両立する構成です。",
+      "sample_size": 7,
       "confidence_level": "LOW",
       "emblem_holder": null,
       "key_units": [
+        "Sentinel18",
         "Sentry",
         "Krug18",
-        "Sentinel18",
-        "アーリ",
+        "Scuttlecrab18",
         "Cinderling18"
-      ],
-      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
-      "trigger_items": [],
-      "trigger_emblems": []
-    },
-    {
-      "comp_name": "インヴォーカー+リフトビースト",
-      "tier": "S",
-      "avg_place": 4.0,
-      "top4_rate": 0.67,
-      "sample_size": 3,
-      "confidence_level": "LOW",
-      "emblem_holder": null,
-      "key_units": [
-        "Sentinel18",
-        "モルガナ",
-        "Sentry",
-        "ラカン",
-        "コグ＝マウ"
       ],
       "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
       "trigger_items": [],
@@ -1006,73 +1491,20 @@
     {
       "comp_name": "インヴォーカー+ブロッサム",
       "tier": "A",
-      "avg_place": 4.03,
-      "top4_rate": 0.59,
-      "sample_size": 29,
+      "avg_place": 4.16,
+      "first_place_rate": 0.1316,
+      "top4_rate": 0.61,
+      "strategy_goal": "balanced",
+      "strategy_goal_label": "バランス型",
+      "strategy_description": "Top4の安定感と1位の上振れを両立する構成です。",
+      "sample_size": 38,
       "confidence_level": "LOW",
       "emblem_holder": null,
       "key_units": [
-        "Sentry",
-        "アーリ",
         "モルガナ",
-        "Sentinel18",
-        "Krug18"
-      ],
-      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
-      "trigger_items": [],
-      "trigger_emblems": []
-    },
-    {
-      "comp_name": "ラピッドファイア+エルダーウッド",
-      "tier": "A",
-      "avg_place": 4.25,
-      "top4_rate": 0.5,
-      "sample_size": 4,
-      "confidence_level": "LOW",
-      "emblem_holder": null,
-      "key_units": [
-        "ザヤ",
-        "アフェリオス",
-        "CrimsonRaptor18",
-        "ダイアナ",
-        "オーン"
-      ],
-      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
-      "trigger_items": [],
-      "trigger_emblems": []
-    },
-    {
-      "comp_name": "ブロッサム+ブラックソーン",
-      "tier": "A",
-      "avg_place": 4.33,
-      "top4_rate": 0.33,
-      "sample_size": 3,
-      "confidence_level": "LOW",
-      "emblem_holder": null,
-      "key_units": [
-        "マルファイト",
+        "セト",
         "アーリ",
-        "カルマ",
-        "ヨリック",
-        "セト"
-      ],
-      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
-      "trigger_items": [],
-      "trigger_emblems": []
-    },
-    {
-      "comp_name": "ブラックソーン+ブローラー",
-      "tier": "A",
-      "avg_place": 4.4,
-      "top4_rate": 0.4,
-      "sample_size": 5,
-      "confidence_level": "LOW",
-      "emblem_holder": null,
-      "key_units": [
-        "レク＝サイ",
-        "ニダリー",
-        "マルファイト",
-        "Krug18",
+        "Sentry",
         "Sentinel18"
       ],
       "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
@@ -1080,190 +1512,23 @@
       "trigger_emblems": []
     },
     {
-      "comp_name": "アダプター+インフェルノ",
-      "tier": "B",
-      "avg_place": 4.55,
-      "top4_rate": 0.45,
-      "sample_size": 11,
+      "comp_name": "ジャガーノート+アダプター",
+      "tier": "A",
+      "avg_place": 4.17,
+      "first_place_rate": 0.0,
+      "top4_rate": 0.5,
+      "strategy_goal": "top4",
+      "strategy_goal_label": "Top4狙い",
+      "strategy_description": "安定して4位以内を目指す構成です。",
+      "sample_size": 6,
       "confidence_level": "LOW",
       "emblem_holder": null,
       "key_units": [
-        "ダイアナ",
         "ニダリー",
+        "ヴァイ",
         "コグ＝マウ",
-        "アムム",
-        "アフェリオス"
-      ],
-      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
-      "trigger_items": [],
-      "trigger_emblems": []
-    },
-    {
-      "comp_name": "インフェルノ+リフトビースト",
-      "tier": "B",
-      "avg_place": 4.6,
-      "top4_rate": 0.4,
-      "sample_size": 5,
-      "confidence_level": "LOW",
-      "emblem_holder": null,
-      "key_units": [
-        "ElderDragon",
-        "アムム",
-        "Sentinel18",
-        "シヴィア",
-        "アイバーン"
-      ],
-      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
-      "trigger_items": [],
-      "trigger_emblems": []
-    },
-    {
-      "comp_name": "リフトビースト+ブラックソーン",
-      "tier": "B",
-      "avg_place": 4.67,
-      "top4_rate": 0.44,
-      "sample_size": 9,
-      "confidence_level": "LOW",
-      "emblem_holder": null,
-      "key_units": [
-        "Sentinel18",
-        "ニダリー",
-        "シヴィア",
-        "レク＝サイ",
-        "マルファイト"
-      ],
-      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
-      "trigger_items": [],
-      "trigger_emblems": []
-    },
-    {
-      "comp_name": "インフェルノ+プライマル",
-      "tier": "B",
-      "avg_place": 4.67,
-      "top4_rate": 0.33,
-      "sample_size": 3,
-      "confidence_level": "LOW",
-      "emblem_holder": null,
-      "key_units": [
-        "シェン",
-        "アムム",
-        "ケネン",
-        "ヴァイ",
-        "ニダリー"
-      ],
-      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
-      "trigger_items": [],
-      "trigger_emblems": []
-    },
-    {
-      "comp_name": "ディフェンダー+フローラ・ファターリス",
-      "tier": "B",
-      "avg_place": 4.67,
-      "top4_rate": 0.33,
-      "sample_size": 3,
-      "confidence_level": "LOW",
-      "emblem_holder": null,
-      "key_units": [
-        "オーン",
-        "フィドルスティックス",
-        "ラムス",
-        "シェン",
-        "カシオペア"
-      ],
-      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
-      "trigger_items": [],
-      "trigger_emblems": []
-    },
-    {
-      "comp_name": "プライマル+ジャガーノート",
-      "tier": "B",
-      "avg_place": 4.75,
-      "top4_rate": 0.5,
-      "sample_size": 4,
-      "confidence_level": "LOW",
-      "emblem_holder": null,
-      "key_units": [
-        "シヴィア",
-        "ヴァイ",
         "マオカイ",
-        "Scuttlecrab18",
-        "ElderDragon"
-      ],
-      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
-      "trigger_items": [],
-      "trigger_emblems": []
-    },
-    {
-      "comp_name": "インフェルノ+ジャガーノート",
-      "tier": "B",
-      "avg_place": 4.8,
-      "top4_rate": 0.4,
-      "sample_size": 5,
-      "confidence_level": "LOW",
-      "emblem_holder": null,
-      "key_units": [
-        "シェン",
-        "アムム",
-        "アッシュ",
-        "シヴィア",
-        "ヴァイ"
-      ],
-      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
-      "trigger_items": [],
-      "trigger_emblems": []
-    },
-    {
-      "comp_name": "ジャガーノート+ハンター",
-      "tier": "B",
-      "avg_place": 4.82,
-      "top4_rate": 0.45,
-      "sample_size": 11,
-      "confidence_level": "LOW",
-      "emblem_holder": null,
-      "key_units": [
-        "ヴァイ",
-        "アムム",
-        "シヴィア",
-        "アッシュ",
-        "ラカン"
-      ],
-      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
-      "trigger_items": [],
-      "trigger_emblems": []
-    },
-    {
-      "comp_name": "エクセキューショナー+フローラ・ファターリス",
-      "tier": "B",
-      "avg_place": 4.9,
-      "top4_rate": 0.5,
-      "sample_size": 10,
-      "confidence_level": "LOW",
-      "emblem_holder": null,
-      "key_units": [
-        "フィドルスティックス",
-        "ソラカ",
-        "エズリアル",
-        "アーリ",
-        "セト"
-      ],
-      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
-      "trigger_items": [],
-      "trigger_emblems": []
-    },
-    {
-      "comp_name": "リフトビースト+ブローラー",
-      "tier": "B",
-      "avg_place": 4.91,
-      "top4_rate": 0.45,
-      "sample_size": 11,
-      "confidence_level": "LOW",
-      "emblem_holder": null,
-      "key_units": [
-        "Krug18",
-        "Sentinel18",
-        "ElderDragon",
-        "ナー",
-        "Brambleback18"
+        "Sentinel18"
       ],
       "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
       "trigger_items": [],
@@ -1271,151 +1536,114 @@
     },
     {
       "comp_name": "インフェルノ+ハンター",
-      "tier": "B",
-      "avg_place": 5.0,
+      "tier": "A",
+      "avg_place": 4.29,
+      "first_place_rate": 0.1429,
       "top4_rate": 0.43,
+      "strategy_goal": "balanced",
+      "strategy_goal_label": "バランス型",
+      "strategy_description": "Top4の安定感と1位の上振れを両立する構成です。",
       "sample_size": 7,
       "confidence_level": "LOW",
       "emblem_holder": null,
       "key_units": [
-        "アムム",
-        "ケネン",
         "シェン",
         "シヴィア",
-        "ヴァイ"
-      ],
-      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
-      "trigger_items": [],
-      "trigger_emblems": []
-    },
-    {
-      "comp_name": "ディフェンダー+インフェルノ",
-      "tier": "B",
-      "avg_place": 5.0,
-      "top4_rate": 0.67,
-      "sample_size": 3,
-      "confidence_level": "LOW",
-      "emblem_holder": null,
-      "key_units": [
-        "レオナ",
-        "オーン",
-        "シェン",
-        "フィドルスティックス",
-        "リリア"
-      ],
-      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
-      "trigger_items": [],
-      "trigger_emblems": []
-    },
-    {
-      "comp_name": "エクセキューショナー+サモナー",
-      "tier": "B",
-      "avg_place": 5.2,
-      "top4_rate": 0.35,
-      "sample_size": 20,
-      "confidence_level": "LOW",
-      "emblem_holder": null,
-      "key_units": [
-        "ヨリック",
-        "ザイラ",
-        "アジール",
-        "ソラカ",
-        "マルファイト"
-      ],
-      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
-      "trigger_items": [],
-      "trigger_emblems": []
-    },
-    {
-      "comp_name": "ブロッサム+ブローラー",
-      "tier": "B",
-      "avg_place": 5.2,
-      "top4_rate": 0.4,
-      "sample_size": 10,
-      "confidence_level": "LOW",
-      "emblem_holder": null,
-      "key_units": [
-        "セト",
-        "アーリ",
-        "ナー",
-        "カルマ",
-        "アッシュ"
-      ],
-      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
-      "trigger_items": [],
-      "trigger_emblems": []
-    },
-    {
-      "comp_name": "フェイ+スプライキン",
-      "tier": "B",
-      "avg_place": 5.33,
-      "top4_rate": 0.33,
-      "sample_size": 3,
-      "confidence_level": "LOW",
-      "emblem_holder": null,
-      "key_units": [
+        "アッシュ",
         "ヴァイ",
-        "ラムス",
-        "トリスターナ",
-        "ラカン",
-        "リリア"
+        "アムム"
       ],
       "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
       "trigger_items": [],
       "trigger_emblems": []
     },
     {
-      "comp_name": "プライマル+リフトビースト",
+      "comp_name": "ラピッドファイア+リフトビースト",
       "tier": "B",
-      "avg_place": 5.33,
-      "top4_rate": 0.67,
-      "sample_size": 3,
+      "avg_place": 4.44,
+      "first_place_rate": 0.1111,
+      "top4_rate": 0.56,
+      "strategy_goal": "top4",
+      "strategy_goal_label": "Top4狙い",
+      "strategy_description": "安定して4位以内を目指す構成です。",
+      "sample_size": 9,
+      "confidence_level": "LOW",
+      "emblem_holder": null,
+      "key_units": [
+        "CrimsonRaptor18",
+        "アフェリオス",
+        "Sentinel18",
+        "ヴァルス",
+        "Brambleback18"
+      ],
+      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
+      "trigger_items": [],
+      "trigger_emblems": []
+    },
+    {
+      "comp_name": "ヴァンガード+リフトビースト",
+      "tier": "B",
+      "avg_place": 4.5,
+      "first_place_rate": 0.25,
+      "top4_rate": 0.25,
+      "strategy_goal": "high_risk_high_return",
+      "strategy_goal_label": "ハイリスク・ハイリターン",
+      "strategy_description": "完成難易度が高い代わりに、完成時の1位性能が高い構成です。",
+      "sample_size": 4,
       "confidence_level": "LOW",
       "emblem_holder": null,
       "key_units": [
         "Sentinel18",
-        "コグ＝マウ",
-        "ニダリー",
-        "Scuttlecrab18",
-        "シヴィア"
+        "Brambleback18",
+        "ダイアナ",
+        "CrimsonRaptor18",
+        "アフェリオス"
       ],
       "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
       "trigger_items": [],
       "trigger_emblems": []
     },
     {
-      "comp_name": "ブロッサム+ソーラー",
+      "comp_name": "エルダーウッド+ブローラー",
       "tier": "B",
-      "avg_place": 5.4,
+      "avg_place": 4.56,
+      "first_place_rate": 0.2778,
+      "top4_rate": 0.44,
+      "strategy_goal": "high_risk_high_return",
+      "strategy_goal_label": "ハイリスク・ハイリターン",
+      "strategy_description": "完成難易度が高い代わりに、完成時の1位性能が高い構成です。",
+      "sample_size": 18,
+      "confidence_level": "LOW",
+      "emblem_holder": null,
+      "key_units": [
+        "ナー",
+        "アイバーン",
+        "アリスター",
+        "エズリアル",
+        "タリック"
+      ],
+      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
+      "trigger_items": [],
+      "trigger_emblems": []
+    },
+    {
+      "comp_name": "インフェルノ+エクセキューショナー",
+      "tier": "B",
+      "avg_place": 4.6,
+      "first_place_rate": 0.0,
       "top4_rate": 0.4,
+      "strategy_goal": "top4",
+      "strategy_goal_label": "Top4狙い",
+      "strategy_description": "安定して4位以内を目指す構成です。",
       "sample_size": 5,
       "confidence_level": "LOW",
       "emblem_holder": null,
       "key_units": [
-        "ユナラ",
-        "セジュアニ",
-        "カルマ",
-        "ヨリック",
-        "レオナ"
-      ],
-      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
-      "trigger_items": [],
-      "trigger_emblems": []
-    },
-    {
-      "comp_name": "ブロッサム+リフトビースト",
-      "tier": "B",
-      "avg_place": 5.5,
-      "top4_rate": 0.33,
-      "sample_size": 6,
-      "confidence_level": "LOW",
-      "emblem_holder": null,
-      "key_units": [
-        "ElderDragon",
-        "セト",
-        "アーリ",
-        "タリック",
-        "アッシュ"
+        "ケネン",
+        "ソラカ",
+        "アムム",
+        "シェン",
+        "アジール"
       ],
       "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
       "trigger_items": [],
@@ -1424,15 +1652,295 @@
     {
       "comp_name": "インフェルノ+ディフェンダー",
       "tier": "B",
-      "avg_place": 5.57,
-      "top4_rate": 0.29,
-      "sample_size": 7,
+      "avg_place": 4.65,
+      "first_place_rate": 0.1739,
+      "top4_rate": 0.43,
+      "strategy_goal": "balanced",
+      "strategy_goal_label": "バランス型",
+      "strategy_description": "Top4の安定感と1位の上振れを両立する構成です。",
+      "sample_size": 23,
+      "confidence_level": "LOW",
+      "emblem_holder": null,
+      "key_units": [
+        "シェン",
+        "アムム",
+        "リリア",
+        "アカリ",
+        "シヴィア"
+      ],
+      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
+      "trigger_items": [],
+      "trigger_emblems": []
+    },
+    {
+      "comp_name": "インフェルノ+アダプター",
+      "tier": "B",
+      "avg_place": 4.67,
+      "first_place_rate": 0.0,
+      "top4_rate": 0.33,
+      "strategy_goal": "top4",
+      "strategy_goal_label": "Top4狙い",
+      "strategy_description": "安定して4位以内を目指す構成です。",
+      "sample_size": 3,
       "confidence_level": "LOW",
       "emblem_holder": null,
       "key_units": [
         "アムム",
+        "ニダリー",
+        "アカリ",
         "シェン",
+        "ヴァルス"
+      ],
+      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
+      "trigger_items": [],
+      "trigger_emblems": []
+    },
+    {
+      "comp_name": "エクセキューショナー+サモナー",
+      "tier": "B",
+      "avg_place": 4.7,
+      "first_place_rate": 0.037,
+      "top4_rate": 0.44,
+      "strategy_goal": "top4",
+      "strategy_goal_label": "Top4狙い",
+      "strategy_description": "安定して4位以内を目指す構成です。",
+      "sample_size": 27,
+      "confidence_level": "LOW",
+      "emblem_holder": null,
+      "key_units": [
+        "ヨリック",
+        "アジール",
+        "ザイラ",
+        "フィドルスティックス",
+        "ソラカ"
+      ],
+      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
+      "trigger_items": [],
+      "trigger_emblems": []
+    },
+    {
+      "comp_name": "ジャガーノート+ハンター",
+      "tier": "B",
+      "avg_place": 4.75,
+      "first_place_rate": 0.1667,
+      "top4_rate": 0.5,
+      "strategy_goal": "balanced",
+      "strategy_goal_label": "バランス型",
+      "strategy_description": "Top4の安定感と1位の上振れを両立する構成です。",
+      "sample_size": 12,
+      "confidence_level": "LOW",
+      "emblem_holder": null,
+      "key_units": [
+        "ヴァイ",
+        "ラカン",
+        "シヴィア",
+        "アッシュ",
+        "アムム"
+      ],
+      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
+      "trigger_items": [],
+      "trigger_emblems": []
+    },
+    {
+      "comp_name": "ジャガーノート+プライマル",
+      "tier": "B",
+      "avg_place": 4.8,
+      "first_place_rate": 0.0,
+      "top4_rate": 0.4,
+      "strategy_goal": "top4",
+      "strategy_goal_label": "Top4狙い",
+      "strategy_description": "安定して4位以内を目指す構成です。",
+      "sample_size": 5,
+      "confidence_level": "LOW",
+      "emblem_holder": null,
+      "key_units": [
+        "ヴァイ",
+        "ラカン",
+        "マオカイ",
+        "Scuttlecrab18",
+        "ザイラ"
+      ],
+      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
+      "trigger_items": [],
+      "trigger_emblems": []
+    },
+    {
+      "comp_name": "リフトビースト+インフェルノ",
+      "tier": "B",
+      "avg_place": 4.85,
+      "first_place_rate": 0.15,
+      "top4_rate": 0.35,
+      "strategy_goal": "balanced",
+      "strategy_goal_label": "バランス型",
+      "strategy_description": "Top4の安定感と1位の上振れを両立する構成です。",
+      "sample_size": 20,
+      "confidence_level": "LOW",
+      "emblem_holder": null,
+      "key_units": [
+        "アムム",
+        "Sentinel18",
         "ケネン",
+        "ElderDragon",
+        "マオカイ"
+      ],
+      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
+      "trigger_items": [],
+      "trigger_emblems": []
+    },
+    {
+      "comp_name": "ブロッサム+ソーラー",
+      "tier": "B",
+      "avg_place": 4.89,
+      "first_place_rate": 0.1111,
+      "top4_rate": 0.44,
+      "strategy_goal": "top4",
+      "strategy_goal_label": "Top4狙い",
+      "strategy_description": "安定して4位以内を目指す構成です。",
+      "sample_size": 9,
+      "confidence_level": "LOW",
+      "emblem_holder": null,
+      "key_units": [
+        "ユナラ",
+        "ヨリック",
+        "レオナ",
+        "セジュアニ",
+        "ルブラン"
+      ],
+      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
+      "trigger_items": [],
+      "trigger_emblems": []
+    },
+    {
+      "comp_name": "ハンター+リフトビースト",
+      "tier": "B",
+      "avg_place": 5.0,
+      "first_place_rate": 0.0,
+      "top4_rate": 0.42,
+      "strategy_goal": "top4",
+      "strategy_goal_label": "Top4狙い",
+      "strategy_description": "安定して4位以内を目指す構成です。",
+      "sample_size": 12,
+      "confidence_level": "LOW",
+      "emblem_holder": null,
+      "key_units": [
+        "シヴィア",
+        "Sentinel18",
+        "Cinderling18",
+        "ニダリー",
+        "コグ＝マウ"
+      ],
+      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
+      "trigger_items": [],
+      "trigger_emblems": []
+    },
+    {
+      "comp_name": "ブラックソーン+ブローラー",
+      "tier": "B",
+      "avg_place": 5.0,
+      "first_place_rate": 0.0,
+      "top4_rate": 0.33,
+      "strategy_goal": "top4",
+      "strategy_goal_label": "Top4狙い",
+      "strategy_description": "安定して4位以内を目指す構成です。",
+      "sample_size": 6,
+      "confidence_level": "LOW",
+      "emblem_holder": null,
+      "key_units": [
+        "レク＝サイ",
+        "マルファイト",
+        "ニダリー",
+        "Krug18",
+        "コグ＝マウ"
+      ],
+      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
+      "trigger_items": [],
+      "trigger_emblems": []
+    },
+    {
+      "comp_name": "フェイ+ディフェンダー",
+      "tier": "B",
+      "avg_place": 5.0,
+      "first_place_rate": 0.0,
+      "top4_rate": 0.67,
+      "strategy_goal": "top4",
+      "strategy_goal_label": "Top4狙い",
+      "strategy_description": "安定して4位以内を目指す構成です。",
+      "sample_size": 3,
+      "confidence_level": "LOW",
+      "emblem_holder": null,
+      "key_units": [
+        "トリスターナ",
+        "リリア",
+        "ラカン",
+        "Sentinel18",
+        "レンガー"
+      ],
+      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
+      "trigger_items": [],
+      "trigger_emblems": []
+    },
+    {
+      "comp_name": "エルダーウッド+ルナー",
+      "tier": "B",
+      "avg_place": 5.0,
+      "first_place_rate": 0.0,
+      "top4_rate": 0.33,
+      "strategy_goal": "top4",
+      "strategy_goal_label": "Top4狙い",
+      "strategy_description": "安定して4位以内を目指す構成です。",
+      "sample_size": 3,
+      "confidence_level": "LOW",
+      "emblem_holder": null,
+      "key_units": [
+        "アフェリオス",
+        "オーン",
+        "ヘカリム",
+        "ルブラン",
+        "アリスター"
+      ],
+      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
+      "trigger_items": [],
+      "trigger_emblems": []
+    },
+    {
+      "comp_name": "プライマル+ハンター",
+      "tier": "B",
+      "avg_place": 5.0,
+      "first_place_rate": 0.0,
+      "top4_rate": 0.6,
+      "strategy_goal": "top4",
+      "strategy_goal_label": "Top4狙い",
+      "strategy_description": "安定して4位以内を目指す構成です。",
+      "sample_size": 5,
+      "confidence_level": "LOW",
+      "emblem_holder": null,
+      "key_units": [
+        "シヴィア",
+        "ニダリー",
+        "コグ＝マウ",
+        "アムム",
+        "Sentinel18"
+      ],
+      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
+      "trigger_items": [],
+      "trigger_emblems": []
+    },
+    {
+      "comp_name": "フェイ+ハンター",
+      "tier": "B",
+      "avg_place": 5.0,
+      "first_place_rate": 0.0,
+      "top4_rate": 0.33,
+      "strategy_goal": "top4",
+      "strategy_goal_label": "Top4狙い",
+      "strategy_description": "安定して4位以内を目指す構成です。",
+      "sample_size": 3,
+      "confidence_level": "LOW",
+      "emblem_holder": null,
+      "key_units": [
+        "トリスターナ",
+        "ラカン",
+        "ヴァイ",
         "リリア",
         "シヴィア"
       ],
@@ -1441,19 +1949,138 @@
       "trigger_emblems": []
     },
     {
-      "comp_name": "リフトビースト+ヴァンガード",
+      "comp_name": "ジャガーノート+インフェルノ",
       "tier": "B",
-      "avg_place": 5.67,
-      "top4_rate": 0.33,
-      "sample_size": 6,
+      "avg_place": 5.14,
+      "first_place_rate": 0.1429,
+      "top4_rate": 0.29,
+      "strategy_goal": "balanced",
+      "strategy_goal_label": "バランス型",
+      "strategy_description": "Top4の安定感と1位の上振れを両立する構成です。",
+      "sample_size": 7,
       "confidence_level": "LOW",
       "emblem_holder": null,
       "key_units": [
-        "タリック",
-        "Sentinel18",
-        "ElderDragon",
-        "マオカイ",
-        "アムム"
+        "アムム",
+        "ラカン",
+        "ヴァイ",
+        "ヨリック",
+        "ケネン"
+      ],
+      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
+      "trigger_items": [],
+      "trigger_emblems": []
+    },
+    {
+      "comp_name": "インフェルノ+ジャガーノート",
+      "tier": "B",
+      "avg_place": 5.2,
+      "first_place_rate": 0.3,
+      "top4_rate": 0.3,
+      "strategy_goal": "high_risk_high_return",
+      "strategy_goal_label": "ハイリスク・ハイリターン",
+      "strategy_description": "完成難易度が高い代わりに、完成時の1位性能が高い構成です。",
+      "sample_size": 10,
+      "confidence_level": "LOW",
+      "emblem_holder": null,
+      "key_units": [
+        "アムム",
+        "ケネン",
+        "ヴァイ",
+        "アッシュ",
+        "マオカイ"
+      ],
+      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
+      "trigger_items": [],
+      "trigger_emblems": []
+    },
+    {
+      "comp_name": "ブロッサム+ブローラー",
+      "tier": "B",
+      "avg_place": 5.25,
+      "first_place_rate": 0.125,
+      "top4_rate": 0.25,
+      "strategy_goal": "top4",
+      "strategy_goal_label": "Top4狙い",
+      "strategy_description": "安定して4位以内を目指す構成です。",
+      "sample_size": 8,
+      "confidence_level": "LOW",
+      "emblem_holder": null,
+      "key_units": [
+        "セト",
+        "アーリ",
+        "ナー",
+        "ヨリック",
+        "アッシュ"
+      ],
+      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
+      "trigger_items": [],
+      "trigger_emblems": []
+    },
+    {
+      "comp_name": "スペルウィーバー+フローラ・ファターリス",
+      "tier": "B",
+      "avg_place": 5.33,
+      "first_place_rate": 0.3333,
+      "top4_rate": 0.33,
+      "strategy_goal": "high_risk_high_return",
+      "strategy_goal_label": "ハイリスク・ハイリターン",
+      "strategy_description": "完成難易度が高い代わりに、完成時の1位性能が高い構成です。",
+      "sample_size": 3,
+      "confidence_level": "LOW",
+      "emblem_holder": null,
+      "key_units": [
+        "オーン",
+        "ベイガー",
+        "ルブラン",
+        "レク＝サイ",
+        "アリスター"
+      ],
+      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
+      "trigger_items": [],
+      "trigger_emblems": []
+    },
+    {
+      "comp_name": "アダプター+インフェルノ",
+      "tier": "B",
+      "avg_place": 5.38,
+      "first_place_rate": 0.0,
+      "top4_rate": 0.38,
+      "strategy_goal": "top4",
+      "strategy_goal_label": "Top4狙い",
+      "strategy_description": "安定して4位以内を目指す構成です。",
+      "sample_size": 13,
+      "confidence_level": "LOW",
+      "emblem_holder": null,
+      "key_units": [
+        "ヴァイ",
+        "ニダリー",
+        "コグ＝マウ",
+        "アフェリオス",
+        "ダイアナ"
+      ],
+      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
+      "trigger_items": [],
+      "trigger_emblems": []
+    },
+    {
+      "comp_name": "ソーラー+ディフェンダー",
+      "tier": "B",
+      "avg_place": 5.43,
+      "first_place_rate": 0.1429,
+      "top4_rate": 0.29,
+      "strategy_goal": "balanced",
+      "strategy_goal_label": "バランス型",
+      "strategy_description": "Top4の安定感と1位の上振れを両立する構成です。",
+      "sample_size": 7,
+      "confidence_level": "LOW",
+      "emblem_holder": null,
+      "key_units": [
+        "レオナ",
+        "オーン",
+        "ケイル",
+        "セジュアニ",
+        "カミール"
       ],
       "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
       "trigger_items": [],
@@ -1462,35 +2089,181 @@
     {
       "comp_name": "サモナー+フローラ・ファターリス",
       "tier": "B",
-      "avg_place": 5.8,
-      "top4_rate": 0.2,
-      "sample_size": 5,
+      "avg_place": 5.5,
+      "first_place_rate": 0.0,
+      "top4_rate": 0.38,
+      "strategy_goal": "top4",
+      "strategy_goal_label": "Top4狙い",
+      "strategy_description": "安定して4位以内を目指す構成です。",
+      "sample_size": 8,
       "confidence_level": "LOW",
       "emblem_holder": null,
       "key_units": [
         "フィドルスティックス",
-        "ヨリック",
-        "ザイラ",
+        "ソラカ",
         "アジール",
-        "マルファイト"
+        "ヨリック",
+        "ザイラ"
       ],
       "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
       "trigger_items": [],
       "trigger_emblems": []
     },
     {
-      "comp_name": "エクセキューショナー+ブロッサム",
+      "comp_name": "リフトビースト+ブラックソーン",
       "tier": "B",
-      "avg_place": 6.0,
-      "top4_rate": 0.0,
+      "avg_place": 5.5,
+      "first_place_rate": 0.125,
+      "top4_rate": 0.25,
+      "strategy_goal": "top4",
+      "strategy_goal_label": "Top4狙い",
+      "strategy_description": "安定して4位以内を目指す構成です。",
+      "sample_size": 8,
+      "confidence_level": "LOW",
+      "emblem_holder": null,
+      "key_units": [
+        "Sentinel18",
+        "ニダリー",
+        "マルファイト",
+        "レク＝サイ",
+        "シヴィア"
+      ],
+      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
+      "trigger_items": [],
+      "trigger_emblems": []
+    },
+    {
+      "comp_name": "ヴァンガード+フェイ",
+      "tier": "B",
+      "avg_place": 5.67,
+      "first_place_rate": 0.0,
+      "top4_rate": 0.33,
+      "strategy_goal": "top4",
+      "strategy_goal_label": "Top4狙い",
+      "strategy_description": "安定して4位以内を目指す構成です。",
       "sample_size": 3,
       "confidence_level": "LOW",
       "emblem_holder": null,
       "key_units": [
-        "ユナラ",
-        "ヨリック",
+        "ラカン",
+        "Sentinel18",
+        "リリア",
+        "ザヤ",
+        "ダイアナ"
+      ],
+      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
+      "trigger_items": [],
+      "trigger_emblems": []
+    },
+    {
+      "comp_name": "リフトビースト+アダプター",
+      "tier": "B",
+      "avg_place": 5.75,
+      "first_place_rate": 0.0,
+      "top4_rate": 0.5,
+      "strategy_goal": "top4",
+      "strategy_goal_label": "Top4狙い",
+      "strategy_description": "安定して4位以内を目指す構成です。",
+      "sample_size": 4,
+      "confidence_level": "LOW",
+      "emblem_holder": null,
+      "key_units": [
+        "ニダリー",
+        "コグ＝マウ",
+        "Sentinel18",
+        "Scuttlecrab18",
+        "タリック"
+      ],
+      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
+      "trigger_items": [],
+      "trigger_emblems": []
+    },
+    {
+      "comp_name": "アダプター+ハンター",
+      "tier": "B",
+      "avg_place": 5.75,
+      "first_place_rate": 0.0,
+      "top4_rate": 0.25,
+      "strategy_goal": "top4",
+      "strategy_goal_label": "Top4狙い",
+      "strategy_description": "安定して4位以内を目指す構成です。",
+      "sample_size": 4,
+      "confidence_level": "LOW",
+      "emblem_holder": null,
+      "key_units": [
+        "Sentinel18",
+        "アムム",
+        "シヴィア",
+        "コグ＝マウ",
+        "ニダリー"
+      ],
+      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
+      "trigger_items": [],
+      "trigger_emblems": []
+    },
+    {
+      "comp_name": "ブロッサム+リフトビースト",
+      "tier": "B",
+      "avg_place": 5.75,
+      "first_place_rate": 0.0,
+      "top4_rate": 0.5,
+      "strategy_goal": "top4",
+      "strategy_goal_label": "Top4狙い",
+      "strategy_description": "安定して4位以内を目指す構成です。",
+      "sample_size": 4,
+      "confidence_level": "LOW",
+      "emblem_holder": null,
+      "key_units": [
         "セト",
-        "ソラカ",
+        "アーリ",
+        "モルガナ",
+        "カルマ",
+        "Sentinel18"
+      ],
+      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
+      "trigger_items": [],
+      "trigger_emblems": []
+    },
+    {
+      "comp_name": "リフトビースト+ヴァンガード",
+      "tier": "B",
+      "avg_place": 5.8,
+      "first_place_rate": 0.0,
+      "top4_rate": 0.2,
+      "strategy_goal": "top4",
+      "strategy_goal_label": "Top4狙い",
+      "strategy_description": "安定して4位以内を目指す構成です。",
+      "sample_size": 5,
+      "confidence_level": "LOW",
+      "emblem_holder": null,
+      "key_units": [
+        "Sentinel18",
+        "ElderDragon",
+        "タリック",
+        "ドレイヴン",
+        "アイバーン"
+      ],
+      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
+      "trigger_items": [],
+      "trigger_emblems": []
+    },
+    {
+      "comp_name": "インヴォーカー+リフトビースト",
+      "tier": "B",
+      "avg_place": 6.2,
+      "first_place_rate": 0.0,
+      "top4_rate": 0.2,
+      "strategy_goal": "top4",
+      "strategy_goal_label": "Top4狙い",
+      "strategy_description": "安定して4位以内を目指す構成です。",
+      "sample_size": 5,
+      "confidence_level": "LOW",
+      "emblem_holder": null,
+      "key_units": [
+        "モルガナ",
+        "Sentinel18",
+        "Krug18",
+        "セト",
         "アーリ"
       ],
       "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
@@ -1498,19 +2271,69 @@
       "trigger_emblems": []
     },
     {
-      "comp_name": "ジャガーノート+フェイ",
+      "comp_name": "プライマル+リフトビースト",
       "tier": "B",
-      "avg_place": 8.0,
+      "avg_place": 6.25,
+      "first_place_rate": 0.0,
       "top4_rate": 0.0,
+      "strategy_goal": "top4",
+      "strategy_goal_label": "Top4狙い",
+      "strategy_description": "安定して4位以内を目指す構成です。",
+      "sample_size": 4,
+      "confidence_level": "LOW",
+      "emblem_holder": null,
+      "key_units": [
+        "シヴィア",
+        "ニダリー",
+        "Sentinel18",
+        "タリック",
+        "ヴァイ"
+      ],
+      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
+      "trigger_items": [],
+      "trigger_emblems": []
+    },
+    {
+      "comp_name": "フローラ・ファターリス+ブロッサム",
+      "tier": "B",
+      "avg_place": 6.33,
+      "first_place_rate": 0.0,
+      "top4_rate": 0.0,
+      "strategy_goal": "top4",
+      "strategy_goal_label": "Top4狙い",
+      "strategy_description": "安定して4位以内を目指す構成です。",
       "sample_size": 3,
       "confidence_level": "LOW",
       "emblem_holder": null,
       "key_units": [
-        "ラカン",
-        "Scuttlecrab18",
-        "トリスターナ",
-        "ヴァイ",
-        "セジュアニ"
+        "フィドルスティックス",
+        "アーリ",
+        "アイバーン",
+        "ヨリック",
+        "カルマ"
+      ],
+      "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
+      "trigger_items": [],
+      "trigger_emblems": []
+    },
+    {
+      "comp_name": "エルダーウッド+ディフェンダー",
+      "tier": "B",
+      "avg_place": 6.75,
+      "first_place_rate": 0.0,
+      "top4_rate": 0.0,
+      "strategy_goal": "top4",
+      "strategy_goal_label": "Top4狙い",
+      "strategy_description": "安定して4位以内を目指す構成です。",
+      "sample_size": 4,
+      "confidence_level": "LOW",
+      "emblem_holder": null,
+      "key_units": [
+        "ヘカリム",
+        "オーン",
+        "エズリアル",
+        "ザヤ",
+        "フィドルスティックス"
       ],
       "item_synergy_reason": "統計集計によるTop4率・平均順位に基づく自動生成の推薦です。",
       "trigger_items": [],

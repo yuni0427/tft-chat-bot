@@ -15,7 +15,7 @@ from src.meta.champion_extractor import sync_champion_data
 from src.meta import meta_service
 
 
-def main():
+def main() -> int:
     parser = argparse.ArgumentParser(description="TFT Meta Data Updater")
     parser.add_argument(
         "--skip-riot",
@@ -43,6 +43,7 @@ def main():
 
     output_dir = project_root / f"data/patch_{patch_version}"
     output_dir.mkdir(parents=True, exist_ok=True)
+    riot_update_failed = False
 
     print(f"🚀 メタデータ同期パイプラインを開始 (Target Patch: {patch_version})")
     if start_time:
@@ -68,21 +69,14 @@ def main():
 
         res = subprocess.run(cmd, check=False)
         if res.returncode != 0:
+            riot_update_failed = True
             print("⚠️ Riot API からの集計でエラーが発生しました。")
 
-    # Step 2: 構成ガイド・メタ情報の確認
-    print("\n--- [Step 2] 構成ガイド・メタ情報の確認 ---")
-# Step 2: パッチノート・外部情報の取得
+    # Step 2: パッチノート・外部情報の取得
     print("\n--- [Step 2] パッチノート・差分情報の取得 (tftips.app) ---")
     fetch_tftips_patch_notes(patch_version, output_dir)
-# Step 2: 構成ガイド・メタ情報の確認
     print("\n--- [Step 2] TFTAcademy 構成ガイド & tftips パッチノートの同期 ---")
     sync_patch_guides(patch_version, output_dir)
-    # Step 3: RAG ベクトル DB の再構築
-    print("\n--- [Step 3] RAG ベクトル DB の再構築 ---")
-    vector_script = project_root / "scripts" / "build_vector_db.py"
-    if vector_script.exists():
-        subprocess.run([sys.executable, str(vector_script)], check=False)
     # Step 3: RAG ベクトル DB の再構築
     print("\n--- [Step 3] RAG ベクトル DB の再構築 ---")
     vector_script = project_root / "scripts" / "build_vector_db.py"
@@ -106,8 +100,13 @@ def main():
     except Exception as e:
         print(f"⚠️ Git コミット中に警告: {e}")
 
+    if riot_update_failed:
+        print("\n⚠️ パイプラインは完了しましたが、Riot統計は更新されていません。")
+        return 1
+
     print("\n🎉 高速構築パイプラインが完了しました！")
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

@@ -44,7 +44,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
-def main() -> None:
+def main() -> int:
     parser = argparse.ArgumentParser(
         description="Riot APIからTFTメタ統計を収集・集計して meta_cache.json に保存する"
     )
@@ -98,7 +98,7 @@ def main() -> None:
     if not config.RIOT_API_KEY:
         print("RIOT_API_KEY が .env に設定されていません。処理を中止します。")
         print("（アプリ本体は data/patch_xx/meta_snapshot.json のサンプルデータで動作します）")
-        return
+        return 1
 
     # ---- パッチ決定 -------------------------------------------------------------
     patch = args.patch or meta_service.get_current_patch()
@@ -135,7 +135,7 @@ def main() -> None:
     except RiotAPIError as exc:
         print(f"Riot APIからのデータ収集に失敗しました: {exc}")
         print("（アプリ本体は meta_snapshot.json のサンプルデータで動作を継続します）")
-        return
+        return 1
 
     if not raw_records:
         print(
@@ -143,7 +143,7 @@ def main() -> None:
             "ヒント: --start-time / --end-time が厳しすぎるか、"
             "RIOT_API_KEY の権限を確認してください。"
         )
-        return
+        return 1
 
     logger.info("%d件のユニット単位レコードを収集しました。集計中...", len(raw_records))
 
@@ -160,7 +160,8 @@ def main() -> None:
     print(f"完了しました: {cache_path}")
     print(f"  - 信頼できる統計が得られたチャンピオン数: {n_champions}")
     print(f"  - 構成レコメンド数: {n_comps}")
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

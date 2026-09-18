@@ -27,6 +27,12 @@ python scripts/update_all_meta.py --help
 ```
 `Get-Location` の末尾が `1-tft-strategy-meta` であり、`--help` が表示されれば import は解決しています。
 
+Riot API の統計更新で `401 Unknown apikey` が表示された場合は、Riot Developer Portal で有効なAPIキーを再発行し、`.env` の `RIOT_API_KEY` を更新してください。キーが無効な状態では、CDragon・TFTAcademy・パッチノートは更新されても、`data/patch_xx/meta_cache.json` のRiot統計は更新されません。更新後は次で確認できます。
+```powershell
+python scripts/build_meta_stats.py --patch 18.2b
+```
+`meta_cache.json` の `updated_at` が実行時刻に更新され、構成データに `first_place_rate` が追加されていれば統計更新成功です。
+
 ### 3. パッチバージョンを指定して実行する場合
 ```bash
 python scripts/update_all_meta.py --skip-riot --patch 16.18
