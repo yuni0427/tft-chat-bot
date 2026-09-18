@@ -498,11 +498,38 @@ def handle_item_build(query: str, patch: str | None = None) -> str:
         return "アイテム統計データが見つかりませんでした。"
 
     champion = None
-    for c in champions:
-        if c in query:
-            champion = c
-            break
 
+    # 1. まずクエリ内の単語をエイリアス辞書で直接解決を試みる
+    # （例: "エルダードラゴン" -> "ElderDragon", "エズ" -> "エズリアル"）
+    clean_q = query.replace("の装備", "").replace("のアイテム", "").replace("のビルド", "").strip()
+    norm_direct = normalize_champion_alias(clean_q)
+    if norm_direct in champions:
+        champion = norm_direct
+    else:
+        # 部分一致でエイリアス辞書から走査
+        from src.meta.tft_translator import CHAMPION_ALIASES
+        for alias, formal_name in sorted(CHAMPION_ALIASES.items(), key=lambda x: len(x[0]), reverse=True):
+            if alias in query.lower():
+                # 解決先が champions にあるか（日本語名 or ElderDragon などの英キー）
+                if formal_name in champions:
+                    champion = formal_name
+                    break
+                # 日本語名が champions 側で英名になっている場合の吸収
+                for c in champions:
+                    if c.lower() == formal_name.lower():
+                        champion = c
+                        break
+                if champion:
+                    break
+
+    # 2. それでも決まらなければ既存の完全一致チェック
+    if champion is None:
+        for c in champions:
+            if c.lower() in query.lower():
+                champion = c
+                break
+
+    # 3. 最後の手段としてLLM抽出
     if champion is None:
         llm = get_chat_model(temperature=0.0)
         extractor = llm.with_structured_output(_ChampionExtraction)
@@ -518,7 +545,11 @@ def handle_item_build(query: str, patch: str | None = None) -> str:
                 {"role": "user", "content": query},
             ]
         )
-        champion = extracted.champion
+        champion = extracted.champion if extracted else None
+
+    # チャンピオンが特定できなかった場合の安全ガード
+    if not champion:
+        return f"「{query}」から対象のチャンピオンを特定できませんでした。"
 
 # 1. Riot 実戦マッチ統計 / アイテム推奨データ
     build = meta_service.get_item_build(champion, target_patch)
@@ -571,6 +602,30 @@ def handle_item_build(query: str, patch: str | None = None) -> str:
         riot_stats_text = "\n".join(items_stats) if items_stats else "推奨アイテムデータなし"
     else:
         riot_stats_text = "Riot統計データなし"
+# 2. TFTAcademy プロ推奨ガイドの取得
+    academy_raw = get_tftacademy_tierlist()
+    academy_context = _get_academy_champ_context(champion, academy_raw)
+
+    llm = get_chat_model(temperature=0.3)
+    user_prompt = (
+        f"【対象ゲーム内パッチ】: Patch {target_patch}\n"
+        f"対象チャンピオン: {champion}\n\n"
+        f"【Riot公式 アイテム統計】\n{riot_stats_text}\n\n"
+        f"【TFTAcademy プロティアリスト推奨】\n{academy_context}\n\n"
+        f"質問: {query}"
+    )
+
+    messages = [
+        {"role": "system", "content": _ITEM_BUILD_SYSTEM_PROMPT},
+        {"role": "user", "content": user_prompt},
+    ]
+    response = llm.invoke(messages)
+    content = response.content
+    if isinstance(content, list):
+        return "".join(
+            p.get("text", "") for p in content if isinstance(p, dict) and p.get("type") == "text"
+        ).strip()
+    return str(content).strip()
 
 
 def handle_comp_lookup(query: str, patch: str | None = None) -> str:
