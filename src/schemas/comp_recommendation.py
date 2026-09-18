@@ -9,7 +9,13 @@ class CompRecommendation(BaseModel):
     comp_name: str
     tier: Literal["S", "A", "B"]
     avg_place: float
-    top4_rate: float
+    first_place_rate: Optional[float] = None
+    top4_rate: float = 0.0
+    strategy_goal: Literal[
+        "top4", "balanced", "first_place", "high_risk_high_return", "unknown"
+    ] = "unknown"
+    strategy_goal_label: str = "1位率未集計"
+    strategy_description: str = "1位率が未集計のため、構成の狙いを判定できません。"
     sample_size: int
     confidence_level: Literal["HIGH", "MEDIUM", "LOW"]
     emblem_holder: Optional[str] = None

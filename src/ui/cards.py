@@ -68,6 +68,11 @@ def get_base_css() -> str:
 .badge-tier-s { background: #e67e22; color: #3a2100; }
 .badge-tier-a { background: #f1c40f; color: #3a2f00; }
 .badge-tier-b { background: #7f8c8d; color: #1c1c1c; }
+.badge-strategy-top4 { background: #5dade2; color: #08243d; }
+.badge-strategy-balanced { background: #58d68d; color: #08331b; }
+.badge-strategy-first { background: #f5b041; color: #3a2100; }
+.badge-strategy-risk { background: #ec7063; color: #3a0d08; }
+.badge-strategy-unknown { background: #626567; color: #f0f0f0; }
 .bis-box {
     border: 1px solid #4a90d9;
     border-radius: 8px;
@@ -139,6 +144,16 @@ def _tier_badge(tier: str) -> str:
     return f'<span class="badge {css_class}">Tier {_esc(tier)}</span>'
 
 
+def _strategy_badge(comp: CompRecommendation) -> str:
+    css_class = {
+        "top4": "badge-strategy-top4",
+        "balanced": "badge-strategy-balanced",
+        "first_place": "badge-strategy-first",
+        "high_risk_high_return": "badge-strategy-risk",
+    }.get(comp.strategy_goal, "badge-strategy-unknown")
+    return f'<span class="badge {css_class}">{_esc(comp.strategy_goal_label)}</span>'
+
+
 def render_item_build_card(advice: ItemBuildAdvice) -> str:
     """アイテムビルドカードのHTMLを生成する。"""
     core_html = "".join(
@@ -148,11 +163,15 @@ def render_item_build_card(advice: ItemBuildAdvice) -> str:
     ) or '<div style="color:#999;">コアアイテムの十分な統計データがありません。</div>'
 
     bis = advice.bis_standard_build
+    bis_first_place = bis.first_place_rate
+    bis_top4 = bis.top4_rate
     bis_html = (
         f'<div class="bis-box">'
         f'{_confidence_badge(bis.confidence_level)}'
         f'<b>{_esc(" + ".join(bis.items))}</b><br/>'
-        f'平均順位: {bis.avg_place} / Top4率: {int(bis.win_rate * 100)}% '
+        f'平均順位: {bis.avg_place} / '
+        f'1位率: {f"{int(bis_first_place * 100)}%" if bis_first_place is not None else "未集計"} / '
+        f'Top4率: {f"{int(bis_top4 * 100)}%" if bis_top4 is not None else "未集計"} '
         f'(サンプル {bis.sample_size}件)'
         f'{f"<br/><span style=\'color:#aaa;\'>{_esc(bis.special_note)}</span>" if bis.special_note else ""}'
         f'</div>'
@@ -173,7 +192,9 @@ def render_item_build_card(advice: ItemBuildAdvice) -> str:
             f'<div class="special-build-box">'
             f'{_confidence_badge(sb.confidence_level)}'
             f'<b>{_esc(" + ".join(sb.items))}</b><br/>'
-            f'平均順位: {sb.avg_place} / Top4率: {int(sb.win_rate * 100)}% '
+            f'平均順位: {sb.avg_place} / '
+            f'1位率: {f"{int(sb.first_place_rate * 100)}%" if sb.first_place_rate is not None else "未集計"} / '
+            f'Top4率: {f"{int(sb.top4_rate * 100)}%" if sb.top4_rate is not None else "未集計"} '
             f'(サンプル {sb.sample_size}件)'
             f'{f"<br/><span style=\'color:#d9b3ff;\'>{_esc(sb.special_note)}</span>" if sb.special_note else ""}'
             f'</div>'
@@ -232,9 +253,14 @@ def render_comp_card(comp: CompRecommendation) -> str:
     {_tier_badge(comp.tier)}
     {_confidence_badge(comp.confidence_level)}
     <span>平均順位: {comp.avg_place}</span>
+        <span>1位率: {f"{int(comp.first_place_rate * 100)}%" if comp.first_place_rate is not None else "未集計"}</span>
     <span>Top4率: {int(comp.top4_rate * 100)}%</span>
     <span>サンプル: {comp.sample_size}件</span>
   </div>
+    <div class="comp-meta-row">
+        {_strategy_badge(comp)}
+        <span>{_esc(comp.strategy_description)}</span>
+    </div>
   <div>主要ユニット: {key_units_html}</div>
   {emblem_html}
   <div class="tft-section-title">アイテム活用理由</div>

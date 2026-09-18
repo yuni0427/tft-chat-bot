@@ -75,12 +75,15 @@ def filter_reliable_item_sets(
 def _to_item_set_stats(items: tuple, placements: list[int]) -> dict:
     n = len(placements)
     avg_place = sum(placements) / n
+    first_place_rate = sum(1 for p in placements if p == 1) / n
     top4_rate = sum(1 for p in placements if p <= 4) / n
     return {
         "items": list(items),
         "sample_size": n,
         "avg_place": round(avg_place, 2),
-        "win_rate": round(top4_rate, 2),  # TFT慣習に合わせ、Top4率をwin_rateとして扱う
+        "win_rate": round(first_place_rate, 4),
+        "first_place_rate": round(first_place_rate, 4),
+        "top4_rate": round(top4_rate, 2),
     }
 
 
@@ -207,6 +210,36 @@ def _place_to_tier(avg_place: float) -> str:
     return "B"
 
 
+def classify_comp_strategy(first_place_rate: float, avg_place: float) -> dict[str, str]:
+    """1位率と平均順位から、構成の狙いと注意点を分類する。"""
+    if (
+        first_place_rate >= config.FIRST_PLACE_RATE_WIN_MIN
+        and avg_place >= config.HIGH_RISK_AVG_PLACE_MIN
+    ):
+        return {
+            "strategy_goal": "high_risk_high_return",
+            "strategy_goal_label": "ハイリスク・ハイリターン",
+            "strategy_description": "完成難易度が高い代わりに、完成時の1位性能が高い構成です。",
+        }
+    if first_place_rate >= config.FIRST_PLACE_RATE_WIN_MIN:
+        return {
+            "strategy_goal": "first_place",
+            "strategy_goal_label": "1位狙い",
+            "strategy_description": "完成時の上限が高く、積極的に1位を狙う構成です。",
+        }
+    if first_place_rate <= config.FIRST_PLACE_RATE_TOP4_MAX:
+        return {
+            "strategy_goal": "top4",
+            "strategy_goal_label": "Top4狙い",
+            "strategy_description": "安定して4位以内を目指す構成です。",
+        }
+    return {
+        "strategy_goal": "balanced",
+        "strategy_goal_label": "バランス型",
+        "strategy_description": "Top4の安定感と1位の上振れを両立する構成です。",
+    }
+
+
 def _aggregate_comp_recommendations(raw_records: list[dict]) -> list[dict]:
     # ユニット単位にフラット化されたraw_recordsから、試合単位のレコードへ復元する
     seen: set[tuple] = set()
@@ -229,7 +262,10 @@ def _aggregate_comp_recommendations(raw_records: list[dict]) -> list[dict]:
             continue
         placements = [r["placement"] for r in records]
         avg_place = round(sum(placements) / n, 2)
+        first_place_rate_raw = sum(1 for p in placements if p == 1) / n
+        first_place_rate = round(first_place_rate_raw, 4)
         top4_rate = round(sum(1 for p in placements if p <= 4) / n, 2)
+        strategy = classify_comp_strategy(first_place_rate_raw, avg_place)
 
         unit_counts: dict[str, int] = {}
         for r in records:
@@ -244,7 +280,9 @@ def _aggregate_comp_recommendations(raw_records: list[dict]) -> list[dict]:
                 "comp_name": comp_name,
                 "tier": _place_to_tier(avg_place),
                 "avg_place": avg_place,
+                "first_place_rate": first_place_rate,
                 "top4_rate": top4_rate,
+                **strategy,
                 "sample_size": n,
                 "confidence_level": confidence_level(n),
                 "emblem_holder": None,

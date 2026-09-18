@@ -372,10 +372,19 @@ def _format_merged_comps_text(comps: list[dict], trans_map: dict) -> str:
 
         # 実戦スタッツ（統計がある構成のみ付与）
         if c.get("avg_place") is not None:
+            first_place_pct = (
+                f"{int(c['first_place_rate'] * 100)}%"
+                if c.get("first_place_rate") is not None
+                else "未集計"
+            )
             top4_pct = int(c.get("top4_rate", 0) * 100)
             sample   = c.get("sample_size", 0)
             conf     = c.get("confidence_level", "-")
-            stats_str = f"平均順位{c['avg_place']}, Top4率{top4_pct}%, サンプル{sample}件/{conf}"
+            strategy = c.get("strategy_goal_label", "1位率未集計")
+            stats_str = (
+                f"平均順位{c['avg_place']}, 1位率{first_place_pct}, "
+                f"Top4率{top4_pct}%, 判定{strategy}, サンプル{sample}件/{conf}"
+            )
         else:
             stats_str = "実戦統計: 集計中"
 
@@ -563,12 +572,16 @@ def handle_item_build(query: str, patch: str | None = None) -> str:
         if isinstance(bis_info, dict) and bis_info.get("items"):
             bis_items = [translate_term(name, trans_map) for name in bis_info["items"]]
             avg_p = bis_info.get("avg_place", "-")
-            win_r = f"{int(bis_info.get('win_rate', 0) * 100)}%" if "win_rate" in bis_info else "-"
+            win_r = (
+                f"{int(bis_info['win_rate'] * 100)}%"
+                if bis_info.get("first_place_rate") is not None
+                else "未集計"
+            )
             top4_r = f"{int(bis_info.get('top4_rate', 0) * 100)}%" if "top4_rate" in bis_info else "-"
             samples = bis_info.get("sample_size", 0)
             items_stats.append(
                 f"【標準BISセット】: {' + '.join(bis_items)}\n"
-                f"  - 実戦スタッツ: 平均順位 {avg_p}位 / Top4率 {top4_r} / 勝率 {win_r} (サンプル {samples:,}件)"
+                f"  - 実戦スタッツ: 平均順位 {avg_p}位 / 1位率 {win_r} / Top4率 {top4_r} (サンプル {samples:,}件)"
             )
 
         # 個別アイテム（top_items / core_items）の統計
@@ -715,12 +728,23 @@ def handle_comp_lookup(query: str, patch: str | None = None) -> str:
 
         # 4. マージ済みデータから実戦スタッツを取得（_find_matching_riot_stat でフォールバック込み）
         stat = _find_matching_riot_stat(comp, comps_stats)
-        stat_info = (
-            f"平均順位: {stat['avg_place']} / Top4率: {int(stat['top4_rate']*100)}%"
-            f" (サンプル数: {stat['sample_size']}件 / 信頼度: {stat.get('confidence_level', '-')})"
-            if stat and stat.get("avg_place") is not None
-            else "実戦統計: サンプル蓄積中"
-        )
+        if stat and stat.get("avg_place") is not None:
+            first_place_rate = stat.get("first_place_rate")
+            first_place_text = (
+                f"{int(first_place_rate * 100)}%"
+                if first_place_rate is not None
+                else "未集計"
+            )
+            stat_info = (
+                f"平均順位: {stat['avg_place']} / "
+                f"1位率: {first_place_text} / "
+                f"Top4率: {int(stat.get('top4_rate', 0)*100)}% / "
+                f"判定: {stat.get('strategy_goal_label', '1位率未集計')}"
+                f" (サンプル数: {stat.get('sample_size', 0)}件 / "
+                f"信頼度: {stat.get('confidence_level', '-')})"
+            )
+        else:
+            stat_info = "実戦統計: サンプル蓄積中"
 
         # 5. コンテキスト構築
         candidates_context.append(
@@ -780,11 +804,20 @@ def _build_item_context(carry: str, tank: str | None, patch: str, trans_map: dic
         if isinstance(bis_info, dict) and bis_info.get("items"):
             bis_items = " + ".join(bis_info["items"])
             avg = bis_info.get("avg_place", "-")
-            top4 = int(bis_info.get("win_rate", 0) * 100)
+            first_place = (
+                int(bis_info["first_place_rate"] * 100)
+                if bis_info.get("first_place_rate") is not None
+                else "未集計"
+            )
+            top4 = (
+                int(bis_info["top4_rate"] * 100)
+                if bis_info.get("top4_rate") is not None
+                else "未集計"
+            )
             sample = bis_info.get("sample_size", 0)
             lines.append(
                 f"  【標準BISセット】: {bis_items}"
-                f" (平均順位 {avg} / Top4率 {top4}% / サンプル {sample}件)"
+                f" (平均順位 {avg} / 1位率 {first_place}% / Top4率 {top4}% / サンプル {sample}件)"
             )
 
         # core_items（コアアイテムとその採用理由）

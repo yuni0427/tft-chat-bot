@@ -36,7 +36,10 @@ class ItemSetStats(BaseModel):
     sample_size: int
     confidence_level: Literal["HIGH", "MEDIUM", "LOW"]
     avg_place: float
-    win_rate: float
+    # win_rate はTFTで一般的な「1位率」。旧キャッシュ対応のため任意項目。
+    win_rate: Optional[float] = None
+    first_place_rate: Optional[float] = None
+    top4_rate: Optional[float] = None
     special_note: Optional[str] = None
 
 

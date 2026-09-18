@@ -107,6 +107,11 @@ TOP_SAMPLE_PERCENTILE = 0.10
 # 特殊シナジー枠として紹介するために必要な平均順位の改善マージン
 SPECIAL_SYNERGY_MARGIN = 0.10
 
+# 構成の勝ち方を分類する閾値
+FIRST_PLACE_RATE_TOP4_MAX = 0.125
+FIRST_PLACE_RATE_WIN_MIN = 0.20
+HIGH_RISK_AVG_PLACE_MIN = 4.5
+
 # 特殊アイテム判定キーワード
 SPECIAL_ITEM_KEYWORDS = ["Emblem", "Artifact", "HeirloomEmblem"]
 
