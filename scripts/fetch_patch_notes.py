@@ -1,13 +1,14 @@
 import sys
 from pathlib import Path
 import requests
-from bs4 import BeautifulSoup
 
 def fetch_tftips_patch_notes(patch_version: str, output_dir: Path) -> bool:
     url = f"https://tftips.app/patches/{patch_version}"
     headers = {"User-Agent": "Mozilla/5.0"}
     
     try:
+        from bs4 import BeautifulSoup
+
         res = requests.get(url, headers=headers, timeout=10)
         if res.status_code != 200:
             print(f"⚠️ パッチノートが見つかりませんでした (Status: {res.status_code}): {url}")

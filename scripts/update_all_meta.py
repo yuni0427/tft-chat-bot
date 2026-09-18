@@ -3,13 +3,14 @@ import os
 from pathlib import Path
 import subprocess
 import sys
-from src.meta.patch_notes_fetcher import fetch_patch_notes
-from src.meta.tftacademy_client import sync_patch_guides
 
 # プロジェクトルートをパスに追加
 project_root = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(project_root))
+if str(project_root) not in sys.path:
+    sys.path.insert(0, str(project_root))
 
+from scripts.fetch_patch_notes import fetch_tftips_patch_notes
+from src.meta.tftacademy_client import sync_patch_guides
 from src.meta.champion_extractor import sync_champion_data
 from src.meta import meta_service
 
@@ -73,7 +74,7 @@ def main():
     print("\n--- [Step 2] 構成ガイド・メタ情報の確認 ---")
 # Step 2: パッチノート・外部情報の取得
     print("\n--- [Step 2] パッチノート・差分情報の取得 (tftips.app) ---")
-    fetch_patch_notes(patch_version, output_dir)
+    fetch_tftips_patch_notes(patch_version, output_dir)
 # Step 2: 構成ガイド・メタ情報の確認
     print("\n--- [Step 2] TFTAcademy 構成ガイド & tftips パッチノートの同期 ---")
     sync_patch_guides(patch_version, output_dir)

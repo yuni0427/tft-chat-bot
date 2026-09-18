@@ -17,6 +17,15 @@ python scripts/update_all_meta.py --skip-riot
 ```bash
 python scripts/update_all_meta.py
 ```
+このコマンドは、`README.md` があるプロジェクトルート
+（`1-tft-strategy-meta`）で実行してください。今回のスクリプトは自身でプロジェクトルートを import パスへ追加するため、プロジェクトルート以外から実行しても動作します。
+
+`ModuleNotFoundError: No module named 'src'` が表示される場合は、古いファイルを実行している可能性があります。プロジェクトルートで次を実行して状態を確認してください。
+```powershell
+Get-Location
+python scripts/update_all_meta.py --help
+```
+`Get-Location` の末尾が `1-tft-strategy-meta` であり、`--help` が表示されれば import は解決しています。
 
 ### 3. パッチバージョンを指定して実行する場合
 ```bash
@@ -55,8 +64,10 @@ streamlit run app.py
 
 #### 依存パッケージのインストール
 ```bash
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
 ```
+
+同期スクリプトを実行する前に、依存関係をインストールしてください。特にパッチノート取得には `beautifulsoup4` が必要です。
 
 #### 環境変数の設定 (`.env` または `.streamlit/secrets.toml`)
 `.env.example` をコピーして `.env` を作成します。
