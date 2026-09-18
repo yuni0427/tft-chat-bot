@@ -60,6 +60,11 @@ _COMP_META_SYSTEM_PROMPT = """あなたはTFT(Teamfight Tactics)の論理的で�
 1. **各構成の提示と実戦スタッツ**
     - 構成ごとに【Riot公式 実戦マッチ統計】から「1位率」「平均順位」「Top4率」「サンプル数」を明記してください。
     - 構成メモは「4コスト構成(バランス型)」の形式で記載してください。提供データが未集計の場合は「構成(1位率未集計)」としてください。
+        - 統計は必ず次の順番・ラベルで、項目を省略せず記載してください:
+            - **平均順位:** X位
+            - **Top4率:** X%
+            - **1位率:** X%
+            - **サンプル数:** X件
    - 構成名およびスタイル名は必ず日本語表記（例: 【Tier A】インヴォーカー アーリ（スタイル: 4コスト ファスト8））としてください。
 2. **スタッツに基づく構成比較・立ち位置の解説（必須）**
    - 単に並べるのではなく、「Top4率が高く安定してLPを盛れる構成」「到達時の平均順位は最上位だが進行事故のリスクもあるファスト9型」のように、強み・リスクの違いを明確に比較してください。
@@ -116,6 +121,7 @@ _SINGLE_COMP_GUIDE_SYSTEM_PROMPT = """あなたはTFT(Teamfight Tactics)の論�
 1. **構成概要 & 実戦スタッツ**
     - 構成名、プレイスタイル（Fast8、リロール等）、Riot統計がある場合は1位率/平均順位/Top4率を記載。
     - 構成メモは「4コスト構成(バランス型)」の形式で必ず添えてください。
+    - 統計は「平均順位 → Top4率 → 1位率 → サンプル数」の順番で、すべて記載してください。
 2. **メインキャリー & メインタンクの推奨アイテム（BIS）**
    - メインキャリーとメインタンクそれぞれについて、以下の形式で記載してください:
      * **メインキャリー (駒名):** 標準BISアイテム、およびRiot実戦統計（平均順位、Top4率）または採用理由
@@ -371,8 +377,8 @@ def _format_comp_stats_memo(stat: dict, style: str = "") -> str:
     top4_text = f"{int(top4_rate * 100)}%" if top4_rate is not None else "未集計"
     strategy_label = stat.get("strategy_goal_label", "1位率未集計")
     return (
-        f"メモ: {_strategy_memo(style, strategy_label)} / 1位率: {first_place_text} / "
-        f"平均順位: {avg_place_text} / Top4率: {top4_text}"
+        f"メモ: {_strategy_memo(style, strategy_label)} / "
+        f"平均順位: {avg_place_text} / Top4率: {top4_text} / 1位率: {first_place_text}"
     )
 
 
