@@ -41,6 +41,15 @@ _COMMON_TERMS: dict[str, str] = {
     "3-cost": "3コスト",
     "2-cost": "2コスト",
     "1-cost": "1コスト",
+    "master yi": "マスター・イー",
+    "kha'zix": "カ＝ジックス",
+    "khazix": "カ＝ジックス",
+    "kog'maw": "コグ＝マウ",
+    "flora fatalis": "フローラ・ファターリス",
+    "sprykin": "スプライキン",
+    "pebbles": "ペブルズ",
+    "trait ladder": "特性ラダー",
+    "unrivaled": "無双",
 }
 
 
@@ -147,6 +156,33 @@ def _build_champ_map_for_patch(patch: str) -> dict[str, str]:
     return mapping
 
 
+@lru_cache(maxsize=1)
+def _build_trait_map() -> dict[str, str]:
+    """最新パッチのtraits.jsonから英語api_nameを日本語特性名へ変換する。"""
+    data_dir = Path("data")
+    trait_files = sorted(data_dir.glob("patch_*/traits.json"), reverse=True)
+    if not trait_files:
+        return {}
+
+    try:
+        traits: dict = json.loads(trait_files[0].read_text(encoding="utf-8"))
+    except Exception as exc:
+        logger.warning("traits.jsonの読み込みに失敗: %s", exc)
+        return {}
+
+    mapping: dict[str, str] = {}
+    for name_ja, entry in traits.items():
+        api_name = entry.get("api_name", "") or entry.get("apiName", "")
+        if not api_name:
+            continue
+        mapping[name_ja.lower()] = name_ja
+        mapping[api_name.lower()] = name_ja
+        short = _strip_prefix_suffix(api_name)
+        if short:
+            mapping[short.lower()] = name_ja
+    return mapping
+
+
 # ---- 補完辞書（tft_lexicon_ja.json / フォールバック用） -------------------
 
 @lru_cache(maxsize=1)
@@ -245,11 +281,19 @@ def preprocess_tft_text(text: str, translation_map: dict[str, str] | None = None
 
     result = text
 
-    # 1. 複数単語フレーズを先行置換（大文字小文字を無視）
+    # 1. traits.jsonの特性名を先に置換（Juggernaut / Summoner等）
+    for en, ja in sorted(_build_trait_map().items(), key=lambda item: len(item[0]), reverse=True):
+        result = re.sub(rf"(?<![A-Za-z]){re.escape(en)}(?![A-Za-z])", ja, result, flags=re.IGNORECASE)
+
+    # 2. 複数単語フレーズを先行置換（大文字小文字を無視）
     for en, ja in _COMMON_TERMS.items():
         result = re.sub(re.escape(en), ja, result, flags=re.IGNORECASE)
 
-    # 2. 単語単位で translate_term を適用
+    # 構成タイトルで使われるキャリー分類も日本語化する。
+    result = re.sub(r"\bAP\b", "魔法型", result, flags=re.IGNORECASE)
+    result = re.sub(r"\bAD\b", "物理型", result, flags=re.IGNORECASE)
+
+    # 3. 単語単位でtranslate_termを適用
     words = result.split()
     translated = []
     for w in words:
@@ -266,6 +310,7 @@ def preprocess_tft_text(text: str, translation_map: dict[str, str] | None = None
 def invalidate_translation_cache() -> None:
     """パッチ更新時などにキャッシュを破棄する。"""
     _build_champ_map.cache_clear()
+    _build_trait_map.cache_clear()
     load_tft_translations.cache_clear()
 
 
