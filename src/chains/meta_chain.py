@@ -58,7 +58,8 @@ _COMP_META_SYSTEM_PROMPT = """あなたはTFT(Teamfight Tactics)の論理的で�
 
 【出力要件】
 1. **各構成の提示と実戦スタッツ**
-   - 構成ごとに【Riot公式 実戦マッチ統計】から「平均順位」「Top4率」「サンプル数」を明記してください。
+    - 構成ごとに【Riot公式 実戦マッチ統計】から「1位率」「平均順位」「Top4率」「サンプル数」を明記してください。
+    - 構成メモは「4コスト構成(バランス型)」の形式で記載してください。提供データが未集計の場合は「構成(1位率未集計)」としてください。
    - 構成名およびスタイル名は必ず日本語表記（例: 【Tier A】インヴォーカー アーリ（スタイル: 4コスト ファスト8））としてください。
 2. **スタッツに基づく構成比較・立ち位置の解説（必須）**
    - 単に並べるのではなく、「Top4率が高く安定してLPを盛れる構成」「到達時の平均順位は最上位だが進行事故のリスクもあるファスト9型」のように、強み・リスクの違いを明確に比較してください。
@@ -113,7 +114,8 @@ _SINGLE_COMP_GUIDE_SYSTEM_PROMPT = """あなたはTFT(Teamfight Tactics)の論�
 
 【出力構成】
 1. **構成概要 & 実戦スタッツ**
-   - 構成名、プレイスタイル（Fast8、リロール等）、Riot統計がある場合は平均順位/Top4率を記載。
+    - 構成名、プレイスタイル（Fast8、リロール等）、Riot統計がある場合は1位率/平均順位/Top4率を記載。
+    - 構成メモは「4コスト構成(バランス型)」の形式で必ず添えてください。
 2. **メインキャリー & メインタンクの推奨アイテム（BIS）**
    - メインキャリーとメインタンクそれぞれについて、以下の形式で記載してください:
      * **メインキャリー (駒名):** 標準BISアイテム、およびRiot実戦統計（平均順位、Top4率）または採用理由
@@ -351,6 +353,29 @@ def _format_academy_data(raw_data: dict | list) -> str:
     return "\n\n".join(formatted) if formatted else "利用可能な公開構成はありません。"
 
 
+def _strategy_memo(style: str, strategy_label: str) -> str:
+    """スタイルと分類を「4コスト構成(バランス型)」形式のメモにする。"""
+    clean_style = " ".join(str(style or "").split())
+    cost_token = next((token for token in clean_style.split() if "コスト" in token), "")
+    base = f"{cost_token}構成" if cost_token else (f"{clean_style}構成" if clean_style else "構成")
+    return f"{base}({strategy_label})"
+
+
+def _format_comp_stats_memo(stat: dict, style: str = "") -> str:
+    """構成の1位率・平均順位・Top4率・分類を回答用メモへ整形する。"""
+    first_place_rate = stat.get("first_place_rate")
+    first_place_text = f"{int(first_place_rate * 100)}%" if first_place_rate is not None else "未集計"
+    avg_place = stat.get("avg_place")
+    avg_place_text = f"{avg_place}位" if avg_place is not None else "未集計"
+    top4_rate = stat.get("top4_rate")
+    top4_text = f"{int(top4_rate * 100)}%" if top4_rate is not None else "未集計"
+    strategy_label = stat.get("strategy_goal_label", "1位率未集計")
+    return (
+        f"メモ: {_strategy_memo(style, strategy_label)} / 1位率: {first_place_text} / "
+        f"平均順位: {avg_place_text} / Top4率: {top4_text}"
+    )
+
+
 def _format_merged_comps_text(comps: list[dict], trans_map: dict) -> str:
     """マージ済み comp_recommendations をLLMプロンプト用テキストにフォーマットする。
 
@@ -372,18 +397,10 @@ def _format_merged_comps_text(comps: list[dict], trans_map: dict) -> str:
 
         # 実戦スタッツ（統計がある構成のみ付与）
         if c.get("avg_place") is not None:
-            first_place_pct = (
-                f"{int(c['first_place_rate'] * 100)}%"
-                if c.get("first_place_rate") is not None
-                else "未集計"
-            )
-            top4_pct = int(c.get("top4_rate", 0) * 100)
             sample   = c.get("sample_size", 0)
             conf     = c.get("confidence_level", "-")
-            strategy = c.get("strategy_goal_label", "1位率未集計")
             stats_str = (
-                f"平均順位{c['avg_place']}, 1位率{first_place_pct}, "
-                f"Top4率{top4_pct}%, 判定{strategy}, サンプル{sample}件/{conf}"
+                f"{_format_comp_stats_memo(c, style)} / サンプル: {sample}件/{conf}"
             )
         else:
             stats_str = "実戦統計: 集計中"
@@ -729,17 +746,8 @@ def handle_comp_lookup(query: str, patch: str | None = None) -> str:
         # 4. マージ済みデータから実戦スタッツを取得（_find_matching_riot_stat でフォールバック込み）
         stat = _find_matching_riot_stat(comp, comps_stats)
         if stat and stat.get("avg_place") is not None:
-            first_place_rate = stat.get("first_place_rate")
-            first_place_text = (
-                f"{int(first_place_rate * 100)}%"
-                if first_place_rate is not None
-                else "未集計"
-            )
             stat_info = (
-                f"平均順位: {stat['avg_place']} / "
-                f"1位率: {first_place_text} / "
-                f"Top4率: {int(stat.get('top4_rate', 0)*100)}% / "
-                f"判定: {stat.get('strategy_goal_label', '1位率未集計')}"
+                f"{_format_comp_stats_memo(stat, style)}"
                 f" (サンプル数: {stat.get('sample_size', 0)}件 / "
                 f"信頼度: {stat.get('confidence_level', '-')})"
             )
@@ -888,7 +896,7 @@ def handle_single_comp_guide(query: str, patch: str | None = None) -> str:
 
         matched_stat = _find_matching_riot_stat(target_comp, comps_stats)
         stat_text = (
-            f"実戦統計: 平均順位 {matched_stat['avg_place']} / Top4率 {int(matched_stat['top4_rate']*100)}%"
+            f"実戦統計: {_format_comp_stats_memo(matched_stat, style)}"
             f" (サンプル数: {matched_stat['sample_size']} / 信頼度: {matched_stat.get('confidence_level', '-')})"
             if matched_stat and matched_stat.get("avg_place") is not None
             else "実戦統計: 集計中"
@@ -936,7 +944,7 @@ def handle_single_comp_guide(query: str, patch: str | None = None) -> str:
         stat_text = (
             f"【Riot実戦統計】\n"
             f"- 構成名: {comp_name} (Tier {matched_stat.get('tier', '-')})\n"
-            f"- 平均順位: {matched_stat.get('avg_place', '-')} / Top4率: {int(matched_stat.get('top4_rate', 0)*100)}% "
+            f"- {_format_comp_stats_memo(matched_stat, matched_stat.get('style', ''))} "
             f"(サンプル数: {matched_stat.get('sample_size', 0)}件 / 信頼度: {matched_stat.get('confidence_level', '-')})\n"
         )
 
