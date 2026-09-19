@@ -2,6 +2,8 @@
 ユーザー入力を3分岐（曖昧/理論/メタ）に分類するルーター。
 LangChainの構造化出力(.with_structured_output)を用いてIntentClassificationを取得する。
 """
+from typing import cast
+
 from src.llm.factory import get_chat_model
 from src.schemas.router import IntentClassification
 
@@ -50,9 +52,10 @@ _SYSTEM_PROMPT = """あなたはTFT(Teamfight Tactics)に関するユーザー�
 def classify(user_input: str) -> IntentClassification:
     llm = get_chat_model(temperature=0.0)
     structured_llm = llm.with_structured_output(IntentClassification)
-    return structured_llm.invoke(
+    result = structured_llm.invoke(
         [
             {"role": "system", "content": _SYSTEM_PROMPT},
             {"role": "user", "content": user_input},
         ]
     )
+    return cast(IntentClassification, result)

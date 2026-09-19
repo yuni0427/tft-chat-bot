@@ -568,7 +568,7 @@ def handle_item_build(query: str, patch: str | None = None) -> str:
     if champion is None:
         llm = get_chat_model(temperature=0.0)
         extractor = llm.with_structured_output(_ChampionExtraction)
-        extracted = extractor.invoke(
+        extracted_raw = extractor.invoke(
             [
                 {
                     "role": "system",
@@ -579,6 +579,11 @@ def handle_item_build(query: str, patch: str | None = None) -> str:
                 },
                 {"role": "user", "content": query},
             ]
+        )
+        extracted = (
+            extracted_raw
+            if isinstance(extracted_raw, _ChampionExtraction)
+            else _ChampionExtraction.model_validate(extracted_raw)
         )
         champion = extracted.champion if extracted else None
 
@@ -675,7 +680,7 @@ def handle_comp_lookup(query: str, patch: str | None = None) -> str:
     # 1. 手持ちアセットの抽出
     llm_extract = get_chat_model(temperature=0.0)
     extractor = llm_extract.with_structured_output(_HeldAssets)
-    extracted = extractor.invoke([
+    extracted_raw = extractor.invoke([
         {
             "role": "system",
             "content": (
@@ -685,12 +690,17 @@ def handle_comp_lookup(query: str, patch: str | None = None) -> str:
         },
         {"role": "user", "content": query},
     ])
+    extracted = (
+        extracted_raw
+        if isinstance(extracted_raw, _HeldAssets)
+        else _HeldAssets.model_validate(extracted_raw)
+    )
 
     if not extracted.items and not extracted.emblems:
         return "手持ちのアイテム素材や紋章が認識できませんでした。「BFと涙がある」「アンバサ紋章出た」のようにお伝えください。"
 
     # アイテム・チャンピオン名の略称・俗称を正規名称に変換する
-    extracted.items   = [normalize_item_alias(it)     for it in extracted.items]
+    extracted.items = [normalize_item_alias(it) for it in extracted.items]
     extracted.emblems = [normalize_champion_alias(em) for em in extracted.emblems]
     academy_raw = get_tftacademy_tierlist()
     guides = (
