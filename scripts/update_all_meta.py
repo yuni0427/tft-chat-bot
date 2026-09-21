@@ -29,6 +29,11 @@ def main() -> int:
         help="対象パッチバージョン (省略時は current_patch.txt を使用)",
     )
     parser.add_argument(
+        "--allow-riot-failure",
+        action="store_true",
+        help="Riot APIの更新に失敗しても、他のデータ更新とGit同期を継続",
+    )
+    parser.add_argument(
         "--start-time",
         type=int,
         default=None,
@@ -99,6 +104,10 @@ def main() -> int:
         print("✅ Git ステージング/コミット完了")
     except Exception as e:
         print(f"⚠️ Git コミット中に警告: {e}")
+
+    if riot_update_failed and args.allow_riot_failure:
+        print("\n⚠️ Riot統計は更新されませんでしたが、その他の同期は完了しました。")
+        return 0
 
     if riot_update_failed:
         print("\n⚠️ パイプラインは完了しましたが、Riot統計は更新されていません。")

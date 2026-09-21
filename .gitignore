@@ -7,3 +7,5 @@ chroma_db/
 #data/patch_*/meta_cache.json
 .streamlit/secrets.toml
 *.egg-info/
+data/history.sqlite3
+data/history.sqlite3-*

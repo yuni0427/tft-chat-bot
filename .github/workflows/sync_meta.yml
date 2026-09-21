@@ -9,17 +9,17 @@ on:
 
 jobs:
   sync-meta:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     permissions:
       contents: write # GitHubへの自動pushを許可
 
     steps:
       - name: リポジトリのチェックアウト
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Python 3.11 のセットアップ
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: '3.11'
           cache: 'pip'
@@ -34,7 +34,7 @@ jobs:
           RIOT_API_KEY: ${{ secrets.RIOT_API_KEY }}
           GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
         run: |
-          python scripts/update_all_meta.py
+          python scripts/update_all_meta.py --allow-riot-failure
 
       - name: 変更差分があれば自動コミット＆プッシュ
         run: |
