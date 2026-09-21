@@ -12,6 +12,10 @@ load_dotenv()
 BASE_DIR = Path(__file__).resolve().parent
 
 
+def _get_bool(key: str, default: bool = False) -> bool:
+    return get_secret(key, str(default)).lower() in {"1", "true", "yes", "on"}
+
+
 def get_secret(key: str, default: str = "") -> str:
     """Streamlit Secrets -> 環境変数 (.env) -> デフォルト値 の順で設定値を取得する"""
     try:
@@ -21,6 +25,15 @@ def get_secret(key: str, default: str = "") -> str:
     except Exception:
         pass
     return os.getenv(key, default)
+
+
+# ==== 会話履歴・認証 ====
+HISTORY_DB_PATH = get_secret(
+    "HISTORY_DB_PATH", str(BASE_DIR / "data" / "history.sqlite3")
+)
+AUTH_ENABLED = _get_bool("AUTH_ENABLED", False)
+AUTH_PROVIDER = get_secret("AUTH_PROVIDER", "google")
+MAX_CONTEXT_TURNS = int(get_secret("MAX_CONTEXT_TURNS", "10"))
 
 
 # ==== LLM ====

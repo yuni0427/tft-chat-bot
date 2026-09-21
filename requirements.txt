@@ -1,4 +1,4 @@
-streamlit>=1.36
+streamlit>=1.42
 langchain>=0.2.11
 langchain-openai>=0.1.17
 langchain-google-genai>=4.0.0
