@@ -2,7 +2,7 @@
 
 URL: https://tftips.app/patches/18.2b
 
-TFT パッチ 18.2b 変更内容
+TFTパッチ18.2b変更内容
 チャンピオン
 6
 特性
