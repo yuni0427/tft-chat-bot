@@ -62,11 +62,30 @@ streamlit run app.py
 
 ### 会話履歴・タブ・ログインの要件定義
 
+#### Supabase保存の準備
+
+SQLiteからSupabaseへ切り替える場合は、まず [supabase/history_schema.sql](supabase/history_schema.sql) をSupabase SQL Editorで実行し、キーをソースコードへ書かずに設定します。
+
+```env
+HISTORY_BACKEND=supabase
+SUPABASE_URL=https://your-project.supabase.co
+SUPABASE_ANON_KEY=your-anon-key
+SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
+ADMIN_EMAILS=admin@example.com
+```
+
+現在のアダプターはSupabase REST APIの型を用意した段階です。`SUPABASE_ANON_KEY` と匿名IDだけで本番運用すると他人の履歴分離を保証できないため、実運用ではSupabase AuthのJWTと `auth.uid()` ベースのRLSポリシーを追加してから有効化してください。`service_role` キーをブラウザやGitHubへ公開してはいけません。
+
+管理画面のSupabase全件取得には `SUPABASE_SERVICE_ROLE_KEY` を使います。このキーはStreamlitサーバーのSecretsまたは環境変数だけに設定し、ブラウザ、GitHubリポジトリ、通常のanon設定には置かないでください。
+
 #### 機能要件
 
 - 会話を複数の相談タブとして作成し、タブ単位で質問と回答を表示する。
 - 会話履歴はSQLiteへ保存し、Streamlitの再読込やブラウザ再接続後も再開できるようにする。
 - `AUTH_ENABLED=false`（既定）は匿名セッション単位で保存する。ブラウザやセッションをまたいだ本人確認はできない。
+- `AUTH_ENABLED=true` かつ `AUTH_REQUIRED=false` ではGoogleログインを任意にし、未ログインでも匿名IDで利用できる。匿名IDはURLに付くため、同じリンクを再訪すると履歴を復元できる。
+- `AUTH_REQUIRED=true` の場合のみ、Googleログインを必須にする。
+- `ADMIN_EMAILS` に登録したGoogleアカウントだけが管理画面を開ける。管理画面では全ユーザーの会話、質問、回答を確認できる。
 - `AUTH_ENABLED=true` はStreamlitのOAuthログインを使い、ログインユーザーの識別子ごとに履歴を分離する。
 - 同一会話は `MAX_CONTEXT_TURNS`（既定10）ターンでLLM文脈世代をリセットする。保存済み履歴は削除しない。
 - LLMへ過去履歴を自動投入する仕様にはしていないため、現状のリセットは会話状態の境界管理であり、過去履歴を再送することによるトークン増加は発生しない。

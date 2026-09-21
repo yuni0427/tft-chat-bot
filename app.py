@@ -114,14 +114,20 @@ st.markdown(cards.get_base_css(), unsafe_allow_html=True)
 
 
 def _get_owner_id() -> str | None:
-    if config.AUTH_ENABLED:
+    if config.AUTH_ENABLED and getattr(st, "user", None) and st.user.is_logged_in:
         user = getattr(st, "user", None)
-        if not user or not getattr(user, "is_logged_in", False):
-            return None
         return getattr(user, "email", None) or getattr(user, "sub", None)
-    if "anonymous_owner_id" not in st.session_state:
-        st.session_state.anonymous_owner_id = f"anonymous:{uuid.uuid4()}"
-    return st.session_state.anonymous_owner_id
+
+    if config.AUTH_REQUIRED:
+        return None
+
+    # Login is optional: keep an anonymous owner in the URL so a reopened link
+    # can restore the same history without storing personal information.
+    anonymous_id = st.query_params.get("anonymous_id")
+    if not anonymous_id:
+        anonymous_id = str(uuid.uuid4())
+        st.query_params["anonymous_id"] = anonymous_id
+    return f"anonymous:{anonymous_id}"
 
 
 def _append_message(role: str, content: str) -> None:
@@ -140,11 +146,68 @@ def _prepare_conversation(conversation_id: str, owner_id: str) -> None:
     st.session_state.messages = history_store.load_messages(conversation_id, owner_id)
 
 
+def _is_admin() -> bool:
+    user = getattr(st, "user", None)
+    if not user or not getattr(user, "is_logged_in", False):
+        return False
+    email = str(getattr(user, "email", "")).strip().lower()
+    return bool(email and email in config.ADMIN_EMAILS)
+
+
+def _render_admin_page() -> None:
+    st.title("管理画面")
+    st.caption("ユーザーごとの質問・回答履歴")
+    try:
+        all_conversations = history_store.admin_list_conversations()
+    except Exception as exc:  # noqa: BLE001
+        st.error(f"管理履歴の読み込みに失敗しました: {exc}")
+        return
+
+    if not all_conversations:
+        st.info("保存された会話はありません。")
+        return
+
+    owners = sorted({conversation["owner_id"] for conversation in all_conversations})
+    owner_filter = st.selectbox("ユーザーで絞り込み", ["すべて"] + owners)
+    visible_conversations = [
+        conversation
+        for conversation in all_conversations
+        if owner_filter == "すべて" or conversation["owner_id"] == owner_filter
+    ]
+    st.metric("表示中の会話数", len(visible_conversations))
+
+    for conversation in visible_conversations:
+        title = conversation.get("title") or "無題の相談"
+        owner = conversation.get("owner_id", "不明")
+        with st.expander(f"{title} / {owner}"):
+            if conversation.get("deleted_at"):
+                st.warning("ユーザー側では削除済みですが、管理者保管データとして残っています。")
+            st.caption(
+                f"作成: {conversation.get('created_at', '-')} | "
+                f"更新: {conversation.get('updated_at', '-')} | "
+                f"文脈世代: {conversation.get('context_epoch', 0)}"
+            )
+            try:
+                messages = history_store.admin_load_messages(conversation["id"])
+            except Exception as exc:  # noqa: BLE001
+                st.error(f"メッセージの読み込みに失敗しました: {exc}")
+                continue
+            if not messages:
+                st.caption("メッセージはありません。")
+                continue
+            for message in messages:
+                role = {"user": "質問", "assistant": "回答", "system": "システム"}.get(
+                    message["role"], message["role"]
+                )
+                st.markdown(f"**{role}** ({message.get('created_at', '-')})")
+                st.write(message.get("content", ""))
+
+
 history_store.init_db()
 owner_id = _get_owner_id()
 if owner_id is None:
     st.title("TFT Tactical Assistant")
-    st.info("ログインすると、会話タブと履歴をアカウントごとに保存できます。")
+    st.info("このアプリを使うにはログインが必要です。")
     if hasattr(st, "login"):
         st.login(config.AUTH_PROVIDER)
     else:
@@ -162,6 +225,8 @@ if "messages" not in st.session_state:
 if "pending_clarification" not in st.session_state:
     st.session_state.pending_clarification = None
 
+is_admin = _is_admin()
+
 # ---------------------------------------------------------------------------
 # サイドバー
 # ---------------------------------------------------------------------------
@@ -170,8 +235,17 @@ with st.sidebar:
     st.write(f"LLMプロバイダー: **{config.LLM_PROVIDER.upper()}**")
     if not is_llm_configured():
         st.warning("⚠️ APIキーが未設定です。Secrets / .env を確認してください。")
-    if config.AUTH_ENABLED and hasattr(st, "logout"):
-        st.button("ログアウト", on_click=st.logout)
+    current_user = getattr(st, "user", None)
+    if config.AUTH_ENABLED and current_user and current_user.is_logged_in:
+        if hasattr(st, "logout"):
+            st.button("ログアウト", on_click=st.logout)
+    elif config.AUTH_ENABLED and hasattr(st, "login"):
+        st.caption("ログインなしでも利用できます。")
+        st.button("Googleでログイン（任意）", on_click=lambda: st.login(config.AUTH_PROVIDER))
+
+    page = "チャット"
+    if is_admin:
+        page = st.radio("ページ", ["チャット", "管理画面"])
 
     st.subheader("相談タブ")
     if st.button("＋ 新しいタブ", use_container_width=True):
@@ -187,6 +261,10 @@ with st.sidebar:
             if conversation["id"] == conversation_id
         ),
     )
+    if st.button("このタブを削除", type="secondary", use_container_width=True):
+        history_store.delete_conversation(selected_conversation_id, owner_id)
+        st.session_state.messages = []
+        st.rerun()
 
     try:
         patches = meta_service.list_available_patches()
@@ -206,6 +284,10 @@ with st.sidebar:
     else:
         st.warning("パッチデータが見つかりません（data/patch_xx/ を確認してください）")
         st.session_state.selected_patch = None
+
+if is_admin and page == "管理画面":
+    _render_admin_page()
+    st.stop()
 
 
 # ---------------------------------------------------------------------------

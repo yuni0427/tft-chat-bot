@@ -9,6 +9,14 @@ from pathlib import Path
 import config
 
 
+def _remote_store():
+    if config.HISTORY_BACKEND != "supabase":
+        return None
+    from src.history import supabase_store
+
+    return supabase_store
+
+
 def _now() -> str:
     return datetime.now(timezone.utc).isoformat()
 
@@ -23,6 +31,9 @@ def _connect() -> sqlite3.Connection:
 
 
 def init_db() -> None:
+    remote_store = _remote_store()
+    if remote_store:
+        return remote_store.init_db()
     with _connect() as connection:
         connection.executescript(
             """
@@ -49,9 +60,18 @@ def init_db() -> None:
                 ON messages(conversation_id, id);
             """
         )
+        columns = {
+            row["name"]
+            for row in connection.execute("PRAGMA table_info(conversations)").fetchall()
+        }
+        if "deleted_at" not in columns:
+            connection.execute("ALTER TABLE conversations ADD COLUMN deleted_at TEXT")
 
 
 def create_conversation(owner_id: str, title: str = "新しい相談") -> str:
+    remote_store = _remote_store()
+    if remote_store:
+        return remote_store.create_conversation(owner_id, title)
     conversation_id = str(uuid.uuid4())
     now = _now()
     with _connect() as connection:
@@ -67,12 +87,15 @@ def create_conversation(owner_id: str, title: str = "新しい相談") -> str:
 
 
 def list_conversations(owner_id: str) -> list[dict]:
+    remote_store = _remote_store()
+    if remote_store:
+        return remote_store.list_conversations(owner_id)
     with _connect() as connection:
         rows = connection.execute(
             """
             SELECT id, title, context_turns, context_epoch, updated_at
             FROM conversations
-            WHERE owner_id = ?
+            WHERE owner_id = ? AND deleted_at IS NULL
             ORDER BY updated_at DESC
             """,
             (owner_id,),
@@ -81,15 +104,21 @@ def list_conversations(owner_id: str) -> list[dict]:
 
 
 def get_conversation(conversation_id: str, owner_id: str) -> dict | None:
+    remote_store = _remote_store()
+    if remote_store:
+        return remote_store.get_conversation(conversation_id, owner_id)
     with _connect() as connection:
         row = connection.execute(
-            "SELECT * FROM conversations WHERE id = ? AND owner_id = ?",
-            (conversation_id, owner_id),
+                        "SELECT * FROM conversations WHERE id = ? AND owner_id = ? AND deleted_at IS NULL",
+                        (conversation_id, owner_id),
         ).fetchone()
     return dict(row) if row else None
 
 
 def load_messages(conversation_id: str, owner_id: str) -> list[dict]:
+    remote_store = _remote_store()
+    if remote_store:
+        return remote_store.load_messages(conversation_id, owner_id)
     with _connect() as connection:
         rows = connection.execute(
             """
@@ -105,6 +134,9 @@ def load_messages(conversation_id: str, owner_id: str) -> list[dict]:
 
 
 def append_message(conversation_id: str, owner_id: str, role: str, content: str) -> None:
+    remote_store = _remote_store()
+    if remote_store:
+        return remote_store.append_message(conversation_id, owner_id, role, content)
     now = _now()
     with _connect() as connection:
         conversation = connection.execute(
@@ -139,6 +171,9 @@ def append_message(conversation_id: str, owner_id: str, role: str, content: str)
 
 def reset_context(conversation_id: str, owner_id: str) -> None:
     """Start a new LLM context generation while retaining all stored messages."""
+    remote_store = _remote_store()
+    if remote_store:
+        return remote_store.reset_context(conversation_id, owner_id)
     with _connect() as connection:
         connection.execute(
             """
@@ -151,6 +186,9 @@ def reset_context(conversation_id: str, owner_id: str) -> None:
 
 
 def rename_conversation(conversation_id: str, owner_id: str, title: str) -> None:
+    remote_store = _remote_store()
+    if remote_store:
+        return remote_store.rename_conversation(conversation_id, owner_id, title)
     with _connect() as connection:
         connection.execute(
             """
@@ -159,3 +197,51 @@ def rename_conversation(conversation_id: str, owner_id: str, title: str) -> None
             """,
             (title.strip() or "無題の相談", _now(), conversation_id, owner_id),
         )
+
+
+def delete_conversation(conversation_id: str, owner_id: str) -> None:
+    remote_store = _remote_store()
+    if remote_store:
+        return remote_store.delete_conversation(conversation_id, owner_id)
+    with _connect() as connection:
+        connection.execute(
+            """
+            UPDATE conversations
+            SET deleted_at = ?, updated_at = ?
+            WHERE id = ? AND owner_id = ? AND deleted_at IS NULL
+            """,
+            (_now(), _now(), conversation_id, owner_id),
+        )
+
+
+def admin_list_conversations() -> list[dict]:
+    remote_store = _remote_store()
+    if remote_store:
+        return remote_store.admin_list_conversations()
+    with _connect() as connection:
+        rows = connection.execute(
+            """
+                 SELECT id, owner_id, title, context_turns, context_epoch,
+                     created_at, updated_at, deleted_at
+                 FROM conversations
+            ORDER BY updated_at DESC
+            """
+        ).fetchall()
+    return [dict(row) for row in rows]
+
+
+def admin_load_messages(conversation_id: str) -> list[dict]:
+    remote_store = _remote_store()
+    if remote_store:
+        return remote_store.admin_load_messages(conversation_id)
+    with _connect() as connection:
+        rows = connection.execute(
+            """
+            SELECT role, content, created_at, context_epoch
+            FROM messages
+            WHERE conversation_id = ?
+            ORDER BY id
+            """,
+            (conversation_id,),
+        ).fetchall()
+    return [dict(row) for row in rows]

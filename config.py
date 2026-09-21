@@ -31,7 +31,17 @@ def get_secret(key: str, default: str = "") -> str:
 HISTORY_DB_PATH = get_secret(
     "HISTORY_DB_PATH", str(BASE_DIR / "data" / "history.sqlite3")
 )
+HISTORY_BACKEND = get_secret("HISTORY_BACKEND", "sqlite").lower()
+SUPABASE_URL = get_secret("SUPABASE_URL", "")
+SUPABASE_ANON_KEY = get_secret("SUPABASE_ANON_KEY", "")
+SUPABASE_SERVICE_ROLE_KEY = get_secret("SUPABASE_SERVICE_ROLE_KEY", "")
+ADMIN_EMAILS = {
+    email.strip().lower()
+    for email in get_secret("ADMIN_EMAILS", "").split(",")
+    if email.strip()
+}
 AUTH_ENABLED = _get_bool("AUTH_ENABLED", False)
+AUTH_REQUIRED = _get_bool("AUTH_REQUIRED", False)
 AUTH_PROVIDER = get_secret("AUTH_PROVIDER", "google")
 MAX_CONTEXT_TURNS = int(get_secret("MAX_CONTEXT_TURNS", "10"))
 
