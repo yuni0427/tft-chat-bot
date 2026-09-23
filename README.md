@@ -67,7 +67,7 @@ python scripts/update_all_meta.py --skip-riot --patch 16.18
   python -c "from src.meta import meta_service; patch, epoch = meta_service.get_current_patch_info(); print(patch, epoch, meta_service.format_patch_start_time(epoch))"
   ```
 
-Streamlit画面のサイドバーでは、日本時間の年月日・時刻を入力して、その日時時点の通常パッチを逆算できます。`current_patch.txt` の日時は、パッチの正確な開始時刻が不明な場合は運用上の基準時刻（例: 12:00）を設定してください。
+`current_patch.txt` の開始日時は、パッチの正確な開始時刻が不明な場合は運用上の基準時刻（例: 12:00）を設定してください。
 
 ### 5. 立ち回り理論ノート（RAG）のみの即時更新
 `knowledge_base/*.md` の理論ノートを加筆・修正した際、ベクトルDB（ChromaDB）のみを即時再構築して GitHub へプッシュします。

@@ -2,7 +2,6 @@
 TFT Strategy & Meta Advisor - Streamlitアプリ本体。
 立ち回り理論（RAG）と実戦マッチ統計・プロガイドを照合するAIチャットUI
 """
-from datetime import datetime, time, timedelta, timezone
 import uuid
 
 import streamlit as st
@@ -272,20 +271,6 @@ with st.sidebar:
     except Exception:  # noqa: BLE001
         patches = []
     current_patch, patch_start_time = meta_service.get_current_patch_info()
-
-    st.subheader("日時からパッチを検索")
-    jst = timezone(timedelta(hours=9), name="JST")
-    now_jst = datetime.now(jst)
-    target_date = st.date_input("基準日", value=now_jst.date(), key="patch_lookup_date")
-    target_time = st.time_input(
-        "基準時刻（日本時間）", value=time(0, 0), key="patch_lookup_time"
-    )
-    target_datetime = datetime.combine(target_date, target_time, tzinfo=jst)
-    calculated_patch = meta_service.get_patch_for_datetime(target_datetime)
-    st.caption(
-        f"{target_datetime.strftime('%Y年%m月%d日 %H:%M')} 時点の推定パッチ: "
-        f"**{calculated_patch}**"
-    )
 
     if patches:
         default_index = patches.index(current_patch) if current_patch in patches else 0
