@@ -10,6 +10,7 @@
 import json
 import re
 from collections import Counter
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 import config
@@ -61,16 +62,56 @@ def get_current_patch_info() -> tuple[str, int | None]:
     return get_latest_available_patch(), None
 
 
+def format_patch_start_time(start_time: int | None) -> str | None:
+    """パッチ開始時刻のエポック秒を日本時間の日時文字列へ変換する。"""
+    if start_time is None:
+        return None
+    jst = timezone(timedelta(hours=9), name="JST")
+    return datetime.fromtimestamp(start_time, tz=jst).strftime(
+        "%Y年%m月%d日 %H:%M JST"
+    )
+
+
+def get_patch_for_datetime(target: datetime) -> str:
+    """指定日時時点の通常パッチを、現行パッチ開始日から逆算して求める。
+
+    パッチ開始間隔はTFTの通常更新サイクルである14日として扱う。
+    ``target`` がタイムゾーンなしの場合は日本時間として解釈する。
+    """
+    current_patch, current_start = get_current_patch_info()
+    if current_start is None:
+        return current_patch
+
+    jst = timezone(timedelta(hours=9), name="JST")
+    if target.tzinfo is None:
+        target = target.replace(tzinfo=jst)
+    current_start_dt = datetime.fromtimestamp(current_start, tz=jst)
+    patch_match = re.match(r"^(\d+)\.(\d+)$", current_patch)
+    if not patch_match:
+        return current_patch
+
+    patch_delta = (target - current_start_dt) // timedelta(days=14)
+    major = int(patch_match.group(1))
+    minor = int(patch_match.group(2)) + patch_delta
+    if minor < 0:
+        return current_patch
+    return f"{major}.{minor}"
+
+
 def get_current_patch() -> str:
     """パッチ名文字列のみを返す（既存の呼び出しとの完全互換）"""
     patch, _ = get_current_patch_info()
     return patch
 
 
-def set_current_patch(patch: str) -> None:
+def set_current_patch(patch: str, start_time: int | None = None) -> None:
+    """現在パッチを保存する。時刻を省略した場合は既存値を引き継ぐ。"""
     p = Path(config.CURRENT_PATCH_FILE)
     p.parent.mkdir(parents=True, exist_ok=True)
-    p.write_text(patch, encoding="utf-8")
+    if start_time is None:
+        _, start_time = get_current_patch_info()
+    value = patch if start_time is None else f"{patch},{start_time}"
+    p.write_text(value, encoding="utf-8")
 
 
 def list_available_patches() -> list[str]:

@@ -52,7 +52,8 @@ def main() -> int:
 
     print(f"🚀 メタデータ同期パイプラインを開始 (Target Patch: {patch_version})")
     if start_time:
-        print(f"⏱️ 集計開始時刻フィルタ: {start_time} 以降の試合に限定")
+        start_label = meta_service.format_patch_start_time(start_time)
+        print(f"⏱️ 集計開始時刻フィルタ: {start_label} ({start_time}) 以降の試合に限定")
 
     # Step 0.5: チャンピオン & シナジー (CDragon) の同期
     print("\n--- [Step 0.5] チャンピオン & シナジーデータの抽出・同期 ---")

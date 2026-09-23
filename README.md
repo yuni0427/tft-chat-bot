@@ -38,19 +38,50 @@ python scripts/build_meta_stats.py --patch 18.2b
 python scripts/update_all_meta.py --skip-riot --patch 16.18
 ```
 
-### 4. 立ち回り理論ノート（RAG）のみの即時更新
+### 4. 今後のパッチ更新手順
+
+新しいパッチが始まったら、次の手順で `current_patch.txt` を更新します。
+
+1. [data/current_patch.txt](data/current_patch.txt) の1行を、次の形式で変更します。
+  ```text
+  パッチ番号,開始日時のUNIX秒
+  ```
+  例: パッチ18.4が2026年10月7日12:00（日本時間）に始まった場合:
+  ```text
+  18.4,1791342000
+  ```
+2. 日時からUNIX秒を調べる場合は、プロジェクトルートで次を実行します。入力日時は日本時間です。
+  ```powershell
+  python -c "from datetime import datetime, timezone, timedelta; print(int(datetime(2026, 10, 7, 12, 0, tzinfo=timezone(timedelta(hours=9))).timestamp()))"
+  ```
+3. パッチ用データディレクトリを作成し、同期を実行します。
+  ```powershell
+  python scripts/update_all_meta.py --patch 18.4
+  ```
+  Riot APIを使わず、静的データだけ更新する場合は `--skip-riot` を付けます。
+  ```powershell
+  python scripts/update_all_meta.py --skip-riot --patch 18.4
+  ```
+4. 次のコマンドで、パッチ番号と開始日時を確認します。
+  ```powershell
+  python -c "from src.meta import meta_service; patch, epoch = meta_service.get_current_patch_info(); print(patch, epoch, meta_service.format_patch_start_time(epoch))"
+  ```
+
+Streamlit画面のサイドバーでは、日本時間の年月日・時刻を入力して、その日時時点の通常パッチを逆算できます。`current_patch.txt` の日時は、パッチの正確な開始時刻が不明な場合は運用上の基準時刻（例: 12:00）を設定してください。
+
+### 5. 立ち回り理論ノート（RAG）のみの即時更新
 `knowledge_base/*.md` の理論ノートを加筆・修正した際、ベクトルDB（ChromaDB）のみを即時再構築して GitHub へプッシュします。
 ```bash
 python scripts/update_knowledge.py
 ```
 
-### 5. 駒・シナジー辞書の単体抽出
+### 6. 駒・シナジー辞書の単体抽出
 CDragon から最新セット（Set 18）の `champions.json` と `traits.json` のみを即座に抽出・最新化します。
 ```bash
 python -c "from pathlib import Path; from src.meta.champion_extractor import sync_champion_data; sync_champion_data('16.18', Path('data/patch_16.18'))"
 ```
 
-### 6. ローカル Web UI の起動
+### 7. ローカル Web UI の起動
 Streamlit のチャット・分析ダッシュボードを立ち上げます。
 ```bash
 streamlit run app.py
@@ -137,7 +168,7 @@ app.py                         Streamlit アプリケーション本体
 config.py                      設定値管理（.env 読込）
 knowledge_base/                立ち回り理論 Markdown ノート群
 data/
-  ├── current_patch.txt        現在適用中のパッチ番号（自動更新）
+  ├── current_patch.txt        現在適用中のパッチ番号と開始時刻（patch,Unix秒）
   ├── tft_lexicon_ja.json      Riot公式 日本語翻訳辞書
   └── patch_xx/                パッチ別の抽出データ & 統計キャッシュ
       ├── champions.json       Set 18 チャンピオン（コスト、スキル、ユーティリティ）
@@ -162,6 +193,9 @@ scripts/
 .github/workflows/
   └── sync_meta.yml            毎日15:00 (JST) 定期実行ワークフロー
 ```
+
+日時から通常パッチを求める場合は、アプリのサイドバーで日本時間の基準日・時刻を入力します。
+`current_patch.txt` の開始日時を基準に、14日ごとの通常パッチ番号を自動計算します。
 
 ### 4. 統計データの信頼性ルール
 - 通常アイテム BiS は「試行回数が上位10%以内」かつ「最低100件以上」の母集団から選出。
