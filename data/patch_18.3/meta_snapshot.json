@@ -244,9 +244,9 @@
       "overlayAugments": [],
       "rank": "",
       "set": 18,
-      "sticker": 0,
+      "sticker": 3,
       "style": "3-Cost Reroll",
-      "tier": "S",
+      "tier": "A",
       "tips": [
         {
           "stage": "Stage 2",
@@ -262,7 +262,7 @@
         }
       ],
       "title": "Lunarwood Kha'zix",
-      "updated": "2026-09-23 17:00:01.843Z"
+      "updated": "2026-09-24 19:33:31.777Z"
     },
     {
       "altBuilds": [
@@ -512,7 +512,7 @@
         }
       ],
       "title": "Aphelios Nidalee",
-      "updated": "2026-09-23 17:00:02.035Z"
+      "updated": "2026-09-24 18:53:25.548Z"
     },
     {
       "altBuilds": [
@@ -781,7 +781,7 @@
         }
       ],
       "title": "Primal Jungle",
-      "updated": "2026-09-23 17:00:01.952Z"
+      "updated": "2026-09-24 18:53:25.605Z"
     },
     {
       "altBuilds": [
@@ -1052,7 +1052,7 @@
         }
       ],
       "title": "Dragon 9",
-      "updated": "2026-09-23 17:00:01.879Z"
+      "updated": "2026-09-24 18:53:25.528Z"
     },
     {
       "altBuilds": [],
@@ -1268,7 +1268,7 @@
         }
       ],
       "title": "Ashe Juggernauts",
-      "updated": "2026-09-23 16:58:52.061Z"
+      "updated": "2026-09-24 18:53:25.550Z"
     },
     {
       "altBuilds": [
@@ -1507,7 +1507,7 @@
         }
       ],
       "title": "Ahri Morgana",
-      "updated": "2026-09-23 17:00:01.854Z"
+      "updated": "2026-09-24 18:53:25.557Z"
     },
     {
       "altBuilds": [
@@ -1758,7 +1758,7 @@
         }
       ],
       "title": "Malphite AP Flex",
-      "updated": "2026-09-23 17:00:02.117Z"
+      "updated": "2026-09-24 18:53:26.014Z"
     },
     {
       "altBuilds": [
@@ -2054,9 +2054,9 @@
       ],
       "rank": "",
       "set": 18,
-      "sticker": 0,
+      "sticker": 3,
       "style": "Fast 9",
-      "tier": "A",
+      "tier": "B",
       "tips": [
         {
           "stage": "Stage 2",
@@ -2072,7 +2072,7 @@
         }
       ],
       "title": "Draven AD 9",
-      "updated": "2026-09-24 07:38:53.990Z"
+      "updated": "2026-09-24 19:34:07.709Z"
     },
     {
       "altBuilds": [
@@ -2309,7 +2309,7 @@
         }
       ],
       "title": "Caitlyn Hunters",
-      "updated": "2026-09-23 17:00:01.916Z"
+      "updated": "2026-09-24 18:53:26.054Z"
     },
     {
       "altBuilds": [
@@ -2569,7 +2569,7 @@
         }
       ],
       "title": "Elderwood Veigar",
-      "updated": "2026-09-23 17:00:01.925Z"
+      "updated": "2026-09-24 18:53:26.032Z"
     },
     {
       "altBuilds": [
@@ -2792,7 +2792,7 @@
         }
       ],
       "title": "Solara Yunara",
-      "updated": "2026-09-23 17:00:02.028Z"
+      "updated": "2026-09-24 18:53:26.015Z"
     },
     {
       "altBuilds": [
@@ -2981,7 +2981,7 @@
         }
       ],
       "title": "Azir Reroll",
-      "updated": "2026-09-23 16:58:07.195Z"
+      "updated": "2026-09-24 18:53:25.957Z"
     },
     {
       "altBuilds": [],
@@ -3220,7 +3220,7 @@
         }
       ],
       "title": "Woodblossom",
-      "updated": "2026-09-23 17:00:01.997Z"
+      "updated": "2026-09-24 18:53:25.894Z"
     },
     {
       "altBuilds": [],
@@ -3460,7 +3460,7 @@
         }
       ],
       "title": "6 Juggernaut AP",
-      "updated": "2026-09-23 17:00:02.017Z"
+      "updated": "2026-09-24 18:53:26.009Z"
     },
     {
       "altBuilds": [
@@ -3712,7 +3712,7 @@
         }
       ],
       "title": "Defender Cassio",
-      "updated": "2026-09-23 16:56:44.322Z"
+      "updated": "2026-09-24 18:53:25.746Z"
     },
     {
       "altBuilds": [
@@ -3938,7 +3938,7 @@
         }
       ],
       "title": "Yi Rengar",
-      "updated": "2026-09-23 17:00:02.291Z"
+      "updated": "2026-09-24 18:53:26.041Z"
     },
     {
       "altBuilds": [
@@ -4169,7 +4169,7 @@
         }
       ],
       "title": "Solar Melee",
-      "updated": "2026-09-23 16:59:17.629Z"
+      "updated": "2026-09-24 18:53:25.734Z"
     },
     {
       "altBuilds": [
@@ -4426,7 +4426,7 @@
         }
       ],
       "title": "Solar Kayle",
-      "updated": "2026-09-23 16:56:44.489Z"
+      "updated": "2026-09-24 18:53:26.031Z"
     },
     {
       "altBuilds": [
@@ -4662,7 +4662,7 @@
         }
       ],
       "title": "Invoker Nidalee",
-      "updated": "2026-09-23 16:56:44.561Z"
+      "updated": "2026-09-24 18:53:25.686Z"
     },
     {
       "altBuilds": [
@@ -4893,7 +4893,7 @@
         }
       ],
       "title": "Rengar Reroll",
-      "updated": "2026-09-23 16:56:44.510Z"
+      "updated": "2026-09-24 18:53:25.926Z"
     },
     {
       "altBuilds": [
@@ -5116,7 +5116,7 @@
         }
       ],
       "title": "Warwick Reroll",
-      "updated": "2026-09-23 16:59:21.804Z"
+      "updated": "2026-09-24 18:53:26.042Z"
     },
     {
       "altBuilds": [],
@@ -5343,230 +5343,7 @@
         }
       ],
       "title": "Teemowood",
-      "updated": "2026-09-23 16:57:57.606Z"
-    },
-    {
-      "altBuilds": [
-        {
-          "apiName": "DA_18_Elise",
-          "items": [
-            "DA_18_EmblemSlayer",
-            "DA_GuinsoosRageblade",
-            "DA_TitansResolve"
-          ],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Elise",
-          "items": [
-            "DA_GargoyleStoneplate",
-            "DA_GuinsoosRageblade",
-            "DA_TitansResolve"
-          ],
-          "stars": 1,
-          "trait": null
-        }
-      ],
-      "anomaliedChampions": [],
-      "anomaliesOverride": [],
-      "augmentTypes": [
-        "EMBLEM",
-        "ECON",
-        "ITEMS"
-      ],
-      "augments": [
-        {
-          "apiName": "DA_18_CovenTraitAugment_LootToAP",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_18_CovenTraitAugment",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_WorththeWaitII",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_CookingPot",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_HeroicGrabBagPlus",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_SoloPlate",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_Staffsmith",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_Expedition",
-          "disabled": false
-        }
-      ],
-      "augmentsTip": "Play with Dark Ritual augment to convert cash out -> AP. Ideally ply for a 135+ cashout for AP first, then take 40s as you need for more stacking. 2x Morgana 2* with items on both is the best way to cap your board.",
-      "carousel": [
-        {
-          "apiName": "DA_GuinsoosRageblade"
-        },
-        {
-          "apiName": "DA_TitansResolve"
-        },
-        {
-          "apiName": "DA_Component_NegatronCloak"
-        },
-        {
-          "apiName": "DA_Component_ChainVest"
-        }
-      ],
-      "collectionId": "1oe5lvmronvq850",
-      "collectionName": "better_guides",
-      "compSlug": "set-18-coven-elise",
-      "created": "2026-09-19 01:43:21.161Z",
-      "difficulty": "MEDIUM",
-      "displayIndex": 29,
-      "earlyComp": [
-        {
-          "apiName": "DA_18_Camille",
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Caitlyn",
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Elise",
-          "items": [
-            "DA_GuinsoosRageblade",
-            "DA_TitansResolve",
-            "DA_GargoyleStoneplate"
-          ],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Diana",
-          "items": [],
-          "stars": 1,
-          "trait": null
-        }
-      ],
-      "finalComp": [
-        {
-          "apiName": "DA_18_Alune",
-          "boardIndex": 26,
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Elise",
-          "boardIndex": 3,
-          "items": [
-            "DA_TitansResolve",
-            "DA_GuinsoosRageblade",
-            "DA_GargoyleStoneplate"
-          ],
-          "stars": 3,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Diana",
-          "boardIndex": 10,
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Morgana",
-          "boardIndex": 17,
-          "items": [
-            "DA_RabadonsDeathcap",
-            "DA_VoidStaff",
-            "DA_Morellonomicon"
-          ],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_Sentinel18",
-          "boardIndex": 9,
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Cassiopeia",
-          "boardIndex": 27,
-          "items": [
-            "DA_SpearOfShojin",
-            "DA_HextechGunblade",
-            "DA_ArchangelsStaff"
-          ],
-          "stars": 3,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Hecarim",
-          "boardIndex": 18,
-          "items": [],
-          "stars": 1,
-          "trait": null
-        }
-      ],
-      "id": "o78b1h1g734c6ya",
-      "isPublic": true,
-      "mainAugment": {
-        "apiName": "DA_18_CovenTraitAugment_LootToAP",
-        "disabled": false
-      },
-      "mainChampion": {
-        "apiName": "DA_18_Elise",
-        "cost": 2
-      },
-      "maxCap": [
-        {
-          "apiName": "DA_18_Morgana",
-          "items": [],
-          "predecessors": [
-            "TFT_Flex_Lv9"
-          ],
-          "stars": 1
-        }
-      ],
-      "metaTitle": "Dark Ritual Elise Reroll",
-      "metadata": {},
-      "overlayAugments": [],
-      "rank": "",
-      "set": 18,
-      "sticker": 8,
-      "style": "2-Cost Reroll",
-      "tier": "X",
-      "tips": [
-        {
-          "stage": "Stage 2",
-          "tip": "Ideally open with Coven and start gathering Essence. It is actually better to win early than lose for stacks so don't overly force lose streak."
-        },
-        {
-          "stage": "Stage 3",
-          "tip": "Level to 6 and roll for a Elise 2, Covens, and Vanguards. Give Cassio or Diana leftover AP. Cash out Coven and convert to AP with at least 2-3 lives (25-30 hp). "
-        },
-        {
-          "stage": "Stage 4",
-          "tip": "Finish Elise 3 / Cassio 3 then level for more Vanguards or Lunar. Play 2 Morganas with items if you have extra."
-        }
-      ],
-      "title": "Coven Elise",
-      "updated": "2026-09-23 19:13:52.630Z"
+      "updated": "2026-09-24 18:53:25.606Z"
     },
     {
       "altBuilds": [],
@@ -5631,7 +5408,7 @@
       "compSlug": "set-18-trait-ladder",
       "created": "2026-08-04 03:49:18.122Z",
       "difficulty": "HARD",
-      "displayIndex": 31,
+      "displayIndex": 30,
       "earlyComp": [
         {
           "apiName": "DA_18_Ornn",
@@ -5806,7 +5583,7 @@
         }
       ],
       "title": "Trait Ladder",
-      "updated": "2026-09-23 16:56:44.308Z"
+      "updated": "2026-09-24 18:53:25.714Z"
     },
     {
       "altBuilds": [],
@@ -5871,7 +5648,7 @@
       "compSlug": "set-18-inferno-fast-9",
       "created": "2026-09-19 19:30:15.236Z",
       "difficulty": "HARD",
-      "displayIndex": 31,
+      "displayIndex": 32,
       "earlyComp": [
         {
           "apiName": "DA_Karma18",
@@ -6060,7 +5837,7 @@
         }
       ],
       "title": "Inferno Fast 9",
-      "updated": "2026-09-23 17:00:02.327Z"
+      "updated": "2026-09-24 18:53:26.046Z"
     },
     {
       "altBuilds": [
@@ -6278,7 +6055,7 @@
         }
       ],
       "title": "Veigar Consuming Flora",
-      "updated": "2026-09-23 17:00:02.576Z"
+      "updated": "2026-09-24 18:53:26.029Z"
     },
     {
       "altBuilds": [
@@ -6481,7 +6258,7 @@
         }
       ],
       "title": "Emblem Rengar",
-      "updated": "2026-09-23 17:00:02.517Z"
+      "updated": "2026-09-24 18:53:26.028Z"
     },
     {
       "altBuilds": [
@@ -6706,7 +6483,7 @@
         }
       ],
       "title": "Ravager Elise",
-      "updated": "2026-09-23 16:56:44.356Z"
+      "updated": "2026-09-24 18:53:26.028Z"
     },
     {
       "altBuilds": [
@@ -6917,7 +6694,7 @@
         }
       ],
       "title": "Fae Tristana",
-      "updated": "2026-09-23 17:00:02.416Z"
+      "updated": "2026-09-24 18:53:25.733Z"
     },
     {
       "altBuilds": [],
@@ -7141,7 +6918,7 @@
         }
       ],
       "title": "Unrivaled Reroll",
-      "updated": "2026-09-23 16:57:57.552Z"
+      "updated": "2026-09-24 18:53:26.043Z"
     },
     {
       "altBuilds": [],
@@ -7384,7 +7161,7 @@
         }
       ],
       "title": "Elderwood Executioners",
-      "updated": "2026-09-23 16:56:44.347Z"
+      "updated": "2026-09-24 18:53:25.927Z"
     },
     {
       "altBuilds": [
@@ -7624,7 +7401,7 @@
         }
       ],
       "title": "Spirit Blossom",
-      "updated": "2026-09-23 17:00:01.977Z"
+      "updated": "2026-09-24 18:53:25.578Z"
     },
     {
       "altBuilds": [],
@@ -7844,7 +7621,7 @@
         }
       ],
       "title": "Riftbeast Reroll",
-      "updated": "2026-09-23 17:00:02.516Z"
+      "updated": "2026-09-24 18:53:25.722Z"
     },
     {
       "altBuilds": [],
@@ -8049,7 +7826,7 @@
         }
       ],
       "title": "Ashe Fast 9 ",
-      "updated": "2026-09-23 17:00:01.875Z"
+      "updated": "2026-09-24 18:53:25.553Z"
     },
     {
       "altBuilds": [
@@ -8293,7 +8070,7 @@
         }
       ],
       "title": "Adaptor Reroll",
-      "updated": "2026-09-23 17:00:02.460Z"
+      "updated": "2026-09-24 18:53:25.771Z"
     },
     {
       "altBuilds": [],
@@ -8479,7 +8256,7 @@
         }
       ],
       "title": "Sprykin Teemo",
-      "updated": "2026-09-23 17:00:02.354Z"
+      "updated": "2026-09-24 18:53:26.027Z"
     },
     {
       "altBuilds": [
@@ -8706,7 +8483,7 @@
         }
       ],
       "title": "Moo-nara",
-      "updated": "2026-09-23 17:00:01.939Z"
+      "updated": "2026-09-24 18:53:26.033Z"
     },
     {
       "altBuilds": [],
@@ -8956,7 +8733,7 @@
         }
       ],
       "title": "10 Riftbeast",
-      "updated": "2026-09-23 17:00:01.988Z"
+      "updated": "2026-09-24 18:53:25.547Z"
     },
     {
       "altBuilds": [
@@ -9176,7 +8953,7 @@
         }
       ],
       "title": "Aphelios Rapidfire",
-      "updated": "2026-09-23 17:00:01.946Z"
+      "updated": "2026-09-24 18:53:25.576Z"
     },
     {
       "altBuilds": [
@@ -9434,7 +9211,7 @@
         }
       ],
       "title": "Primal Flex",
-      "updated": "2026-09-23 17:00:01.638Z"
+      "updated": "2026-09-24 18:53:25.890Z"
     },
     {
       "altBuilds": [],
@@ -9682,7 +9459,7 @@
         }
       ],
       "title": "6 Juggernaut AD",
-      "updated": "2026-09-23 16:56:44.331Z"
+      "updated": "2026-09-24 18:53:25.807Z"
     },
     {
       "altBuilds": [
@@ -9938,7 +9715,7 @@
         }
       ],
       "title": "Aphelios Vanguards",
-      "updated": "2026-09-23 17:00:01.844Z"
+      "updated": "2026-09-24 18:53:25.554Z"
     },
     {
       "altBuilds": [
@@ -10167,7 +9944,7 @@
         }
       ],
       "title": "Coven Ahri",
-      "updated": "2026-09-23 17:00:01.846Z"
+      "updated": "2026-09-24 18:53:26.009Z"
     },
     {
       "altBuilds": [
@@ -10378,7 +10155,7 @@
         }
       ],
       "title": "Ahri Zyra",
-      "updated": "2026-09-23 17:00:01.868Z"
+      "updated": "2026-09-24 18:53:25.966Z"
     },
     {
       "altBuilds": [
@@ -10622,7 +10399,7 @@
         }
       ],
       "title": "Aphelios Flex",
-      "updated": "2026-09-23 17:00:01.877Z"
+      "updated": "2026-09-24 18:53:25.576Z"
     },
     {
       "altBuilds": [
@@ -10897,7 +10674,7 @@
         }
       ],
       "title": "Aphelios Elderwood",
-      "updated": "2026-09-23 17:00:01.902Z"
+      "updated": "2026-09-24 18:53:25.578Z"
     }
   ]
 }
