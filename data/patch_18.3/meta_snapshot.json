@@ -503,6 +503,14 @@
         {
           "apiName": "DA_CommerceCore",
           "disabled": false
+        },
+        {
+          "apiName": "DA_ComebackStory",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_SoloLeveling",
+          "disabled": false
         }
       ],
       "rank": "",
@@ -525,7 +533,7 @@
         }
       ],
       "title": "Aphelios Nidalee",
-      "updated": "2026-09-25 18:42:28.241Z"
+      "updated": "2026-09-28 02:13:39.331Z"
     },
     {
       "altBuilds": [],
@@ -782,6 +790,22 @@
         {
           "apiName": "DA_SeraphimsStaff",
           "disabled": false
+        },
+        {
+          "apiName": "DA_ElectrochargeI",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_ElectrochargeII",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_SoulAwakening",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_HoldTheLine",
+          "disabled": false
         }
       ],
       "rank": "",
@@ -804,7 +828,7 @@
         }
       ],
       "title": "6 Juggernaut Flex",
-      "updated": "2026-09-25 19:17:04.324Z"
+      "updated": "2026-09-28 02:03:10.075Z"
     },
     {
       "altBuilds": [
@@ -1898,7 +1922,7 @@
       ],
       "rank": "",
       "set": 18,
-      "sticker": 0,
+      "sticker": 1,
       "style": "3-Cost Reroll",
       "tier": "A",
       "tips": [
@@ -1916,7 +1940,7 @@
         }
       ],
       "title": "Azir Rammus",
-      "updated": "2026-09-25 18:42:28.255Z"
+      "updated": "2026-09-27 23:54:32.751Z"
     },
     {
       "altBuilds": [
@@ -2434,6 +2458,14 @@
         {
           "apiName": "DA_18_BranchingOutPlus",
           "disabled": false
+        },
+        {
+          "apiName": "DA_18_PrimalAugment_Nidalee",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_18_PrimalAugment_Sivir",
+          "disabled": false
         }
       ],
       "rank": "",
@@ -2456,7 +2488,7 @@
         }
       ],
       "title": "Primal Jungle",
-      "updated": "2026-09-25 18:42:28.285Z"
+      "updated": "2026-09-28 02:12:49.671Z"
     },
     {
       "altBuilds": [
@@ -4278,6 +4310,14 @@
         {
           "apiName": "DA_CommerceCore",
           "disabled": false
+        },
+        {
+          "apiName": "DA_SweetTreats",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_TonsOfStatsII",
+          "disabled": false
         }
       ],
       "rank": "",
@@ -4300,7 +4340,7 @@
         }
       ],
       "title": "Yi Rengar",
-      "updated": "2026-09-25 18:59:21.243Z"
+      "updated": "2026-09-28 02:05:57.498Z"
     },
     {
       "altBuilds": [
@@ -5985,6 +6025,18 @@
         {
           "apiName": "DA_MoneyMonsoon",
           "disabled": false
+        },
+        {
+          "apiName": "DA_BoosterPackPlus",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_BoosterPackPlusPlus",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_GainGold",
+          "disabled": false
         }
       ],
       "rank": "",
@@ -6007,7 +6059,7 @@
         }
       ],
       "title": "Trait Ladder",
-      "updated": "2026-09-25 19:12:24.405Z"
+      "updated": "2026-09-28 02:17:49.811Z"
     },
     {
       "altBuilds": [],
@@ -6470,6 +6522,10 @@
         {
           "apiName": "DA_18_FloraFatalisAugmentPlusPlus",
           "disabled": false
+        },
+        {
+          "apiName": "DA_GoldenGamble",
+          "disabled": false
         }
       ],
       "rank": "",
@@ -6492,7 +6548,7 @@
         }
       ],
       "title": "Veigar Consuming Flora",
-      "updated": "2026-09-25 19:10:48.399Z"
+      "updated": "2026-09-28 02:10:25.179Z"
     },
     {
       "altBuilds": [
@@ -6678,6 +6734,22 @@
         {
           "apiName": "DA_URF",
           "disabled": false
+        },
+        {
+          "apiName": "DA_PrismaticTicket",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_SpeedyDoubleKill",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_Swordsmith",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_CyberneticImplants_Gold",
+          "disabled": false
         }
       ],
       "rank": "",
@@ -6700,7 +6772,7 @@
         }
       ],
       "title": "Emblem Rengar",
-      "updated": "2026-09-25 19:10:24.890Z"
+      "updated": "2026-09-28 01:48:16.650Z"
     },
     {
       "altBuilds": [
@@ -7124,6 +7196,26 @@
         {
           "apiName": "DA_URF",
           "disabled": false
+        },
+        {
+          "apiName": "DA_PrismaticTicket",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_LegionOfThrees",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_CarveAPath",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_FocusedFire",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_TeamBuilding",
+          "disabled": false
         }
       ],
       "rank": "",
@@ -7146,7 +7238,7 @@
         }
       ],
       "title": "Fae Tristana",
-      "updated": "2026-09-25 19:09:13.570Z"
+      "updated": "2026-09-28 01:59:32.397Z"
     },
     {
       "altBuilds": [],
@@ -7364,6 +7456,10 @@
         {
           "apiName": "DA_18_RivalsAugmentPlus",
           "disabled": false
+        },
+        {
+          "apiName": "DA_PrismaticTicket",
+          "disabled": false
         }
       ],
       "rank": "",
@@ -7386,7 +7482,7 @@
         }
       ],
       "title": "Unrivaled Reroll",
-      "updated": "2026-09-25 19:08:43.103Z"
+      "updated": "2026-09-28 02:12:05.764Z"
     },
     {
       "altBuilds": [],
@@ -8086,7 +8182,20 @@
       ],
       "metaTitle": "Riftbeast Pebbles Reroll",
       "metadata": {},
-      "overlayAugments": [],
+      "overlayAugments": [
+        {
+          "apiName": "DA_VerticalityI",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_VerticalityII",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_VerticalityIII",
+          "disabled": false
+        }
+      ],
       "rank": "",
       "set": 18,
       "sticker": 0,
@@ -8107,7 +8216,7 @@
         }
       ],
       "title": "Riftbeast Reroll",
-      "updated": "2026-09-25 18:41:25.294Z"
+      "updated": "2026-09-28 02:19:19.171Z"
     },
     {
       "altBuilds": [],
@@ -8312,6 +8421,26 @@
         {
           "apiName": "DA_InvestedPlusPlus",
           "disabled": false
+        },
+        {
+          "apiName": "DA_AugmentedPower",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_CallToChaos",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_Min_Max",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_ExplosiveGrowth",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_BoosterPackPlusPlus",
+          "disabled": false
         }
       ],
       "rank": "",
@@ -8334,7 +8463,7 @@
         }
       ],
       "title": "Ashe Fast 9 ",
-      "updated": "2026-09-25 18:42:28.204Z"
+      "updated": "2026-09-28 02:07:54.499Z"
     },
     {
       "altBuilds": [
