@@ -241,7 +241,7 @@
         }
       ],
       "title": "Ashe Juggernauts",
-      "updated": "2026-09-30 21:31:52.846Z"
+      "updated": "2026-10-02 04:11:27.188Z"
     },
     {
       "altBuilds": [
@@ -533,7 +533,7 @@
         }
       ],
       "title": "Aphelios Nidalee",
-      "updated": "2026-09-30 21:31:53.079Z"
+      "updated": "2026-10-02 04:11:26.751Z"
     },
     {
       "altBuilds": [],
@@ -825,7 +825,7 @@
         }
       ],
       "title": "6 Juggernaut Flex",
-      "updated": "2026-09-30 21:31:53.035Z"
+      "updated": "2026-10-02 04:11:26.621Z"
     },
     {
       "altBuilds": [
@@ -1122,7 +1122,7 @@
         }
       ],
       "title": "Malphite AP Flex",
-      "updated": "2026-09-30 21:31:53.118Z"
+      "updated": "2026-10-02 04:11:26.722Z"
     },
     {
       "altBuilds": [
@@ -1386,7 +1386,7 @@
         }
       ],
       "title": "Ahri Morgana",
-      "updated": "2026-09-30 21:31:53.144Z"
+      "updated": "2026-10-02 04:11:26.734Z"
     },
     {
       "altBuilds": [
@@ -1689,7 +1689,7 @@
         }
       ],
       "title": "Lunarwood Kha'zix",
-      "updated": "2026-09-30 21:31:53.402Z"
+      "updated": "2026-10-02 04:11:26.789Z"
     },
     {
       "altBuilds": [
@@ -1945,7 +1945,7 @@
         }
       ],
       "title": "Azir Rammus",
-      "updated": "2026-09-30 21:31:53.591Z"
+      "updated": "2026-10-02 04:11:26.784Z"
     },
     {
       "altBuilds": [
@@ -2216,7 +2216,7 @@
         }
       ],
       "title": "Dragon 9",
-      "updated": "2026-09-30 21:31:53.142Z"
+      "updated": "2026-10-02 04:11:27.138Z"
     },
     {
       "altBuilds": [
@@ -2530,284 +2530,7 @@
         }
       ],
       "title": "Draven AD 9",
-      "updated": "2026-09-30 21:31:53.493Z"
-    },
-    {
-      "altBuilds": [
-        {
-          "apiName": "DA_Nidalee18_AP",
-          "items": [
-            "DA_SpearOfShojin",
-            "DA_18_EmblemHunter",
-            "DA_SteraksGage"
-          ],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_Nidalee18_AP",
-          "items": [
-            "DA_BlueBuff",
-            "DA_Artifact_SilvermereDawn",
-            "DA_SteraksGage"
-          ],
-          "stars": 1,
-          "trait": null
-        }
-      ],
-      "anomaliedChampions": [
-        {
-          "apiName": "DA_Krug18"
-        }
-      ],
-      "anomaliesOverride": [],
-      "augmentTypes": [
-        "ECON",
-        "ITEMS",
-        "COMBAT"
-      ],
-      "augments": [
-        {
-          "apiName": "DA_18_BigGrabBag",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_18_PrimalAugmentPlus_Nidalee",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_CaretakersFavor",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_Swordsmith",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_18_PrimalAugmentPlus_Sivir",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_CarveAPath",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_18_FOURcing",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_DeadlierBlades",
-          "disabled": false
-        }
-      ],
-      "augmentsTip": "Krug on the Blackthorn hex. Prioritize Nidalee > Sivir items. Kogmaw provides free Shred and Sunder. Max cap is drop riftbeasts for Gnar + Ashe + Taric. Hunter emblem is incredible on Nidalee. Can also drop Malphite for Sett + Vanguard. Take tiger primal buff.",
-      "carousel": [
-        {
-          "apiName": "DA_InfinityEdge"
-        },
-        {
-          "apiName": "DA_Component_BFSword"
-        },
-        {
-          "apiName": "DA_Component_SparringGloves"
-        },
-        {
-          "apiName": "DA_Component_GiantsBelt"
-        }
-      ],
-      "collectionId": "1oe5lvmronvq850",
-      "collectionName": "better_guides",
-      "compSlug": "set-18-invoker-nidalee-copy",
-      "created": "2026-08-25 17:22:01.901Z",
-      "difficulty": "MEDIUM",
-      "displayIndex": 9,
-      "earlyComp": [
-        {
-          "apiName": "DA_18_Yorick",
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_Cinderling18",
-          "items": [
-            "DA_InfinityEdge",
-            "DA_SpearOfShojin"
-          ],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_Gromp18_AP",
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_Scuttlecrab18",
-          "items": [],
-          "stars": 1,
-          "trait": null
-        }
-      ],
-      "finalComp": [
-        {
-          "apiName": "DA_Cinderling18",
-          "boardIndex": 27,
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_RekSai",
-          "boardIndex": 20,
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_KogMaw18_AD",
-          "boardIndex": 22,
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_Krug18",
-          "boardIndex": 17,
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_Sentinel18",
-          "boardIndex": 19,
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Malphite",
-          "boardIndex": 3,
-          "items": [
-            "DA_GargoyleStoneplate",
-            "DA_WarmogsArmor",
-            "DA_Crownguard"
-          ],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_Nidalee18_AP",
-          "boardIndex": 14,
-          "items": [
-            "DA_InfinityEdge",
-            "DA_SteraksGage",
-            "DA_SpearOfShojin"
-          ],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Sivir",
-          "boardIndex": 21,
-          "items": [
-            "DA_InfinityEdge",
-            "DA_RedBuff",
-            "DA_StrikersFlail"
-          ],
-          "stars": 1,
-          "trait": null
-        }
-      ],
-      "id": "ggxzd3j3w9knl0e",
-      "isPublic": true,
-      "mainChampion": {
-        "apiName": "DA_18_Sivir",
-        "cost": 4
-      },
-      "mainItem": {
-        "apiName": "DA_18_EmblemHunter"
-      },
-      "maxCap": [
-        {
-          "apiName": "DA_18_Sett",
-          "items": [],
-          "predecessors": [
-            "DA_18_Malphite"
-          ],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Ashe",
-          "items": [],
-          "predecessors": [
-            "DA_Cinderling18"
-          ],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_GnarSmall",
-          "items": [],
-          "predecessors": [
-            "DA_Krug18"
-          ],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_Taric18",
-          "items": [],
-          "predecessors": [
-            "DA_18_RekSai"
-          ],
-          "stars": 1,
-          "trait": null
-        }
-      ],
-      "metaTitle": "Primal Nidalee Sivir",
-      "metadata": {},
-      "overlayAugments": [
-        {
-          "apiName": "DA_18_BranchingOut",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_18_BranchingOutPlus",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_18_PrimalAugment_Nidalee",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_18_PrimalAugment_Sivir",
-          "disabled": false
-        }
-      ],
-      "rank": "",
-      "set": 18,
-      "sticker": 3,
-      "style": "4-Cost Fast 8",
-      "tier": "B",
-      "tips": [
-        {
-          "stage": "Stage 2",
-          "tip": "Play around a strong AD opener around Cinderling 2 with Riftbeasts. Slam all your AD and tank items aggressively for win streak."
-        },
-        {
-          "stage": "Stage 3",
-          "tip": "Comp is very Sword hungry so keep taking them off augments / carousels when possible. You can flex in 5 Riftbeast for better shops or more generic frontline."
-        },
-        {
-          "stage": "Stage 4",
-          "tip": "Level to 8 and roll for Nidalee, Sivir, and Malphite / tank. If Malphite is too contested, consider Sentinel or Krug tank instead."
-        }
-      ],
-      "title": "Primal Jungle",
-      "updated": "2026-09-30 21:31:53.482Z"
+      "updated": "2026-10-02 04:11:27.129Z"
     },
     {
       "altBuilds": [
@@ -2897,7 +2620,7 @@
       "compSlug": "set-18-veigar-consuming-flora-copy",
       "created": "2026-09-12 13:52:53.741Z",
       "difficulty": "EASY",
-      "displayIndex": 10,
+      "displayIndex": 9,
       "earlyComp": [
         {
           "apiName": "DA_18_Kobuko",
@@ -3100,7 +2823,7 @@
         }
       ],
       "title": "Elderwood Veigar",
-      "updated": "2026-09-30 21:31:53.130Z"
+      "updated": "2026-10-02 04:11:27.090Z"
     },
     {
       "altBuilds": [
@@ -3190,7 +2913,7 @@
       "compSlug": "set-18-caitlyn-hunters",
       "created": "2026-08-19 18:20:35.020Z",
       "difficulty": "EASY",
-      "displayIndex": 11,
+      "displayIndex": 10,
       "earlyComp": [
         {
           "apiName": "DA_18_Rakan",
@@ -3349,7 +3072,7 @@
         }
       ],
       "title": "Caitlyn Hunters",
-      "updated": "2026-09-30 21:31:53.134Z"
+      "updated": "2026-10-02 04:11:27.096Z"
     },
     {
       "altBuilds": [
@@ -3358,7 +3081,7 @@
           "items": [
             "DA_Artifact_Dawncore",
             "DA_SpearOfShojin",
-            "DA_Deathblade"
+            "DA_LastWhisper"
           ],
           "stars": 1,
           "trait": null
@@ -3373,7 +3096,7 @@
       ],
       "augments": [
         {
-          "apiName": "DA_18_CaretakersAlly",
+          "apiName": "DA_WorththeWaitII",
           "disabled": false
         },
         {
@@ -3381,11 +3104,11 @@
           "disabled": false
         },
         {
-          "apiName": "DA_SwordOverflow",
+          "apiName": "DA_GlassCannon_Silver",
           "disabled": false
         },
         {
-          "apiName": "DA_HeroicGrabBag",
+          "apiName": "DA_SwordOverflow",
           "disabled": false
         },
         {
@@ -3393,19 +3116,19 @@
           "disabled": false
         },
         {
-          "apiName": "DA_PandorasBench",
+          "apiName": "DA_URF",
           "disabled": false
         },
         {
-          "apiName": "DA_PrismaticTicket",
+          "apiName": "DA_UrfsGrabBag",
           "disabled": false
         },
         {
-          "apiName": "DA_KickStart",
+          "apiName": "DA_SpreadingRoots",
           "disabled": false
         }
       ],
-      "augmentsTip": "Prioritize 3* Yunara & Karma + 3 Blossom + LeBlanc early for clone copies. Add 3 Solar after you finish your 3* at levels 7/8 once you get 5 three stars online. Hold only 1 copy of Kayle on the bench max when rolling.",
+      "augmentsTip": "Play when you have lots of copies of Yunara with Blackthorn emblem. Prioritize Yunara > Tank > Warwick items. Murkwolf can also hold items temporarily until you get Yunara online.",
       "carousel": [
         {
           "apiName": "DA_SpearOfShojin"
@@ -3414,18 +3137,18 @@
           "apiName": "DA_GargoyleStoneplate"
         },
         {
-          "apiName": "DA_LastWhisper"
+          "apiName": "DA_Component_RecurveBow"
         },
         {
-          "apiName": "DA_Component_BFSword"
+          "apiName": "DA_Component_SparringGloves"
         }
       ],
       "collectionId": "1oe5lvmronvq850",
       "collectionName": "better_guides",
-      "compSlug": "set-18-solara-yunara",
-      "created": "2026-09-13 04:12:54.014Z",
+      "compSlug": "set-18-moo-nara",
+      "created": "2026-08-09 18:49:41.418Z",
       "difficulty": "MEDIUM",
-      "displayIndex": 12,
+      "displayIndex": 11,
       "earlyComp": [
         {
           "apiName": "DA_Karma18",
@@ -3440,78 +3163,29 @@
           "trait": null
         },
         {
-          "apiName": "DA_18_LeBlanc",
-          "items": [],
+          "apiName": "DA_18_Yunara",
+          "items": [
+            "DA_18_EmblemBlackthorn",
+            "DA_SpearOfShojin",
+            "DA_LastWhisper"
+          ],
           "stars": 1,
           "trait": null
         },
         {
-          "apiName": "DA_18_Yunara",
-          "items": [
-            "DA_SpearOfShojin",
-            "DA_LastWhisper"
-          ],
+          "apiName": "DA_18_Azir",
+          "items": [],
           "stars": 1,
           "trait": null
         }
       ],
       "finalComp": [
         {
-          "apiName": "DA_18_Leona",
-          "boardIndex": 21,
-          "items": [],
-          "stars": 3,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Yorick",
-          "boardIndex": 17,
-          "items": [],
-          "stars": 3,
-          "trait": null
-        },
-        {
-          "apiName": "DA_Karma18",
-          "boardIndex": 26,
-          "items": [
-            "DA_SpearOfShojin",
-            "DA_VoidStaff",
-            "DA_JeweledGauntlet"
-          ],
-          "stars": 3,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Kayle",
-          "boardIndex": 23,
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_LeBlanc",
-          "boardIndex": 25,
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Sejuani",
-          "boardIndex": 3,
-          "items": [
-            "DA_GargoyleStoneplate",
-            "DA_WarmogsArmor",
-            "DA_GargoyleStoneplate"
-          ],
-          "stars": 3,
-          "trait": null
-        },
-        {
           "apiName": "DA_18_Yunara",
-          "boardIndex": 27,
+          "boardIndex": 21,
           "items": [
-            "DA_Deathblade",
             "DA_SpearOfShojin",
+            "DA_18_EmblemBlackthorn",
             "DA_LastWhisper"
           ],
           "stars": 3,
@@ -3519,87 +3193,99 @@
         },
         {
           "apiName": "DA_18_Azir",
-          "boardIndex": 22,
+          "boardIndex": 24,
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_Murkwolf18",
+          "boardIndex": 17,
+          "items": [],
+          "stars": 3,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Alistar",
+          "boardIndex": 3,
+          "items": [
+            "DA_GargoyleStoneplate",
+            "DA_SpiritVisage",
+            "DA_WarmogsArmor"
+          ],
+          "stars": 3,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Warwick",
+          "boardIndex": 14,
+          "items": [
+            "DA_SteraksGage",
+            "DA_TitansResolve",
+            "DA_SpearOfShojin"
+          ],
+          "stars": 3,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_RekSai",
+          "boardIndex": 19,
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Ezreal",
+          "boardIndex": 23,
           "items": [],
           "stars": 1,
           "trait": null
         }
       ],
-      "id": "dp3g3imnc4cihl4",
+      "id": "3s628k9w9qsh8mw",
       "isPublic": true,
       "mainChampion": {
         "apiName": "DA_18_Yunara",
         "cost": 2
       },
+      "mainItem": {
+        "apiName": "DA_18_EmblemBlackthorn"
+      },
       "maxCap": [
         {
-          "apiName": "DA_Fiddlesticks18",
+          "apiName": "DA_18_Kennen",
           "items": [],
           "predecessors": [
-            "DA_18_Azir"
-          ],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Soraka",
-          "items": [],
-          "predecessors": [
-            "DA_18_LeBlanc"
+            "TFT_Flex_Lv8"
           ],
           "stars": 1,
           "trait": null
         }
       ],
-      "metaTitle": "Solar Yunara Reroll",
+      "metaTitle": "Alistar Yunara Reroll",
       "metadata": {},
-      "overlayAugments": [
-        {
-          "apiName": "DA_PrismaticTicket",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_TradeSector",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_Swordsmith",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_SwordOverflow",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_WandOverflow",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_18_BigGrabBag",
-          "disabled": false
-        }
-      ],
+      "overlayAugments": [],
       "rank": "",
       "set": 18,
-      "sticker": 0,
+      "sticker": 1,
       "style": "2-Cost Reroll",
       "tier": "B",
       "tips": [
         {
           "stage": "Stage 2",
-          "tip": "Slam items for Yunara and play for win streak with Blossom in. Tank Yorick / Juggernaut until you find Sejuani 2."
+          "tip": "Slam items for Yunara and play for win streak with Blossom in. Tank Yorick / Juggernaut until you find Alistar."
         },
         {
           "stage": "Stage 3",
-          "tip": "Level at 3-2 and roll for 2* upgrades then econ up. Roll for all the 3* shown on the build + Azir. Try to avoid rolling to 0 gold because you need gold for leveling later."
+          "tip": "Level at 3-2 and roll for 2* upgrades then econ up. Skip Azir 2 because he's too expensive. Buy a charm every round if possible and win streak."
         },
         {
           "stage": "Stage 4",
-          "tip": "Finish your 3* then level for 3 Solar over time. Leftover AP items on LeBlanc. Karma 3 can also hold items too."
+          "tip": "Finish your 3* units then push levels. Look for 3 Executioner for Yunara. Kennen caps your board. Blackthorn Lux is a high roll top end finisher."
         }
       ],
-      "title": "Solara Yunara",
-      "updated": "2026-09-30 21:31:53.560Z"
+      "title": "Moo-nara",
+      "updated": "2026-10-02 04:11:27.122Z"
     },
     {
       "altBuilds": [],
@@ -3664,7 +3350,7 @@
       "compSlug": "set-18-woodblossom",
       "created": "2026-09-14 03:56:50.357Z",
       "difficulty": "MEDIUM",
-      "displayIndex": 13,
+      "displayIndex": 12,
       "earlyComp": [
         {
           "apiName": "DA_18_Ornn",
@@ -3838,7 +3524,7 @@
         }
       ],
       "title": "Woodblossom",
-      "updated": "2026-09-30 21:31:53.370Z"
+      "updated": "2026-10-02 04:11:27.173Z"
     },
     {
       "altBuilds": [
@@ -3923,7 +3609,7 @@
       "compSlug": "set-18-defender-cassio",
       "created": "2026-08-22 19:48:10.923Z",
       "difficulty": "EASY",
-      "displayIndex": 15,
+      "displayIndex": 14,
       "earlyComp": [
         {
           "apiName": "DA_Karma18",
@@ -4090,7 +3776,7 @@
         }
       ],
       "title": "Defender Cassio",
-      "updated": "2026-09-30 21:31:53.560Z"
+      "updated": "2026-10-02 04:11:27.067Z"
     },
     {
       "altBuilds": [
@@ -4176,7 +3862,7 @@
       "compSlug": "set-18-adaptor-reroll-copy",
       "created": "2026-08-31 08:35:31.714Z",
       "difficulty": "MEDIUM",
-      "displayIndex": 16,
+      "displayIndex": 15,
       "earlyComp": [
         {
           "apiName": "DA_Karma18",
@@ -4345,7 +4031,284 @@
         }
       ],
       "title": "Yi Rengar",
-      "updated": "2026-09-30 21:31:53.508Z"
+      "updated": "2026-10-02 04:11:27.169Z"
+    },
+    {
+      "altBuilds": [
+        {
+          "apiName": "DA_Nidalee18_AP",
+          "items": [
+            "DA_SpearOfShojin",
+            "DA_18_EmblemHunter",
+            "DA_SteraksGage"
+          ],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_Nidalee18_AP",
+          "items": [
+            "DA_BlueBuff",
+            "DA_Artifact_SilvermereDawn",
+            "DA_SteraksGage"
+          ],
+          "stars": 1,
+          "trait": null
+        }
+      ],
+      "anomaliedChampions": [
+        {
+          "apiName": "DA_Krug18"
+        }
+      ],
+      "anomaliesOverride": [],
+      "augmentTypes": [
+        "ECON",
+        "ITEMS",
+        "COMBAT"
+      ],
+      "augments": [
+        {
+          "apiName": "DA_18_BigGrabBag",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_18_PrimalAugmentPlus_Nidalee",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_CaretakersFavor",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_Swordsmith",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_18_PrimalAugmentPlus_Sivir",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_CarveAPath",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_18_FOURcing",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_DeadlierBlades",
+          "disabled": false
+        }
+      ],
+      "augmentsTip": "Krug on the Blackthorn hex. Prioritize Nidalee > Sivir items. Kogmaw provides free Shred and Sunder. Max cap is drop riftbeasts for Gnar + Ashe + Taric. Hunter emblem is incredible on Nidalee. Can also drop Malphite for Sett + Vanguard. Take tiger primal buff.",
+      "carousel": [
+        {
+          "apiName": "DA_InfinityEdge"
+        },
+        {
+          "apiName": "DA_Component_BFSword"
+        },
+        {
+          "apiName": "DA_Component_SparringGloves"
+        },
+        {
+          "apiName": "DA_Component_GiantsBelt"
+        }
+      ],
+      "collectionId": "1oe5lvmronvq850",
+      "collectionName": "better_guides",
+      "compSlug": "set-18-invoker-nidalee-copy",
+      "created": "2026-08-25 17:22:01.901Z",
+      "difficulty": "MEDIUM",
+      "displayIndex": 16,
+      "earlyComp": [
+        {
+          "apiName": "DA_18_Yorick",
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_Cinderling18",
+          "items": [
+            "DA_InfinityEdge",
+            "DA_SpearOfShojin"
+          ],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_Gromp18_AP",
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_Scuttlecrab18",
+          "items": [],
+          "stars": 1,
+          "trait": null
+        }
+      ],
+      "finalComp": [
+        {
+          "apiName": "DA_Cinderling18",
+          "boardIndex": 27,
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_RekSai",
+          "boardIndex": 20,
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_KogMaw18_AD",
+          "boardIndex": 22,
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_Krug18",
+          "boardIndex": 17,
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_Sentinel18",
+          "boardIndex": 19,
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Malphite",
+          "boardIndex": 3,
+          "items": [
+            "DA_GargoyleStoneplate",
+            "DA_WarmogsArmor",
+            "DA_Crownguard"
+          ],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_Nidalee18_AP",
+          "boardIndex": 14,
+          "items": [
+            "DA_InfinityEdge",
+            "DA_SteraksGage",
+            "DA_SpearOfShojin"
+          ],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Sivir",
+          "boardIndex": 21,
+          "items": [
+            "DA_InfinityEdge",
+            "DA_RedBuff",
+            "DA_StrikersFlail"
+          ],
+          "stars": 1,
+          "trait": null
+        }
+      ],
+      "id": "ggxzd3j3w9knl0e",
+      "isPublic": true,
+      "mainChampion": {
+        "apiName": "DA_18_Sivir",
+        "cost": 4
+      },
+      "mainItem": {
+        "apiName": "DA_18_EmblemHunter"
+      },
+      "maxCap": [
+        {
+          "apiName": "DA_18_Sett",
+          "items": [],
+          "predecessors": [
+            "DA_18_Malphite"
+          ],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Ashe",
+          "items": [],
+          "predecessors": [
+            "DA_Cinderling18"
+          ],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_GnarSmall",
+          "items": [],
+          "predecessors": [
+            "DA_Krug18"
+          ],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_Taric18",
+          "items": [],
+          "predecessors": [
+            "DA_18_RekSai"
+          ],
+          "stars": 1,
+          "trait": null
+        }
+      ],
+      "metaTitle": "Primal Nidalee Sivir",
+      "metadata": {},
+      "overlayAugments": [
+        {
+          "apiName": "DA_18_BranchingOut",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_18_BranchingOutPlus",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_18_PrimalAugment_Nidalee",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_18_PrimalAugment_Sivir",
+          "disabled": false
+        }
+      ],
+      "rank": "",
+      "set": 18,
+      "sticker": 3,
+      "style": "4-Cost Fast 8",
+      "tier": "B",
+      "tips": [
+        {
+          "stage": "Stage 2",
+          "tip": "Play around a strong AD opener around Cinderling 2 with Riftbeasts. Slam all your AD and tank items aggressively for win streak."
+        },
+        {
+          "stage": "Stage 3",
+          "tip": "Comp is very Sword hungry so keep taking them off augments / carousels when possible. You can flex in 5 Riftbeast for better shops or more generic frontline."
+        },
+        {
+          "stage": "Stage 4",
+          "tip": "Level to 8 and roll for Nidalee, Sivir, and Malphite / tank. If Malphite is too contested, consider Sentinel or Krug tank instead."
+        }
+      ],
+      "title": "Primal Jungle",
+      "updated": "2026-10-02 04:11:27.086Z"
     },
     {
       "altBuilds": [
@@ -4570,240 +4533,7 @@
         }
       ],
       "title": "Warwick Reroll",
-      "updated": "2026-09-30 21:33:53.721Z"
-    },
-    {
-      "altBuilds": [],
-      "anomaliedChampions": [
-        {
-          "apiName": "DA_Cinderling18"
-        },
-        {
-          "apiName": "DA_Krug18"
-        }
-      ],
-      "anomaliesOverride": [],
-      "augmentTypes": [
-        "ITEMS",
-        "ECON",
-        "COMBAT"
-      ],
-      "augments": [
-        {
-          "apiName": "DA_18_RiftbeastTraitAugment",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_18_RiftbeastTraitAugmentStampede",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_JeweledLotus_I",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_GlassCannon_Silver",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_WorththeWaitII",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_18_CaretakersAlly",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_LuckyGlovesPlus",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_NestingDolls",
-          "disabled": false
-        }
-      ],
-      "augmentsTip": "Use 5 Riftbeast shops to finish your 3* because you want to rush 7 Riftbeast on Level 7 ASAP. You can carry ALL of the riftbeast carries besides Mama Beak if you have items. Krug 3 is the best tank but you can also tank Sentinel 2 > Scuttle Crab 3. Alpha Mark Cinderling early > Crab late.",
-      "carousel": [
-        {
-          "apiName": "DA_LastWhisper"
-        },
-        {
-          "apiName": "DA_Component_BFSword"
-        },
-        {
-          "apiName": "DA_Component_TearOfTheGoddess"
-        },
-        {
-          "apiName": "DA_Component_GiantsBelt"
-        }
-      ],
-      "collectionId": "1oe5lvmronvq850",
-      "collectionName": "better_guides",
-      "compSlug": "set-18-riftbeast-reroll",
-      "created": "2026-07-30 02:40:08.234Z",
-      "difficulty": "EASY",
-      "displayIndex": 19,
-      "earlyComp": [
-        {
-          "apiName": "DA_Cinderling18",
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Sentry",
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Yorick",
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_Scuttlecrab18",
-          "items": [],
-          "stars": 1,
-          "trait": null
-        }
-      ],
-      "finalComp": [
-        {
-          "apiName": "DA_Cinderling18",
-          "boardIndex": 27,
-          "items": [
-            "DA_InfinityEdge",
-            "DA_BlueBuff",
-            "DA_LastWhisper"
-          ],
-          "stars": 3,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Sentry",
-          "boardIndex": 26,
-          "items": [
-            "DA_BlueBuff",
-            "DA_RabadonsDeathcap",
-            "DA_JeweledGauntlet"
-          ],
-          "stars": 3,
-          "trait": null
-        },
-        {
-          "apiName": "DA_Murkwolf18",
-          "boardIndex": 17,
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_Scuttlecrab18",
-          "boardIndex": 18,
-          "items": [],
-          "stars": 3,
-          "trait": null
-        },
-        {
-          "apiName": "DA_Krug18",
-          "boardIndex": 4,
-          "items": [
-            "DA_WarmogsArmor",
-            "DA_GargoyleStoneplate",
-            "DA_SpiritVisage"
-          ],
-          "stars": 3,
-          "trait": null
-        },
-        {
-          "apiName": "DA_Sentinel18",
-          "boardIndex": 16,
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_Brambleback18",
-          "boardIndex": 20,
-          "items": [
-            "DA_ThiefsGloves"
-          ],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_GnarSmall",
-          "boardIndex": 19,
-          "items": [],
-          "stars": 1,
-          "trait": null
-        }
-      ],
-      "id": "wz0a5dwezzb5rbh",
-      "isPublic": true,
-      "mainChampion": {
-        "apiName": "DA_18_Sentry",
-        "cost": 1
-      },
-      "maxCap": [
-        {
-          "apiName": "DA_Gromp18_AP",
-          "items": [],
-          "predecessors": [
-            "DA_Cinderling18"
-          ],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_ElderDragon",
-          "items": [],
-          "predecessors": [
-            "DA_Brambleback18"
-          ],
-          "stars": 1,
-          "trait": null
-        }
-      ],
-      "metaTitle": "Riftbeast Pebbles Reroll",
-      "metadata": {},
-      "overlayAugments": [
-        {
-          "apiName": "DA_VerticalityI",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_VerticalityII",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_VerticalityIII",
-          "disabled": false
-        }
-      ],
-      "rank": "",
-      "set": 18,
-      "sticker": 0,
-      "style": "1-Cost Reroll",
-      "tier": "C",
-      "tips": [
-        {
-          "stage": "Stage 2",
-          "tip": "Slam items aggressively and play for full win streak with Pebbles items. Alpha Mark Crab or Gromp."
-        },
-        {
-          "stage": "Stage 3",
-          "tip": "Save up econ and try to go level 7  for 7 riftbeast on 3-5, if you're poor wait until 4-1."
-        },
-        {
-          "stage": "Stage 4",
-          "tip": "Once you have your 3*, level to 8 and field 7 Riftbeast. If you can get to 9, you can ditch 1* Ravagers for Elder Dragon."
-        }
-      ],
-      "title": "Riftbeast Reroll",
-      "updated": "2026-09-30 21:31:53.430Z"
+      "updated": "2026-10-02 04:11:27.175Z"
     },
     {
       "altBuilds": [
@@ -4887,7 +4617,7 @@
       "compSlug": "set-18-solar-melee",
       "created": "2026-09-05 02:15:04.197Z",
       "difficulty": "EASY",
-      "displayIndex": 20,
+      "displayIndex": 19,
       "earlyComp": [
         {
           "apiName": "DA_18_Akali_AD",
@@ -5055,7 +4785,7 @@
         }
       ],
       "title": "Solar Melee",
-      "updated": "2026-09-30 21:31:53.422Z"
+      "updated": "2026-10-02 04:11:27.185Z"
     },
     {
       "altBuilds": [
@@ -5145,7 +4875,7 @@
       "compSlug": "set-18-rengar-rr",
       "created": "2026-07-30 12:24:03.375Z",
       "difficulty": "MEDIUM",
-      "displayIndex": 21,
+      "displayIndex": 20,
       "earlyComp": [
         {
           "apiName": "DA_18_Rakan",
@@ -5286,32 +5016,266 @@
         }
       ],
       "title": "Rengar Reroll",
-      "updated": "2026-09-30 21:31:53.597Z"
+      "updated": "2026-10-02 04:11:27.190Z"
     },
     {
-      "altBuilds": [
+      "altBuilds": [],
+      "anomaliedChampions": [
         {
-          "apiName": "DA_18_Kayle",
+          "apiName": "DA_Cinderling18"
+        },
+        {
+          "apiName": "DA_Krug18"
+        }
+      ],
+      "anomaliesOverride": [],
+      "augmentTypes": [
+        "ITEMS",
+        "ECON",
+        "COMBAT"
+      ],
+      "augments": [
+        {
+          "apiName": "DA_18_RiftbeastTraitAugment",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_18_RiftbeastTraitAugmentStampede",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_JeweledLotus_I",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_GlassCannon_Silver",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_WorththeWaitII",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_18_CaretakersAlly",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_LuckyGlovesPlus",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_NestingDolls",
+          "disabled": false
+        }
+      ],
+      "augmentsTip": "Use 5 Riftbeast shops to finish your 3* because you want to rush 7 Riftbeast on Level 7 ASAP. You can carry ALL of the riftbeast carries besides Mama Beak if you have items. Krug 3 is the best tank but you can also tank Sentinel 2 > Scuttle Crab 3. Alpha Mark Cinderling early > Crab late.",
+      "carousel": [
+        {
+          "apiName": "DA_LastWhisper"
+        },
+        {
+          "apiName": "DA_Component_BFSword"
+        },
+        {
+          "apiName": "DA_Component_TearOfTheGoddess"
+        },
+        {
+          "apiName": "DA_Component_GiantsBelt"
+        }
+      ],
+      "collectionId": "1oe5lvmronvq850",
+      "collectionName": "better_guides",
+      "compSlug": "set-18-riftbeast-reroll",
+      "created": "2026-07-30 02:40:08.234Z",
+      "difficulty": "EASY",
+      "displayIndex": 21,
+      "earlyComp": [
+        {
+          "apiName": "DA_Cinderling18",
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Sentry",
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Yorick",
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_Scuttlecrab18",
+          "items": [],
+          "stars": 1,
+          "trait": null
+        }
+      ],
+      "finalComp": [
+        {
+          "apiName": "DA_Cinderling18",
+          "boardIndex": 27,
           "items": [
-            "DA_Artifact_WitsEnd",
-            "DA_Artifact_StatikkShiv",
-            "DA_Artifact_Mittens"
+            "DA_InfinityEdge",
+            "DA_BlueBuff",
+            "DA_LastWhisper"
+          ],
+          "stars": 3,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Sentry",
+          "boardIndex": 26,
+          "items": [
+            "DA_BlueBuff",
+            "DA_RabadonsDeathcap",
+            "DA_JeweledGauntlet"
+          ],
+          "stars": 3,
+          "trait": null
+        },
+        {
+          "apiName": "DA_Murkwolf18",
+          "boardIndex": 17,
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_Scuttlecrab18",
+          "boardIndex": 18,
+          "items": [],
+          "stars": 3,
+          "trait": null
+        },
+        {
+          "apiName": "DA_Krug18",
+          "boardIndex": 4,
+          "items": [
+            "DA_WarmogsArmor",
+            "DA_GargoyleStoneplate",
+            "DA_SpiritVisage"
+          ],
+          "stars": 3,
+          "trait": null
+        },
+        {
+          "apiName": "DA_Sentinel18",
+          "boardIndex": 16,
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_Brambleback18",
+          "boardIndex": 20,
+          "items": [
+            "DA_ThiefsGloves"
           ],
           "stars": 1,
           "trait": null
         },
         {
-          "apiName": "DA_18_Kayle",
-          "items": [
-            "DA_Artifact_RapidFireCannon",
-            "DA_Item_Artifact_TalismanOfAscension",
-            "DA_Artifact_ZhonyasParadox"
+          "apiName": "DA_18_GnarSmall",
+          "boardIndex": 19,
+          "items": [],
+          "stars": 1,
+          "trait": null
+        }
+      ],
+      "id": "wz0a5dwezzb5rbh",
+      "isPublic": true,
+      "mainChampion": {
+        "apiName": "DA_18_Sentry",
+        "cost": 1
+      },
+      "maxCap": [
+        {
+          "apiName": "DA_Gromp18_AP",
+          "items": [],
+          "predecessors": [
+            "DA_Cinderling18"
+          ],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_ElderDragon",
+          "items": [],
+          "predecessors": [
+            "DA_Brambleback18"
           ],
           "stars": 1,
           "trait": null
         }
       ],
-      "anomaliedChampions": [],
+      "metaTitle": "Riftbeast Pebbles Reroll",
+      "metadata": {},
+      "overlayAugments": [
+        {
+          "apiName": "DA_VerticalityI",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_VerticalityII",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_VerticalityIII",
+          "disabled": false
+        }
+      ],
+      "rank": "",
+      "set": 18,
+      "sticker": 0,
+      "style": "1-Cost Reroll",
+      "tier": "C",
+      "tips": [
+        {
+          "stage": "Stage 2",
+          "tip": "Slam items aggressively and play for full win streak with Pebbles items. Alpha Mark Crab or Gromp."
+        },
+        {
+          "stage": "Stage 3",
+          "tip": "Save up econ and try to go level 7  for 7 riftbeast on 3-5, if you're poor wait until 4-1."
+        },
+        {
+          "stage": "Stage 4",
+          "tip": "Once you have your 3*, level to 8 and field 7 Riftbeast. If you can get to 9, you can ditch 1* Ravagers for Elder Dragon."
+        }
+      ],
+      "title": "Riftbeast Reroll",
+      "updated": "2026-10-02 04:11:27.200Z"
+    },
+    {
+      "altBuilds": [
+        {
+          "apiName": "DA_18_Morgana",
+          "items": [
+            "DA_Artifact_BlightingJewel"
+          ],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_Nidalee18_AP",
+          "items": [
+            "DA_Artifact_NavoriFlickerblade",
+            "DA_Artifact_StatikkShiv"
+          ],
+          "stars": 1,
+          "trait": null
+        }
+      ],
+      "anomaliedChampions": [
+        {
+          "apiName": "DA_Scuttlecrab18"
+        }
+      ],
       "anomaliesOverride": [],
       "augmentTypes": [
         "ECON",
@@ -5320,76 +5284,74 @@
       ],
       "augments": [
         {
-          "apiName": "DA_18_SolarTraitAugment",
+          "apiName": "DA_WandOverflow",
           "disabled": false
         },
         {
-          "apiName": "DA_PandorasBench",
+          "apiName": "DA_SpeedyDoubleKill",
           "disabled": false
         },
         {
-          "apiName": "DA_PrismaticTicket",
+          "apiName": "DA_Staffsmith",
           "disabled": false
         },
         {
-          "apiName": "DA_NoScoutNoPivot",
+          "apiName": "DA_18_BigGrabBag",
           "disabled": false
         },
         {
-          "apiName": "DA_HeroicGrabBagPlus",
+          "apiName": "DA_18_PrimalAugmentPlus_Nidalee",
           "disabled": false
         },
         {
-          "apiName": "DA_MissedConnections",
+          "apiName": "DA_CaretakersFavor",
           "disabled": false
         },
         {
-          "apiName": "DA_PortableForge",
+          "apiName": "DA_BuriedTreasuresIII",
           "disabled": false
         },
         {
-          "apiName": "DA_18_ElderwoodTraitAugment",
+          "apiName": "DA_TimeSkip",
           "disabled": false
         }
       ],
-      "augmentsTip": "Roll on 3-1 to try and finish a 3* 1 cost for bench space -> Slow roll above 50g on level 5. Ornn Artifact print is very strong but only scales quickly once you get him to 3*. Kayle has built in 20% Shred at 2*. ",
+      "augmentsTip": "Prioritize Nidalee > Morello on Morgana + Tank > leftover AP on Morgana. Riftbeast Alpha Mark the Scuttle Crab. Kogmaw provides free Sunder / Shred. Take tiger primal buff.",
       "carousel": [
         {
           "apiName": "DA_GuinsoosRageblade"
         },
         {
-          "apiName": "DA_GargoyleStoneplate"
+          "apiName": "DA_JeweledGauntlet"
         },
         {
-          "apiName": "DA_Component_NeedlesslyLargeRod"
+          "apiName": "DA_Morellonomicon"
         },
         {
-          "apiName": "DA_Component_SparringGloves"
+          "apiName": "DA_Component_GiantsBelt"
         }
       ],
       "collectionId": "1oe5lvmronvq850",
       "collectionName": "better_guides",
-      "compSlug": "set-18-solar-kayle",
-      "created": "2026-07-30 01:20:22.466Z",
-      "difficulty": "EASY",
+      "compSlug": "set-18-adaptor-nidalee",
+      "created": "2026-08-10 23:52:51.978Z",
+      "difficulty": "MEDIUM",
       "displayIndex": 22,
       "earlyComp": [
         {
-          "apiName": "DA_18_Leona",
+          "apiName": "DA_18_Rakan",
           "items": [],
           "stars": 1,
           "trait": null
         },
         {
-          "apiName": "DA_18_Ornn",
-          "items": [
-            "DA_GargoyleStoneplate"
-          ],
+          "apiName": "DA_18_Xayah",
+          "items": [],
           "stars": 1,
           "trait": null
         },
         {
-          "apiName": "DA_18_Sejuani",
+          "apiName": "DA_Scuttlecrab18",
           "items": [],
           "stars": 1,
           "trait": null
@@ -5397,6 +5359,7 @@
         {
           "apiName": "DA_18_Kayle",
           "items": [
+            "DA_JeweledGauntlet",
             "DA_GuinsoosRageblade"
           ],
           "stars": 1,
@@ -5405,133 +5368,133 @@
       ],
       "finalComp": [
         {
-          "apiName": "DA_Elderwood18_Lifeblossom",
+          "apiName": "DA_18_Sentry",
+          "boardIndex": 27,
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_Scuttlecrab18",
+          "boardIndex": 4,
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_KogMaw18_AD",
           "boardIndex": 22,
           "items": [],
           "stars": 1,
           "trait": null
         },
         {
-          "apiName": "DA_Elderwood18_StonebarkTree",
-          "boardIndex": 0,
+          "apiName": "DA_Vi18",
+          "boardIndex": 5,
           "items": [],
           "stars": 1,
           "trait": null
         },
         {
-          "apiName": "DA_18_Leona",
-          "boardIndex": 11,
-          "items": [],
-          "stars": 3,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Rakan",
-          "boardIndex": 17,
-          "items": [],
-          "stars": 3,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Ornn",
-          "boardIndex": 4,
+          "apiName": "DA_18_Morgana",
+          "boardIndex": 9,
           "items": [
-            "DA_GargoyleStoneplate",
+            "DA_Morellonomicon",
+            "DA_ArchangelsStaff",
+            "DA_AdaptiveHelm"
+          ],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_Nidalee18_AP",
+          "boardIndex": 21,
+          "items": [
+            "DA_JeweledGauntlet",
+            "DA_GuinsoosRageblade",
+            "DA_StrikersFlail"
+          ],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_Sentinel18",
+          "boardIndex": 3,
+          "items": [
+            "DA_ProtectorsVow",
             "DA_WarmogsArmor",
-            "DA_SpiritVisage"
+            "DA_AdaptiveHelm"
           ],
-          "stars": 3,
+          "stars": 1,
           "trait": null
         },
         {
-          "apiName": "DA_18_Xayah",
-          "boardIndex": 26,
-          "items": [
-            "DA_GuinsoosRageblade",
-            "DA_RedBuff",
-            "DA_Deathblade"
-          ],
-          "stars": 3,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Sejuani",
-          "boardIndex": 10,
-          "items": [],
-          "stars": 3,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Kayle",
-          "boardIndex": 27,
-          "items": [
-            "DA_GuinsoosRageblade",
-            "DA_Artifact_NavoriFlickerblade",
-            "DA_RabadonsDeathcap"
-          ],
-          "stars": 3,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Hecarim",
-          "boardIndex": 18,
+          "apiName": "DA_Taric18",
+          "boardIndex": 2,
           "items": [],
           "stars": 1,
           "trait": null
         }
       ],
-      "id": "9pb3hm3rsvrwybi",
+      "id": "o9jvqx283oovfzr",
       "isPublic": true,
-      "mainAugment": {
-        "apiName": "DA_PortableForge",
-        "disabled": false
-      },
       "mainChampion": {
-        "apiName": "DA_18_Kayle",
-        "cost": 2
+        "apiName": "DA_Nidalee18_AP",
+        "cost": 4
       },
-      "maxCap": [],
-      "metaTitle": "Solar Kayle Reroll",
+      "maxCap": [
+        {
+          "apiName": "DA_18_Rakan",
+          "items": [],
+          "predecessors": [
+            "DA_Scuttlecrab18"
+          ],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Hecarim",
+          "items": [],
+          "predecessors": [
+            "DA_18_Sentry"
+          ],
+          "stars": 1,
+          "trait": null
+        }
+      ],
+      "metaTitle": "Invoker Nidalee",
       "metadata": {},
       "overlayAugments": [
         {
-          "apiName": "DA_WorththeWait",
+          "apiName": "DA_GlassCannon_Silver",
           "disabled": false
         },
         {
-          "apiName": "DA_PandorasBench",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_Ascension",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_PrismaticTicket",
+          "apiName": "DA_GlassCannon_Gold",
           "disabled": false
         }
       ],
       "rank": "",
       "set": 18,
       "sticker": 0,
-      "style": "2-Cost Reroll",
+      "style": "4-Cost Fast 8",
       "tier": "C",
       "tips": [
         {
           "stage": "Stage 2",
-          "tip": "Ideally open with Kayle and upgraded Ornn. After Rageblade, prioritize tank items on Ornn so he can begin reliably stacking Artifact scaling."
+          "tip": "Play any strong Rageblade opener on an AP carry such as Kayle, Master Yi, or a Spellweaver. Opener is very flexible."
         },
         {
           "stage": "Stage 3",
-          "tip": "Bench priority: Kayle 3 > Ornn 3 > Xayah / Leona > Sejuani > Rakan. Once you finish 1 costs, move up to level 6 for 2 costs."
+          "tip": "Comp is very Rod hungry so keep taking them off augments / carousels when possible. If you are not playing Invokers, hold onto cheap units like Pebbles for later."
         },
         {
           "stage": "Stage 4",
-          "tip": "Finish your 3* and level for Elderwood. Cap with any 5 costs like Lux, Ivern, Taric, etc."
+          "tip": "Level to 8 and roll for 4 Invoker. Avoid tunneling only on 4 Vanguard frontline. You can also flex Brawlers or Juggernauts as needed."
         }
       ],
-      "title": "Solar Kayle",
-      "updated": "2026-09-30 21:31:53.459Z"
+      "title": "Invoker Nidalee",
+      "updated": "2026-10-02 04:11:27.189Z"
     },
     {
       "altBuilds": [],
@@ -5758,33 +5721,32 @@
         }
       ],
       "title": "Teemowood",
-      "updated": "2026-09-30 21:31:53.482Z"
+      "updated": "2026-10-02 04:11:27.136Z"
     },
     {
       "altBuilds": [
         {
-          "apiName": "DA_18_Morgana",
+          "apiName": "DA_18_Kayle",
           "items": [
-            "DA_Artifact_BlightingJewel"
+            "DA_Artifact_WitsEnd",
+            "DA_Artifact_StatikkShiv",
+            "DA_Artifact_Mittens"
           ],
           "stars": 1,
           "trait": null
         },
         {
-          "apiName": "DA_Nidalee18_AP",
+          "apiName": "DA_18_Kayle",
           "items": [
-            "DA_Artifact_NavoriFlickerblade",
-            "DA_Artifact_StatikkShiv"
+            "DA_Artifact_RapidFireCannon",
+            "DA_Item_Artifact_TalismanOfAscension",
+            "DA_Artifact_ZhonyasParadox"
           ],
           "stars": 1,
           "trait": null
         }
       ],
-      "anomaliedChampions": [
-        {
-          "apiName": "DA_Scuttlecrab18"
-        }
-      ],
+      "anomaliedChampions": [],
       "anomaliesOverride": [],
       "augmentTypes": [
         "ECON",
@@ -5793,74 +5755,76 @@
       ],
       "augments": [
         {
-          "apiName": "DA_WandOverflow",
+          "apiName": "DA_18_SolarTraitAugment",
           "disabled": false
         },
         {
-          "apiName": "DA_SpeedyDoubleKill",
+          "apiName": "DA_PandorasBench",
           "disabled": false
         },
         {
-          "apiName": "DA_Staffsmith",
+          "apiName": "DA_PrismaticTicket",
           "disabled": false
         },
         {
-          "apiName": "DA_18_BigGrabBag",
+          "apiName": "DA_NoScoutNoPivot",
           "disabled": false
         },
         {
-          "apiName": "DA_18_PrimalAugmentPlus_Nidalee",
+          "apiName": "DA_HeroicGrabBagPlus",
           "disabled": false
         },
         {
-          "apiName": "DA_CaretakersFavor",
+          "apiName": "DA_MissedConnections",
           "disabled": false
         },
         {
-          "apiName": "DA_BuriedTreasuresIII",
+          "apiName": "DA_PortableForge",
           "disabled": false
         },
         {
-          "apiName": "DA_TimeSkip",
+          "apiName": "DA_18_ElderwoodTraitAugment",
           "disabled": false
         }
       ],
-      "augmentsTip": "Prioritize Nidalee > Morello on Morgana + Tank > leftover AP on Morgana. Riftbeast Alpha Mark the Scuttle Crab. Kogmaw provides free Sunder / Shred. Take tiger primal buff.",
+      "augmentsTip": "Roll on 3-1 to try and finish a 3* 1 cost for bench space -> Slow roll above 50g on level 5. Ornn Artifact print is very strong but only scales quickly once you get him to 3*. Kayle has built in 20% Shred at 2*. ",
       "carousel": [
         {
           "apiName": "DA_GuinsoosRageblade"
         },
         {
-          "apiName": "DA_JeweledGauntlet"
+          "apiName": "DA_GargoyleStoneplate"
         },
         {
-          "apiName": "DA_Morellonomicon"
+          "apiName": "DA_Component_NeedlesslyLargeRod"
         },
         {
-          "apiName": "DA_Component_GiantsBelt"
+          "apiName": "DA_Component_SparringGloves"
         }
       ],
       "collectionId": "1oe5lvmronvq850",
       "collectionName": "better_guides",
-      "compSlug": "set-18-adaptor-nidalee",
-      "created": "2026-08-10 23:52:51.978Z",
-      "difficulty": "MEDIUM",
+      "compSlug": "set-18-solar-kayle",
+      "created": "2026-07-30 01:20:22.466Z",
+      "difficulty": "EASY",
       "displayIndex": 24,
       "earlyComp": [
         {
-          "apiName": "DA_18_Rakan",
+          "apiName": "DA_18_Leona",
           "items": [],
           "stars": 1,
           "trait": null
         },
         {
-          "apiName": "DA_18_Xayah",
-          "items": [],
+          "apiName": "DA_18_Ornn",
+          "items": [
+            "DA_GargoyleStoneplate"
+          ],
           "stars": 1,
           "trait": null
         },
         {
-          "apiName": "DA_Scuttlecrab18",
+          "apiName": "DA_18_Sejuani",
           "items": [],
           "stars": 1,
           "trait": null
@@ -5868,7 +5832,6 @@
         {
           "apiName": "DA_18_Kayle",
           "items": [
-            "DA_JeweledGauntlet",
             "DA_GuinsoosRageblade"
           ],
           "stars": 1,
@@ -5877,133 +5840,133 @@
       ],
       "finalComp": [
         {
-          "apiName": "DA_18_Sentry",
-          "boardIndex": 27,
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_Scuttlecrab18",
-          "boardIndex": 4,
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_KogMaw18_AD",
+          "apiName": "DA_Elderwood18_Lifeblossom",
           "boardIndex": 22,
           "items": [],
           "stars": 1,
           "trait": null
         },
         {
-          "apiName": "DA_Vi18",
-          "boardIndex": 5,
+          "apiName": "DA_Elderwood18_StonebarkTree",
+          "boardIndex": 0,
           "items": [],
           "stars": 1,
           "trait": null
         },
         {
-          "apiName": "DA_18_Morgana",
-          "boardIndex": 9,
-          "items": [
-            "DA_Morellonomicon",
-            "DA_ArchangelsStaff",
-            "DA_AdaptiveHelm"
-          ],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_Nidalee18_AP",
-          "boardIndex": 21,
-          "items": [
-            "DA_JeweledGauntlet",
-            "DA_GuinsoosRageblade",
-            "DA_StrikersFlail"
-          ],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_Sentinel18",
-          "boardIndex": 3,
-          "items": [
-            "DA_ProtectorsVow",
-            "DA_WarmogsArmor",
-            "DA_AdaptiveHelm"
-          ],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_Taric18",
-          "boardIndex": 2,
+          "apiName": "DA_18_Leona",
+          "boardIndex": 11,
           "items": [],
-          "stars": 1,
+          "stars": 3,
           "trait": null
-        }
-      ],
-      "id": "o9jvqx283oovfzr",
-      "isPublic": true,
-      "mainChampion": {
-        "apiName": "DA_Nidalee18_AP",
-        "cost": 4
-      },
-      "maxCap": [
+        },
         {
           "apiName": "DA_18_Rakan",
+          "boardIndex": 17,
           "items": [],
-          "predecessors": [
-            "DA_Scuttlecrab18"
+          "stars": 3,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Ornn",
+          "boardIndex": 4,
+          "items": [
+            "DA_GargoyleStoneplate",
+            "DA_WarmogsArmor",
+            "DA_SpiritVisage"
           ],
-          "stars": 1,
+          "stars": 3,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Xayah",
+          "boardIndex": 26,
+          "items": [
+            "DA_GuinsoosRageblade",
+            "DA_RedBuff",
+            "DA_Deathblade"
+          ],
+          "stars": 3,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Sejuani",
+          "boardIndex": 10,
+          "items": [],
+          "stars": 3,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Kayle",
+          "boardIndex": 27,
+          "items": [
+            "DA_GuinsoosRageblade",
+            "DA_Artifact_NavoriFlickerblade",
+            "DA_RabadonsDeathcap"
+          ],
+          "stars": 3,
           "trait": null
         },
         {
           "apiName": "DA_18_Hecarim",
+          "boardIndex": 18,
           "items": [],
-          "predecessors": [
-            "DA_18_Sentry"
-          ],
           "stars": 1,
           "trait": null
         }
       ],
-      "metaTitle": "Invoker Nidalee",
+      "id": "9pb3hm3rsvrwybi",
+      "isPublic": true,
+      "mainAugment": {
+        "apiName": "DA_PortableForge",
+        "disabled": false
+      },
+      "mainChampion": {
+        "apiName": "DA_18_Kayle",
+        "cost": 2
+      },
+      "maxCap": [],
+      "metaTitle": "Solar Kayle Reroll",
       "metadata": {},
       "overlayAugments": [
         {
-          "apiName": "DA_GlassCannon_Silver",
+          "apiName": "DA_WorththeWait",
           "disabled": false
         },
         {
-          "apiName": "DA_GlassCannon_Gold",
+          "apiName": "DA_PandorasBench",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_Ascension",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_PrismaticTicket",
           "disabled": false
         }
       ],
       "rank": "",
       "set": 18,
       "sticker": 0,
-      "style": "4-Cost Fast 8",
+      "style": "2-Cost Reroll",
       "tier": "C",
       "tips": [
         {
           "stage": "Stage 2",
-          "tip": "Play any strong Rageblade opener on an AP carry such as Kayle, Master Yi, or a Spellweaver. Opener is very flexible."
+          "tip": "Ideally open with Kayle and upgraded Ornn. After Rageblade, prioritize tank items on Ornn so he can begin reliably stacking Artifact scaling."
         },
         {
           "stage": "Stage 3",
-          "tip": "Comp is very Rod hungry so keep taking them off augments / carousels when possible. If you are not playing Invokers, hold onto cheap units like Pebbles for later."
+          "tip": "Bench priority: Kayle 3 > Ornn 3 > Xayah / Leona > Sejuani > Rakan. Once you finish 1 costs, move up to level 6 for 2 costs."
         },
         {
           "stage": "Stage 4",
-          "tip": "Level to 8 and roll for 4 Invoker. Avoid tunneling only on 4 Vanguard frontline. You can also flex Brawlers or Juggernauts as needed."
+          "tip": "Finish your 3* and level for Elderwood. Cap with any 5 costs like Lux, Ivern, Taric, etc."
         }
       ],
-      "title": "Invoker Nidalee",
-      "updated": "2026-09-30 21:31:53.157Z"
+      "title": "Solar Kayle",
+      "updated": "2026-10-02 04:11:27.106Z"
     },
     {
       "altBuilds": [],
@@ -6284,7 +6247,7 @@
         }
       ],
       "title": "Trait Ladder",
-      "updated": "2026-09-30 21:31:53.482Z"
+      "updated": "2026-10-02 04:11:27.175Z"
     },
     {
       "altBuilds": [],
@@ -6538,7 +6501,7 @@
         }
       ],
       "title": "Inferno Fast 9",
-      "updated": "2026-09-30 21:31:53.434Z"
+      "updated": "2026-10-02 04:11:26.938Z"
     },
     {
       "altBuilds": [
@@ -6773,7 +6736,7 @@
         }
       ],
       "title": "Veigar Consuming Flora",
-      "updated": "2026-09-30 21:31:53.430Z"
+      "updated": "2026-10-02 04:11:27.194Z"
     },
     {
       "altBuilds": [
@@ -6997,7 +6960,7 @@
         }
       ],
       "title": "Emblem Rengar",
-      "updated": "2026-09-30 21:31:53.578Z"
+      "updated": "2026-10-02 04:11:27.186Z"
     },
     {
       "altBuilds": [
@@ -7227,7 +7190,7 @@
         }
       ],
       "title": "Ravager Elise",
-      "updated": "2026-09-30 21:31:53.491Z"
+      "updated": "2026-10-02 04:11:27.184Z"
     },
     {
       "altBuilds": [
@@ -7463,7 +7426,7 @@
         }
       ],
       "title": "Fae Tristana",
-      "updated": "2026-09-30 21:31:53.430Z"
+      "updated": "2026-10-02 04:11:27.188Z"
     },
     {
       "altBuilds": [],
@@ -7707,7 +7670,7 @@
         }
       ],
       "title": "Unrivaled Reroll",
-      "updated": "2026-09-30 21:31:53.604Z"
+      "updated": "2026-10-02 04:11:27.189Z"
     },
     {
       "altBuilds": [],
@@ -7950,7 +7913,7 @@
         }
       ],
       "title": "Elderwood Executioners",
-      "updated": "2026-09-30 21:31:53.436Z"
+      "updated": "2026-10-02 04:11:27.036Z"
     },
     {
       "altBuilds": [
@@ -8208,7 +8171,7 @@
         }
       ],
       "title": "Spirit Blossom",
-      "updated": "2026-09-30 21:31:53.438Z"
+      "updated": "2026-10-02 04:11:26.802Z"
     },
     {
       "altBuilds": [],
@@ -8455,7 +8418,7 @@
         }
       ],
       "title": "Ashe Fast 9 ",
-      "updated": "2026-09-30 21:31:52.849Z"
+      "updated": "2026-10-02 04:11:27.119Z"
     },
     {
       "altBuilds": [
@@ -8699,7 +8662,7 @@
         }
       ],
       "title": "Adaptor Reroll",
-      "updated": "2026-09-30 21:31:53.513Z"
+      "updated": "2026-10-02 04:11:27.178Z"
     },
     {
       "altBuilds": [],
@@ -8885,234 +8848,7 @@
         }
       ],
       "title": "Sprykin Teemo",
-      "updated": "2026-09-30 21:31:53.464Z"
-    },
-    {
-      "altBuilds": [
-        {
-          "apiName": "DA_18_Yunara",
-          "items": [
-            "DA_Artifact_Dawncore",
-            "DA_SpearOfShojin",
-            "DA_Deathblade"
-          ],
-          "stars": 1,
-          "trait": null
-        }
-      ],
-      "anomaliedChampions": [],
-      "anomaliesOverride": [],
-      "augmentTypes": [
-        "ECON",
-        "ITEMS",
-        "COMBAT"
-      ],
-      "augments": [
-        {
-          "apiName": "DA_WorththeWaitII",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_18_CaretakersAlly",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_KickStart",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_Swordsmith",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_GlassCannon_Silver",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_SwordOverflow",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_HeroicGrabBag",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_SoloPlate",
-          "disabled": false
-        }
-      ],
-      "augmentsTip": "Play when you have lots of copies of Yunara with sword items. Leftover AD on Ezreal. Can also play 3* Leblanc / Ahri 2* as an AP duo carry if you have the items for it. Play Azir + Reksai on 6 before you find Ezreal + Sett. Level for more executioners.",
-      "carousel": [
-        {
-          "apiName": "DA_SpearOfShojin"
-        },
-        {
-          "apiName": "DA_GargoyleStoneplate"
-        },
-        {
-          "apiName": "DA_Deathblade"
-        },
-        {
-          "apiName": "DA_Component_SparringGloves"
-        }
-      ],
-      "collectionId": "1oe5lvmronvq850",
-      "collectionName": "better_guides",
-      "compSlug": "set-18-moo-nara",
-      "created": "2026-08-09 18:49:41.418Z",
-      "difficulty": "MEDIUM",
-      "displayIndex": 1001,
-      "earlyComp": [
-        {
-          "apiName": "DA_Karma18",
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Yorick",
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Yunara",
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Azir",
-          "items": [],
-          "stars": 1,
-          "trait": null
-        }
-      ],
-      "finalComp": [
-        {
-          "apiName": "DA_18_Alistar",
-          "boardIndex": 4,
-          "items": [
-            "DA_GargoyleStoneplate",
-            "DA_SpiritVisage",
-            "DA_WarmogsArmor"
-          ],
-          "stars": 3,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Yunara",
-          "boardIndex": 27,
-          "items": [
-            "DA_Deathblade",
-            "DA_SpearOfShojin",
-            "DA_StrikersFlail"
-          ],
-          "stars": 3,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Ezreal",
-          "boardIndex": 26,
-          "items": [
-            "DA_LastWhisper",
-            "DA_SpearOfShojin",
-            "DA_RedBuff"
-          ],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Azir",
-          "boardIndex": 21,
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_GnarSmall",
-          "boardIndex": 18,
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Yorick",
-          "boardIndex": 0,
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_Elderwood18_Lifeblossom",
-          "boardIndex": 17,
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Sett",
-          "boardIndex": 3,
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_RekSai",
-          "boardIndex": 2,
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_Elderwood18_StonebarkTree",
-          "boardIndex": 1,
-          "items": [],
-          "stars": 1,
-          "trait": null
-        }
-      ],
-      "id": "3s628k9w9qsh8mw",
-      "isPublic": true,
-      "mainChampion": {
-        "apiName": "DA_18_Yunara",
-        "cost": 2
-      },
-      "maxCap": [
-        {
-          "apiName": "DA_18_Kennen",
-          "items": [],
-          "predecessors": [
-            "TFT_Flex_Lv8"
-          ],
-          "stars": 1,
-          "trait": null
-        }
-      ],
-      "metaTitle": "Alistar Yunara Reroll",
-      "metadata": {},
-      "overlayAugments": [],
-      "rank": "",
-      "set": 18,
-      "sticker": 0,
-      "style": "2-Cost Reroll",
-      "tier": "C",
-      "tips": [
-        {
-          "stage": "Stage 2",
-          "tip": "Slam items for Yunara and play for win streak with Blossom in. Tank Yorick / Juggernaut until you find Alistar."
-        },
-        {
-          "stage": "Stage 3",
-          "tip": "Level at 3-2 and roll for 2* upgrades then econ up. The level 6 board plays Azir + Rek'Sai until you find Sett / Ezreal. Skip Azir 2, too expensive."
-        },
-        {
-          "stage": "Stage 4",
-          "tip": "Finish your 3* then level for Executioners. Your biggest spike is 3 Executioner, but Kennen caps your board. Gnar is nice but not important."
-        }
-      ],
-      "title": "Moo-nara",
-      "updated": "2026-09-30 21:31:53.563Z"
+      "updated": "2026-10-02 04:11:27.117Z"
     },
     {
       "altBuilds": [],
@@ -9362,7 +9098,7 @@
         }
       ],
       "title": "10 Riftbeast",
-      "updated": "2026-09-30 21:31:53.141Z"
+      "updated": "2026-10-02 04:11:27.157Z"
     },
     {
       "altBuilds": [
@@ -9616,7 +9352,7 @@
         }
       ],
       "title": "Aphelios Rapidfire",
-      "updated": "2026-09-30 21:31:53.133Z"
+      "updated": "2026-10-02 04:11:26.777Z"
     },
     {
       "altBuilds": [
@@ -9874,7 +9610,257 @@
         }
       ],
       "title": "Primal Flex",
-      "updated": "2026-09-30 21:31:53.413Z"
+      "updated": "2026-10-02 04:11:27.124Z"
+    },
+    {
+      "altBuilds": [
+        {
+          "apiName": "DA_18_Yunara",
+          "items": [
+            "DA_Artifact_Dawncore",
+            "DA_SpearOfShojin",
+            "DA_Deathblade"
+          ],
+          "stars": 1,
+          "trait": null
+        }
+      ],
+      "anomaliedChampions": [],
+      "anomaliesOverride": [],
+      "augmentTypes": [
+        "ECON",
+        "ITEMS",
+        "COMBAT"
+      ],
+      "augments": [
+        {
+          "apiName": "DA_18_CaretakersAlly",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_Swordsmith",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_SwordOverflow",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_HeroicGrabBag",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_SoloPlate",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_PandorasBench",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_PrismaticTicket",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_KickStart",
+          "disabled": false
+        }
+      ],
+      "augmentsTip": "Prioritize 3* Yunara & Karma + 3 Blossom + LeBlanc early for clone copies. Add 3 Solar after you finish your 3* at levels 7/8 once you get 5 three stars online. Hold only 1 copy of Kayle on the bench max when rolling.",
+      "carousel": [
+        {
+          "apiName": "DA_SpearOfShojin"
+        },
+        {
+          "apiName": "DA_GargoyleStoneplate"
+        },
+        {
+          "apiName": "DA_LastWhisper"
+        },
+        {
+          "apiName": "DA_Component_BFSword"
+        }
+      ],
+      "collectionId": "1oe5lvmronvq850",
+      "collectionName": "better_guides",
+      "compSlug": "set-18-solara-yunara",
+      "created": "2026-09-13 04:12:54.014Z",
+      "difficulty": "MEDIUM",
+      "displayIndex": 1001,
+      "earlyComp": [
+        {
+          "apiName": "DA_Karma18",
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Yorick",
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_LeBlanc",
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Yunara",
+          "items": [
+            "DA_SpearOfShojin",
+            "DA_LastWhisper"
+          ],
+          "stars": 1,
+          "trait": null
+        }
+      ],
+      "finalComp": [
+        {
+          "apiName": "DA_18_Leona",
+          "boardIndex": 21,
+          "items": [],
+          "stars": 3,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Yorick",
+          "boardIndex": 17,
+          "items": [],
+          "stars": 3,
+          "trait": null
+        },
+        {
+          "apiName": "DA_Karma18",
+          "boardIndex": 26,
+          "items": [
+            "DA_SpearOfShojin",
+            "DA_VoidStaff",
+            "DA_JeweledGauntlet"
+          ],
+          "stars": 3,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Kayle",
+          "boardIndex": 23,
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_LeBlanc",
+          "boardIndex": 25,
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Sejuani",
+          "boardIndex": 3,
+          "items": [
+            "DA_GargoyleStoneplate",
+            "DA_WarmogsArmor",
+            "DA_GargoyleStoneplate"
+          ],
+          "stars": 3,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Yunara",
+          "boardIndex": 27,
+          "items": [
+            "DA_Deathblade",
+            "DA_SpearOfShojin",
+            "DA_LastWhisper"
+          ],
+          "stars": 3,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Azir",
+          "boardIndex": 22,
+          "items": [],
+          "stars": 1,
+          "trait": null
+        }
+      ],
+      "id": "dp3g3imnc4cihl4",
+      "isPublic": true,
+      "mainChampion": {
+        "apiName": "DA_18_Yunara",
+        "cost": 2
+      },
+      "maxCap": [
+        {
+          "apiName": "DA_Fiddlesticks18",
+          "items": [],
+          "predecessors": [
+            "DA_18_Azir"
+          ],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Soraka",
+          "items": [],
+          "predecessors": [
+            "DA_18_LeBlanc"
+          ],
+          "stars": 1,
+          "trait": null
+        }
+      ],
+      "metaTitle": "Solar Yunara Reroll",
+      "metadata": {},
+      "overlayAugments": [
+        {
+          "apiName": "DA_PrismaticTicket",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_TradeSector",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_Swordsmith",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_SwordOverflow",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_WandOverflow",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_18_BigGrabBag",
+          "disabled": false
+        }
+      ],
+      "rank": "",
+      "set": 18,
+      "sticker": 0,
+      "style": "2-Cost Reroll",
+      "tier": "B",
+      "tips": [
+        {
+          "stage": "Stage 2",
+          "tip": "Slam items for Yunara and play for win streak with Blossom in. Tank Yorick / Juggernaut until you find Sejuani 2."
+        },
+        {
+          "stage": "Stage 3",
+          "tip": "Level at 3-2 and roll for 2* upgrades then econ up. Roll for all the 3* shown on the build + Azir. Try to avoid rolling to 0 gold because you need gold for leveling later."
+        },
+        {
+          "stage": "Stage 4",
+          "tip": "Finish your 3* then level for 3 Solar over time. Leftover AP items on LeBlanc. Karma 3 can also hold items too."
+        }
+      ],
+      "title": "Solara Yunara",
+      "updated": "2026-10-02 04:11:27.182Z"
     },
     {
       "altBuilds": [
@@ -10063,7 +10049,7 @@
         }
       ],
       "title": "Azir Reroll",
-      "updated": "2026-09-30 21:31:53.111Z"
+      "updated": "2026-10-02 04:11:26.788Z"
     },
     {
       "altBuilds": [
@@ -10319,7 +10305,7 @@
         }
       ],
       "title": "Aphelios Vanguards",
-      "updated": "2026-09-30 21:31:53.132Z"
+      "updated": "2026-10-02 04:11:26.721Z"
     },
     {
       "altBuilds": [
@@ -10548,7 +10534,7 @@
         }
       ],
       "title": "Coven Ahri",
-      "updated": "2026-09-30 21:31:53.080Z"
+      "updated": "2026-10-02 04:11:26.784Z"
     },
     {
       "altBuilds": [
@@ -10759,7 +10745,7 @@
         }
       ],
       "title": "Ahri Zyra",
-      "updated": "2026-09-30 21:31:53.444Z"
+      "updated": "2026-10-02 04:11:26.787Z"
     },
     {
       "altBuilds": [
@@ -11003,7 +10989,7 @@
         }
       ],
       "title": "Aphelios Flex",
-      "updated": "2026-09-30 21:31:53.130Z"
+      "updated": "2026-10-02 04:11:26.765Z"
     },
     {
       "altBuilds": [
@@ -11278,7 +11264,7 @@
         }
       ],
       "title": "Aphelios Elderwood",
-      "updated": "2026-09-30 21:31:53.143Z"
+      "updated": "2026-10-02 04:11:26.660Z"
     }
   ]
 }
