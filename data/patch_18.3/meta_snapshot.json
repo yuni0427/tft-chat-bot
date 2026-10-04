@@ -840,17 +840,19 @@
         {
           "apiName": "DA_18_Aphelios",
           "items": [
-            "DA_Artifact_GoldCollector"
+            "DA_GuinsoosRageblade",
+            "DA_InfinityEdge",
+            "DA_KrakensFury"
           ],
           "stars": 1,
           "trait": null
         },
         {
-          "apiName": "DA_18_Aphelios",
+          "apiName": "DA_Nidalee18_AP",
           "items": [
-            "DA_GuinsoosRageblade",
-            "DA_InfinityEdge",
-            "DA_KrakensFury"
+            "DA_Artifact_SilvermereDawn",
+            "DA_BlueBuff",
+            "DA_SteraksGage"
           ],
           "stars": 1,
           "trait": null
@@ -1043,15 +1045,6 @@
           "trait": null
         },
         {
-          "apiName": "DA_18_KhaZix",
-          "items": [],
-          "predecessors": [
-            "DA_18_Varus"
-          ],
-          "stars": 1,
-          "trait": null
-        },
-        {
           "apiName": "DA_Taric18",
           "items": [],
           "predecessors": [
@@ -1059,6 +1052,14 @@
           ],
           "stars": 1,
           "trait": null
+        },
+        {
+          "apiName": "DA_CrimsonRaptor18",
+          "items": [],
+          "predecessors": [
+            "DA_18_Varus"
+          ],
+          "stars": 1
         }
       ],
       "metaTitle": "Nidalee Aphelios",
@@ -1125,7 +1126,7 @@
         }
       ],
       "title": "Aphelios Nidalee",
-      "updated": "2026-10-03 04:35:30.507Z"
+      "updated": "2026-10-04 04:37:21.996Z"
     },
     {
       "altBuilds": [
@@ -3333,7 +3334,7 @@
           "disabled": false
         }
       ],
-      "augmentsTip": "Best With executioner emblem. Focus Ezreal + Tank items first then rest on Ahri->Soraka.",
+      "augmentsTip": "Best with Executioner emblem. Focus Ezreal + Tank items first then rest on Ahri->Soraka. Elderwood Lux caps the board.",
       "carousel": [
         {
           "apiName": "DA_SpearOfShojin"
@@ -3501,7 +3502,8 @@
           "predecessors": [
             "TFT_Flex_Lv9"
           ],
-          "stars": 1
+          "stars": 1,
+          "trait": null
         }
       ],
       "metaTitle": "Elderwood Blossom",
@@ -3527,7 +3529,7 @@
         }
       ],
       "title": "Woodblossom",
-      "updated": "2026-10-03 04:35:30.958Z"
+      "updated": "2026-10-04 04:38:00.282Z"
     },
     {
       "altBuilds": [
