@@ -241,7 +241,7 @@
         }
       ],
       "title": "Ashe Juggernauts",
-      "updated": "2026-10-03 04:35:30.345Z"
+      "updated": "2026-10-05 21:09:00.750Z"
     },
     {
       "altBuilds": [],
@@ -536,7 +536,7 @@
         }
       ],
       "title": "6 Juggernaut Flex",
-      "updated": "2026-10-03 04:37:25.695Z"
+      "updated": "2026-10-05 21:09:01.210Z"
     },
     {
       "altBuilds": [
@@ -833,7 +833,7 @@
         }
       ],
       "title": "Malphite AP Flex",
-      "updated": "2026-10-03 04:35:30.898Z"
+      "updated": "2026-10-05 21:09:00.743Z"
     },
     {
       "altBuilds": [
@@ -1126,7 +1126,7 @@
         }
       ],
       "title": "Aphelios Nidalee",
-      "updated": "2026-10-04 04:37:21.996Z"
+      "updated": "2026-10-05 21:09:00.767Z"
     },
     {
       "altBuilds": [
@@ -1429,7 +1429,7 @@
         }
       ],
       "title": "Lunarwood Kha'zix",
-      "updated": "2026-10-03 04:35:30.573Z"
+      "updated": "2026-10-05 21:09:01.072Z"
     },
     {
       "altBuilds": [
@@ -1685,7 +1685,7 @@
         }
       ],
       "title": "Azir Rammus",
-      "updated": "2026-10-03 04:35:30.965Z"
+      "updated": "2026-10-05 21:09:01.123Z"
     },
     {
       "altBuilds": [
@@ -1949,7 +1949,7 @@
         }
       ],
       "title": "Ahri Morgana",
-      "updated": "2026-10-03 04:35:30.546Z"
+      "updated": "2026-10-05 21:09:00.813Z"
     },
     {
       "altBuilds": [
@@ -2202,7 +2202,7 @@
       ],
       "rank": "",
       "set": 18,
-      "sticker": 3,
+      "sticker": 0,
       "style": "Fast 9",
       "tier": "B",
       "tips": [
@@ -2220,7 +2220,7 @@
         }
       ],
       "title": "Dragon 9",
-      "updated": "2026-10-03 04:35:30.530Z"
+      "updated": "2026-10-05 21:09:00.784Z"
     },
     {
       "altBuilds": [
@@ -2516,7 +2516,7 @@
       ],
       "rank": "",
       "set": 18,
-      "sticker": 3,
+      "sticker": 0,
       "style": "Fast 9",
       "tier": "B",
       "tips": [
@@ -2534,7 +2534,7 @@
         }
       ],
       "title": "Draven AD 9",
-      "updated": "2026-10-03 04:35:30.986Z"
+      "updated": "2026-10-05 21:09:01.060Z"
     },
     {
       "altBuilds": [
@@ -2827,7 +2827,7 @@
         }
       ],
       "title": "Elderwood Veigar",
-      "updated": "2026-10-03 04:35:30.989Z"
+      "updated": "2026-10-05 21:09:00.771Z"
     },
     {
       "altBuilds": [
@@ -3076,7 +3076,7 @@
         }
       ],
       "title": "Caitlyn Hunters",
-      "updated": "2026-10-03 04:35:30.952Z"
+      "updated": "2026-10-05 21:09:01.056Z"
     },
     {
       "altBuilds": [
@@ -3289,7 +3289,7 @@
         }
       ],
       "title": "Moo-nara",
-      "updated": "2026-10-03 04:35:30.858Z"
+      "updated": "2026-10-05 21:09:01.095Z"
     },
     {
       "altBuilds": [],
@@ -3529,7 +3529,7 @@
         }
       ],
       "title": "Woodblossom",
-      "updated": "2026-10-04 04:38:00.282Z"
+      "updated": "2026-10-05 21:09:01.214Z"
     },
     {
       "altBuilds": [
@@ -3781,7 +3781,7 @@
         }
       ],
       "title": "Defender Cassio",
-      "updated": "2026-10-03 04:35:30.990Z"
+      "updated": "2026-10-05 21:09:01.136Z"
     },
     {
       "altBuilds": [
@@ -4036,7 +4036,7 @@
         }
       ],
       "title": "Yi Rengar",
-      "updated": "2026-10-03 04:35:30.951Z"
+      "updated": "2026-10-05 21:09:01.131Z"
     },
     {
       "altBuilds": [
@@ -4313,7 +4313,7 @@
         }
       ],
       "title": "Primal Jungle",
-      "updated": "2026-10-03 04:35:31.004Z"
+      "updated": "2026-10-05 21:09:01.130Z"
     },
     {
       "altBuilds": [
@@ -4538,7 +4538,7 @@
         }
       ],
       "title": "Warwick Reroll",
-      "updated": "2026-10-03 04:35:30.988Z"
+      "updated": "2026-10-05 21:09:01.086Z"
     },
     {
       "altBuilds": [
@@ -4790,7 +4790,7 @@
         }
       ],
       "title": "Solar Melee",
-      "updated": "2026-10-03 04:35:30.997Z"
+      "updated": "2026-10-05 21:09:01.118Z"
     },
     {
       "altBuilds": [
@@ -5021,7 +5021,7 @@
         }
       ],
       "title": "Rengar Reroll",
-      "updated": "2026-10-03 04:35:30.968Z"
+      "updated": "2026-10-05 21:09:01.214Z"
     },
     {
       "altBuilds": [],
@@ -5254,252 +5254,7 @@
         }
       ],
       "title": "Riftbeast Reroll",
-      "updated": "2026-10-03 04:35:30.950Z"
-    },
-    {
-      "altBuilds": [
-        {
-          "apiName": "DA_18_Morgana",
-          "items": [
-            "DA_Artifact_BlightingJewel"
-          ],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_Nidalee18_AP",
-          "items": [
-            "DA_Artifact_NavoriFlickerblade",
-            "DA_Artifact_StatikkShiv"
-          ],
-          "stars": 1,
-          "trait": null
-        }
-      ],
-      "anomaliedChampions": [
-        {
-          "apiName": "DA_Scuttlecrab18"
-        }
-      ],
-      "anomaliesOverride": [],
-      "augmentTypes": [
-        "ECON",
-        "ITEMS",
-        "COMBAT"
-      ],
-      "augments": [
-        {
-          "apiName": "DA_WandOverflow",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_SpeedyDoubleKill",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_Staffsmith",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_18_BigGrabBag",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_18_PrimalAugmentPlus_Nidalee",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_CaretakersFavor",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_BuriedTreasuresIII",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_TimeSkip",
-          "disabled": false
-        }
-      ],
-      "augmentsTip": "Prioritize Nidalee > Morello on Morgana + Tank > leftover AP on Morgana. Riftbeast Alpha Mark the Scuttle Crab. Kogmaw provides free Sunder / Shred. Take tiger primal buff.",
-      "carousel": [
-        {
-          "apiName": "DA_GuinsoosRageblade"
-        },
-        {
-          "apiName": "DA_JeweledGauntlet"
-        },
-        {
-          "apiName": "DA_Morellonomicon"
-        },
-        {
-          "apiName": "DA_Component_GiantsBelt"
-        }
-      ],
-      "collectionId": "1oe5lvmronvq850",
-      "collectionName": "better_guides",
-      "compSlug": "set-18-adaptor-nidalee",
-      "created": "2026-08-10 23:52:51.978Z",
-      "difficulty": "MEDIUM",
-      "displayIndex": 22,
-      "earlyComp": [
-        {
-          "apiName": "DA_18_Rakan",
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Xayah",
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_Scuttlecrab18",
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Kayle",
-          "items": [
-            "DA_JeweledGauntlet",
-            "DA_GuinsoosRageblade"
-          ],
-          "stars": 1,
-          "trait": null
-        }
-      ],
-      "finalComp": [
-        {
-          "apiName": "DA_18_Sentry",
-          "boardIndex": 27,
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_Scuttlecrab18",
-          "boardIndex": 4,
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_KogMaw18_AD",
-          "boardIndex": 22,
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_Vi18",
-          "boardIndex": 5,
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Morgana",
-          "boardIndex": 9,
-          "items": [
-            "DA_Morellonomicon",
-            "DA_ArchangelsStaff",
-            "DA_AdaptiveHelm"
-          ],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_Nidalee18_AP",
-          "boardIndex": 21,
-          "items": [
-            "DA_JeweledGauntlet",
-            "DA_GuinsoosRageblade",
-            "DA_StrikersFlail"
-          ],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_Sentinel18",
-          "boardIndex": 3,
-          "items": [
-            "DA_ProtectorsVow",
-            "DA_WarmogsArmor",
-            "DA_AdaptiveHelm"
-          ],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_Taric18",
-          "boardIndex": 2,
-          "items": [],
-          "stars": 1,
-          "trait": null
-        }
-      ],
-      "id": "o9jvqx283oovfzr",
-      "isPublic": true,
-      "mainChampion": {
-        "apiName": "DA_Nidalee18_AP",
-        "cost": 4
-      },
-      "maxCap": [
-        {
-          "apiName": "DA_18_Rakan",
-          "items": [],
-          "predecessors": [
-            "DA_Scuttlecrab18"
-          ],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Hecarim",
-          "items": [],
-          "predecessors": [
-            "DA_18_Sentry"
-          ],
-          "stars": 1,
-          "trait": null
-        }
-      ],
-      "metaTitle": "Invoker Nidalee",
-      "metadata": {},
-      "overlayAugments": [
-        {
-          "apiName": "DA_GlassCannon_Silver",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_GlassCannon_Gold",
-          "disabled": false
-        }
-      ],
-      "rank": "",
-      "set": 18,
-      "sticker": 0,
-      "style": "4-Cost Fast 8",
-      "tier": "C",
-      "tips": [
-        {
-          "stage": "Stage 2",
-          "tip": "Play any strong Rageblade opener on an AP carry such as Kayle, Master Yi, or a Spellweaver. Opener is very flexible."
-        },
-        {
-          "stage": "Stage 3",
-          "tip": "Comp is very Rod hungry so keep taking them off augments / carousels when possible. If you are not playing Invokers, hold onto cheap units like Pebbles for later."
-        },
-        {
-          "stage": "Stage 4",
-          "tip": "Level to 8 and roll for 4 Invoker. Avoid tunneling only on 4 Vanguard frontline. You can also flex Brawlers or Juggernauts as needed."
-        }
-      ],
-      "title": "Invoker Nidalee",
-      "updated": "2026-10-03 04:35:30.821Z"
+      "updated": "2026-10-05 21:09:01.136Z"
     },
     {
       "altBuilds": [],
@@ -5564,7 +5319,7 @@
       "compSlug": "set-18-sprykin-teemo-copy",
       "created": "2026-09-10 09:32:51.304Z",
       "difficulty": "EASY",
-      "displayIndex": 23,
+      "displayIndex": 22,
       "earlyComp": [
         {
           "apiName": "DA_18_Kobuko",
@@ -5726,7 +5481,252 @@
         }
       ],
       "title": "Teemowood",
-      "updated": "2026-10-03 04:35:30.556Z"
+      "updated": "2026-10-05 21:09:00.830Z"
+    },
+    {
+      "altBuilds": [
+        {
+          "apiName": "DA_18_Morgana",
+          "items": [
+            "DA_Artifact_BlightingJewel"
+          ],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_Nidalee18_AP",
+          "items": [
+            "DA_Artifact_NavoriFlickerblade",
+            "DA_Artifact_StatikkShiv"
+          ],
+          "stars": 1,
+          "trait": null
+        }
+      ],
+      "anomaliedChampions": [
+        {
+          "apiName": "DA_Scuttlecrab18"
+        }
+      ],
+      "anomaliesOverride": [],
+      "augmentTypes": [
+        "ECON",
+        "ITEMS",
+        "COMBAT"
+      ],
+      "augments": [
+        {
+          "apiName": "DA_WandOverflow",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_SpeedyDoubleKill",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_Staffsmith",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_18_BigGrabBag",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_18_PrimalAugmentPlus_Nidalee",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_CaretakersFavor",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_BuriedTreasuresIII",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_TimeSkip",
+          "disabled": false
+        }
+      ],
+      "augmentsTip": "Prioritize Nidalee > Morello on Morgana + Tank > leftover AP on Morgana. Riftbeast Alpha Mark the Scuttle Crab. Kogmaw provides free Sunder / Shred. Take tiger primal buff.",
+      "carousel": [
+        {
+          "apiName": "DA_GuinsoosRageblade"
+        },
+        {
+          "apiName": "DA_JeweledGauntlet"
+        },
+        {
+          "apiName": "DA_Morellonomicon"
+        },
+        {
+          "apiName": "DA_Component_GiantsBelt"
+        }
+      ],
+      "collectionId": "1oe5lvmronvq850",
+      "collectionName": "better_guides",
+      "compSlug": "set-18-adaptor-nidalee",
+      "created": "2026-08-10 23:52:51.978Z",
+      "difficulty": "MEDIUM",
+      "displayIndex": 23,
+      "earlyComp": [
+        {
+          "apiName": "DA_18_Rakan",
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Xayah",
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_Scuttlecrab18",
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Kayle",
+          "items": [
+            "DA_JeweledGauntlet",
+            "DA_GuinsoosRageblade"
+          ],
+          "stars": 1,
+          "trait": null
+        }
+      ],
+      "finalComp": [
+        {
+          "apiName": "DA_18_Sentry",
+          "boardIndex": 27,
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_Scuttlecrab18",
+          "boardIndex": 4,
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_KogMaw18_AD",
+          "boardIndex": 22,
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_Vi18",
+          "boardIndex": 5,
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Morgana",
+          "boardIndex": 9,
+          "items": [
+            "DA_Morellonomicon",
+            "DA_ArchangelsStaff",
+            "DA_AdaptiveHelm"
+          ],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_Nidalee18_AP",
+          "boardIndex": 21,
+          "items": [
+            "DA_JeweledGauntlet",
+            "DA_GuinsoosRageblade",
+            "DA_StrikersFlail"
+          ],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_Sentinel18",
+          "boardIndex": 3,
+          "items": [
+            "DA_ProtectorsVow",
+            "DA_WarmogsArmor",
+            "DA_AdaptiveHelm"
+          ],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_Taric18",
+          "boardIndex": 2,
+          "items": [],
+          "stars": 1,
+          "trait": null
+        }
+      ],
+      "id": "o9jvqx283oovfzr",
+      "isPublic": true,
+      "mainChampion": {
+        "apiName": "DA_Nidalee18_AP",
+        "cost": 4
+      },
+      "maxCap": [
+        {
+          "apiName": "DA_18_Rakan",
+          "items": [],
+          "predecessors": [
+            "DA_Scuttlecrab18"
+          ],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Hecarim",
+          "items": [],
+          "predecessors": [
+            "DA_18_Sentry"
+          ],
+          "stars": 1,
+          "trait": null
+        }
+      ],
+      "metaTitle": "Invoker Nidalee",
+      "metadata": {},
+      "overlayAugments": [
+        {
+          "apiName": "DA_GlassCannon_Silver",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_GlassCannon_Gold",
+          "disabled": false
+        }
+      ],
+      "rank": "",
+      "set": 18,
+      "sticker": 0,
+      "style": "4-Cost Fast 8",
+      "tier": "C",
+      "tips": [
+        {
+          "stage": "Stage 2",
+          "tip": "Play any strong Rageblade opener on an AP carry such as Kayle, Master Yi, or a Spellweaver. Opener is very flexible."
+        },
+        {
+          "stage": "Stage 3",
+          "tip": "Comp is very Rod hungry so keep taking them off augments / carousels when possible. If you are not playing Invokers, hold onto cheap units like Pebbles for later."
+        },
+        {
+          "stage": "Stage 4",
+          "tip": "Level to 8 and roll for 4 Invoker. Avoid tunneling only on 4 Vanguard frontline. You can also flex Brawlers or Juggernauts as needed."
+        }
+      ],
+      "title": "Invoker Nidalee",
+      "updated": "2026-10-05 21:09:01.135Z"
     },
     {
       "altBuilds": [
@@ -5971,7 +5971,7 @@
         }
       ],
       "title": "Solar Kayle",
-      "updated": "2026-10-03 04:35:30.927Z"
+      "updated": "2026-10-05 21:09:01.140Z"
     },
     {
       "altBuilds": [],
@@ -6252,7 +6252,7 @@
         }
       ],
       "title": "Trait Ladder",
-      "updated": "2026-10-03 04:35:30.948Z"
+      "updated": "2026-10-05 21:09:01.080Z"
     },
     {
       "altBuilds": [],
@@ -6506,7 +6506,7 @@
         }
       ],
       "title": "Inferno Fast 9",
-      "updated": "2026-10-03 04:39:28.691Z"
+      "updated": "2026-10-05 21:09:01.192Z"
     },
     {
       "altBuilds": [
@@ -6741,7 +6741,7 @@
         }
       ],
       "title": "Veigar Consuming Flora",
-      "updated": "2026-10-03 04:35:30.991Z"
+      "updated": "2026-10-05 21:09:00.823Z"
     },
     {
       "altBuilds": [
@@ -6965,7 +6965,7 @@
         }
       ],
       "title": "Emblem Rengar",
-      "updated": "2026-10-03 04:35:31.001Z"
+      "updated": "2026-10-05 21:09:01.084Z"
     },
     {
       "altBuilds": [
@@ -7195,7 +7195,7 @@
         }
       ],
       "title": "Ravager Elise",
-      "updated": "2026-10-03 04:35:30.958Z"
+      "updated": "2026-10-05 21:09:01.235Z"
     },
     {
       "altBuilds": [
@@ -7431,7 +7431,7 @@
         }
       ],
       "title": "Fae Tristana",
-      "updated": "2026-10-03 04:35:30.982Z"
+      "updated": "2026-10-05 21:09:01.198Z"
     },
     {
       "altBuilds": [],
@@ -7675,7 +7675,7 @@
         }
       ],
       "title": "Unrivaled Reroll",
-      "updated": "2026-10-03 04:35:30.801Z"
+      "updated": "2026-10-05 21:09:01.127Z"
     },
     {
       "altBuilds": [],
@@ -7918,7 +7918,7 @@
         }
       ],
       "title": "Elderwood Executioners",
-      "updated": "2026-10-03 04:35:30.742Z"
+      "updated": "2026-10-05 21:09:01.074Z"
     },
     {
       "altBuilds": [
@@ -8176,7 +8176,7 @@
         }
       ],
       "title": "Spirit Blossom",
-      "updated": "2026-10-03 04:35:30.927Z"
+      "updated": "2026-10-05 21:09:01.216Z"
     },
     {
       "altBuilds": [],
@@ -8423,7 +8423,7 @@
         }
       ],
       "title": "Ashe Fast 9 ",
-      "updated": "2026-10-03 04:35:30.372Z"
+      "updated": "2026-10-05 21:09:00.736Z"
     },
     {
       "altBuilds": [
@@ -8667,7 +8667,7 @@
         }
       ],
       "title": "Adaptor Reroll",
-      "updated": "2026-10-03 04:35:31.010Z"
+      "updated": "2026-10-05 21:09:01.128Z"
     },
     {
       "altBuilds": [],
@@ -8853,7 +8853,7 @@
         }
       ],
       "title": "Sprykin Teemo",
-      "updated": "2026-10-03 04:35:30.984Z"
+      "updated": "2026-10-05 21:09:00.808Z"
     },
     {
       "altBuilds": [],
@@ -9103,7 +9103,7 @@
         }
       ],
       "title": "10 Riftbeast",
-      "updated": "2026-10-03 04:35:30.515Z"
+      "updated": "2026-10-05 21:09:01.069Z"
     },
     {
       "altBuilds": [
@@ -9357,7 +9357,7 @@
         }
       ],
       "title": "Aphelios Rapidfire",
-      "updated": "2026-10-03 04:35:30.558Z"
+      "updated": "2026-10-05 21:09:01.024Z"
     },
     {
       "altBuilds": [
@@ -9615,7 +9615,7 @@
         }
       ],
       "title": "Primal Flex",
-      "updated": "2026-10-03 04:35:30.559Z"
+      "updated": "2026-10-05 21:09:01.129Z"
     },
     {
       "altBuilds": [
@@ -9865,7 +9865,7 @@
         }
       ],
       "title": "Solara Yunara",
-      "updated": "2026-10-03 04:35:30.923Z"
+      "updated": "2026-10-05 21:09:01.128Z"
     },
     {
       "altBuilds": [
@@ -10054,7 +10054,7 @@
         }
       ],
       "title": "Azir Reroll",
-      "updated": "2026-10-03 04:35:30.921Z"
+      "updated": "2026-10-05 21:09:01.128Z"
     },
     {
       "altBuilds": [
@@ -10298,7 +10298,7 @@
         }
       ],
       "title": "Blackthorn Malphite",
-      "updated": "2026-10-03 04:35:30.559Z"
+      "updated": "2026-10-05 21:09:00.679Z"
     },
     {
       "altBuilds": [
@@ -10554,7 +10554,7 @@
         }
       ],
       "title": "Aphelios Vanguards",
-      "updated": "2026-10-03 04:35:30.587Z"
+      "updated": "2026-10-05 21:09:01.076Z"
     },
     {
       "altBuilds": [
@@ -10783,7 +10783,7 @@
         }
       ],
       "title": "Coven Ahri",
-      "updated": "2026-10-03 04:35:30.559Z"
+      "updated": "2026-10-05 21:09:00.802Z"
     },
     {
       "altBuilds": [
@@ -10994,7 +10994,7 @@
         }
       ],
       "title": "Ahri Zyra",
-      "updated": "2026-10-03 04:35:30.505Z"
+      "updated": "2026-10-05 21:09:00.769Z"
     },
     {
       "altBuilds": [
@@ -11238,7 +11238,7 @@
         }
       ],
       "title": "Aphelios Flex",
-      "updated": "2026-10-03 04:35:30.894Z"
+      "updated": "2026-10-05 21:09:01.033Z"
     },
     {
       "altBuilds": [
@@ -11513,7 +11513,7 @@
         }
       ],
       "title": "Aphelios Elderwood",
-      "updated": "2026-10-03 04:35:30.849Z"
+      "updated": "2026-10-05 21:09:00.761Z"
     }
   ]
 }
