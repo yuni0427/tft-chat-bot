@@ -9592,6 +9592,26 @@
         {
           "apiName": "DA_SwordOverflow",
           "disabled": false
+        },
+        {
+          "apiName": "DA_CarveAPath",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_LateGameSpecialist",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_LateGameScaling",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_MoneyMonsoon",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_BirthdayReunion",
+          "disabled": false
         }
       ],
       "rank": "",
@@ -9614,7 +9634,7 @@
         }
       ],
       "title": "Draven Dragon 9",
-      "updated": "2026-10-11 01:01:50.618Z"
+      "updated": "2026-10-11 21:32:35.935Z"
     },
     {
       "altBuilds": [
