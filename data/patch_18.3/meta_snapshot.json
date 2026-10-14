@@ -258,7 +258,7 @@
         }
       ],
       "title": "Azir Rammus",
-      "updated": "2026-10-12 17:06:26.959Z"
+      "updated": "2026-10-13 15:47:56.446Z"
     },
     {
       "altBuilds": [
@@ -561,7 +561,7 @@
         }
       ],
       "title": "Lunarwood Kha'zix",
-      "updated": "2026-10-12 17:05:13.111Z"
+      "updated": "2026-10-13 15:47:56.511Z"
     },
     {
       "altBuilds": [
@@ -802,7 +802,7 @@
         }
       ],
       "title": "Riftbeast Reroll",
-      "updated": "2026-10-12 17:06:07.481Z"
+      "updated": "2026-10-13 15:47:56.478Z"
     },
     {
       "altBuilds": [
@@ -1125,7 +1125,7 @@
         }
       ],
       "title": "Draven Ezreal 9",
-      "updated": "2026-10-12 17:06:07.300Z"
+      "updated": "2026-10-13 15:47:56.544Z"
     },
     {
       "altBuilds": [
@@ -1398,7 +1398,7 @@
         }
       ],
       "title": "Ahri Morgana",
-      "updated": "2026-10-12 17:06:08.761Z"
+      "updated": "2026-10-13 15:47:56.589Z"
     },
     {
       "altBuilds": [
@@ -1670,7 +1670,7 @@
         }
       ],
       "title": "Aphelios Nidalee",
-      "updated": "2026-10-12 17:05:13.161Z"
+      "updated": "2026-10-13 15:47:56.852Z"
     },
     {
       "altBuilds": [
@@ -1914,7 +1914,7 @@
         }
       ],
       "title": "Defender Cassio",
-      "updated": "2026-10-12 17:05:25.027Z"
+      "updated": "2026-10-13 15:47:56.611Z"
     },
     {
       "altBuilds": [
@@ -2207,7 +2207,235 @@
         }
       ],
       "title": "Elderwood Veigar",
-      "updated": "2026-10-12 17:04:58.591Z"
+      "updated": "2026-10-13 15:47:56.836Z"
+    },
+    {
+      "altBuilds": [],
+      "anomaliedChampions": [],
+      "anomaliesOverride": [],
+      "augmentTypes": [
+        "ECON",
+        "ITEMS",
+        "COMBAT"
+      ],
+      "augments": [
+        {
+          "apiName": "DA_BirthdayReunion",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_BirthdayPresent",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_UpwardMobility",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_LevelUp",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_LuxurySubscription",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_LateGameSpecialist",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_LateGameScaling",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_ExplosiveGrowthPlus",
+          "disabled": false
+        }
+      ],
+      "augmentsTip": "Lunar Lux is best but play whatever Lux you are likely to 2* first. Carry / tank 4 cost units until you get to the end game. Always focus on unit quality over exact board units.",
+      "carousel": [
+        {
+          "apiName": "DA_SpearOfShojin"
+        },
+        {
+          "apiName": "DA_Component_NeedlesslyLargeRod"
+        },
+        {
+          "apiName": "DA_Component_TearOfTheGoddess"
+        },
+        {
+          "apiName": "DA_Component_GiantsBelt"
+        }
+      ],
+      "collectionId": "1oe5lvmronvq850",
+      "collectionName": "better_guides",
+      "compSlug": "set-18-ap-95",
+      "created": "2026-07-30 02:34:18.999Z",
+      "difficulty": "HARD",
+      "displayIndex": 8,
+      "earlyComp": [
+        {
+          "apiName": "DA_Karma18",
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Rakan",
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Yorick",
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Yunara",
+          "items": [],
+          "stars": 1,
+          "trait": null
+        }
+      ],
+      "finalComp": [
+        {
+          "apiName": "DA_18_Rakan",
+          "boardIndex": 11,
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Diana",
+          "boardIndex": 10,
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_Fiddlesticks18",
+          "boardIndex": 0,
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Lillia",
+          "boardIndex": 6,
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_Sentinel18",
+          "boardIndex": 3,
+          "items": [
+            "DA_WarmogsArmor",
+            "DA_Crownguard",
+            "DA_ProtectorsVow"
+          ],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_Taric18",
+          "boardIndex": 4,
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Alune",
+          "boardIndex": 27,
+          "items": [
+            "DA_BlueBuff",
+            "DA_ArchangelsStaff",
+            "DA_JeweledGauntlet"
+          ],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_Lux18_Base",
+          "boardIndex": 26,
+          "items": [
+            "DA_SpearOfShojin",
+            "DA_VoidStaff",
+            "DA_Morellonomicon"
+          ],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Ivern",
+          "boardIndex": 21,
+          "items": [
+            "DA_SpearOfShojin",
+            "DA_AdaptiveHelm"
+          ],
+          "stars": 1,
+          "trait": null
+        }
+      ],
+      "id": "pe2ljiorlrcs6uj",
+      "isPublic": true,
+      "mainChampion": {
+        "apiName": "DA_18_Alune",
+        "cost": 5
+      },
+      "maxCap": [
+        {
+          "apiName": "DA_18_Morgana",
+          "items": [],
+          "predecessors": [
+            "DA_Lux18_Base"
+          ],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Hecarim",
+          "items": [],
+          "predecessors": [
+            "DA_Taric18"
+          ],
+          "stars": 1
+        },
+        {
+          "apiName": "DA_18_Cassiopeia",
+          "items": [],
+          "predecessors": [
+            "TFT_Flex_Lv7"
+          ],
+          "stars": 1
+        }
+      ],
+      "metaTitle": "Alune AP Fast 9",
+      "metadata": {},
+      "overlayAugments": [],
+      "rank": "",
+      "set": 18,
+      "sticker": 2,
+      "style": "Fast 9",
+      "tier": "B",
+      "tips": [
+        {
+          "stage": "Stage 2",
+          "tip": "Slam items aggressively and play for full win streak with AP items. Ideal opener will be Blossom featuring Karma / Spellweavers. "
+        },
+        {
+          "stage": "Stage 3",
+          "tip": "Continue prioritize win streaking. If you have an econ augment, you can go Fast 7 (before 3-3) to maintain win streak if needed."
+        },
+        {
+          "stage": "Stage 4",
+          "tip": "You can start losing rounds while focusing on econ. Fast 9 by the beginning of Stage 5 and look for your 5 costs. You want around 70g+ minimum for the rolldown."
+        }
+      ],
+      "title": "AP Fast 9",
+      "updated": "2026-10-13 15:47:56.846Z"
     },
     {
       "altBuilds": [
@@ -2292,7 +2520,7 @@
       "compSlug": "set-18-soraka-flex",
       "created": "2026-08-05 14:46:49.350Z",
       "difficulty": "MEDIUM",
-      "displayIndex": 8,
+      "displayIndex": 9,
       "earlyComp": [
         {
           "apiName": "DA_18_Rakan",
@@ -2503,7 +2731,7 @@
         }
       ],
       "title": "Malphite AP Flex",
-      "updated": "2026-10-12 17:05:16.092Z"
+      "updated": "2026-10-13 15:47:56.917Z"
     },
     {
       "altBuilds": [
@@ -2579,7 +2807,7 @@
       "compSlug": "set-18-6-juggernaut-ap",
       "created": "2026-09-14 04:08:07.531Z",
       "difficulty": "HARD",
-      "displayIndex": 9,
+      "displayIndex": 10,
       "earlyComp": [
         {
           "apiName": "DA_18_Rakan",
@@ -2808,7 +3036,7 @@
         }
       ],
       "title": "Zyra Juggernaut",
-      "updated": "2026-10-12 17:05:25.040Z"
+      "updated": "2026-10-13 15:47:56.804Z"
     },
     {
       "altBuilds": [
@@ -2883,7 +3111,7 @@
       "compSlug": "set-18-elderwood-executioners",
       "created": "2026-07-30 02:05:01.633Z",
       "difficulty": "MEDIUM",
-      "displayIndex": 10,
+      "displayIndex": 11,
       "earlyComp": [
         {
           "apiName": "DA_18_Ornn",
@@ -3086,7 +3314,7 @@
         }
       ],
       "title": "Elderwood Executioners",
-      "updated": "2026-10-12 17:06:11.312Z"
+      "updated": "2026-10-13 15:47:56.900Z"
     },
     {
       "altBuilds": [
@@ -3094,21 +3322,18 @@
           "apiName": "DA_18_Kayle",
           "items": [
             "DA_Artifact_WitsEnd",
-            "DA_Artifact_StatikkShiv",
-            "DA_Artifact_Mittens"
+            "DA_Artifact_NavoriFlickerblade",
+            "DA_Artifact_SeekersArmguard"
           ],
           "stars": 1,
           "trait": null
         },
         {
-          "apiName": "DA_18_Kayle",
+          "apiName": "DA_18_Sejuani",
           "items": [
-            "DA_Artifact_RapidFireCannon",
-            "DA_Item_Artifact_TalismanOfAscension",
-            "DA_Artifact_NavoriFlickerblade"
+            "DA_Artifact_ForbiddenIdol"
           ],
-          "stars": 1,
-          "trait": null
+          "stars": 1
         }
       ],
       "anomaliedChampions": [],
@@ -3172,7 +3397,7 @@
       "compSlug": "set-18-eclipse-kayle",
       "created": "2026-10-07 18:02:42.148Z",
       "difficulty": "EASY",
-      "displayIndex": 11,
+      "displayIndex": 12,
       "earlyComp": [
         {
           "apiName": "DA_18_Leona",
@@ -3320,7 +3545,7 @@
         }
       ],
       "title": "Eclipse Kayle",
-      "updated": "2026-10-12 17:05:32.704Z"
+      "updated": "2026-10-14 06:05:22.365Z"
     },
     {
       "altBuilds": [
@@ -3406,7 +3631,7 @@
       "compSlug": "set-18-adaptor-reroll-copy",
       "created": "2026-08-31 08:35:31.714Z",
       "difficulty": "MEDIUM",
-      "displayIndex": 12,
+      "displayIndex": 13,
       "earlyComp": [
         {
           "apiName": "DA_Karma18",
@@ -3575,235 +3800,7 @@
         }
       ],
       "title": "Yi Rengar",
-      "updated": "2026-10-12 17:05:25.186Z"
-    },
-    {
-      "altBuilds": [],
-      "anomaliedChampions": [],
-      "anomaliesOverride": [],
-      "augmentTypes": [
-        "ECON",
-        "ITEMS",
-        "COMBAT"
-      ],
-      "augments": [
-        {
-          "apiName": "DA_BirthdayReunion",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_BirthdayPresent",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_UpwardMobility",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_LevelUp",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_LuxurySubscription",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_LateGameSpecialist",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_LateGameScaling",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_ExplosiveGrowthPlus",
-          "disabled": false
-        }
-      ],
-      "augmentsTip": "Lunar Lux is best but play whatever Lux you are likely to 2* first. Carry / tank 4 cost units until you get to the end game. Always focus on unit quality over exact board units.",
-      "carousel": [
-        {
-          "apiName": "DA_SpearOfShojin"
-        },
-        {
-          "apiName": "DA_Component_NeedlesslyLargeRod"
-        },
-        {
-          "apiName": "DA_Component_TearOfTheGoddess"
-        },
-        {
-          "apiName": "DA_Component_GiantsBelt"
-        }
-      ],
-      "collectionId": "1oe5lvmronvq850",
-      "collectionName": "better_guides",
-      "compSlug": "set-18-ap-95",
-      "created": "2026-07-30 02:34:18.999Z",
-      "difficulty": "HARD",
-      "displayIndex": 13,
-      "earlyComp": [
-        {
-          "apiName": "DA_Karma18",
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Rakan",
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Yorick",
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Yunara",
-          "items": [],
-          "stars": 1,
-          "trait": null
-        }
-      ],
-      "finalComp": [
-        {
-          "apiName": "DA_18_Rakan",
-          "boardIndex": 11,
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Diana",
-          "boardIndex": 10,
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_Fiddlesticks18",
-          "boardIndex": 0,
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Lillia",
-          "boardIndex": 6,
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_Sentinel18",
-          "boardIndex": 3,
-          "items": [
-            "DA_WarmogsArmor",
-            "DA_Crownguard",
-            "DA_ProtectorsVow"
-          ],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_Taric18",
-          "boardIndex": 4,
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Alune",
-          "boardIndex": 27,
-          "items": [
-            "DA_BlueBuff",
-            "DA_ArchangelsStaff",
-            "DA_JeweledGauntlet"
-          ],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_Lux18_Base",
-          "boardIndex": 26,
-          "items": [
-            "DA_SpearOfShojin",
-            "DA_VoidStaff",
-            "DA_Morellonomicon"
-          ],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Ivern",
-          "boardIndex": 21,
-          "items": [
-            "DA_SpearOfShojin",
-            "DA_AdaptiveHelm"
-          ],
-          "stars": 1,
-          "trait": null
-        }
-      ],
-      "id": "pe2ljiorlrcs6uj",
-      "isPublic": true,
-      "mainChampion": {
-        "apiName": "DA_18_Alune",
-        "cost": 5
-      },
-      "maxCap": [
-        {
-          "apiName": "DA_18_Morgana",
-          "items": [],
-          "predecessors": [
-            "DA_Lux18_Base"
-          ],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Hecarim",
-          "items": [],
-          "predecessors": [
-            "DA_Taric18"
-          ],
-          "stars": 1
-        },
-        {
-          "apiName": "DA_18_Cassiopeia",
-          "items": [],
-          "predecessors": [
-            "TFT_Flex_Lv7"
-          ],
-          "stars": 1
-        }
-      ],
-      "metaTitle": "Alune AP Fast 9",
-      "metadata": {},
-      "overlayAugments": [],
-      "rank": "",
-      "set": 18,
-      "sticker": 2,
-      "style": "Fast 9",
-      "tier": "B",
-      "tips": [
-        {
-          "stage": "Stage 2",
-          "tip": "Slam items aggressively and play for full win streak with AP items. Ideal opener will be Blossom featuring Karma / Spellweavers. "
-        },
-        {
-          "stage": "Stage 3",
-          "tip": "Continue prioritize win streaking. If you have an econ augment, you can go Fast 7 (before 3-3) to maintain win streak if needed."
-        },
-        {
-          "stage": "Stage 4",
-          "tip": "You can start losing rounds while focusing on econ. Fast 9 by the beginning of Stage 5 and look for your 5 costs. You want around 70g+ minimum for the rolldown."
-        }
-      ],
-      "title": "AP Fast 9",
-      "updated": "2026-10-12 17:05:16.163Z"
+      "updated": "2026-10-13 15:47:57.118Z"
     },
     {
       "altBuilds": [
@@ -4057,7 +4054,7 @@
         }
       ],
       "title": "Solar Melee",
-      "updated": "2026-10-12 17:05:19.729Z"
+      "updated": "2026-10-13 15:47:57.039Z"
     },
     {
       "altBuilds": [
@@ -4334,7 +4331,7 @@
         }
       ],
       "title": "Primal Jungle",
-      "updated": "2026-10-12 17:05:34.151Z"
+      "updated": "2026-10-13 15:47:57.110Z"
     },
     {
       "altBuilds": [],
@@ -4584,7 +4581,7 @@
         }
       ],
       "title": "10 Riftbeast",
-      "updated": "2026-10-12 17:05:39.997Z"
+      "updated": "2026-10-13 15:47:57.013Z"
     },
     {
       "altBuilds": [
@@ -4827,7 +4824,7 @@
         }
       ],
       "title": "Invoker Morgana",
-      "updated": "2026-10-12 17:05:32.075Z"
+      "updated": "2026-10-13 15:47:56.613Z"
     },
     {
       "altBuilds": [
@@ -5076,7 +5073,7 @@
         }
       ],
       "title": "Caitlyn Hunters",
-      "updated": "2026-10-12 17:05:39.989Z"
+      "updated": "2026-10-13 15:47:56.598Z"
     },
     {
       "altBuilds": [],
@@ -5317,7 +5314,7 @@
         }
       ],
       "title": "Ashe Juggernauts",
-      "updated": "2026-10-12 17:06:14.590Z"
+      "updated": "2026-10-13 15:47:56.584Z"
     },
     {
       "altBuilds": [],
@@ -5544,7 +5541,7 @@
         }
       ],
       "title": "Teemowood",
-      "updated": "2026-10-12 17:05:53.196Z"
+      "updated": "2026-10-13 15:47:57.059Z"
     },
     {
       "altBuilds": [
@@ -5789,7 +5786,7 @@
         }
       ],
       "title": "Invoker Nidalee",
-      "updated": "2026-10-12 17:05:40.628Z"
+      "updated": "2026-10-13 15:47:57.049Z"
     },
     {
       "altBuilds": [
@@ -6014,7 +6011,7 @@
         }
       ],
       "title": "Warwick Reroll",
-      "updated": "2026-10-12 17:05:53.207Z"
+      "updated": "2026-10-13 15:47:57.079Z"
     },
     {
       "altBuilds": [
@@ -6245,7 +6242,7 @@
         }
       ],
       "title": "Rengar Reroll",
-      "updated": "2026-10-12 17:05:48.927Z"
+      "updated": "2026-10-13 15:47:57.050Z"
     },
     {
       "altBuilds": [
@@ -6495,7 +6492,7 @@
         }
       ],
       "title": "Solara Yunara",
-      "updated": "2026-10-12 17:05:32.707Z"
+      "updated": "2026-10-13 15:47:56.906Z"
     },
     {
       "altBuilds": [
@@ -6719,7 +6716,7 @@
         }
       ],
       "title": "Coven Elise",
-      "updated": "2026-10-12 17:06:02.657Z"
+      "updated": "2026-10-13 15:47:57.076Z"
     },
     {
       "altBuilds": [
@@ -6936,7 +6933,7 @@
         }
       ],
       "title": "Bronze For Life Ahri",
-      "updated": "2026-10-12 17:06:06.539Z"
+      "updated": "2026-10-13 15:47:56.847Z"
     },
     {
       "altBuilds": [],
@@ -7217,7 +7214,7 @@
         }
       ],
       "title": "Trait Ladder",
-      "updated": "2026-10-12 17:05:53.358Z"
+      "updated": "2026-10-13 15:47:56.605Z"
     },
     {
       "altBuilds": [],
@@ -7471,7 +7468,7 @@
         }
       ],
       "title": "Inferno Fast 9",
-      "updated": "2026-10-12 17:06:06.688Z"
+      "updated": "2026-10-13 15:47:56.924Z"
     },
     {
       "altBuilds": [
@@ -7484,6 +7481,13 @@
           ],
           "stars": 1,
           "trait": null
+        },
+        {
+          "apiName": "DA_18_Sejuani",
+          "items": [
+            "DA_Artifact_ForbiddenIdol"
+          ],
+          "stars": 1
         }
       ],
       "anomaliedChampions": [],
@@ -7580,19 +7584,8 @@
       ],
       "finalComp": [
         {
-          "apiName": "DA_18_Yunara",
-          "boardIndex": 21,
-          "items": [
-            "DA_SpearOfShojin",
-            "DA_18_EmblemBlackthorn",
-            "DA_LastWhisper"
-          ],
-          "stars": 3,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Azir",
-          "boardIndex": 24,
+          "apiName": "DA_18_RekSai",
+          "boardIndex": 19,
           "items": [],
           "stars": 1,
           "trait": null
@@ -7627,8 +7620,19 @@
           "trait": null
         },
         {
-          "apiName": "DA_18_RekSai",
-          "boardIndex": 19,
+          "apiName": "DA_18_Yunara",
+          "boardIndex": 21,
+          "items": [
+            "DA_SpearOfShojin",
+            "DA_18_EmblemBlackthorn",
+            "DA_LastWhisper"
+          ],
+          "stars": 3,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Azir",
+          "boardIndex": 24,
           "items": [],
           "stars": 1,
           "trait": null
@@ -7684,7 +7688,7 @@
         }
       ],
       "title": "Moo-nara",
-      "updated": "2026-10-12 17:04:58.594Z"
+      "updated": "2026-10-14 06:05:58.971Z"
     },
     {
       "altBuilds": [
@@ -7919,7 +7923,7 @@
         }
       ],
       "title": "Veigar Consuming Flora",
-      "updated": "2026-10-12 17:06:17.882Z"
+      "updated": "2026-10-13 15:47:56.617Z"
     },
     {
       "altBuilds": [
@@ -8143,7 +8147,7 @@
         }
       ],
       "title": "Emblem Rengar",
-      "updated": "2026-10-12 17:06:28.246Z"
+      "updated": "2026-10-13 15:47:56.919Z"
     },
     {
       "altBuilds": [
@@ -8373,7 +8377,7 @@
         }
       ],
       "title": "Ravager Elise",
-      "updated": "2026-10-12 17:06:06.537Z"
+      "updated": "2026-10-13 15:47:56.612Z"
     },
     {
       "altBuilds": [
@@ -8609,7 +8613,7 @@
         }
       ],
       "title": "Fae Tristana",
-      "updated": "2026-10-12 17:06:07.333Z"
+      "updated": "2026-10-13 15:47:56.913Z"
     },
     {
       "altBuilds": [],
@@ -8853,7 +8857,7 @@
         }
       ],
       "title": "Unrivaled Reroll",
-      "updated": "2026-10-12 17:06:06.237Z"
+      "updated": "2026-10-13 15:47:56.922Z"
     },
     {
       "altBuilds": [
@@ -9098,7 +9102,7 @@
         }
       ],
       "title": "Solar Kayle",
-      "updated": "2026-10-12 17:05:30.479Z"
+      "updated": "2026-10-13 15:47:57.064Z"
     },
     {
       "altBuilds": [],
@@ -9345,7 +9349,7 @@
         }
       ],
       "title": "Ashe Fast 9 ",
-      "updated": "2026-10-12 17:06:17.886Z"
+      "updated": "2026-10-13 15:47:56.909Z"
     },
     {
       "altBuilds": [
@@ -9635,7 +9639,7 @@
         }
       ],
       "title": "Draven Dragon 9",
-      "updated": "2026-10-12 17:04:58.578Z"
+      "updated": "2026-10-13 15:47:56.901Z"
     },
     {
       "altBuilds": [
@@ -9879,7 +9883,7 @@
         }
       ],
       "title": "Adaptor Reroll",
-      "updated": "2026-10-12 17:05:17.446Z"
+      "updated": "2026-10-13 15:47:56.913Z"
     },
     {
       "altBuilds": [],
@@ -10065,7 +10069,7 @@
         }
       ],
       "title": "Sprykin Teemo",
-      "updated": "2026-10-12 17:06:11.314Z"
+      "updated": "2026-10-13 15:47:56.910Z"
     },
     {
       "altBuilds": [
@@ -10319,7 +10323,7 @@
         }
       ],
       "title": "Aphelios Rapidfire",
-      "updated": "2026-10-12 17:05:15.760Z"
+      "updated": "2026-10-13 15:47:56.592Z"
     },
     {
       "altBuilds": [
@@ -10577,7 +10581,7 @@
         }
       ],
       "title": "Primal Flex",
-      "updated": "2026-10-12 17:05:37.712Z"
+      "updated": "2026-10-13 15:47:56.896Z"
     },
     {
       "altBuilds": [
@@ -10826,7 +10830,7 @@
         }
       ],
       "title": "Woodblossom",
-      "updated": "2026-10-12 17:05:32.867Z"
+      "updated": "2026-10-13 15:47:57.055Z"
     },
     {
       "altBuilds": [
@@ -11015,7 +11019,7 @@
         }
       ],
       "title": "Azir Reroll",
-      "updated": "2026-10-12 17:06:18.038Z"
+      "updated": "2026-10-13 15:47:56.457Z"
     },
     {
       "altBuilds": [
@@ -11259,7 +11263,7 @@
         }
       ],
       "title": "Blackthorn Malphite",
-      "updated": "2026-10-12 17:05:13.480Z"
+      "updated": "2026-10-13 15:47:56.851Z"
     },
     {
       "altBuilds": [],
@@ -11493,7 +11497,7 @@
         }
       ],
       "title": "Spellweaver Ahri",
-      "updated": "2026-10-12 17:06:08.761Z"
+      "updated": "2026-10-13 15:47:56.589Z"
     },
     {
       "altBuilds": [
@@ -11749,7 +11753,7 @@
         }
       ],
       "title": "Aphelios Vanguards",
-      "updated": "2026-10-12 17:06:08.755Z"
+      "updated": "2026-10-13 15:47:56.602Z"
     },
     {
       "altBuilds": [
@@ -11993,7 +11997,7 @@
         }
       ],
       "title": "Aphelios Flex",
-      "updated": "2026-10-12 17:05:31.749Z"
+      "updated": "2026-10-13 15:47:56.589Z"
     },
     {
       "altBuilds": [
@@ -12268,7 +12272,7 @@
         }
       ],
       "title": "Aphelios Elderwood",
-      "updated": "2026-10-12 17:05:13.162Z"
+      "updated": "2026-10-13 15:47:56.590Z"
     }
   ]
 }
