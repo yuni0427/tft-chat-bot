@@ -10612,7 +10612,8 @@
             "DA_Artifact_NavoriFlickerblade",
             "DA_Artifact_EternalPact"
           ],
-          "stars": 1
+          "stars": 1,
+          "trait": null
         }
       ],
       "anomaliedChampions": [],
@@ -10679,45 +10680,31 @@
       "displayIndex": 1001,
       "earlyComp": [
         {
+          "apiName": "DA_Karma18",
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
           "apiName": "DA_18_Yorick",
           "items": [],
-          "stars": 1
+          "stars": 1,
+          "trait": null
         },
         {
           "apiName": "DA_18_Yunara",
           "items": [],
-          "stars": 1
-        },
-        {
-          "apiName": "DA_Karma18",
-          "items": [],
-          "stars": 1
+          "stars": 1,
+          "trait": null
         },
         {
           "apiName": "DA_18_Azir",
           "items": [],
-          "stars": 1
+          "stars": 1,
+          "trait": null
         }
       ],
       "finalComp": [
-        {
-          "apiName": "DA_18_KhaZix",
-          "boardIndex": 17,
-          "items": [],
-          "stars": 3,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Azir",
-          "boardIndex": 21,
-          "items": [
-            "DA_ArchangelsStaff",
-            "DA_HextechGunblade",
-            "DA_JeweledGauntlet"
-          ],
-          "stars": 3,
-          "trait": null
-        },
         {
           "apiName": "DA_18_RekSai",
           "boardIndex": 19,
@@ -10730,6 +10717,33 @@
           "boardIndex": 18,
           "items": [],
           "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Yunara",
+          "boardIndex": 22,
+          "items": [
+            "DA_VoidStaff"
+          ],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_KhaZix",
+          "boardIndex": 17,
+          "items": [],
+          "stars": 3,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Azir",
+          "boardIndex": 21,
+          "items": [
+            "DA_HextechGunblade",
+            "DA_JeweledGauntlet",
+            "DA_RabadonsDeathcap"
+          ],
+          "stars": 3,
           "trait": null
         },
         {
@@ -10747,15 +10761,6 @@
           "apiName": "DA_18_Sett",
           "boardIndex": 16,
           "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Yunara",
-          "boardIndex": 22,
-          "items": [
-            "DA_VoidStaff"
-          ],
           "stars": 1,
           "trait": null
         }
@@ -10790,7 +10795,7 @@
         }
       ],
       "title": "Azir Reroll",
-      "updated": "2026-10-18 16:39:59.410Z"
+      "updated": "2026-10-19 17:58:33.835Z"
     },
     {
       "altBuilds": [
