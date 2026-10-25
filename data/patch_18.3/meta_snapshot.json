@@ -823,7 +823,7 @@
       "set": 18,
       "sticker": 3,
       "style": "3-Cost Reroll",
-      "tier": "A",
+      "tier": "S",
       "tips": [
         {
           "stage": "Stage 2",
@@ -839,7 +839,7 @@
         }
       ],
       "title": "Lunarwood Kha'zix",
-      "updated": "2026-10-24 01:17:13.148Z"
+      "updated": "2026-10-25 01:49:21.167Z"
     },
     {
       "altBuilds": [
@@ -2820,7 +2820,7 @@
       "set": 18,
       "sticker": 2,
       "style": "Fast 9",
-      "tier": "B",
+      "tier": "A",
       "tips": [
         {
           "stage": "Stage 2",
@@ -2836,7 +2836,7 @@
         }
       ],
       "title": "AP Fast 9",
-      "updated": "2026-10-24 01:17:13.182Z"
+      "updated": "2026-10-25 01:50:01.397Z"
     },
     {
       "altBuilds": [
