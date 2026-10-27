@@ -2116,10 +2116,12 @@
         {
           "apiName": "DA_18_Sivir",
           "items": [
-            "DA_Artifact_GoldCollector",
-            "DA_18_EmblemFae"
+            "DA_18_EmblemFae",
+            "DA_InfinityEdge",
+            "DA_SpearOfShojin"
           ],
-          "stars": 1
+          "stars": 1,
+          "trait": null
         }
       ],
       "anomaliedChampions": [],
@@ -2139,10 +2141,6 @@
           "disabled": false
         },
         {
-          "apiName": "DA_CaretakersFavor",
-          "disabled": false
-        },
-        {
           "apiName": "DA_Swordsmith",
           "disabled": false
         },
@@ -2155,15 +2153,19 @@
           "disabled": false
         },
         {
-          "apiName": "DA_18_FOURcing",
+          "apiName": "DA_DeadlierBlades",
           "disabled": false
         },
         {
-          "apiName": "DA_DeadlierBlades",
+          "apiName": "DA_TheTraitTree",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_SpreadingRoots",
           "disabled": false
         }
       ],
-      "augmentsTip": "Tristana + Ashe + Ivern slots are very flexible. Frontline can also change pending on what emblems you hit. Take Execute or Healing Primal buff. Prioritize Sivir items. Always play Ashe if you hit early. ",
+      "augmentsTip": "Strong with Fae emblem on either Sivir / 5 cost. Tristana + Ashe + Ivern slots are very flexible pending on what emblems you get. Frontline can also change pending on what emblems you hit. Take Execute or Healing Primal buff. Prioritize Sivir items. Always play Ashe if you hit early. ",
       "carousel": [
         {
           "apiName": "DA_InfinityEdge"
@@ -2186,30 +2188,64 @@
       "displayIndex": 8,
       "earlyComp": [
         {
+          "apiName": "DA_18_Camille",
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Leona",
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
           "apiName": "DA_18_Akali_AD",
           "items": [
             "DA_InfinityEdge",
             "DA_SpearOfShojin"
           ],
-          "stars": 1
-        },
-        {
-          "apiName": "DA_18_Camille",
-          "items": [],
-          "stars": 1
+          "stars": 1,
+          "trait": null
         },
         {
           "apiName": "DA_18_Shen",
           "items": [],
-          "stars": 1
-        },
-        {
-          "apiName": "DA_18_Leona",
-          "items": [],
-          "stars": 1
+          "stars": 1,
+          "trait": null
         }
       ],
       "finalComp": [
+        {
+          "apiName": "DA_18_Shen",
+          "boardIndex": 3,
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Tristana",
+          "boardIndex": 23,
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_Vi18",
+          "boardIndex": 4,
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Lillia",
+          "boardIndex": 6,
+          "items": [
+            "DA_ProtectorsVow"
+          ],
+          "stars": 1,
+          "trait": null
+        },
         {
           "apiName": "DA_Amumu18",
           "boardIndex": 2,
@@ -2233,15 +2269,8 @@
           "trait": null
         },
         {
-          "apiName": "DA_18_Shen",
-          "boardIndex": 3,
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_Vi18",
-          "boardIndex": 4,
+          "apiName": "DA_18_Ivern",
+          "boardIndex": 25,
           "items": [],
           "stars": 1,
           "trait": null
@@ -2255,29 +2284,6 @@
           ],
           "stars": 1,
           "trait": null
-        },
-        {
-          "apiName": "DA_18_Ivern",
-          "boardIndex": 25,
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Tristana",
-          "boardIndex": 23,
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Lillia",
-          "boardIndex": 6,
-          "items": [
-            "DA_ProtectorsVow"
-          ],
-          "stars": 1,
-          "trait": null
         }
       ],
       "id": "32ck7w12n2zqknv",
@@ -2287,9 +2293,18 @@
         "cost": 4
       },
       "mainItem": {
-        "apiName": "DA_18_EmblemHunter"
+        "apiName": "DA_18_EmblemFae"
       },
       "maxCap": [
+        {
+          "apiName": "DA_18_Rakan",
+          "items": [],
+          "predecessors": [
+            "DA_18_Tristana"
+          ],
+          "stars": 1,
+          "trait": null
+        },
         {
           "apiName": "DA_18_Maokai",
           "items": [],
@@ -2298,14 +2313,6 @@
           ],
           "stars": 1,
           "trait": null
-        },
-        {
-          "apiName": "DA_18_Rakan",
-          "items": [],
-          "predecessors": [
-            "DA_18_Tristana"
-          ],
-          "stars": 1
         }
       ],
       "metaTitle": "Sivir Flex",
@@ -2331,7 +2338,7 @@
         }
       ],
       "title": "Primal Flex",
-      "updated": "2026-10-26 07:54:43.207Z"
+      "updated": "2026-10-26 19:15:30.017Z"
     },
     {
       "altBuilds": [
