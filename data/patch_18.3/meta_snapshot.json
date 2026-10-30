@@ -12722,6 +12722,261 @@
     {
       "altBuilds": [
         {
+          "apiName": "DA_18_Ahri",
+          "items": [
+            "DA_18_EmblemExecutioner",
+            "DA_SpearOfShojin",
+            "DA_StrikersFlail"
+          ],
+          "stars": 1,
+          "trait": null
+        }
+      ],
+      "anomaliedChampions": [],
+      "anomaliesOverride": [],
+      "augmentTypes": [
+        "ECON",
+        "ITEMS",
+        "COMBAT"
+      ],
+      "augments": [
+        {
+          "apiName": "DA_Slammin",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_JeweledLotus_I",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_CommerceCore",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_18_BigGrabBag",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_FeelingLucky",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_ExclusiveCustomization",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_Staffsmith",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_18_WispRebatePlus",
+          "disabled": false
+        }
+      ],
+      "augmentsTip": "Core of the comp is Ahri + Sett + Ashe. The rest of the units are flexible. If itemizing Sivir, go for Execute Primal. If far ahead and win streaking, you can play for Phoenix Primal.",
+      "carousel": [
+        {
+          "apiName": "DA_SpearOfShojin"
+        },
+        {
+          "apiName": "DA_JeweledGauntlet"
+        },
+        {
+          "apiName": "DA_Component_GiantsBelt"
+        },
+        {
+          "apiName": "DA_Component_SparringGloves"
+        }
+      ],
+      "collectionId": "1oe5lvmronvq850",
+      "collectionName": "better_guides",
+      "compSlug": "set-18-spirit-blossom",
+      "created": "2026-07-30 02:10:04.644Z",
+      "difficulty": "EASY",
+      "displayIndex": 1003,
+      "earlyComp": [
+        {
+          "apiName": "DA_Karma18",
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Rakan",
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Yorick",
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Yunara",
+          "items": [],
+          "stars": 1,
+          "trait": null
+        }
+      ],
+      "finalComp": [
+        {
+          "apiName": "DA_Karma18",
+          "boardIndex": 21,
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Yorick",
+          "boardIndex": 1,
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_Vi18",
+          "boardIndex": 3,
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Sivir",
+          "boardIndex": 26,
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Zyra",
+          "boardIndex": 23,
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Ahri",
+          "boardIndex": 24,
+          "items": [
+            "DA_SpearOfShojin",
+            "DA_JeweledGauntlet",
+            "DA_StrikersFlail"
+          ],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Sett",
+          "boardIndex": 5,
+          "items": [
+            "DA_BrambleVest",
+            "DA_DragonsClaw",
+            "DA_WarmogsArmor"
+          ],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_GnarSmall",
+          "boardIndex": 10,
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Ashe",
+          "boardIndex": 27,
+          "items": [
+            "DA_RedBuff",
+            "DA_SpearOfShojin",
+            "DA_LastWhisper"
+          ],
+          "stars": 1,
+          "trait": null
+        }
+      ],
+      "id": "oaeid9p1u7zaqx9",
+      "isPublic": true,
+      "mainChampion": {
+        "apiName": "DA_18_Ahri",
+        "cost": 4
+      },
+      "maxCap": [
+        {
+          "apiName": "DA_18_Alune",
+          "items": [],
+          "predecessors": [
+            "DA_Karma18"
+          ],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Ivern",
+          "items": [],
+          "predecessors": [
+            "DA_18_Zyra"
+          ],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Maokai",
+          "items": [],
+          "predecessors": [
+            "DA_18_Yorick"
+          ],
+          "stars": 1,
+          "trait": null
+        }
+      ],
+      "metaTitle": "Blossom Ahri Ashe",
+      "metadata": {},
+      "overlayAugments": [
+        {
+          "apiName": "DA_18_WispRebatePlus",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_CryMeARiver",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_CyberneticUplink_Gold",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_EpicRolldown",
+          "disabled": false
+        }
+      ],
+      "rank": "",
+      "set": 18,
+      "sticker": 3,
+      "style": "4-Cost Fast 8",
+      "tier": "B",
+      "tips": [
+        {
+          "stage": "Stage 2",
+          "tip": "Look for 3 Blossom early and play for win streak. Karma can hold items for Ahri. Itemize Yorick or any other 2* tank."
+        },
+        {
+          "stage": "Stage 3",
+          "tip": "Add 5 Blossom when you can. Flex in Blackthorn (Veigar / Azir), Fiddlesticks + Defender, or other frontline while stacking econ. Always play Ahri 1 and itemize her."
+        },
+        {
+          "stage": "Stage 4",
+          "tip": "Level and roll for Ahri, Sett, and at least 5 Blossom. You can also temporarily play 7 Blossom for econ while going to 9. End game cap = replace Yorick / Karma."
+        }
+      ],
+      "title": "Spirit Blossom",
+      "updated": "2026-10-29 15:44:07.527Z"
+    },
+    {
+      "altBuilds": [
+        {
           "apiName": "DA_18_Aphelios",
           "items": [
             "DA_Artifact_GoldCollector"
