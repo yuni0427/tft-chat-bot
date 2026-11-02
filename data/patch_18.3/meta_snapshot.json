@@ -1308,20 +1308,22 @@
     {
       "altBuilds": [
         {
+          "apiName": "DA_18_Sivir",
+          "items": [
+            "DA_18_EmblemFae"
+          ],
+          "stars": 1,
+          "trait": null
+        },
+        {
           "apiName": "DA_Nidalee18_AP",
           "items": [
             "DA_18_EmblemHunter",
             "DA_Artifact_SilvermereDawn",
             "DA_BlueBuff"
           ],
-          "stars": 1
-        },
-        {
-          "apiName": "DA_18_Sivir",
-          "items": [
-            "DA_18_EmblemFae"
-          ],
-          "stars": 1
+          "stars": 1,
+          "trait": null
         }
       ],
       "anomaliedChampions": [],
@@ -1349,10 +1351,6 @@
           "disabled": false
         },
         {
-          "apiName": "DA_JeweledLotus_II",
-          "disabled": false
-        },
-        {
           "apiName": "DA_CyberneticImplants_Gold",
           "disabled": false
         },
@@ -1361,7 +1359,11 @@
           "disabled": false
         },
         {
-          "apiName": "DA_DeadlierBlades",
+          "apiName": "DA_BronzeForLifeII",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_BronzeForLifeI",
           "disabled": false
         }
       ],
@@ -1493,6 +1495,15 @@
       },
       "maxCap": [
         {
+          "apiName": "DA_18_Tristana",
+          "items": [],
+          "predecessors": [
+            "DA_KogMaw18_AD"
+          ],
+          "stars": 1,
+          "trait": null
+        },
+        {
           "apiName": "DA_18_Ashe",
           "items": [],
           "predecessors": [
@@ -1509,14 +1520,6 @@
           ],
           "stars": 1,
           "trait": null
-        },
-        {
-          "apiName": "DA_18_Tristana",
-          "items": [],
-          "predecessors": [
-            "DA_KogMaw18_AD"
-          ],
-          "stars": 1
         }
       ],
       "metaTitle": "Primal Sivir Nidalee",
@@ -1524,7 +1527,7 @@
       "overlayAugments": [],
       "rank": "",
       "set": 18,
-      "sticker": 2,
+      "sticker": 3,
       "style": "4-Cost Fast 8",
       "tier": "A",
       "tips": [
@@ -1542,7 +1545,7 @@
         }
       ],
       "title": "Primal Sivir",
-      "updated": "2026-11-01 03:47:05.693Z"
+      "updated": "2026-11-01 15:35:46.350Z"
     },
     {
       "altBuilds": [
@@ -3883,7 +3886,17 @@
       "updated": "2026-10-30 16:29:16.177Z"
     },
     {
-      "altBuilds": [],
+      "altBuilds": [
+        {
+          "apiName": "DA_18_Teemo",
+          "items": [
+            "DA_RabadonsDeathcap_Radiant",
+            "DA_SpearOfShojin",
+            "DA_JeweledGauntlet"
+          ],
+          "stars": 1
+        }
+      ],
       "anomaliedChampions": [],
       "anomaliesOverride": [],
       "augmentTypes": [
@@ -3967,7 +3980,9 @@
         },
         {
           "apiName": "DA_18_Teemo",
-          "items": [],
+          "items": [
+            "DA_SpearOfShojin"
+          ],
           "stars": 1,
           "trait": null
         }
@@ -4002,22 +4017,22 @@
           "trait": null
         },
         {
+          "apiName": "DA_18_LeBlanc",
+          "boardIndex": 26,
+          "items": [
+            "DA_SpearOfShojin",
+            "DA_RabadonsDeathcap"
+          ],
+          "stars": 3,
+          "trait": null
+        },
+        {
           "apiName": "DA_18_Alistar",
           "boardIndex": 4,
           "items": [
             "DA_WarmogsArmor",
             "DA_GargoyleStoneplate",
             "DA_GargoyleStoneplate"
-          ],
-          "stars": 3,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_LeBlanc",
-          "boardIndex": 26,
-          "items": [
-            "DA_SpearOfShojin",
-            "DA_RabadonsDeathcap"
           ],
           "stars": 3,
           "trait": null
@@ -4034,6 +4049,13 @@
           "trait": null
         },
         {
+          "apiName": "DA_18_Hecarim",
+          "boardIndex": 10,
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
           "apiName": "DA_Sentinel18",
           "boardIndex": 11,
           "items": [],
@@ -4047,13 +4069,6 @@
             "DA_Morellonomicon",
             "DA_VoidStaff"
           ],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Hecarim",
-          "boardIndex": 10,
-          "items": [],
           "stars": 1,
           "trait": null
         }
@@ -4093,12 +4108,12 @@
           "trait": null
         }
       ],
-      "metaTitle": "Elderwood Teemo Reroll",
+      "metaTitle": "Teemo Alistar Reroll",
       "metadata": {},
       "overlayAugments": [],
       "rank": "",
       "set": 18,
-      "sticker": 2,
+      "sticker": 3,
       "style": "2-Cost Reroll",
       "tier": "B",
       "tips": [
@@ -4115,8 +4130,8 @@
           "tip": "Finish Teemo 3* and your tank then push levels for more Invokers. If you get more damage items late game Morgana can hold the utility."
         }
       ],
-      "title": "Teemowood",
-      "updated": "2026-10-30 16:29:16.188Z"
+      "title": "Tee-moo",
+      "updated": "2026-11-01 15:55:08.560Z"
     },
     {
       "altBuilds": [
@@ -7470,7 +7485,7 @@
           "disabled": false
         }
       ],
-      "augmentsTip": "Only play when you have emblem for Rengar. Stacking 4 Fae ASAP is important so you can get a gold engine. Can also tank Lillia primary if you can't find Rammus. Can flex in Primal as well if you have emblem.",
+      "augmentsTip": "Only play when you have emblem for Rengar. Very strong if you can get both Fae + Sprykin emblems on him (+ Edge of Night). Stacking Fae ASAP is important so you can get double gold engine online. Can also tank Lillia primary if you can't find Rammus. Can flex in Primal as well if you have emblem.",
       "carousel": [
         {
           "apiName": "DA_GuinsoosRageblade"
@@ -7519,30 +7534,12 @@
       ],
       "finalComp": [
         {
-          "apiName": "DA_18_Kobuko",
-          "boardIndex": 16,
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Rammus",
-          "boardIndex": 4,
-          "items": [
-            "DA_GargoyleStoneplate",
-            "DA_SpiritVisage",
-            "DA_WarmogsArmor"
-          ],
-          "stars": 3,
-          "trait": null
-        },
-        {
           "apiName": "DA_18_Rengar",
           "boardIndex": 20,
           "items": [
             "DA_EdgeOfNight",
-            "DA_GuinsoosRageblade",
-            "DA_18_EmblemFae"
+            "DA_18_EmblemFae",
+            "DA_Quicksilver"
           ],
           "stars": 3,
           "trait": null
@@ -7552,30 +7549,57 @@
           "boardIndex": 27,
           "items": [
             "DA_GuinsoosRageblade",
-            "DA_LastWhisper",
-            "DA_Deathblade"
+            "DA_Deathblade",
+            "DA_HextechGunblade"
           ],
           "stars": 3,
           "trait": null
         },
         {
-          "apiName": "DA_18_Lillia",
-          "boardIndex": 15,
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
           "apiName": "DA_18_Sivir",
           "boardIndex": 25,
+          "items": [
+            "DA_LastWhisper"
+          ],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Lillia",
+          "boardIndex": 0,
           "items": [],
           "stars": 1,
           "trait": null
         },
         {
-          "apiName": "DA_18_GnarSmall",
-          "boardIndex": 17,
+          "apiName": "DA_Vi18",
+          "boardIndex": 3,
           "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Kobuko",
+          "boardIndex": 2,
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Rakan",
+          "boardIndex": 1,
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Rammus",
+          "boardIndex": 4,
+          "items": [
+            "DA_Crownguard",
+            "DA_SunfireCape",
+            "DA_GargoyleStoneplate"
+          ],
           "stars": 1,
           "trait": null
         }
@@ -7616,7 +7640,7 @@
       ],
       "rank": "",
       "set": 18,
-      "sticker": 10,
+      "sticker": 3,
       "style": "3-Cost Reroll",
       "tier": "X",
       "tips": [
@@ -7634,7 +7658,7 @@
         }
       ],
       "title": "Emblem Rengar",
-      "updated": "2026-10-30 16:29:16.195Z"
+      "updated": "2026-11-01 17:54:01.251Z"
     },
     {
       "altBuilds": [],
