@@ -323,7 +323,7 @@
         }
       ],
       "title": "Draven Ezreal 9",
-      "updated": "2026-10-30 16:29:15.808Z"
+      "updated": "2026-11-03 04:44:16.010Z"
     },
     {
       "altBuilds": [],
@@ -340,15 +340,7 @@
           "disabled": false
         },
         {
-          "apiName": "DA_BirthdayPresent",
-          "disabled": false
-        },
-        {
           "apiName": "DA_UpwardMobility",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_LevelUp",
           "disabled": false
         },
         {
@@ -365,6 +357,14 @@
         },
         {
           "apiName": "DA_ExplosiveGrowthPlus",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_18_LuxAugmentII",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_Staffsmith",
           "disabled": false
         }
       ],
@@ -392,7 +392,10 @@
       "earlyComp": [
         {
           "apiName": "DA_Karma18",
-          "items": [],
+          "items": [
+            "DA_BlueBuff",
+            "DA_JeweledGauntlet"
+          ],
           "stars": 1,
           "trait": null
         },
@@ -417,12 +420,9 @@
       ],
       "finalComp": [
         {
-          "apiName": "DA_18_Morgana",
-          "boardIndex": 11,
-          "items": [
-            "DA_VoidStaff",
-            "DA_Morellonomicon"
-          ],
+          "apiName": "DA_18_Rakan",
+          "boardIndex": 9,
+          "items": [],
           "stars": 1,
           "trait": null
         },
@@ -448,6 +448,16 @@
           "trait": null
         },
         {
+          "apiName": "DA_18_Morgana",
+          "boardIndex": 11,
+          "items": [
+            "DA_VoidStaff",
+            "DA_Morellonomicon"
+          ],
+          "stars": 1,
+          "trait": null
+        },
+        {
           "apiName": "DA_Sentinel18",
           "boardIndex": 3,
           "items": [
@@ -466,29 +476,22 @@
           "trait": null
         },
         {
+          "apiName": "DA_18_Ivern",
+          "boardIndex": 21,
+          "items": [
+            "DA_SpearOfShojin",
+            "DA_AdaptiveHelm"
+          ],
+          "stars": 1,
+          "trait": null
+        },
+        {
           "apiName": "DA_18_Alune",
           "boardIndex": 27,
           "items": [
             "DA_BlueBuff",
             "DA_ArchangelsStaff",
             "DA_JeweledGauntlet"
-          ],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Rakan",
-          "boardIndex": 9,
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Ivern",
-          "boardIndex": 21,
-          "items": [
-            "DA_SpearOfShojin",
-            "DA_AdaptiveHelm"
           ],
           "stars": 1,
           "trait": null
@@ -521,11 +524,15 @@
         },
         {
           "apiName": "DA_Lux18_Base",
-          "items": [],
+          "items": [
+            "DA_SpearOfShojin",
+            "DA_RabadonsDeathcap"
+          ],
           "predecessors": [
             "DA_18_Morgana"
           ],
-          "stars": 1
+          "stars": 1,
+          "trait": null
         }
       ],
       "metaTitle": "Alune AP Fast 9",
@@ -533,7 +540,7 @@
       "overlayAugments": [],
       "rank": "",
       "set": 18,
-      "sticker": 2,
+      "sticker": 3,
       "style": "Fast 9",
       "tier": "S",
       "tips": [
@@ -551,7 +558,7 @@
         }
       ],
       "title": "AP Fast 9",
-      "updated": "2026-10-30 16:29:15.792Z"
+      "updated": "2026-11-03 04:44:16.042Z"
     },
     {
       "altBuilds": [
@@ -829,10 +836,26 @@
         }
       ],
       "title": "Elderwood Executioners",
-      "updated": "2026-10-30 16:29:15.812Z"
+      "updated": "2026-11-03 04:44:16.084Z"
     },
     {
-      "altBuilds": [],
+      "altBuilds": [
+        {
+          "apiName": "DA_Sentinel18",
+          "items": [
+            "DA_18_EmblemBrawler",
+            "DA_18_EmblemJuggernaut"
+          ],
+          "stars": 1
+        },
+        {
+          "apiName": "DA_Krug18",
+          "items": [
+            "DA_18_EmblemVanguard"
+          ],
+          "stars": 1
+        }
+      ],
       "anomaliedChampions": [
         {
           "apiName": "DA_Brambleback18"
@@ -847,10 +870,6 @@
       "augments": [
         {
           "apiName": "DA_18_RiftbeastTraitAugment",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_Swordsmith",
           "disabled": false
         },
         {
@@ -875,6 +894,10 @@
         },
         {
           "apiName": "DA_ComebackStory",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_FrontlineFoundation",
           "disabled": false
         }
       ],
@@ -930,20 +953,6 @@
       ],
       "finalComp": [
         {
-          "apiName": "DA_18_Sentry",
-          "boardIndex": 23,
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_Murkwolf18",
-          "boardIndex": 22,
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
           "apiName": "DA_Krug18",
           "boardIndex": 3,
           "items": [
@@ -952,13 +961,6 @@
             "DA_GargoyleStoneplate"
           ],
           "stars": 3,
-          "trait": null
-        },
-        {
-          "apiName": "DA_Sentinel18",
-          "boardIndex": 14,
-          "items": [],
-          "stars": 1,
           "trait": null
         },
         {
@@ -973,26 +975,48 @@
           "trait": null
         },
         {
-          "apiName": "DA_18_GnarSmall",
-          "boardIndex": 18,
+          "apiName": "DA_18_ElderDragon",
+          "boardIndex": 15,
+          "items": [
+            "DA_InfinityEdge",
+            "DA_LastWhisper",
+            "DA_SteraksGage"
+          ],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_Murkwolf18",
+          "boardIndex": 14,
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Sentry",
+          "boardIndex": 22,
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_Sentinel18",
+          "boardIndex": 19,
           "items": [],
           "stars": 1,
           "trait": null
         },
         {
           "apiName": "DA_Taric18",
-          "boardIndex": 16,
+          "boardIndex": 18,
           "items": [],
           "stars": 1,
           "trait": null
         },
         {
-          "apiName": "DA_18_ElderDragon",
-          "boardIndex": 24,
-          "items": [
-            "DA_InfinityEdge",
-            "DA_LastWhisper"
-          ],
+          "apiName": "DA_18_GnarSmall",
+          "boardIndex": 17,
+          "items": [],
           "stars": 1,
           "trait": null
         }
@@ -1046,7 +1070,7 @@
         }
       ],
       "title": "Tempo Riftbeast",
-      "updated": "2026-10-30 16:29:15.802Z"
+      "updated": "2026-11-03 04:44:16.089Z"
     },
     {
       "altBuilds": [
@@ -1058,6 +1082,15 @@
           ],
           "stars": 1,
           "trait": null
+        },
+        {
+          "apiName": "DA_18_Zyra",
+          "items": [
+            "DA_ArchangelsStaff",
+            "DA_SpearOfShojin",
+            "DA_HextechGunblade"
+          ],
+          "stars": 1
         }
       ],
       "anomaliedChampions": [],
@@ -1285,7 +1318,7 @@
       ],
       "rank": "",
       "set": 18,
-      "sticker": 2,
+      "sticker": 3,
       "style": "4-Cost Fast 8",
       "tier": "A",
       "tips": [
@@ -1303,7 +1336,7 @@
         }
       ],
       "title": "Ahri Zyra",
-      "updated": "2026-10-30 16:29:15.810Z"
+      "updated": "2026-11-03 04:44:16.097Z"
     },
     {
       "altBuilds": [
@@ -1545,7 +1578,7 @@
         }
       ],
       "title": "Primal Sivir",
-      "updated": "2026-11-01 15:35:46.350Z"
+      "updated": "2026-11-03 04:44:16.398Z"
     },
     {
       "altBuilds": [
@@ -1663,12 +1696,17 @@
       ],
       "finalComp": [
         {
-          "apiName": "DA_18_LeBlanc",
-          "boardIndex": 26,
-          "items": [
-            "DA_VoidStaff"
-          ],
-          "stars": 1,
+          "apiName": "DA_18_Leona",
+          "boardIndex": 15,
+          "items": [],
+          "stars": 3,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Yorick",
+          "boardIndex": 16,
+          "items": [],
+          "stars": 3,
           "trait": null
         },
         {
@@ -1678,6 +1716,34 @@
             "DA_BlueBuff",
             "DA_RabadonsDeathcap",
             "DA_JeweledGauntlet"
+          ],
+          "stars": 3,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Kayle",
+          "boardIndex": 23,
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_LeBlanc",
+          "boardIndex": 26,
+          "items": [
+            "DA_VoidStaff",
+            "DA_Morellonomicon"
+          ],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Sejuani",
+          "boardIndex": 4,
+          "items": [
+            "DA_GargoyleStoneplate",
+            "DA_WarmogsArmor",
+            "DA_GargoyleStoneplate"
           ],
           "stars": 3,
           "trait": null
@@ -1694,42 +1760,10 @@
           "trait": null
         },
         {
-          "apiName": "DA_18_Sejuani",
-          "boardIndex": 4,
-          "items": [
-            "DA_GargoyleStoneplate",
-            "DA_WarmogsArmor",
-            "DA_GargoyleStoneplate"
-          ],
-          "stars": 3,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Leona",
-          "boardIndex": 15,
-          "items": [],
-          "stars": 3,
-          "trait": null
-        },
-        {
           "apiName": "DA_18_Azir",
           "boardIndex": 21,
           "items": [],
           "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Kayle",
-          "boardIndex": 23,
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Yorick",
-          "boardIndex": 16,
-          "items": [],
-          "stars": 3,
           "trait": null
         }
       ],
@@ -1789,7 +1823,7 @@
       ],
       "rank": "",
       "set": 18,
-      "sticker": 0,
+      "sticker": 3,
       "style": "2-Cost Reroll",
       "tier": "A",
       "tips": [
@@ -1807,7 +1841,7 @@
         }
       ],
       "title": "Solar Blossom",
-      "updated": "2026-10-30 16:29:15.858Z"
+      "updated": "2026-11-03 04:44:16.401Z"
     },
     {
       "altBuilds": [
@@ -2056,7 +2090,7 @@
         }
       ],
       "title": "Adaptor Reroll",
-      "updated": "2026-10-30 16:29:15.932Z"
+      "updated": "2026-11-03 04:44:16.092Z"
     },
     {
       "altBuilds": [],
@@ -2309,7 +2343,7 @@
         }
       ],
       "title": "Ashe Juggernauts",
-      "updated": "2026-10-30 16:29:15.909Z"
+      "updated": "2026-11-03 04:44:16.382Z"
     },
     {
       "altBuilds": [
@@ -2550,7 +2584,7 @@
         }
       ],
       "title": "Riftbeast Reroll",
-      "updated": "2026-10-30 16:29:15.949Z"
+      "updated": "2026-11-03 04:44:16.301Z"
     },
     {
       "altBuilds": [
@@ -2638,80 +2672,38 @@
       "displayIndex": 10,
       "earlyComp": [
         {
+          "apiName": "DA_18_Camille",
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Leona",
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
           "apiName": "DA_18_Akali_AD",
           "items": [
             "DA_SteraksGage",
             "DA_InfinityEdge",
             "DA_GuinsoosRageblade"
           ],
-          "stars": 1
-        },
-        {
-          "apiName": "DA_18_Camille",
-          "items": [],
-          "stars": 1
-        },
-        {
-          "apiName": "DA_18_Leona",
-          "items": [],
-          "stars": 1
+          "stars": 1,
+          "trait": null
         },
         {
           "apiName": "DA_18_Shen",
           "items": [],
-          "stars": 1
+          "stars": 1,
+          "trait": null
         }
       ],
       "finalComp": [
         {
-          "apiName": "DA_18_Varus",
-          "boardIndex": 27,
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Diana",
-          "boardIndex": 9,
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_KogMaw18_AD",
-          "boardIndex": 22,
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_Vi18",
-          "boardIndex": 10,
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_Amumu18",
-          "boardIndex": 2,
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Aphelios",
-          "boardIndex": 21,
-          "items": [
-            "DA_InfinityEdge",
-            "DA_GuinsoosRageblade",
-            "DA_KrakensFury"
-          ],
-          "stars": 1,
-          "trait": null
-        },
-        {
           "apiName": "DA_Nidalee18_AP",
-          "boardIndex": 14,
+          "boardIndex": 27,
           "items": [
             "DA_SpearOfShojin",
             "DA_SteraksGage",
@@ -2721,13 +2713,59 @@
           "trait": null
         },
         {
-          "apiName": "DA_Sentinel18",
-          "boardIndex": 3,
+          "apiName": "DA_Vi18",
+          "boardIndex": 9,
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Diana",
+          "boardIndex": 10,
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_KogMaw18_AD",
+          "boardIndex": 26,
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_Amumu18",
+          "boardIndex": 4,
           "items": [
             "DA_ProtectorsVow",
             "DA_ProtectorsVow",
             "DA_WarmogsArmor"
           ],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_Sentinel18",
+          "boardIndex": 3,
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Aphelios",
+          "boardIndex": 25,
+          "items": [
+            "DA_InfinityEdge",
+            "DA_GuinsoosRageblade",
+            "DA_KrakensFury"
+          ],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Varus",
+          "boardIndex": 21,
+          "items": [],
           "stars": 1,
           "trait": null
         }
@@ -2822,7 +2860,7 @@
         }
       ],
       "title": "Aphelios Nidalee",
-      "updated": "2026-10-30 16:29:16.141Z"
+      "updated": "2026-11-03 04:44:16.396Z"
     },
     {
       "altBuilds": [
@@ -3127,7 +3165,7 @@
         }
       ],
       "title": "Zyra Juggernaut",
-      "updated": "2026-10-30 16:29:16.182Z"
+      "updated": "2026-11-03 04:44:16.440Z"
     },
     {
       "altBuilds": [
@@ -3385,7 +3423,7 @@
         }
       ],
       "title": "Azir Rammus",
-      "updated": "2026-10-30 16:29:16.153Z"
+      "updated": "2026-11-03 04:44:16.445Z"
     },
     {
       "altBuilds": [
@@ -3629,7 +3667,7 @@
         }
       ],
       "title": "Defender Cassio",
-      "updated": "2026-10-30 16:29:15.960Z"
+      "updated": "2026-11-03 04:44:16.267Z"
     },
     {
       "altBuilds": [
@@ -3883,7 +3921,7 @@
         }
       ],
       "title": "Solar Melee",
-      "updated": "2026-10-30 16:29:16.177Z"
+      "updated": "2026-11-03 04:44:16.402Z"
     },
     {
       "altBuilds": [
@@ -3894,7 +3932,8 @@
             "DA_SpearOfShojin",
             "DA_JeweledGauntlet"
           ],
-          "stars": 1
+          "stars": 1,
+          "trait": null
         }
       ],
       "anomaliedChampions": [],
@@ -4113,7 +4152,7 @@
       "overlayAugments": [],
       "rank": "",
       "set": 18,
-      "sticker": 3,
+      "sticker": 2,
       "style": "2-Cost Reroll",
       "tier": "B",
       "tips": [
@@ -4131,7 +4170,7 @@
         }
       ],
       "title": "Tee-moo",
-      "updated": "2026-11-01 15:55:08.560Z"
+      "updated": "2026-11-03 04:44:16.341Z"
     },
     {
       "altBuilds": [
@@ -4380,7 +4419,7 @@
         }
       ],
       "title": "Caitlyn Hunters",
-      "updated": "2026-10-30 16:29:16.194Z"
+      "updated": "2026-11-03 04:44:16.433Z"
     },
     {
       "altBuilds": [
@@ -4655,7 +4694,7 @@
         }
       ],
       "title": "Malphite AP Flex",
-      "updated": "2026-10-30 16:29:16.156Z"
+      "updated": "2026-11-03 04:44:16.443Z"
     },
     {
       "altBuilds": [
@@ -4889,7 +4928,7 @@
         }
       ],
       "title": "Mamawood",
-      "updated": "2026-10-30 16:29:16.156Z"
+      "updated": "2026-11-03 04:44:16.413Z"
     },
     {
       "altBuilds": [
@@ -5120,7 +5159,7 @@
         }
       ],
       "title": "Eclipse Kayle",
-      "updated": "2026-10-30 16:29:16.194Z"
+      "updated": "2026-11-03 04:44:16.448Z"
     },
     {
       "altBuilds": [
@@ -5362,7 +5401,7 @@
         }
       ],
       "title": "Embiggen Xayah",
-      "updated": "2026-10-30 16:29:16.061Z"
+      "updated": "2026-11-03 04:44:16.435Z"
     },
     {
       "altBuilds": [
@@ -5598,7 +5637,7 @@
         }
       ],
       "title": "Fae Tristana",
-      "updated": "2026-10-30 16:29:16.186Z"
+      "updated": "2026-11-03 04:44:16.259Z"
     },
     {
       "altBuilds": [
@@ -5842,7 +5881,7 @@
         }
       ],
       "title": "Warwick Ravager",
-      "updated": "2026-10-30 16:29:16.188Z"
+      "updated": "2026-11-03 04:44:16.390Z"
     },
     {
       "altBuilds": [
@@ -6141,7 +6180,7 @@
         }
       ],
       "title": "Lunarwood Kha'zix",
-      "updated": "2026-10-30 16:29:16.136Z"
+      "updated": "2026-11-03 04:44:16.443Z"
     },
     {
       "altBuilds": [
@@ -6384,7 +6423,7 @@
         }
       ],
       "title": "Invoker Morgana",
-      "updated": "2026-10-30 16:29:16.174Z"
+      "updated": "2026-11-03 04:44:16.446Z"
     },
     {
       "altBuilds": [
@@ -6619,7 +6658,7 @@
         }
       ],
       "title": "Sprykin Veigar",
-      "updated": "2026-10-30 16:29:16.175Z"
+      "updated": "2026-11-03 04:44:16.449Z"
     },
     {
       "altBuilds": [
@@ -6703,7 +6742,7 @@
       "compSlug": "set-18-aphelios-vanguards-copy",
       "created": "2026-08-21 15:47:09.187Z",
       "difficulty": "MEDIUM",
-      "displayIndex": 30,
+      "displayIndex": 31,
       "earlyComp": [
         {
           "apiName": "DA_18_Ornn",
@@ -6895,7 +6934,7 @@
         }
       ],
       "title": "Aphelios Elderwood",
-      "updated": "2026-11-01 02:15:46.028Z"
+      "updated": "2026-11-03 04:44:16.401Z"
     },
     {
       "altBuilds": [
@@ -7195,7 +7234,7 @@
         }
       ],
       "title": "Elderwood Veigar",
-      "updated": "2026-10-30 16:29:16.192Z"
+      "updated": "2026-11-03 04:44:41.156Z"
     },
     {
       "altBuilds": [],
@@ -7260,7 +7299,7 @@
       "compSlug": "set-18-solar-eclipse",
       "created": "2026-10-14 17:06:08.243Z",
       "difficulty": "HARD",
-      "displayIndex": 36,
+      "displayIndex": 35,
       "earlyComp": [
         {
           "apiName": "DA_18_Camille",
@@ -7425,7 +7464,7 @@
         }
       ],
       "title": "Solar Eclipse",
-      "updated": "2026-10-30 16:29:16.167Z"
+      "updated": "2026-11-03 04:44:16.131Z"
     },
     {
       "altBuilds": [
@@ -7640,7 +7679,7 @@
       ],
       "rank": "",
       "set": 18,
-      "sticker": 3,
+      "sticker": 10,
       "style": "3-Cost Reroll",
       "tier": "X",
       "tips": [
@@ -7658,7 +7697,7 @@
         }
       ],
       "title": "Emblem Rengar",
-      "updated": "2026-11-01 17:54:01.251Z"
+      "updated": "2026-11-03 04:44:16.407Z"
     },
     {
       "altBuilds": [],
@@ -7912,7 +7951,7 @@
         }
       ],
       "title": "Inferno Fast 9",
-      "updated": "2026-10-30 16:29:16.176Z"
+      "updated": "2026-11-03 04:44:16.450Z"
     },
     {
       "altBuilds": [
@@ -8125,7 +8164,7 @@
         }
       ],
       "title": "Moo-nara",
-      "updated": "2026-10-30 16:29:16.188Z"
+      "updated": "2026-11-03 04:44:16.446Z"
     },
     {
       "altBuilds": [
@@ -8349,7 +8388,7 @@
         }
       ],
       "title": "Coven Elise",
-      "updated": "2026-10-30 16:29:16.186Z"
+      "updated": "2026-11-03 04:44:16.412Z"
     },
     {
       "altBuilds": [],
@@ -8593,7 +8632,7 @@
         }
       ],
       "title": "Unrivaled Reroll",
-      "updated": "2026-10-30 16:29:16.191Z"
+      "updated": "2026-11-03 04:44:16.445Z"
     },
     {
       "altBuilds": [
@@ -8838,7 +8877,7 @@
         }
       ],
       "title": "Solar Kayle",
-      "updated": "2026-10-30 16:29:16.195Z"
+      "updated": "2026-11-03 04:44:16.441Z"
     },
     {
       "altBuilds": [],
@@ -9085,7 +9124,7 @@
         }
       ],
       "title": "Ashe Fast 9 ",
-      "updated": "2026-10-30 16:29:15.926Z"
+      "updated": "2026-11-03 04:44:16.087Z"
     },
     {
       "altBuilds": [
@@ -9375,7 +9414,7 @@
         }
       ],
       "title": "Draven Dragon 9",
-      "updated": "2026-10-30 16:29:15.806Z"
+      "updated": "2026-11-03 04:44:16.034Z"
     },
     {
       "altBuilds": [],
@@ -9561,7 +9600,7 @@
         }
       ],
       "title": "Sprykin Teemo",
-      "updated": "2026-10-30 16:29:16.173Z"
+      "updated": "2026-11-03 04:44:16.457Z"
     },
     {
       "altBuilds": [],
@@ -9818,14 +9857,16 @@
         }
       ],
       "title": "10 Riftbeast",
-      "updated": "2026-10-30 16:29:15.806Z"
+      "updated": "2026-11-03 04:44:16.379Z"
     },
     {
       "altBuilds": [
         {
           "apiName": "DA_18_Ahri",
           "items": [
-            "DA_18_EmblemInvoker"
+            "DA_18_EmblemInvoker",
+            "DA_JeweledGauntlet",
+            "DA_StrikersFlail"
           ],
           "stars": 1,
           "trait": null
@@ -9837,7 +9878,8 @@
             "DA_VoidStaff",
             "DA_Morellonomicon"
           ],
-          "stars": 1
+          "stars": 1,
+          "trait": null
         }
       ],
       "anomaliedChampions": [
@@ -10091,7 +10133,7 @@
         }
       ],
       "title": "Ahri Morgana",
-      "updated": "2026-10-30 16:29:15.810Z"
+      "updated": "2026-11-03 04:44:16.315Z"
     },
     {
       "altBuilds": [
@@ -10346,7 +10388,7 @@
         }
       ],
       "title": "Yi Rengar",
-      "updated": "2026-10-30 16:29:15.926Z"
+      "updated": "2026-11-03 04:44:16.430Z"
     },
     {
       "altBuilds": [
@@ -10600,7 +10642,7 @@
         }
       ],
       "title": "Aphelios Rapidfire",
-      "updated": "2026-10-30 16:29:15.924Z"
+      "updated": "2026-11-03 04:44:16.395Z"
     },
     {
       "altBuilds": [
@@ -10829,7 +10871,7 @@
         }
       ],
       "title": "Primal Flex",
-      "updated": "2026-10-30 16:29:15.936Z"
+      "updated": "2026-11-03 04:44:16.369Z"
     },
     {
       "altBuilds": [
@@ -11023,7 +11065,7 @@
         }
       ],
       "title": "Azir Reroll",
-      "updated": "2026-10-30 16:29:16.153Z"
+      "updated": "2026-11-03 04:44:16.392Z"
     },
     {
       "altBuilds": [
@@ -11267,7 +11309,7 @@
         }
       ],
       "title": "Blackthorn Malphite",
-      "updated": "2026-10-30 16:29:16.162Z"
+      "updated": "2026-11-03 04:44:16.444Z"
     },
     {
       "altBuilds": [
@@ -11517,7 +11559,7 @@
         }
       ],
       "title": "Fae Ezreal",
-      "updated": "2026-10-30 16:29:15.812Z"
+      "updated": "2026-11-03 04:44:16.068Z"
     },
     {
       "altBuilds": [
@@ -11753,7 +11795,7 @@
         }
       ],
       "title": "Solar Mama",
-      "updated": "2026-10-30 16:29:15.925Z"
+      "updated": "2026-11-03 04:44:16.405Z"
     },
     {
       "altBuilds": [
@@ -12009,7 +12051,7 @@
         }
       ],
       "title": "Aphelios Vanguards",
-      "updated": "2026-10-30 16:29:15.859Z"
+      "updated": "2026-11-03 04:44:16.446Z"
     },
     {
       "altBuilds": [
@@ -12286,7 +12328,7 @@
         }
       ],
       "title": "Primal Jungle",
-      "updated": "2026-10-30 16:29:15.850Z"
+      "updated": "2026-11-03 04:44:16.396Z"
     },
     {
       "altBuilds": [
@@ -12295,6 +12337,14 @@
           "items": [
             "DA_Artifact_GoldCollector",
             "DA_Artifact_Dawncore"
+          ],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Soraka",
+          "items": [
+            "DA_18_EmblemSpellweaver"
           ],
           "stars": 1
         }
@@ -12447,8 +12497,8 @@
           "boardIndex": 25,
           "items": [
             "DA_18_EmblemExecutioner",
-            "DA_Morellonomicon",
-            "DA_SpearOfShojin"
+            "DA_SpearOfShojin",
+            "DA_VoidStaff"
           ],
           "stars": 1,
           "trait": null
@@ -12470,7 +12520,7 @@
           "items": [
             "DA_WarmogsArmor",
             "DA_GargoyleStoneplate",
-            "DA_GargoyleStoneplate"
+            "DA_SunfireCape"
           ],
           "stars": 1,
           "trait": null
@@ -12489,7 +12539,9 @@
         {
           "apiName": "DA_18_LeBlanc",
           "items": [],
-          "predecessors": [],
+          "predecessors": [
+            "DA_18_Ahri"
+          ],
           "stars": 1,
           "trait": null
         },
@@ -12512,12 +12564,12 @@
           "trait": null
         }
       ],
-      "metaTitle": "Elderwood Blossom",
+      "metaTitle": "Ezreal Ahri Elderwood",
       "metadata": {},
       "overlayAugments": [],
       "rank": "",
       "set": 18,
-      "sticker": 0,
+      "sticker": 3,
       "style": "4-Cost Fast 8",
       "tier": "B",
       "tips": [
@@ -12534,8 +12586,8 @@
           "tip": "Level to 8 and roll heavily for Ezreal and the 4 costs, only go 9 once you have upgraded most things."
         }
       ],
-      "title": "Woodblossom",
-      "updated": "2026-10-30 16:29:15.796Z"
+      "title": "Ezreal Ahri",
+      "updated": "2026-11-03 04:44:16.079Z"
     },
     {
       "altBuilds": [],
@@ -12769,7 +12821,7 @@
         }
       ],
       "title": "Spellweaver Ahri",
-      "updated": "2026-10-30 16:29:16.184Z"
+      "updated": "2026-11-03 04:44:16.067Z"
     },
     {
       "altBuilds": [
@@ -13024,7 +13076,7 @@
         }
       ],
       "title": "Spirit Blossom",
-      "updated": "2026-10-30 16:29:15.929Z"
+      "updated": "2026-11-03 04:44:16.367Z"
     },
     {
       "altBuilds": [
@@ -13268,7 +13320,7 @@
         }
       ],
       "title": "Afaelios",
-      "updated": "2026-10-30 16:29:15.920Z"
+      "updated": "2026-11-03 04:44:16.386Z"
     }
   ]
 }
