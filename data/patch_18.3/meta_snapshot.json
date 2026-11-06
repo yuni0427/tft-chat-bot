@@ -263,7 +263,7 @@
         }
       ],
       "title": "Solar Blossom",
-      "updated": "2026-11-05 13:34:22.597Z"
+      "updated": "2026-11-06 03:49:55.041Z"
     },
     {
       "altBuilds": [
@@ -512,7 +512,7 @@
         }
       ],
       "title": "Adaptor Reroll",
-      "updated": "2026-11-05 13:34:22.684Z"
+      "updated": "2026-11-06 03:49:55.048Z"
     },
     {
       "altBuilds": [],
@@ -729,7 +729,7 @@
       "overlayAugments": [],
       "rank": "",
       "set": 18,
-      "sticker": 0,
+      "sticker": 3,
       "style": "Fast 9",
       "tier": "A",
       "tips": [
@@ -747,31 +747,32 @@
         }
       ],
       "title": "AP Fast 9",
-      "updated": "2026-11-05 13:34:22.766Z"
+      "updated": "2026-11-06 03:49:54.351Z"
     },
     {
       "altBuilds": [
         {
-          "apiName": "DA_Sentinel18",
+          "apiName": "DA_Draven18",
           "items": [
-            "DA_18_EmblemBrawler",
-            "DA_18_EmblemJuggernaut"
+            "DA_Artifact_GoldCollector",
+            "DA_Artifact_NavoriFlickerblade",
+            "DA_Artifact_Fishbones"
           ],
-          "stars": 1
+          "stars": 1,
+          "trait": null
         },
         {
-          "apiName": "DA_Krug18",
+          "apiName": "DA_18_Maokai",
           "items": [
-            "DA_18_EmblemVanguard"
+            "DA_Artifact_MogulsMail",
+            "DA_Artifact_VoidGauntlet",
+            "DA_Artifact_LightshieldCrest"
           ],
-          "stars": 1
+          "stars": 1,
+          "trait": null
         }
       ],
-      "anomaliedChampions": [
-        {
-          "apiName": "DA_Brambleback18"
-        }
-      ],
+      "anomaliedChampions": [],
       "anomaliesOverride": [],
       "augmentTypes": [
         "ECON",
@@ -780,83 +781,84 @@
       ],
       "augments": [
         {
-          "apiName": "DA_18_RiftbeastTraitAugment",
+          "apiName": "DA_LevelUp",
           "disabled": false
         },
         {
-          "apiName": "DA_BodyguardTraining",
+          "apiName": "DA_LateGameSpecialist",
           "disabled": false
         },
         {
-          "apiName": "DA_SpeedyDoubleKill",
+          "apiName": "DA_InvestedPlusPlus",
           "disabled": false
         },
         {
-          "apiName": "DA_VerticalityII",
+          "apiName": "DA_LuxurySubscription",
           "disabled": false
         },
         {
-          "apiName": "DA_VerticalityIII",
+          "apiName": "DA_18_DuoQueue",
           "disabled": false
         },
         {
-          "apiName": "DA_Expedition",
+          "apiName": "DA_LateGameScaling",
           "disabled": false
         },
         {
-          "apiName": "DA_ComebackStory",
+          "apiName": "DA_ExplosiveGrowthPlus",
           "disabled": false
         },
         {
-          "apiName": "DA_FrontlineFoundation",
+          "apiName": "DA_BirthdayPresent",
           "disabled": false
         }
       ],
-      "augmentsTip": "Alpha Mark the Brambleback. Position him on the weak side of the enemy so you can get jump resets quickly. 3* Riftbeasts are generally bait except for frontline.",
+      "augmentsTip": "Only play from early win streak and lots of gold. Because you are aiming for scaling 5 costs, aim to level 9 around end of Stage 4 / beginning of Stage 5. Best Draven quests are dealing damage for gold, but avoid the 10k damage in 1 round because you can get trapped.",
       "carousel": [
         {
           "apiName": "DA_GuinsoosRageblade"
         },
         {
-          "apiName": "DA_EdgeOfNight"
+          "apiName": "DA_LastWhisper"
+        },
+        {
+          "apiName": "DA_KrakensFury"
         },
         {
           "apiName": "DA_Component_GiantsBelt"
-        },
-        {
-          "apiName": "DA_Component_SparringGloves"
         }
       ],
       "collectionId": "1oe5lvmronvq850",
       "collectionName": "better_guides",
-      "compSlug": "set-18-tempo-riftbeast",
-      "created": "2026-10-21 15:25:41.177Z",
-      "difficulty": "MEDIUM",
+      "compSlug": "set-18-elderwood-executioners-copy",
+      "created": "2026-08-01 16:58:39.598Z",
+      "difficulty": "HARD",
       "displayIndex": 3,
       "earlyComp": [
         {
-          "apiName": "DA_18_Sentry",
+          "apiName": "DA_18_RekSai",
           "items": [],
           "stars": 1,
           "trait": null
         },
         {
-          "apiName": "DA_18_Yorick",
+          "apiName": "DA_18_Alistar",
           "items": [],
           "stars": 1,
           "trait": null
         },
         {
-          "apiName": "DA_Scuttlecrab18",
+          "apiName": "DA_18_Warwick",
           "items": [],
           "stars": 1,
           "trait": null
         },
         {
-          "apiName": "DA_Murkwolf18",
+          "apiName": "DA_18_Rengar",
           "items": [
             "DA_GuinsoosRageblade",
-            "DA_EdgeOfNight"
+            "DA_LastWhisper",
+            "DA_WarmogsArmor"
           ],
           "stars": 1,
           "trait": null
@@ -864,124 +866,211 @@
       ],
       "finalComp": [
         {
-          "apiName": "DA_Krug18",
-          "boardIndex": 3,
-          "items": [
-            "DA_WarmogsArmor",
-            "DA_SpiritVisage",
-            "DA_GargoyleStoneplate"
-          ],
-          "stars": 3,
-          "trait": null
-        },
-        {
-          "apiName": "DA_Brambleback18",
-          "boardIndex": 21,
-          "items": [
-            "DA_GuinsoosRageblade",
-            "DA_EdgeOfNight",
-            "DA_Quicksilver"
-          ],
+          "apiName": "DA_Elderwood18_Lifeblossom",
+          "boardIndex": 23,
+          "items": [],
           "stars": 1,
           "trait": null
         },
         {
-          "apiName": "DA_18_ElderDragon",
-          "boardIndex": 15,
+          "apiName": "DA_Elderwood18_StonebarkTree",
+          "boardIndex": 0,
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Alistar",
+          "boardIndex": 1,
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_Amumu18",
+          "boardIndex": 2,
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Ezreal",
+          "boardIndex": 26,
           "items": [
-            "DA_InfinityEdge",
+            "DA_SpearOfShojin",
             "DA_LastWhisper",
-            "DA_SteraksGage"
+            "DA_Deathblade"
           ],
           "stars": 1,
           "trait": null
         },
         {
-          "apiName": "DA_Murkwolf18",
-          "boardIndex": 14,
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Sentry",
-          "boardIndex": 22,
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_Sentinel18",
-          "boardIndex": 19,
+          "apiName": "DA_18_Ivern",
+          "boardIndex": 21,
           "items": [],
           "stars": 1,
           "trait": null
         },
         {
           "apiName": "DA_Taric18",
-          "boardIndex": 18,
+          "boardIndex": 4,
           "items": [],
           "stars": 1,
           "trait": null
         },
         {
           "apiName": "DA_18_GnarSmall",
-          "boardIndex": 17,
-          "items": [],
-          "stars": 1,
-          "trait": null
-        }
-      ],
-      "id": "1nyi2iomx1glupn",
-      "isPublic": true,
-      "mainChampion": {
-        "apiName": "DA_Brambleback18",
-        "cost": 4
-      },
-      "maxCap": [
-        {
-          "apiName": "DA_18_Rakan",
-          "items": [],
-          "predecessors": [
-            "DA_Taric18"
+          "boardIndex": 10,
+          "items": [
+            "DA_ThiefsGloves"
           ],
           "stars": 1,
           "trait": null
         },
         {
-          "apiName": "DA_18_Sett",
-          "items": [],
-          "predecessors": [
-            "DA_18_GnarSmall"
+          "apiName": "DA_18_Kennen",
+          "boardIndex": 3,
+          "items": [
+            "DA_ThiefsGloves"
+          ],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_Draven18",
+          "boardIndex": 27,
+          "items": [
+            "DA_KrakensFury",
+            "DA_GuinsoosRageblade",
+            "DA_Deathblade"
+          ],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Maokai",
+          "boardIndex": 5,
+          "items": [
+            "DA_WarmogsArmor",
+            "DA_GargoyleStoneplate",
+            "DA_BrambleVest"
           ],
           "stars": 1,
           "trait": null
         }
       ],
-      "metaTitle": "Riftbeast Brambleback",
+      "id": "samyel2xyamea14",
+      "isPublic": true,
+      "mainChampion": {
+        "apiName": "DA_Draven18",
+        "cost": 5
+      },
+      "maxCap": [
+        {
+          "apiName": "DA_18_Hecarim",
+          "items": [],
+          "predecessors": [
+            "DA_18_Alistar"
+          ],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_Sentinel18",
+          "items": [],
+          "predecessors": [
+            "DA_18_Ivern"
+          ],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_Lux18_Base",
+          "items": [],
+          "predecessors": [
+            "DA_18_Ivern"
+          ],
+          "stars": 1,
+          "trait": null
+        }
+      ],
+      "metaTitle": "Elderwood Draven",
       "metadata": {},
-      "overlayAugments": [],
+      "overlayAugments": [
+        {
+          "apiName": "DA_InvestedPlus",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_BandOfThievesIIPlus",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_BandOfThievesIIPlusPlus",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_BandOfThieves",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_MoneyMonsoon",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_UpwardMobility",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_Epoch",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_EpochPlus",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_ClutteredMind",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_Warpath",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_BandOfThievesII",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_TheGoldenDragon",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_ShimmerscaleEssence",
+          "disabled": false
+        }
+      ],
       "rank": "",
       "set": 18,
-      "sticker": 2,
+      "sticker": 3,
       "style": "Fast 9",
       "tier": "A",
       "tips": [
         {
           "stage": "Stage 2",
-          "tip": "Slam items aggressively and play for full win streak with Brambleback items. Murkwolf can hold items."
+          "tip": "Slam items aggressively and play for full win streak with Draven items. Ideal opener will be some kind of resource engine like Rengar or Blossom."
         },
         {
           "stage": "Stage 3",
-          "tip": "Aim to get 7 Riftbeast online latest by Stage 3-5. Use free Riftbeast shops to upgrade only instead of rerolling. Finish Bramble / tank items."
+          "tip": "Continue prioritize win streaking. If you have an econ augment, you can go Fast 7 (before 3-3) to maintain win streak if needed."
         },
         {
           "stage": "Stage 4",
-          "tip": "Level to 8 and look for Bramble + Brawler or Rakan. Always play Elder Dragon when you hit. Once stable, go 9 for another 5 cost."
+          "tip": "You can start losing rounds while focusing on econ. Fast 9 end of Stage 4 and look for the scaling 5 costs like Draven, Maokai, and Ivern. "
         }
       ],
-      "title": "Tempo Riftbeast",
-      "updated": "2026-11-05 13:34:23.164Z"
+      "title": "Draven Ezreal 9",
+      "updated": "2026-11-06 03:49:54.552Z"
     },
     {
       "altBuilds": [
@@ -1241,7 +1330,7 @@
       ],
       "rank": "",
       "set": 18,
-      "sticker": 2,
+      "sticker": 0,
       "style": "4-Cost Fast 8",
       "tier": "A",
       "tips": [
@@ -1259,7 +1348,7 @@
         }
       ],
       "title": "Elderwood Executioners",
-      "updated": "2026-11-05 13:34:22.656Z"
+      "updated": "2026-11-06 03:49:54.539Z"
     },
     {
       "altBuilds": [
@@ -1525,32 +1614,31 @@
         }
       ],
       "title": "Ahri Zyra",
-      "updated": "2026-11-05 13:34:22.667Z"
+      "updated": "2026-11-06 03:49:54.541Z"
     },
     {
       "altBuilds": [
         {
-          "apiName": "DA_Draven18",
+          "apiName": "DA_Sentinel18",
           "items": [
-            "DA_Artifact_GoldCollector",
-            "DA_Artifact_NavoriFlickerblade",
-            "DA_Artifact_Fishbones"
+            "DA_18_EmblemBrawler",
+            "DA_18_EmblemJuggernaut"
           ],
-          "stars": 1,
-          "trait": null
+          "stars": 1
         },
         {
-          "apiName": "DA_18_Maokai",
+          "apiName": "DA_Krug18",
           "items": [
-            "DA_Artifact_MogulsMail",
-            "DA_Artifact_VoidGauntlet",
-            "DA_Artifact_LightshieldCrest"
+            "DA_18_EmblemVanguard"
           ],
-          "stars": 1,
-          "trait": null
+          "stars": 1
         }
       ],
-      "anomaliedChampions": [],
+      "anomaliedChampions": [
+        {
+          "apiName": "DA_Brambleback18"
+        }
+      ],
       "anomaliesOverride": [],
       "augmentTypes": [
         "ECON",
@@ -1559,84 +1647,83 @@
       ],
       "augments": [
         {
-          "apiName": "DA_LevelUp",
+          "apiName": "DA_18_RiftbeastTraitAugment",
           "disabled": false
         },
         {
-          "apiName": "DA_LateGameSpecialist",
+          "apiName": "DA_BodyguardTraining",
           "disabled": false
         },
         {
-          "apiName": "DA_InvestedPlusPlus",
+          "apiName": "DA_SpeedyDoubleKill",
           "disabled": false
         },
         {
-          "apiName": "DA_LuxurySubscription",
+          "apiName": "DA_VerticalityII",
           "disabled": false
         },
         {
-          "apiName": "DA_18_DuoQueue",
+          "apiName": "DA_VerticalityIII",
           "disabled": false
         },
         {
-          "apiName": "DA_LateGameScaling",
+          "apiName": "DA_Expedition",
           "disabled": false
         },
         {
-          "apiName": "DA_ExplosiveGrowthPlus",
+          "apiName": "DA_ComebackStory",
           "disabled": false
         },
         {
-          "apiName": "DA_BirthdayPresent",
+          "apiName": "DA_FrontlineFoundation",
           "disabled": false
         }
       ],
-      "augmentsTip": "Only play from early win streak and lots of gold. Because you are aiming for scaling 5 costs, aim to level 9 around end of Stage 4 / beginning of Stage 5. Best Draven quests are dealing damage for gold, but avoid the 10k damage in 1 round because you can get trapped.",
+      "augmentsTip": "Alpha Mark the Brambleback. Position him on the weak side of the enemy so you can get jump resets quickly. 3* Riftbeasts are generally bait except for frontline.",
       "carousel": [
         {
           "apiName": "DA_GuinsoosRageblade"
         },
         {
-          "apiName": "DA_LastWhisper"
-        },
-        {
-          "apiName": "DA_KrakensFury"
+          "apiName": "DA_EdgeOfNight"
         },
         {
           "apiName": "DA_Component_GiantsBelt"
+        },
+        {
+          "apiName": "DA_Component_SparringGloves"
         }
       ],
       "collectionId": "1oe5lvmronvq850",
       "collectionName": "better_guides",
-      "compSlug": "set-18-elderwood-executioners-copy",
-      "created": "2026-08-01 16:58:39.598Z",
-      "difficulty": "HARD",
+      "compSlug": "set-18-tempo-riftbeast",
+      "created": "2026-10-21 15:25:41.177Z",
+      "difficulty": "MEDIUM",
       "displayIndex": 6,
       "earlyComp": [
         {
-          "apiName": "DA_18_RekSai",
+          "apiName": "DA_18_Sentry",
           "items": [],
           "stars": 1,
           "trait": null
         },
         {
-          "apiName": "DA_18_Alistar",
+          "apiName": "DA_18_Yorick",
           "items": [],
           "stars": 1,
           "trait": null
         },
         {
-          "apiName": "DA_18_Warwick",
+          "apiName": "DA_Scuttlecrab18",
           "items": [],
           "stars": 1,
           "trait": null
         },
         {
-          "apiName": "DA_18_Rengar",
+          "apiName": "DA_Murkwolf18",
           "items": [
             "DA_GuinsoosRageblade",
-            "DA_LastWhisper",
-            "DA_WarmogsArmor"
+            "DA_EdgeOfNight"
           ],
           "stars": 1,
           "trait": null
@@ -1644,211 +1731,124 @@
       ],
       "finalComp": [
         {
-          "apiName": "DA_Elderwood18_Lifeblossom",
-          "boardIndex": 23,
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_Elderwood18_StonebarkTree",
-          "boardIndex": 0,
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Alistar",
-          "boardIndex": 1,
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_Amumu18",
-          "boardIndex": 2,
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Ezreal",
-          "boardIndex": 26,
+          "apiName": "DA_Krug18",
+          "boardIndex": 3,
           "items": [
-            "DA_SpearOfShojin",
-            "DA_LastWhisper",
-            "DA_Deathblade"
+            "DA_WarmogsArmor",
+            "DA_SpiritVisage",
+            "DA_GargoyleStoneplate"
+          ],
+          "stars": 3,
+          "trait": null
+        },
+        {
+          "apiName": "DA_Brambleback18",
+          "boardIndex": 21,
+          "items": [
+            "DA_GuinsoosRageblade",
+            "DA_EdgeOfNight",
+            "DA_Quicksilver"
           ],
           "stars": 1,
           "trait": null
         },
         {
-          "apiName": "DA_18_Ivern",
-          "boardIndex": 21,
+          "apiName": "DA_18_ElderDragon",
+          "boardIndex": 15,
+          "items": [
+            "DA_InfinityEdge",
+            "DA_LastWhisper",
+            "DA_SteraksGage"
+          ],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_Murkwolf18",
+          "boardIndex": 14,
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Sentry",
+          "boardIndex": 22,
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_Sentinel18",
+          "boardIndex": 19,
           "items": [],
           "stars": 1,
           "trait": null
         },
         {
           "apiName": "DA_Taric18",
-          "boardIndex": 4,
+          "boardIndex": 18,
           "items": [],
           "stars": 1,
           "trait": null
         },
         {
           "apiName": "DA_18_GnarSmall",
-          "boardIndex": 10,
-          "items": [
-            "DA_ThiefsGloves"
-          ],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Kennen",
-          "boardIndex": 3,
-          "items": [
-            "DA_ThiefsGloves"
-          ],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_Draven18",
-          "boardIndex": 27,
-          "items": [
-            "DA_KrakensFury",
-            "DA_GuinsoosRageblade",
-            "DA_Deathblade"
-          ],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Maokai",
-          "boardIndex": 5,
-          "items": [
-            "DA_WarmogsArmor",
-            "DA_GargoyleStoneplate",
-            "DA_BrambleVest"
-          ],
+          "boardIndex": 17,
+          "items": [],
           "stars": 1,
           "trait": null
         }
       ],
-      "id": "samyel2xyamea14",
+      "id": "1nyi2iomx1glupn",
       "isPublic": true,
       "mainChampion": {
-        "apiName": "DA_Draven18",
-        "cost": 5
+        "apiName": "DA_Brambleback18",
+        "cost": 4
       },
       "maxCap": [
         {
-          "apiName": "DA_18_Hecarim",
+          "apiName": "DA_18_Rakan",
           "items": [],
           "predecessors": [
-            "DA_18_Alistar"
+            "DA_Taric18"
           ],
           "stars": 1,
           "trait": null
         },
         {
-          "apiName": "DA_Sentinel18",
+          "apiName": "DA_18_Sett",
           "items": [],
           "predecessors": [
-            "DA_18_Ivern"
-          ],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_Lux18_Base",
-          "items": [],
-          "predecessors": [
-            "DA_18_Ivern"
+            "DA_18_GnarSmall"
           ],
           "stars": 1,
           "trait": null
         }
       ],
-      "metaTitle": "Elderwood Draven",
+      "metaTitle": "Riftbeast Brambleback",
       "metadata": {},
-      "overlayAugments": [
-        {
-          "apiName": "DA_InvestedPlus",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_BandOfThievesIIPlus",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_BandOfThievesIIPlusPlus",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_BandOfThieves",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_MoneyMonsoon",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_UpwardMobility",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_Epoch",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_EpochPlus",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_ClutteredMind",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_Warpath",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_BandOfThievesII",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_TheGoldenDragon",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_ShimmerscaleEssence",
-          "disabled": false
-        }
-      ],
+      "overlayAugments": [],
       "rank": "",
       "set": 18,
-      "sticker": 0,
+      "sticker": 2,
       "style": "Fast 9",
       "tier": "A",
       "tips": [
         {
           "stage": "Stage 2",
-          "tip": "Slam items aggressively and play for full win streak with Draven items. Ideal opener will be some kind of resource engine like Rengar or Blossom."
+          "tip": "Slam items aggressively and play for full win streak with Brambleback items. Murkwolf can hold items."
         },
         {
           "stage": "Stage 3",
-          "tip": "Continue prioritize win streaking. If you have an econ augment, you can go Fast 7 (before 3-3) to maintain win streak if needed."
+          "tip": "Aim to get 7 Riftbeast online latest by Stage 3-5. Use free Riftbeast shops to upgrade only instead of rerolling. Finish Bramble / tank items."
         },
         {
           "stage": "Stage 4",
-          "tip": "You can start losing rounds while focusing on econ. Fast 9 end of Stage 4 and look for the scaling 5 costs like Draven, Maokai, and Ivern. "
+          "tip": "Level to 8 and look for Bramble + Brawler or Rakan. Always play Elder Dragon when you hit. Once stable, go 9 for another 5 cost."
         }
       ],
-      "title": "Draven Ezreal 9",
-      "updated": "2026-11-05 13:34:22.605Z"
+      "title": "Tempo Riftbeast",
+      "updated": "2026-11-06 03:49:55.025Z"
     },
     {
       "altBuilds": [
@@ -2090,7 +2090,7 @@
         }
       ],
       "title": "Primal Sivir",
-      "updated": "2026-11-05 13:34:22.607Z"
+      "updated": "2026-11-06 03:49:54.541Z"
     },
     {
       "altBuilds": [
@@ -2339,7 +2339,7 @@
         }
       ],
       "title": "Tee-moo",
-      "updated": "2026-11-05 13:34:22.689Z"
+      "updated": "2026-11-06 03:49:54.962Z"
     },
     {
       "altBuilds": [],
@@ -2574,7 +2574,7 @@
       ],
       "rank": "",
       "set": 18,
-      "sticker": 2,
+      "sticker": 0,
       "style": "4-Cost Fast 8",
       "tier": "B",
       "tips": [
@@ -2592,7 +2592,7 @@
         }
       ],
       "title": "Ashe Juggernauts",
-      "updated": "2026-11-05 13:34:22.681Z"
+      "updated": "2026-11-06 03:49:54.968Z"
     },
     {
       "altBuilds": [
@@ -2815,7 +2815,7 @@
       ],
       "rank": "",
       "set": 18,
-      "sticker": 3,
+      "sticker": 2,
       "style": "1-Cost Reroll",
       "tier": "B",
       "tips": [
@@ -2833,7 +2833,7 @@
         }
       ],
       "title": "Riftbeast Reroll",
-      "updated": "2026-11-05 13:34:22.665Z"
+      "updated": "2026-11-06 03:49:54.980Z"
     },
     {
       "altBuilds": [
@@ -3069,7 +3069,7 @@
       ],
       "rank": "",
       "set": 18,
-      "sticker": 2,
+      "sticker": 0,
       "style": "1-Cost Reroll",
       "tier": "B",
       "tips": [
@@ -3087,7 +3087,7 @@
         }
       ],
       "title": "Solar Melee",
-      "updated": "2026-11-05 13:34:22.663Z"
+      "updated": "2026-11-06 03:49:55.026Z"
     },
     {
       "altBuilds": [
@@ -3362,7 +3362,7 @@
         }
       ],
       "title": "Malphite AP Flex",
-      "updated": "2026-11-05 13:34:22.666Z"
+      "updated": "2026-11-06 03:49:55.019Z"
     },
     {
       "altBuilds": [
@@ -3638,7 +3638,7 @@
         }
       ],
       "title": "Aphelios Nidalee",
-      "updated": "2026-11-05 13:34:22.668Z"
+      "updated": "2026-11-06 03:49:55.018Z"
     },
     {
       "altBuilds": [
@@ -3878,7 +3878,7 @@
       ],
       "rank": "",
       "set": 18,
-      "sticker": 3,
+      "sticker": 0,
       "style": "3-Cost Reroll",
       "tier": "B",
       "tips": [
@@ -3896,7 +3896,7 @@
         }
       ],
       "title": "Azir Rammus",
-      "updated": "2026-11-05 13:34:22.734Z"
+      "updated": "2026-11-06 03:49:54.977Z"
     },
     {
       "altBuilds": [
@@ -4140,7 +4140,7 @@
         }
       ],
       "title": "Defender Cassio",
-      "updated": "2026-11-05 13:34:22.758Z"
+      "updated": "2026-11-06 03:49:55.024Z"
     },
     {
       "altBuilds": [
@@ -4445,7 +4445,7 @@
         }
       ],
       "title": "Zyra Juggernaut",
-      "updated": "2026-11-05 13:34:22.679Z"
+      "updated": "2026-11-06 03:49:54.795Z"
     },
     {
       "altBuilds": [
@@ -4676,7 +4676,7 @@
       ],
       "rank": "",
       "set": 18,
-      "sticker": 2,
+      "sticker": 0,
       "style": "2-Cost Reroll",
       "tier": "B",
       "tips": [
@@ -4694,7 +4694,7 @@
         }
       ],
       "title": "Caitlyn Hunters",
-      "updated": "2026-11-05 13:34:22.714Z"
+      "updated": "2026-11-06 03:49:55.028Z"
     },
     {
       "altBuilds": [
@@ -4910,7 +4910,7 @@
       "overlayAugments": [],
       "rank": "",
       "set": 18,
-      "sticker": 2,
+      "sticker": 0,
       "style": "3-Cost Reroll",
       "tier": "C",
       "tips": [
@@ -4928,7 +4928,7 @@
         }
       ],
       "title": "Mamawood",
-      "updated": "2026-11-05 13:34:22.754Z"
+      "updated": "2026-11-06 03:49:54.888Z"
     },
     {
       "altBuilds": [
@@ -5159,7 +5159,7 @@
         }
       ],
       "title": "Eclipse Kayle",
-      "updated": "2026-11-05 13:34:22.723Z"
+      "updated": "2026-11-06 03:49:55.036Z"
     },
     {
       "altBuilds": [
@@ -5401,7 +5401,7 @@
         }
       ],
       "title": "Embiggen Xayah",
-      "updated": "2026-11-05 13:34:22.779Z"
+      "updated": "2026-11-06 03:49:54.978Z"
     },
     {
       "altBuilds": [
@@ -5619,7 +5619,7 @@
       ],
       "rank": "",
       "set": 18,
-      "sticker": 2,
+      "sticker": 0,
       "style": "3-Cost Reroll",
       "tier": "C",
       "tips": [
@@ -5637,7 +5637,7 @@
         }
       ],
       "title": "Fae Tristana",
-      "updated": "2026-11-05 13:34:22.811Z"
+      "updated": "2026-11-06 03:49:55.086Z"
     },
     {
       "altBuilds": [
@@ -5863,7 +5863,7 @@
       ],
       "rank": "",
       "set": 18,
-      "sticker": 3,
+      "sticker": 2,
       "style": "2-Cost Reroll",
       "tier": "C",
       "tips": [
@@ -5881,7 +5881,7 @@
         }
       ],
       "title": "Warwick Ravager",
-      "updated": "2026-11-05 13:34:22.787Z"
+      "updated": "2026-11-06 03:49:55.036Z"
     },
     {
       "altBuilds": [
@@ -6162,7 +6162,7 @@
       ],
       "rank": "",
       "set": 18,
-      "sticker": 3,
+      "sticker": 0,
       "style": "3-Cost Reroll",
       "tier": "C",
       "tips": [
@@ -6180,7 +6180,7 @@
         }
       ],
       "title": "Lunarwood Kha'zix",
-      "updated": "2026-11-05 13:34:23.079Z"
+      "updated": "2026-11-06 03:49:55.087Z"
     },
     {
       "altBuilds": [
@@ -6423,7 +6423,7 @@
         }
       ],
       "title": "Invoker Morgana",
-      "updated": "2026-11-05 13:34:22.804Z"
+      "updated": "2026-11-06 03:49:55.040Z"
     },
     {
       "altBuilds": [
@@ -6658,7 +6658,7 @@
         }
       ],
       "title": "Sprykin Veigar",
-      "updated": "2026-11-05 13:34:23.095Z"
+      "updated": "2026-11-06 03:49:54.967Z"
     },
     {
       "altBuilds": [
@@ -6742,7 +6742,7 @@
       "compSlug": "set-18-aphelios-vanguards-copy",
       "created": "2026-08-21 15:47:09.187Z",
       "difficulty": "MEDIUM",
-      "displayIndex": 31,
+      "displayIndex": 32,
       "earlyComp": [
         {
           "apiName": "DA_18_Ornn",
@@ -6916,7 +6916,7 @@
       "overlayAugments": [],
       "rank": "",
       "set": 18,
-      "sticker": 8,
+      "sticker": 9,
       "style": "4-Cost Fast 8",
       "tier": "X",
       "tips": [
@@ -6934,7 +6934,7 @@
         }
       ],
       "title": "Aphelios Elderwood",
-      "updated": "2026-11-05 13:34:22.757Z"
+      "updated": "2026-11-06 03:49:55.027Z"
     },
     {
       "altBuilds": [
@@ -7234,7 +7234,7 @@
         }
       ],
       "title": "Elderwood Veigar",
-      "updated": "2026-11-05 13:34:23.100Z"
+      "updated": "2026-11-06 03:49:55.039Z"
     },
     {
       "altBuilds": [],
@@ -7464,7 +7464,7 @@
         }
       ],
       "title": "Solar Eclipse",
-      "updated": "2026-11-05 13:34:23.082Z"
+      "updated": "2026-11-06 03:49:54.978Z"
     },
     {
       "altBuilds": [
@@ -7697,7 +7697,7 @@
         }
       ],
       "title": "Emblem Rengar",
-      "updated": "2026-11-05 13:34:23.074Z"
+      "updated": "2026-11-06 03:49:55.030Z"
     },
     {
       "altBuilds": [],
@@ -7951,7 +7951,7 @@
         }
       ],
       "title": "Inferno Fast 9",
-      "updated": "2026-11-05 13:34:23.083Z"
+      "updated": "2026-11-06 03:49:55.085Z"
     },
     {
       "altBuilds": [
@@ -8164,7 +8164,7 @@
         }
       ],
       "title": "Moo-nara",
-      "updated": "2026-11-05 13:34:23.174Z"
+      "updated": "2026-11-06 03:49:54.967Z"
     },
     {
       "altBuilds": [
@@ -8388,7 +8388,7 @@
         }
       ],
       "title": "Coven Elise",
-      "updated": "2026-11-05 13:34:23.077Z"
+      "updated": "2026-11-06 03:49:55.036Z"
     },
     {
       "altBuilds": [],
@@ -8632,7 +8632,7 @@
         }
       ],
       "title": "Unrivaled Reroll",
-      "updated": "2026-11-05 13:34:23.135Z"
+      "updated": "2026-11-06 03:49:55.038Z"
     },
     {
       "altBuilds": [
@@ -8877,7 +8877,7 @@
         }
       ],
       "title": "Solar Kayle",
-      "updated": "2026-11-05 13:34:23.168Z"
+      "updated": "2026-11-06 03:49:55.023Z"
     },
     {
       "altBuilds": [],
@@ -9106,7 +9106,7 @@
       ],
       "rank": "",
       "set": 18,
-      "sticker": 2,
+      "sticker": 0,
       "style": "Fast 9",
       "tier": "C",
       "tips": [
@@ -9124,7 +9124,7 @@
         }
       ],
       "title": "Ashe Fast 9 ",
-      "updated": "2026-11-05 13:34:22.681Z"
+      "updated": "2026-11-06 03:49:55.044Z"
     },
     {
       "altBuilds": [
@@ -9414,7 +9414,7 @@
         }
       ],
       "title": "Draven Dragon 9",
-      "updated": "2026-11-05 13:34:22.603Z"
+      "updated": "2026-11-06 03:49:55.023Z"
     },
     {
       "altBuilds": [],
@@ -9600,7 +9600,7 @@
         }
       ],
       "title": "Sprykin Teemo",
-      "updated": "2026-11-05 13:34:22.721Z"
+      "updated": "2026-11-06 03:49:54.967Z"
     },
     {
       "altBuilds": [],
@@ -9857,7 +9857,7 @@
         }
       ],
       "title": "10 Riftbeast",
-      "updated": "2026-11-05 13:34:22.667Z"
+      "updated": "2026-11-06 03:49:55.046Z"
     },
     {
       "altBuilds": [
@@ -10133,7 +10133,7 @@
         }
       ],
       "title": "Ahri Morgana",
-      "updated": "2026-11-05 13:34:22.645Z"
+      "updated": "2026-11-06 03:49:54.553Z"
     },
     {
       "altBuilds": [
@@ -10388,7 +10388,7 @@
         }
       ],
       "title": "Yi Rengar",
-      "updated": "2026-11-05 13:34:22.683Z"
+      "updated": "2026-11-06 03:49:54.509Z"
     },
     {
       "altBuilds": [
@@ -10624,7 +10624,7 @@
       ],
       "rank": "",
       "set": 18,
-      "sticker": 3,
+      "sticker": 0,
       "style": "4-Cost Fast 8",
       "tier": "B",
       "tips": [
@@ -10642,7 +10642,7 @@
         }
       ],
       "title": "Aphelios Rapidfire",
-      "updated": "2026-11-05 13:34:22.670Z"
+      "updated": "2026-11-06 03:49:54.978Z"
     },
     {
       "altBuilds": [
@@ -10871,7 +10871,7 @@
         }
       ],
       "title": "Primal Flex",
-      "updated": "2026-11-05 13:34:22.602Z"
+      "updated": "2026-11-06 03:49:54.965Z"
     },
     {
       "altBuilds": [
@@ -11065,7 +11065,7 @@
         }
       ],
       "title": "Azir Reroll",
-      "updated": "2026-11-05 13:34:22.758Z"
+      "updated": "2026-11-06 03:49:54.975Z"
     },
     {
       "altBuilds": [
@@ -11309,7 +11309,7 @@
         }
       ],
       "title": "Blackthorn Malphite",
-      "updated": "2026-11-05 13:34:22.651Z"
+      "updated": "2026-11-06 03:49:54.962Z"
     },
     {
       "altBuilds": [
@@ -11559,7 +11559,7 @@
         }
       ],
       "title": "Fae Ezreal",
-      "updated": "2026-11-05 13:34:22.712Z"
+      "updated": "2026-11-06 03:49:54.549Z"
     },
     {
       "altBuilds": [
@@ -11795,7 +11795,7 @@
         }
       ],
       "title": "Solar Mama",
-      "updated": "2026-11-05 13:34:22.683Z"
+      "updated": "2026-11-06 03:49:55.085Z"
     },
     {
       "altBuilds": [
@@ -12051,7 +12051,7 @@
         }
       ],
       "title": "Aphelios Vanguards",
-      "updated": "2026-11-05 13:34:22.662Z"
+      "updated": "2026-11-06 03:49:55.080Z"
     },
     {
       "altBuilds": [
@@ -12328,7 +12328,7 @@
         }
       ],
       "title": "Primal Jungle",
-      "updated": "2026-11-05 13:34:22.673Z"
+      "updated": "2026-11-06 03:49:54.979Z"
     },
     {
       "altBuilds": [
@@ -12587,7 +12587,7 @@
         }
       ],
       "title": "Ezreal Ahri",
-      "updated": "2026-11-05 13:34:22.663Z"
+      "updated": "2026-11-06 03:49:54.539Z"
     },
     {
       "altBuilds": [],
@@ -12821,7 +12821,7 @@
         }
       ],
       "title": "Spellweaver Ahri",
-      "updated": "2026-11-05 13:34:22.646Z"
+      "updated": "2026-11-06 03:49:54.529Z"
     },
     {
       "altBuilds": [
@@ -13076,7 +13076,7 @@
         }
       ],
       "title": "Spirit Blossom",
-      "updated": "2026-11-05 13:34:22.603Z"
+      "updated": "2026-11-06 03:49:55.034Z"
     },
     {
       "altBuilds": [
@@ -13302,7 +13302,7 @@
       "overlayAugments": [],
       "rank": "",
       "set": 18,
-      "sticker": 2,
+      "sticker": 0,
       "style": "4-Cost Fast 8",
       "tier": "B",
       "tips": [
@@ -13320,7 +13320,7 @@
         }
       ],
       "title": "Afaelios",
-      "updated": "2026-11-05 13:34:22.907Z"
+      "updated": "2026-11-06 03:49:55.043Z"
     }
   ]
 }
