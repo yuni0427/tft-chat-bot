@@ -20,7 +20,8 @@
             "DA_SpearOfShojin",
             "DA_HextechGunblade"
           ],
-          "stars": 1
+          "stars": 1,
+          "trait": null
         }
       ],
       "anomaliedChampions": [],
@@ -64,7 +65,7 @@
           "disabled": false
         }
       ],
-      "augmentsTip": "+1 tier in strength with Bronze For Life augment. If playing from ahead on winstreak, consider playing 5 Blossom on level 8 with Karma, then rush 9 for the 5 costs -> Alune 2 carry late game.",
+      "augmentsTip": "+1 tier in strength with Bronze For Life augment. Can replace Lillia + Rakan for Shen + Amumu (play stronger AP item instead of Morello on Zyra). 5 Blossom on level 8 with Karma, then rush 9 for the 5 costs -> Alune 2 carry late game. ",
       "carousel": [
         {
           "apiName": "DA_SpearOfShojin"
@@ -116,14 +117,14 @@
       ],
       "finalComp": [
         {
-          "apiName": "DA_18_Rakan",
+          "apiName": "DA_Taric18",
           "boardIndex": 4,
           "items": [],
           "stars": 1,
           "trait": null
         },
         {
-          "apiName": "DA_18_Yorick",
+          "apiName": "DA_18_Rakan",
           "boardIndex": 5,
           "items": [],
           "stars": 1,
@@ -179,7 +180,7 @@
           "trait": null
         },
         {
-          "apiName": "DA_Taric18",
+          "apiName": "DA_18_Yorick",
           "boardIndex": 6,
           "items": [],
           "stars": 1,
@@ -187,7 +188,7 @@
         },
         {
           "apiName": "DA_18_GnarSmall",
-          "boardIndex": 17,
+          "boardIndex": 9,
           "items": [
             "DA_ThiefsGloves"
           ],
@@ -244,6 +245,18 @@
         {
           "apiName": "DA_BoxingLessons",
           "disabled": false
+        },
+        {
+          "apiName": "DA_CryMeARiver",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_EpicRolldown",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_GlassCannon_Gold",
+          "disabled": false
         }
       ],
       "rank": "",
@@ -266,7 +279,7 @@
         }
       ],
       "title": "Ahri Zyra",
-      "updated": "2026-11-07 01:11:48.525Z"
+      "updated": "2026-11-08 03:45:19.268Z"
     },
     {
       "altBuilds": [
@@ -321,7 +334,7 @@
           "disabled": false
         }
       ],
-      "augmentsTip": "Mainly strong with Elderwood emblem. Look for Elderwood Lux. 3 Executioner is a big spike so always look to play around it if possible. Can also chase 9 Elderwood if you have Elderwood Lux.",
+      "augmentsTip": "Mainly strong with Elderwood emblem. Always aim to play 7 Elderwood for the Deepwood Protector. 3 Executioner is a massive DPS spike for Ezreal / Soraka. Can also chase 9 Elderwood if you have Elderwood Lux.",
       "carousel": [
         {
           "apiName": "DA_SpearOfShojin"
@@ -351,10 +364,7 @@
         },
         {
           "apiName": "DA_18_Xayah",
-          "items": [
-            "DA_SpearOfShojin",
-            "DA_LastWhisper"
-          ],
+          "items": [],
           "stars": 1,
           "trait": null
         },
@@ -365,12 +375,12 @@
           "trait": null
         },
         {
-          "apiName": "DA_18_LeBlanc",
+          "apiName": "DA_18_Varus",
           "items": [
-            "DA_SpearOfShojin"
+            "DA_SpearOfShojin",
+            "DA_LastWhisper"
           ],
-          "stars": 1,
-          "trait": null
+          "stars": 1
         }
       ],
       "finalComp": [
@@ -544,24 +554,26 @@
         }
       ],
       "title": "Elderwood Executioners",
-      "updated": "2026-11-07 01:11:48.529Z"
+      "updated": "2026-11-08 03:46:39.808Z"
     },
     {
       "altBuilds": [
+        {
+          "apiName": "DA_Krug18",
+          "items": [
+            "DA_18_EmblemVanguard"
+          ],
+          "stars": 1,
+          "trait": null
+        },
         {
           "apiName": "DA_Sentinel18",
           "items": [
             "DA_18_EmblemBrawler",
             "DA_18_EmblemJuggernaut"
           ],
-          "stars": 1
-        },
-        {
-          "apiName": "DA_Krug18",
-          "items": [
-            "DA_18_EmblemVanguard"
-          ],
-          "stars": 1
+          "stars": 1,
+          "trait": null
         }
       ],
       "anomaliedChampions": [
@@ -661,6 +673,20 @@
       ],
       "finalComp": [
         {
+          "apiName": "DA_18_Sentry",
+          "boardIndex": 22,
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_Murkwolf18",
+          "boardIndex": 14,
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
           "apiName": "DA_Krug18",
           "boardIndex": 3,
           "items": [
@@ -669,6 +695,13 @@
             "DA_GargoyleStoneplate"
           ],
           "stars": 3,
+          "trait": null
+        },
+        {
+          "apiName": "DA_Sentinel18",
+          "boardIndex": 19,
+          "items": [],
+          "stars": 1,
           "trait": null
         },
         {
@@ -683,33 +716,8 @@
           "trait": null
         },
         {
-          "apiName": "DA_18_ElderDragon",
-          "boardIndex": 15,
-          "items": [
-            "DA_InfinityEdge",
-            "DA_LastWhisper",
-            "DA_SteraksGage"
-          ],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_Murkwolf18",
-          "boardIndex": 14,
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Sentry",
-          "boardIndex": 22,
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_Sentinel18",
-          "boardIndex": 19,
+          "apiName": "DA_18_GnarSmall",
+          "boardIndex": 17,
           "items": [],
           "stars": 1,
           "trait": null
@@ -722,9 +730,13 @@
           "trait": null
         },
         {
-          "apiName": "DA_18_GnarSmall",
-          "boardIndex": 17,
-          "items": [],
+          "apiName": "DA_18_ElderDragon",
+          "boardIndex": 15,
+          "items": [
+            "DA_InfinityEdge",
+            "DA_LastWhisper",
+            "DA_SteraksGage"
+          ],
           "stars": 1,
           "trait": null
         }
@@ -757,7 +769,16 @@
       ],
       "metaTitle": "Riftbeast Brambleback",
       "metadata": {},
-      "overlayAugments": [],
+      "overlayAugments": [
+        {
+          "apiName": "DA_GroupHugI",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_GroupHugII",
+          "disabled": false
+        }
+      ],
       "rank": "",
       "set": 18,
       "sticker": 2,
@@ -778,7 +799,7 @@
         }
       ],
       "title": "Tempo Riftbeast",
-      "updated": "2026-11-07 01:11:49.158Z"
+      "updated": "2026-11-08 03:49:00.952Z"
     },
     {
       "altBuilds": [
@@ -832,10 +853,6 @@
           "disabled": false
         },
         {
-          "apiName": "DA_URF",
-          "disabled": false
-        },
-        {
           "apiName": "DA_NestingAnvils",
           "disabled": false
         },
@@ -844,7 +861,11 @@
           "disabled": false
         },
         {
-          "apiName": "DA_LegionOfThrees",
+          "apiName": "DA_GroupHugI",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_GroupHugII",
           "disabled": false
         }
       ],
@@ -933,6 +954,17 @@
           "trait": null
         },
         {
+          "apiName": "DA_Vi18",
+          "boardIndex": 1,
+          "items": [
+            "DA_WarmogsArmor",
+            "DA_GargoyleStoneplate",
+            "DA_GargoyleStoneplate"
+          ],
+          "stars": 3,
+          "trait": null
+        },
+        {
           "apiName": "DA_18_Sett",
           "boardIndex": 6,
           "items": [],
@@ -947,17 +979,6 @@
             "DA_RabadonsDeathcap"
           ],
           "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_Vi18",
-          "boardIndex": 1,
-          "items": [
-            "DA_WarmogsArmor",
-            "DA_GargoyleStoneplate",
-            "DA_GargoyleStoneplate"
-          ],
-          "stars": 3,
           "trait": null
         }
       ],
@@ -1005,6 +1026,26 @@
         {
           "apiName": "DA_HeroicGrabBagPlusPlus",
           "disabled": false
+        },
+        {
+          "apiName": "DA_18_WispRebatePlusPlus",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_18_WispRebatePlus",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_LoadedDice",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_ChampDeliveryPlus",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_ChallengersGrace",
+          "disabled": false
         }
       ],
       "rank": "",
@@ -1027,7 +1068,7 @@
         }
       ],
       "title": "Adaptor Reroll",
-      "updated": "2026-11-07 01:11:48.772Z"
+      "updated": "2026-11-08 03:48:48.415Z"
     },
     {
       "altBuilds": [
