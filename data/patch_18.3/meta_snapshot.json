@@ -279,7 +279,7 @@
         }
       ],
       "title": "Ahri Zyra",
-      "updated": "2026-11-09 16:04:51.549Z"
+      "updated": "2026-11-10 13:55:59.497Z"
     },
     {
       "altBuilds": [
@@ -524,7 +524,7 @@
         }
       ],
       "title": "Tempo Riftbeast",
-      "updated": "2026-11-09 16:04:51.718Z"
+      "updated": "2026-11-10 13:55:59.593Z"
     },
     {
       "altBuilds": [
@@ -808,7 +808,7 @@
         }
       ],
       "title": "Elderwood Executioners",
-      "updated": "2026-11-09 16:04:51.696Z"
+      "updated": "2026-11-10 13:56:00.059Z"
     },
     {
       "altBuilds": [
@@ -841,10 +841,6 @@
       ],
       "augments": [
         {
-          "apiName": "DA_18_CaretakersAlly",
-          "disabled": false
-        },
-        {
           "apiName": "DA_SwordOverflow",
           "disabled": false
         },
@@ -870,6 +866,10 @@
         },
         {
           "apiName": "DA_18_WispRebatePlusPlus",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_Hustler",
           "disabled": false
         }
       ],
@@ -1049,6 +1049,10 @@
         {
           "apiName": "DA_18_BigGrabBag",
           "disabled": false
+        },
+        {
+          "apiName": "DA_Hustler",
+          "disabled": false
         }
       ],
       "rank": "",
@@ -1071,7 +1075,7 @@
         }
       ],
       "title": "Solar Blossom",
-      "updated": "2026-11-09 16:04:51.720Z"
+      "updated": "2026-11-10 19:52:11.955Z"
     },
     {
       "altBuilds": [
@@ -1340,7 +1344,7 @@
         }
       ],
       "title": "Adaptor Reroll",
-      "updated": "2026-11-09 16:04:51.776Z"
+      "updated": "2026-11-10 13:56:00.057Z"
     },
     {
       "altBuilds": [
@@ -1582,7 +1586,7 @@
         }
       ],
       "title": "Primal Sivir",
-      "updated": "2026-11-09 16:04:52.049Z"
+      "updated": "2026-11-10 13:56:00.074Z"
     },
     {
       "altBuilds": [],
@@ -1817,7 +1821,7 @@
         }
       ],
       "title": "AP Fast 9",
-      "updated": "2026-11-09 16:04:52.564Z"
+      "updated": "2026-11-10 13:56:00.026Z"
     },
     {
       "altBuilds": [
@@ -2140,7 +2144,7 @@
         }
       ],
       "title": "Draven Ezreal 9",
-      "updated": "2026-11-09 16:04:52.306Z"
+      "updated": "2026-11-10 13:56:00.057Z"
     },
     {
       "altBuilds": [
@@ -2389,7 +2393,7 @@
         }
       ],
       "title": "Tee-moo",
-      "updated": "2026-11-09 16:04:52.169Z"
+      "updated": "2026-11-10 13:55:59.745Z"
     },
     {
       "altBuilds": [
@@ -2665,7 +2669,7 @@
         }
       ],
       "title": "Aphelios Nidalee",
-      "updated": "2026-11-09 16:04:52.537Z"
+      "updated": "2026-11-10 13:56:00.117Z"
     },
     {
       "altBuilds": [
@@ -2940,7 +2944,7 @@
         }
       ],
       "title": "Malphite AP Flex",
-      "updated": "2026-11-09 16:04:52.537Z"
+      "updated": "2026-11-10 13:55:59.727Z"
     },
     {
       "altBuilds": [
@@ -3194,7 +3198,7 @@
         }
       ],
       "title": "Solar Melee",
-      "updated": "2026-11-09 16:04:52.082Z"
+      "updated": "2026-11-10 13:56:00.178Z"
     },
     {
       "altBuilds": [
@@ -3452,7 +3456,7 @@
         }
       ],
       "title": "Azir Rammus",
-      "updated": "2026-11-09 16:04:52.590Z"
+      "updated": "2026-11-10 13:56:00.124Z"
     },
     {
       "altBuilds": [
@@ -3696,7 +3700,7 @@
         }
       ],
       "title": "Defender Cassio",
-      "updated": "2026-11-09 16:04:52.193Z"
+      "updated": "2026-11-10 13:56:00.160Z"
     },
     {
       "altBuilds": [],
@@ -3949,7 +3953,7 @@
         }
       ],
       "title": "Ashe Juggernauts",
-      "updated": "2026-11-09 16:04:52.224Z"
+      "updated": "2026-11-10 13:55:59.971Z"
     },
     {
       "altBuilds": [
@@ -4254,7 +4258,7 @@
         }
       ],
       "title": "Zyra Juggernaut",
-      "updated": "2026-11-09 16:04:52.553Z"
+      "updated": "2026-11-10 13:56:00.126Z"
     },
     {
       "altBuilds": [
@@ -4519,7 +4523,7 @@
         }
       ],
       "title": "Caitlyn Hunters",
-      "updated": "2026-11-10 13:27:36.674Z"
+      "updated": "2026-11-10 13:56:00.126Z"
     },
     {
       "altBuilds": [
@@ -4779,7 +4783,7 @@
         }
       ],
       "title": "Solar Xayah",
-      "updated": "2026-11-09 16:04:52.164Z"
+      "updated": "2026-11-10 13:56:00.118Z"
     },
     {
       "altBuilds": [
@@ -5013,7 +5017,7 @@
         }
       ],
       "title": "Mamawood",
-      "updated": "2026-11-09 16:04:52.229Z"
+      "updated": "2026-11-10 13:56:00.033Z"
     },
     {
       "altBuilds": [
@@ -5254,7 +5258,7 @@
         }
       ],
       "title": "Riftbeast Reroll",
-      "updated": "2026-11-09 16:04:52.223Z"
+      "updated": "2026-11-10 13:56:00.126Z"
     },
     {
       "altBuilds": [
@@ -5485,7 +5489,7 @@
         }
       ],
       "title": "Eclipse Kayle",
-      "updated": "2026-11-09 16:04:52.220Z"
+      "updated": "2026-11-10 13:56:00.159Z"
     },
     {
       "altBuilds": [
@@ -5721,7 +5725,7 @@
         }
       ],
       "title": "Fae Tristana",
-      "updated": "2026-11-09 16:04:52.588Z"
+      "updated": "2026-11-10 13:56:00.130Z"
     },
     {
       "altBuilds": [
@@ -5965,7 +5969,7 @@
         }
       ],
       "title": "Warwick Ravager",
-      "updated": "2026-11-09 16:04:52.534Z"
+      "updated": "2026-11-10 13:56:00.128Z"
     },
     {
       "altBuilds": [
@@ -6200,7 +6204,7 @@
         }
       ],
       "title": "Sprykin Veigar",
-      "updated": "2026-11-09 16:04:52.593Z"
+      "updated": "2026-11-10 13:56:00.140Z"
     },
     {
       "altBuilds": [
@@ -6499,7 +6503,7 @@
         }
       ],
       "title": "Lunarwood Kha'zix",
-      "updated": "2026-11-09 16:04:52.539Z"
+      "updated": "2026-11-10 13:56:00.076Z"
     },
     {
       "altBuilds": [
@@ -6742,7 +6746,7 @@
         }
       ],
       "title": "Invoker Morgana",
-      "updated": "2026-11-09 16:04:52.546Z"
+      "updated": "2026-11-10 13:56:00.072Z"
     },
     {
       "altBuilds": [
@@ -7018,7 +7022,7 @@
         }
       ],
       "title": "Aphelios Elderwood",
-      "updated": "2026-11-09 16:04:52.510Z"
+      "updated": "2026-11-10 13:56:00.075Z"
     },
     {
       "altBuilds": [
@@ -7108,7 +7112,7 @@
       "compSlug": "set-18-veigar-consuming-flora-copy",
       "created": "2026-09-12 13:52:53.741Z",
       "difficulty": "EASY",
-      "displayIndex": 34,
+      "displayIndex": 33,
       "earlyComp": [
         {
           "apiName": "DA_18_Kobuko",
@@ -7124,7 +7128,10 @@
         },
         {
           "apiName": "DA_18_Veigar",
-          "items": [],
+          "items": [
+            "DA_BlueBuff",
+            "DA_Artifact_Dawncore"
+          ],
           "stars": 1,
           "trait": null
         },
@@ -7318,7 +7325,7 @@
         }
       ],
       "title": "Elderwood Veigar",
-      "updated": "2026-11-10 13:53:41.813Z"
+      "updated": "2026-11-10 13:56:00.148Z"
     },
     {
       "altBuilds": [],
@@ -7548,7 +7555,7 @@
         }
       ],
       "title": "Solar Eclipse",
-      "updated": "2026-11-09 16:04:52.549Z"
+      "updated": "2026-11-10 13:56:00.130Z"
     },
     {
       "altBuilds": [
@@ -7784,7 +7791,7 @@
         }
       ],
       "title": "Mama Faek",
-      "updated": "2026-11-09 16:04:52.538Z"
+      "updated": "2026-11-10 13:56:00.070Z"
     },
     {
       "altBuilds": [],
@@ -8037,7 +8044,7 @@
         }
       ],
       "title": "Inferno Fast 9",
-      "updated": "2026-11-09 16:04:52.534Z"
+      "updated": "2026-11-10 13:56:00.133Z"
     },
     {
       "altBuilds": [
@@ -8270,7 +8277,7 @@
         }
       ],
       "title": "Emblem Rengar",
-      "updated": "2026-11-09 16:04:52.574Z"
+      "updated": "2026-11-10 13:56:00.170Z"
     },
     {
       "altBuilds": [
@@ -8483,7 +8490,7 @@
         }
       ],
       "title": "Moo-nara",
-      "updated": "2026-11-09 16:04:52.188Z"
+      "updated": "2026-11-10 13:56:00.126Z"
     },
     {
       "altBuilds": [
@@ -8707,7 +8714,7 @@
         }
       ],
       "title": "Coven Elise",
-      "updated": "2026-11-09 16:04:52.589Z"
+      "updated": "2026-11-10 13:55:59.712Z"
     },
     {
       "altBuilds": [],
@@ -8951,7 +8958,7 @@
         }
       ],
       "title": "Unrivaled Reroll",
-      "updated": "2026-11-09 16:04:52.537Z"
+      "updated": "2026-11-10 13:56:00.130Z"
     },
     {
       "altBuilds": [
@@ -9196,7 +9203,7 @@
         }
       ],
       "title": "Solar Kayle",
-      "updated": "2026-11-09 16:04:52.577Z"
+      "updated": "2026-11-10 13:56:00.122Z"
     },
     {
       "altBuilds": [
@@ -9452,7 +9459,7 @@
         }
       ],
       "title": "Aphelios Vanguards",
-      "updated": "2026-11-09 16:04:52.538Z"
+      "updated": "2026-11-10 13:56:00.129Z"
     },
     {
       "altBuilds": [],
@@ -9699,7 +9706,7 @@
         }
       ],
       "title": "Ashe Fast 9 ",
-      "updated": "2026-11-09 16:04:52.509Z"
+      "updated": "2026-11-10 13:56:00.053Z"
     },
     {
       "altBuilds": [
@@ -9989,7 +9996,7 @@
         }
       ],
       "title": "Draven Dragon 9",
-      "updated": "2026-11-09 16:04:51.790Z"
+      "updated": "2026-11-10 13:56:00.049Z"
     },
     {
       "altBuilds": [],
@@ -10175,7 +10182,7 @@
         }
       ],
       "title": "Sprykin Teemo",
-      "updated": "2026-11-09 16:04:52.534Z"
+      "updated": "2026-11-10 13:55:59.736Z"
     },
     {
       "altBuilds": [],
@@ -10440,7 +10447,7 @@
         }
       ],
       "title": "10 Riftbeast",
-      "updated": "2026-11-09 16:04:51.752Z"
+      "updated": "2026-11-10 13:55:59.725Z"
     },
     {
       "altBuilds": [
@@ -10716,7 +10723,7 @@
         }
       ],
       "title": "Ahri Morgana",
-      "updated": "2026-11-09 16:04:51.541Z"
+      "updated": "2026-11-10 13:55:59.585Z"
     },
     {
       "altBuilds": [
@@ -10971,7 +10978,7 @@
         }
       ],
       "title": "Yi Rengar",
-      "updated": "2026-11-09 16:04:51.764Z"
+      "updated": "2026-11-10 13:55:59.738Z"
     },
     {
       "altBuilds": [
@@ -11200,7 +11207,7 @@
         }
       ],
       "title": "Primal Flex",
-      "updated": "2026-11-09 16:04:52.206Z"
+      "updated": "2026-11-10 13:56:00.123Z"
     },
     {
       "altBuilds": [
@@ -11394,7 +11401,7 @@
         }
       ],
       "title": "Azir Reroll",
-      "updated": "2026-11-09 16:04:52.220Z"
+      "updated": "2026-11-10 13:55:59.916Z"
     },
     {
       "altBuilds": [
@@ -11647,7 +11654,7 @@
         }
       ],
       "title": "Blackthorn Malphite",
-      "updated": "2026-11-10 13:26:34.038Z"
+      "updated": "2026-11-10 13:55:59.702Z"
     },
     {
       "altBuilds": [
@@ -11897,7 +11904,7 @@
         }
       ],
       "title": "Fae Ezreal",
-      "updated": "2026-11-09 16:04:51.751Z"
+      "updated": "2026-11-10 13:55:59.732Z"
     },
     {
       "altBuilds": [
@@ -12133,7 +12140,7 @@
         }
       ],
       "title": "Solar Mama",
-      "updated": "2026-11-09 16:04:52.601Z"
+      "updated": "2026-11-10 13:56:00.156Z"
     },
     {
       "altBuilds": [
@@ -12410,7 +12417,7 @@
         }
       ],
       "title": "Primal Jungle",
-      "updated": "2026-11-09 16:04:52.215Z"
+      "updated": "2026-11-10 13:56:00.122Z"
     },
     {
       "altBuilds": [
@@ -12669,7 +12676,7 @@
         }
       ],
       "title": "Ezreal Ahri",
-      "updated": "2026-11-09 16:04:51.761Z"
+      "updated": "2026-11-10 13:56:00.084Z"
     },
     {
       "altBuilds": [],
@@ -12903,7 +12910,7 @@
         }
       ],
       "title": "Spellweaver Ahri",
-      "updated": "2026-11-09 16:04:51.740Z"
+      "updated": "2026-11-10 13:55:59.538Z"
     },
     {
       "altBuilds": [
@@ -13158,7 +13165,7 @@
         }
       ],
       "title": "Spirit Blossom",
-      "updated": "2026-11-09 16:04:51.750Z"
+      "updated": "2026-11-10 13:55:59.639Z"
     },
     {
       "altBuilds": [
@@ -13402,7 +13409,7 @@
         }
       ],
       "title": "Afaelios",
-      "updated": "2026-11-09 16:04:52.198Z"
+      "updated": "2026-11-10 13:55:59.709Z"
     },
     {
       "altBuilds": [
@@ -13656,7 +13663,7 @@
         }
       ],
       "title": "Aphelios Rapidfire",
-      "updated": "2026-11-09 16:04:52.578Z"
+      "updated": "2026-11-10 13:56:00.061Z"
     }
   ]
 }
