@@ -1483,7 +1483,10 @@
         {
           "apiName": "DA_18_Lillia",
           "boardIndex": 0,
-          "items": [],
+          "items": [
+            "DA_ProtectorsVow",
+            "DA_ProtectorsVow"
+          ],
           "stars": 1,
           "trait": null
         },
@@ -1499,8 +1502,8 @@
           "boardIndex": 4,
           "items": [
             "DA_WarmogsArmor",
-            "DA_ProtectorsVow",
-            "DA_SpiritVisage"
+            "DA_SpiritVisage",
+            "DA_GargoyleStoneplate"
           ],
           "stars": 1,
           "trait": null
@@ -1565,7 +1568,12 @@
       ],
       "metaTitle": "Primal Sivir Nidalee",
       "metadata": {},
-      "overlayAugments": [],
+      "overlayAugments": [
+        {
+          "apiName": "DA_PromisedProtection",
+          "disabled": false
+        }
+      ],
       "rank": "",
       "set": 18,
       "sticker": 2,
@@ -1586,7 +1594,7 @@
         }
       ],
       "title": "Primal Sivir",
-      "updated": "2026-11-10 13:56:00.074Z"
+      "updated": "2026-11-12 00:50:51.053Z"
     },
     {
       "altBuilds": [],
@@ -2172,15 +2180,7 @@
           "disabled": false
         },
         {
-          "apiName": "DA_18_CaretakersAlly",
-          "disabled": false
-        },
-        {
           "apiName": "DA_DeadlierCaps",
-          "disabled": false
-        },
-        {
-          "apiName": "DA_18_SprykinAugment",
           "disabled": false
         },
         {
@@ -2197,6 +2197,14 @@
         },
         {
           "apiName": "DA_NoScoutNoPivot",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_RadiantRelic",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_JeweledLotus_I",
           "disabled": false
         }
       ],
@@ -2372,7 +2380,16 @@
       ],
       "metaTitle": "Teemo Alistar Reroll",
       "metadata": {},
-      "overlayAugments": [],
+      "overlayAugments": [
+        {
+          "apiName": "DA_18_SprykinAugment",
+          "disabled": false
+        },
+        {
+          "apiName": "DA_JeweledLotus_II",
+          "disabled": false
+        }
+      ],
       "rank": "",
       "set": 18,
       "sticker": 2,
@@ -2393,7 +2410,7 @@
         }
       ],
       "title": "Tee-moo",
-      "updated": "2026-11-10 13:55:59.745Z"
+      "updated": "2026-11-12 00:52:08.469Z"
     },
     {
       "altBuilds": [
@@ -2949,21 +2966,21 @@
     {
       "altBuilds": [
         {
-          "apiName": "DA_18_Camille",
-          "items": [
-            "DA_Artifact_SilvermereDawn",
-            "DA_Artifact_Mittens",
-            "DA_Artifact_InfinityForce"
-          ],
-          "stars": 1,
-          "trait": null
-        },
-        {
           "apiName": "DA_18_Akali_AD",
           "items": [
             "DA_Artifact_Fishbones",
             "DA_Artifact_RapidFireCannon",
             "DA_Artifact_LudensTempest"
+          ],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Camille",
+          "items": [
+            "DA_Artifact_SilvermereDawn",
+            "DA_Artifact_Mittens",
+            "DA_Artifact_InfinityForce"
           ],
           "stars": 1,
           "trait": null
@@ -3006,7 +3023,7 @@
           "disabled": false
         },
         {
-          "apiName": "DA_CursedCrown",
+          "apiName": "DA_SwordOverflow",
           "disabled": false
         }
       ],
@@ -3198,7 +3215,7 @@
         }
       ],
       "title": "Solar Melee",
-      "updated": "2026-11-10 13:56:00.178Z"
+      "updated": "2026-11-12 00:50:17.687Z"
     },
     {
       "altBuilds": [
