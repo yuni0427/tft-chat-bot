@@ -248,7 +248,8 @@
             "DA_HextechGunblade",
             "DA_TitansResolve"
           ],
-          "stars": 1
+          "stars": 1,
+          "trait": null
         }
       ],
       "anomaliedChampions": [
@@ -348,13 +349,6 @@
       ],
       "finalComp": [
         {
-          "apiName": "DA_Elderwood18_Lifeblossom",
-          "boardIndex": 25,
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
           "apiName": "DA_Elderwood18_StonebarkTree",
           "boardIndex": 6,
           "items": [],
@@ -362,10 +356,10 @@
           "trait": null
         },
         {
-          "apiName": "DA_18_Xayah",
+          "apiName": "DA_18_Aphelios",
           "boardIndex": 22,
           "items": [],
-          "stars": 1,
+          "stars": 2,
           "trait": null
         },
         {
@@ -416,7 +410,21 @@
         },
         {
           "apiName": "DA_18_Zyra",
+          "boardIndex": 23,
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_18_Xayah",
           "boardIndex": 27,
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
+          "apiName": "DA_Elderwood18_Lifeblossom",
+          "boardIndex": 25,
           "items": [],
           "stars": 1,
           "trait": null
@@ -462,18 +470,8 @@
         }
       ],
       "title": "Mamawood",
-      "updated": "2026-11-21 04:25:23.314Z",
-      "levelUpUnits": [
-        {
-          "apiName": "DA_18_Azir",
-          "items": [],
-          "predecessors": [
-            "TFT_Flex_Lv8"
-          ],
-          "stars": 1,
-          "trait": null
-        }
-      ]
+      "updated": "2026-11-22 14:48:24.433Z",
+      "levelUpUnits": []
     },
     {
       "altBuilds": [
@@ -490,9 +488,9 @@
         {
           "apiName": "DA_18_MasterYi_AD",
           "items": [
+            "DA_Artifact_HellfireHatchet",
             "DA_Artifact_WitsEnd",
-            "DA_Artifact_NavoriFlickerblade",
-            "DA_Artifact_RapidFireCannon"
+            "DA_Artifact_NavoriFlickerblade"
           ],
           "stars": 1,
           "trait": null
@@ -742,7 +740,7 @@
         }
       ],
       "title": "Adaptor Reroll",
-      "updated": "2026-11-21 04:25:23.317Z",
+      "updated": "2026-11-23 15:22:07.536Z",
       "levelUpUnits": []
     },
     {
@@ -7329,7 +7327,7 @@
       "overlayAugments": [],
       "rank": "",
       "set": 18,
-      "sticker": 9,
+      "sticker": 10,
       "style": "4-Cost Fast 8",
       "tier": "X",
       "tips": [
@@ -7347,7 +7345,7 @@
         }
       ],
       "title": "Aphelios Elderwood",
-      "updated": "2026-11-21 04:25:23.733Z",
+      "updated": "2026-11-22 14:50:13.183Z",
       "levelUpUnits": []
     },
     {
