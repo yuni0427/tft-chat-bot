@@ -297,7 +297,7 @@
           "disabled": false
         }
       ],
-      "augmentsTip": "Alpha Mark Mama Beak. Tank is flexible but ideally its Hecarim 3 > Krug 3 > Alistar 3. Radiant Rageblade is true BIS Mama Beak.",
+      "augmentsTip": "Alpha Mark Mama Beak. Tank is flexible but ideally its Hecarim 3 > Krug 3 > Alistar 3. Radiant Rageblade is true BIS Mama Beak. Leftover AP on Zyra. Leftover AD on Aphelios.",
       "carousel": [
         {
           "apiName": "DA_GuinsoosRageblade"
@@ -349,6 +349,13 @@
       ],
       "finalComp": [
         {
+          "apiName": "DA_Elderwood18_Lifeblossom",
+          "boardIndex": 25,
+          "items": [],
+          "stars": 1,
+          "trait": null
+        },
+        {
           "apiName": "DA_Elderwood18_StonebarkTree",
           "boardIndex": 6,
           "items": [],
@@ -356,10 +363,10 @@
           "trait": null
         },
         {
-          "apiName": "DA_18_Aphelios",
-          "boardIndex": 22,
+          "apiName": "DA_18_Xayah",
+          "boardIndex": 27,
           "items": [],
-          "stars": 2,
+          "stars": 1,
           "trait": null
         },
         {
@@ -402,6 +409,13 @@
           "trait": null
         },
         {
+          "apiName": "DA_18_Aphelios",
+          "boardIndex": 22,
+          "items": [],
+          "stars": 2,
+          "trait": null
+        },
+        {
           "apiName": "DA_Sentinel18",
           "boardIndex": 4,
           "items": [],
@@ -411,21 +425,10 @@
         {
           "apiName": "DA_18_Zyra",
           "boardIndex": 23,
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_18_Xayah",
-          "boardIndex": 27,
-          "items": [],
-          "stars": 1,
-          "trait": null
-        },
-        {
-          "apiName": "DA_Elderwood18_Lifeblossom",
-          "boardIndex": 25,
-          "items": [],
+          "items": [
+            "DA_SpearOfShojin",
+            "DA_VoidStaff"
+          ],
           "stars": 1,
           "trait": null
         }
@@ -470,7 +473,7 @@
         }
       ],
       "title": "Mamawood",
-      "updated": "2026-11-26 03:52:22.838Z",
+      "updated": "2026-11-27 05:40:06.624Z",
       "levelUpUnits": []
     },
     {
